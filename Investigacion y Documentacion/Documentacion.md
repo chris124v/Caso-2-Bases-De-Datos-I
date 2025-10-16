@@ -34,8 +34,8 @@ En los diseños de las entidades de Prompt Sales seguiremos este formato.
 
 Ejemplo: PS (Prompt Sales)
 - Nombre Tabla = PSUsers
-- Nombre PK = PSIdUser
-- Nombre FK = PSIDUserFK
+- Nombre PK = IdUser
+- Nombre FK = IDUser
 
 Listado de Entidades:
 
@@ -60,8 +60,8 @@ En los diseños de las entidades de Prompt Ads seguiremos este formato.
 
 Ejemplo: PA (Prompt Ads)
 - Nombre Tabla = PAUsers
-- Nombre PK = PAIdUser
-- Nombre FK = PAIDUserFK
+- Nombre PK = IdUser
+- Nombre FK = IDUserFK
 
 Listado de Entidades:
 
@@ -83,8 +83,8 @@ En los diseños de las entidades de Prompt Content seguiremos este formato.
 
 Ejemplo: PC (Prompt Content)
 - Nombre Tabla = PCUsers
-- Nombre PK = PCIdUser
-- Nombre FK = PCIDUserFK
+- Nombre PK = IdUser
+- Nombre FK = IDUser
 
 Listado de Entidades:
 
@@ -105,8 +105,8 @@ En los diseños de las entidades de Prompt CRM (Client Response Management) segu
 
 Ejemplo: PCR (Prompt CRM)
 - Nombre Tabla = PCRUsers
-- Nombre PK = PCRIdUser
-- Nombre FK = PCRIDUserFK
+- Nombre PK = IdUser
+- Nombre FK = IDUser
 
 Listado de Entidades:
 
@@ -127,8 +127,8 @@ En los diseños de las entidades de Redis seguiremos este formato.
 
 Ejemplo: R (Redis)
 - Nombre Tabla = RUsers
-- Nombre PK = RIdUser
-- Nombre FK = RIDUserFK
+- Nombre PK = IdUser
+- Nombre FK = IDUser
 
 Listado de Entidades:
 
