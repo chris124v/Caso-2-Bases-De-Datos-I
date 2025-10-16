@@ -49,7 +49,7 @@ Desde esta plataforma se diseñan estrategias completas que abarcan campañas, c
 
 ---
 
-## Sección de investigación para Prompt Sales
+## Sección de investigación para Prompt Sales (Chris y Miguel)
 
 - Datos de clientes: información de empresas, productos, objetivos de venta, presupuestos y contactos. (?)  
 - Datos de campañas: mensajes, medios, tiempos, presupuestos, métricas de rendimiento. (?)  
@@ -107,10 +107,10 @@ Buscar para el caso de Redis, MongoDB y PostgreSQL diseñadores gráficos.
 
 **Distribución:**  
 a. Redis (?)  
-b. Prompt Content en MongoDB (?)  
-c. Prompt Ads en SQL Server (?)  
-d. Prompt CRM en SQL Server (?)  
-e. Prompt Sales en PostgreSQL (?)
+b. Prompt Content en MongoDB (Dylan)  
+c. Prompt Ads en SQL Server (Lindsay)  
+d. Prompt CRM en SQL Server (Luan)  
+e. Prompt Sales en PostgreSQL (Chris y Miguel)
 
 ---
 
