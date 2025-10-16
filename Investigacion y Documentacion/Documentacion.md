@@ -17,12 +17,34 @@ En este documento realizaremos la documentacion de PromptSales, Prompt Content, 
 ---
 
 ## Tecnologias Utilizadas.
+- Prompt Sales = PostgreSQL, Diseñador =
+- Prompt Content = MongoDB, Diseñador =
+- Prompt Ads = SQL Server
+- Prompt CRM = SQL Server
+
+Faltan varios aqui 
 
 ---
 
 ## Prompt Sales
 
 ### Diseño de la BD
+
+En los diseños de las entidades seguiremos este formato.
+
+Ejemplo: PS (Prompt Sales)
+- Nombre Tabla = PSUsers
+- Nombre PK = PSIdUser
+- Nombre FK = PSIDUserFK
+
+Listado de Entidades:
+
+En el listado de entidades, primeramente establecemos todo esto por modulos, es decir, las tablas de usuarios, roles y permisos pertenecen al modulo de Profiles. Importante mencionar que las entidades son los nombres de las tablas, no ponemos PSUsers porque ya establecimos la terminologia que se usa en la BD, aqui lo dejamos normal "Users" para no repetir tanto. Ademas hay que recalcar que para los campos y nombres de tablas todo sera en ingles. Se veria algo asi el listado de entidades: 
+
+- Profiles: User and Access Control
+  * Users
+  * Roles
+  * Permissions
 
 ### Scripts
 
