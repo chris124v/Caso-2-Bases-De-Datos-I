@@ -63,7 +63,30 @@ Desde esta plataforma se diseñan estrategias completas que abarcan campañas, c
 ## Preguntas sobre la visión técnica de Prompt Sales
 
 1. Interconexión entre subempresas: ¿Qué son los MCP (Model Context Protocol)?  
-2. Despliegue, orquestación y mantenimiento: ¿Qué es Kubernetes?  
+2. Despliegue, orquestación y mantenimiento: ¿Qué es Kubernetes?
+
+Comandos para Kubernetes: 
+
+```
+- Ver información del cluster
+kubectl cluster-info
+
+- Ver todos los pods en todos los namespaces
+kubectl get pods --all-namespaces
+
+- Ver servicios
+kubectl get services --all-namespaces
+
+- Aplicar un archivo YAML (crear recursos)
+kubectl apply -f archivo.yaml
+
+- Ver logs de un pod
+kubectl logs nombre-del-pod -n namespace
+
+- Eliminar recursos
+kubectl delete -f archivo.yaml
+```
+
 3. Integración de servicios externos o internos: ¿Usamos API o servidores MCP?  
 4. Aplicaciones web y paneles administrativos: ¿Qué es Vercel? ¿Qué sistema de despliegue continuo (CI/CD) se usa?  
 5. Bases de datos en la nube: ¿Qué es Redis? ¿Qué es una base de datos centralizada?
