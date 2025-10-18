@@ -1,0 +1,15 @@
+# Archivo de almacenamiento persistente para SQL Server CRM
+
+#Preguntas vaya a postgre
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sqlserver-crm-pvc
+  namespace: promptcrm
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

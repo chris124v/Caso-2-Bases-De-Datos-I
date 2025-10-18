@@ -1,0 +1,15 @@
+# Archivo de PVC para almacenamiento en disco duro de SQL Server
+
+#Revisar postegresql si hay dudas
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sqlserver-ads-pvc
+  namespace: promptads
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

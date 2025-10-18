@@ -1,0 +1,15 @@
+# Archivo de PVC, almacenamiento en disco persistente para MongoDB
+
+#Referirse a los archivos de PostgreSQL para más detalles sobre los comentarios de cada seccion.
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+  namespace: promptcontent
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

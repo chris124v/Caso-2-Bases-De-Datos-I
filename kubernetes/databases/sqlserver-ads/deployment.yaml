@@ -1,0 +1,49 @@
+#Archivo de deployment para crear y desplegar una instancia de SQL Server en Kubernetes
+
+#Si hay dudas revisar postgresql
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqlserver-ads
+  namespace: promptads
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlserver-ads
+  template:
+    metadata:
+      labels:
+        app: sqlserver-ads
+    spec:
+      containers:
+      - name: sqlserver
+        image: mcr.microsoft.com/mssql/server:2022-latest #Imagen oficial de SQL Server 2022
+        ports:
+        - containerPort: 1433
+          name: mssql
+        env:
+        - name: ACCEPT_EULA # Aceptar el acuerdo de licencia siempre en sql server 
+          value: "Y"
+        - name: MSSQL_SA_PASSWORD #Variable de entorno para la contraseña del usuario SA en sql serrver
+          valueFrom:
+            secretKeyRef:
+              name: sqlserver-secret
+              key: sa_password
+        - name: MSSQL_PID
+          value: "Developer" # Usar la edición Developer de SQL Server
+        volumeMounts:
+        - name: sqlserver-storage
+          mountPath: /var/opt/mssql
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "500m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+      volumes:
+      - name: sqlserver-storage
+        persistentVolumeClaim:
+          claimName: sqlserver-ads-pvc

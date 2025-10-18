@@ -1,0 +1,17 @@
+#Archivo de service para MongoDB, expone el servicio dentro del cluster para conectarse a la base de datos
+
+#Referirse a los archivos de PostgreSQL para mas detalles sobre los comentarios de cada seccion.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+  namespace: promptcontent
+spec:
+  type: NodePort
+  ports:
+  - port: 27017
+    targetPort: 27017
+    nodePort: 30017
+  selector:
+    app: mongodb

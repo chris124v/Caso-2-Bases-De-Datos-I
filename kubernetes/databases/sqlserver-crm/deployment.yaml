@@ -1,0 +1,49 @@
+#Archivo de crear y desplegar SQL Server CRM
+
+#preguntas vaya a postgre
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqlserver-crm
+  namespace: promptcrm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlserver-crm
+  template:
+    metadata:
+      labels:
+        app: sqlserver-crm
+    spec:
+      containers:
+      - name: sqlserver
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        ports:
+        - containerPort: 1433
+          name: mssql
+        env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: MSSQL_SA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sqlserver-secret
+              key: sa_password
+        - name: MSSQL_PID
+          value: "Developer"
+        volumeMounts:
+        - name: sqlserver-storage
+          mountPath: /var/opt/mssql
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "500m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+      volumes:
+      - name: sqlserver-storage
+        persistentVolumeClaim:
+          claimName: sqlserver-crm-pvc

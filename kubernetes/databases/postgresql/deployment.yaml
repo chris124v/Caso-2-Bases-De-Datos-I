@@ -1,0 +1,76 @@
+# Archivo para decir como crear y correr el contenedor de PostgreSQL en Kubernetes
+
+# Spec: Especificaciones del despliegue, aqui van los detalles de como se va a correr el contenedor
+# Replicas: Numero de copias del contenedor que se quieren correr, en este caso 1
+# Selector: Como identificar los pods que pertenecen a este despliegue, se usa una etiqueta (label) llamada app con valor postgresql
+# Template: Plantilla para los pods que se van a crear, aqui van los detalles del contenedor
+# Metadata: Informacion descriptiva del pod, se le asigna la misma etiqueta (label) app: postgresql
+
+# Spec: Especificaciones del pod, aqui van los detalles del contenedor
+# Containers: Lista de contenedores en el pod, en este caso solo uno llamado postgresql
+# Image: Imagen de Docker a usar, en este caso la oficial de PostgreSQL version
+
+# Ports: Puertos expuestos por el contenedor, en este caso el puerto 5432 que es el de PostgreSQL
+# Env: Variables de entorno para configurar PostgreSQL, se usan los valores del secret creado anteriormente
+# secretKeyRef: Referencia a una clave en un secret de Kubernetes que es justamente donde estan las credenciales de postgresql, pide user y password
+
+# VolumeMounts: Montaje del volumen persistente (PVC) para guardar los datos de PostgreSQL
+# Monta el PVC en /var/lib/postgresql/data (donde PostgreSQL guarda todo)
+# Resources = Cuanta ram y cpu puede usar
+# lIMITES = Maximo que puede usar
+
+# Volumnes: Usa el pvc que creamos antes
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql
+  namespace: promptsales
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgresql
+  template:
+    metadata:
+      labels:
+        app: postgresql
+    spec:
+      containers:
+      - name: postgresql
+        image: postgres:16
+        ports:
+        - containerPort: 5432
+          name: postgres
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgresql-secret
+              key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgresql-secret
+              key: password
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: postgresql-secret
+              key: database
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        volumeMounts:
+        - name: postgresql-storage
+          mountPath: /var/lib/postgresql/data
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+      volumes:
+      - name: postgresql-storage
+        persistentVolumeClaim:
+          claimName: postgresql-pvc

@@ -1,0 +1,22 @@
+# Service es el archivo de servicio para PostgreSQL en Kubernetes, como exponer la bd par conectarnos.
+
+#Type = Nodeport: Expon al servicio a un puerto de mi maquina local, me puedo conectar desde pgadmin etc
+# Port = 5432 = Puerto interno dentro del servicio de kubernetes
+# targetPort = 5432 = Puerto del contenedor de postgresql
+# nodePort = 30432 = Puerto externo en mi maquina local para conectarme a postgresql
+
+# Selector: Le dice a service que envie el trafico a los pods con la etiqueta app: postgresql, que es la que definimos en el deployment
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-service
+  namespace: promptsales
+spec:
+  type: NodePort
+  ports:
+  - port: 5432
+    targetPort: 5432
+    nodePort: 30432
+  selector:
+    app: postgresql

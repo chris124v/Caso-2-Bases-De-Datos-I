@@ -1,0 +1,17 @@
+#Archivo de s4ervicio para SQL Server CRM
+
+#preguntas vaya a postgre
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqlserver-crm-service
+  namespace: promptcrm
+spec:
+  type: NodePort
+  ports:
+  - port: 1433
+    targetPort: 1433
+    nodePort: 32433
+  selector:
+    app: sqlserver-crm

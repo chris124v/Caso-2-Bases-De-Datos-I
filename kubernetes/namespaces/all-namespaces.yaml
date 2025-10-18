@@ -1,6 +1,14 @@
-apiVersion: v1
-kind: Namespace
-metadata:
+# Creamos los namespaces necesarios para la aplicacion, seria para cada una de los BDS
+
+# apiVersion = Versión de la API de Kubernetes que es v1
+# Kind = Kind es con el tipo de recurso que se va a crear, en este caso un Namespace
+# Metadata = Informacion descriptiva del recurso, aqui van cosas como el nombre, lanbels y notas adicionales
+# Name = Nombre del namespace que se va a crear que es uno para cada BD
+# --- = Es un separador entre multiples recursos en un mismo archivo YAML, sino abria que crear 5 archivos diferentes
+
+apiVersion: v1 
+kind: Namespace 
+metadata: 
   name: promptsales
 ---
 apiVersion: v1

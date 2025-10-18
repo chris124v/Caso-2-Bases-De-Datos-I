@@ -1,0 +1,20 @@
+#Archivo de configmap para Redis en Kubernetes
+
+#Usamos configmap porque redis es una bd de memoria ram, el configmap nos permite guardar el archivo de configuración
+
+#allkeys-lru: elimina las claves menos usadas cuando se alcanza el límite de memoria
+#save 900 1: Guarda un snapshot cada 15 min si hubo un cambio
+#save 300 10: Guarda un snapshot cada 5 min si hubo 10 cambios
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+  namespace: redis
+data:
+  redis.conf: |
+    maxmemory 512mb
+    maxmemory-policy allkeys-lru 
+    save 900 1
+    save 300 10
+    save 60 10000

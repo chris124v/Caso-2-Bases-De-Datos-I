@@ -1,0 +1,23 @@
+# Archivo de Persistent Volume Claim (PVC) para PostgreSQL, solictud de almacenamiento en el disco duro
+
+# Este archivo le dice a Kubernetes algo asi como: Necesito 5GB de disco para guardar los datos de PostgreSQL
+
+#Kind: Tipo de recurso es solicitud de almacenamiento (PersistentVolumeClaim)
+#Name: Nombre del volumen 
+#namespace: Pertenece al namespace promptsales, donde esta la base de datos de PostgreSQL
+#accessModes: Modo de acceso al volumen, ReadWriteOnce significa que un solo nodo puede leer y escribir en el volumen, solo un pod puede escribir a la vez
+#storage: Cantidad de almacenamiento solicitado, en este caso 5GB
+#spec: Especificaciones del PVC, aqui van los detalles como el tamaño y modo de acceso
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgresql-pvc
+  namespace: promptsales
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
