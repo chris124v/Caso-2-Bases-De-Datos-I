@@ -65,6 +65,115 @@ Desde esta plataforma se diseñan estrategias completas que abarcan campañas, c
 1. Interconexión entre subempresas: ¿Qué son los MCP (Model Context Protocol)?  
 2. Despliegue, orquestación y mantenimiento: ¿Qué es Kubernetes?
 
+Kubernetes (K8s) es una plataforma de orquestación de contenedores de código abierto que automatiza el despliegue, escalado y gestión de aplicaciones containerizadas. Es como un "director de orquesta" que coordina múltiples contenedores (como Docker) en un clúster de máquinas.
+
+#### ¿Cómo funciona Kubernetes?
+Arquitectura básica:
+
+#### Control Plane (Plano de Control)
+
+- API Server: punto de entrada para todas las operaciones
+- Scheduler: decide dónde ejecutar los pods
+- Controller Manager: mantiene el estado deseado del sistema
+- etcd: base de datos que almacena toda la configuración
+
+#### Worker Nodes (Nodos de Trabajo)
+
+kubelet: agente que ejecuta en cada nodo
+Container Runtime: Docker, containerd, etc.
+kube-proxy: maneja la red entre pods
+
+#### Conceptos clave:
+
+- Pod: La unidad más pequeña en K8s. Contiene uno o más contenedores que comparten red y almacenamiento. Para tu proyecto, cada base de datos será un pod.
+- Deployment: Define cómo desplegar y actualizar tus pods. Maneja réplicas y actualizaciones automáticas.
+- Service: Expone tus pods a la red, permitiendo que se comuniquen entre sí.
+- Persistent Volume (PV) y Persistent Volume Claim (PVC): Almacenamiento persistente para tus bases de datos.
+- ConfigMap y Secrets: Almacenan configuración y datos sensibles (contraseñas, etc.)
+- Namespace: Aísla recursos, útil para separar PromptSales, PromptAds, PromptContent, PromptCRM.
+
+#### Para que sirve en el proyecto Kubernetes: 
+
+1. Escalabilidad automática: K8s puede aumentar o disminuir réplicas según la carga
+2. Alta disponibilidad: Si un pod falla, K8s lo reinicia automáticamente
+3. Balanceo de carga: Distribuye tráfico entre réplicas
+4. Rolling updates: Actualiza sin tiempo de inactividad
+5. Autocuración: Detecta y reemplaza pods no saludables
+6. Orquestación compleja: Maneja dependencias entre servicios
+
+Cumple los requerimientos no funcionales:
+
+✅ Rendimiento: Cacheo con Redis, balanceo de carga
+✅ Escalabilidad: Horizontal Pod Autoscaler (HPA) basado en CPU/memoria
+✅ Tolerancia a fallos: Reinicio automático, réplicas, failover
+✅ Seguridad: Network Policies, Secrets encriptados, RBAC
+
+#### Diferencias con Docker
+
+- Docker: Es la tecnología que crea los contenedores (las "cajas" donde vive tu PostgreSQL, MongoDB, etc.)
+- Kubernetes: Es el orquestador que gestiona esos contenedores de Docker
+
+- Docker = los contenedores individuales (como cajas)
+- Kubernetes = el sistema de gestión de almacén que mueve, organiza y cuida esas cajas
+
+Kubernetes usa Docker (u otro container runtime) por debajo. No reemplaza a Docker, lo complementa.
+
+#### Escalabilidad
+
+¿Qué significa escalabilidad automática?
+- Escalabilidad = la capacidad de manejar más trabajo
+- Automática = sin que tú hagas nada manualmente
+
+Ejemplo práctico:
+Imagina que PromptAds tiene 100 usuarios consultando campañas:
+- 1 pod de SQL Server maneja las peticiones tranquilamente
+- De repente llegan 5,000 usuarios simultáneos (tu proyecto dice hasta 100,000 operaciones por minuto):
+
+Kubernetes detecta automáticamente que el CPU está al 80%
+- Crea automáticamente 4 pods más de SQL Server (réplicas)
+- Ahora hay 5 pods distribuyendo el trabajo
+- Cuando la carga baja, elimina automáticamente los pods extras
+
+Tú no tienes que hacer nada. Kubernetes lo hace solo basándose en reglas que defines (como "si el CPU pasa del 70%, agrega más pods").
+
+#### Tipos de escalabilidad:
+
+- Horizontal: Agregar más pods (más copias de la BD) = De 1 pod → 5 pods → 10 pods
+
+- Vertical: Darle más recursos a un pod = De 512MB RAM → 2GB RAM
+
+#### Depolyment
+Un Deployment es una declaración de cómo quieres que se ejecute tu aplicación.
+
+Analogía:
+Es como una receta de cocina que le das a Kubernetes:
+Receta: "PostgreSQL de PromptSales"
+- Ingrediente: imagen de postgres:16
+- Cantidad: quiero 2 copias (réplicas)
+- Condimentos: necesita estas variables de ambiente (usuario, password, DB)
+- Recipiente: guárdalo en este disco (PVC)
+- Temperatura: necesita 512MB de RAM y 500m de CPU
+- Si se quema: hazlo de nuevo automáticamente
+Kubernetes lee esa receta y:
+
+Descarga la imagen de PostgreSQL
+Crea 2 pods idénticos
+Les inyecta las variables de ambiente
+Les conecta el almacenamiento
+Los monitorea constantemente
+Si uno falla, lo reinicia
+Si actualizas la receta, actualiza los pods sin apagarlos todos
+
+#### Deployment vs Pod
+
+- Pod: Una instancia corriendo en un momento dado = "Hay un contenedor de PostgreSQL ejecutándose AHORA"
+
+
+- Deployment: La definición de cómo deben existir los pods
+
+"SIEMPRE debe haber 2 PostgreSQL corriendo, y si uno muere, créalo de nuevo"
+
+
 Comandos para Kubernetes: 
 
 ```
