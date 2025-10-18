@@ -168,10 +168,23 @@ Si actualizas la receta, actualiza los pods sin apagarlos todos
 
 - Pod: Una instancia corriendo en un momento dado = "Hay un contenedor de PostgreSQL ejecutándose AHORA"
 
+- Deployment: La definición de cómo deben existir los pods = "SIEMPRE debe haber 2 PostgreSQL corriendo, y si uno muere, créalo de nuevo"
 
-- Deployment: La definición de cómo deben existir los pods
+#### ¿Por qué no crear Pods directamente?
+Porque los Deployments tienen superpoderes:
 
-"SIEMPRE debe haber 2 PostgreSQL corriendo, y si uno muere, créalo de nuevo"
+- Autocuración: Si un pod muere, el Deployment crea uno nuevo automáticamente
+- Actualizaciones sin downtime: Puedes actualizar la imagen de PostgreSQL y Kubernetes va reemplazando pods uno por uno (rolling update)
+- Rollback: Si la actualización falla, vuelve a la versión anterior automáticamente
+- Escalado: Cambias replicas: 2 a replicas: 5 y Kubernetes crea 3 pods más
+
+#### Resumen
+
+- Kubernetes: Gerente que organiza contenedores de Docker
+- Pod: Contenedor(es) corriendo en un momento dado
+- Deployment: Instrucciones permanentes de cómo deben existir los pods
+- Escalabilidad automática: Kubernetes crea/elimina pods según la carga
+
 
 
 Comandos para Kubernetes: 
