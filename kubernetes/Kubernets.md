@@ -1,4 +1,4 @@
-### Estructura Visual del Entorno de Kubernetes
+# Estructura Visual del Entorno de Kubernetes
 
 Contiene las **subcarpetas de cada base de datos**.
 
@@ -38,7 +38,7 @@ kubernetes/               → Carpeta organizativa del proyecto
     ├── sqlserver-ads/   → 3 archivos: PVC, Deployment, Service
     ├── sqlserver-crm/   → 3 archivos: PVC, Deployment, Service
     └── redis/           → 3 archivos: ConfigMap, Deployment, Service
-
+```
 
 Tipos de Kind:
 - Namespace = Espacio de nombres
@@ -48,12 +48,17 @@ Tipos de Kind:
 - Service = Cómo exponer un contenedor a la red
 - ConfigMap = Archivo de configuración
 
-Comando para probar conexion con cada BD: 
+---
+
+## Comandos 
+
+Sirven para probar la conexion con cada BD
 
 ### PostgreSQL
 
 ```
 # Entrar al contenedor de PostgreSQL
+
 kubectl exec -it -n promptsales $(kubectl get pod -n promptsales -l app=postgresql -o jsonpath='{.items[0].metadata.name}') -- bash
 
 # Una vez dentro, conectarse a psql
@@ -66,6 +71,8 @@ SELECT * FROM test_connection;
 \q
 exit
 ```
+
+---
 
 ### MongoDB
 
@@ -165,7 +172,9 @@ EXIT
 
 ```
 
-Forma mas sencilla:
+---
+
+## Sencillez
 
 Crear un Archivo de Profile con lo siguiente:
 
