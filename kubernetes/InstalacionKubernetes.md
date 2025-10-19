@@ -2,34 +2,24 @@
 
 **Caso #2 - Bases de Datos I**
 
-Esta guía te llevará desde cero hasta tener todo el ambiente de desarrollo funcionando en tu computadora.
+Esta guia te llevará desde cero hasta tener todo el ambiente de desarrollo funcionando en tu computadora.
 
 ---
 
 ## Tabla de Contenidos
 
-1. [Requisitos Previos](#requisitos-previos)
-2. [Instalaciones Necesarias](#instalaciones-necesarias)
-3. [Clonar el Repositorio](#clonar-el-repositorio)
-4. [Configurar y Desplegar Kubernetes](#configurar-y-desplegar-kubernetes)
-5. [Conectarse a las Bases de Datos](#conectarse-a-las-bases-de-datos)
-6. [Flujo de Trabajo con Git y Scripts](#flujo-de-trabajo-con-git-y-scripts)
-7. [Diseño Gráfico de Bases de Datos](#diseño-gráfico-de-bases-de-datos)
-8. [Comandos Útiles](#comandos-útiles)
-9. [Solución de Problemas](#solución-de-problemas)
+1. [Instalaciones Necesarias](#instalaciones-necesarias)
+2. [Clonar el Repositorio](#clonar-el-repositorio)
+3. [Configurar y Desplegar Kubernetes](#configurar-y-desplegar-kubernetes)
+4. [Conectarse a las Bases de Datos](#conectarse-a-las-bases-de-datos)
+5. [Flujo de Trabajo con Git y Scripts](#flujo-de-trabajo-con-git-y-scripts)
+6. [Diseño Gráfico de Bases de Datos](#diseño-gráfico-de-bases-de-datos)
+7. [Comandos Útiles](#comandos-útiles)
+8. [Solución de Problemas](#solución-de-problemas)
 
 ---
 
-## Requisitos Previos
-
-- **Windows 10/11** (con WSL2 habilitado para Docker)
-- **Mínimo 16GB RAM** (recomendado para correr 5 bases de datos)
-- **20GB de espacio libre** en disco
-- **Cuenta de GitHub** configurada
-
----
-
-## 🛠️ Instalaciones Necesarias
+## Instalaciones Necesarias
 
 ### 1. Git
 ```powershell
@@ -56,7 +46,7 @@ https://www.docker.com/products/docker-desktop/
 1. Ir a **Settings** → **Kubernetes**
 2. Marcar **"Enable Kubernetes"**
 3. Click en **"Apply & Restart"**
-4. Esperar 2-3 minutos hasta que aparezca ✅ verde en "Kubernetes is running"
+4. Esperar 2-3 minutos hasta que aparezca verde en "Kubernetes is running"
 
 ### 3. kubectl (CLI de Kubernetes)
 
@@ -72,6 +62,8 @@ kubectl version --client
 ```
 
 ### 4. Herramientas Gráficas para Bases de Datos
+
+Estas solo son recomendadas pero es como para tener una idea de como se conectan. 
 
 #### pgAdmin 4 (PostgreSQL) - PromptSales
 - **Descargar:** https://www.pgadmin.org/download/
@@ -89,7 +81,7 @@ kubectl version --client
 - **Descargar:** https://redis.io/insight/
 - Instalar versión Desktop
 
-### 5. Visual Studio Code (Opcional pero recomendado)
+### 5. Visual Studio Code (Es para todo el repo)
 
 - **Descargar:** https://code.visualstudio.com/
 - **Extensiones recomendadas:**
@@ -99,7 +91,7 @@ kubectl version --client
 
 ---
 
-## 📦 Clonar el Repositorio
+## Clonar el Repositorio
 
 ### 1. Configurar Git (si es primera vez)
 
@@ -150,7 +142,7 @@ tree /F
 
 ---
 
-## ⚙️ Configurar y Desplegar Kubernetes
+## Configurar y Desplegar Kubernetes
 
 ### 1. Verificar que Kubernetes está corriendo
 
@@ -175,13 +167,13 @@ cd kubernetes/scripts
 .\deploy-all.ps1
 
 # El script hará:
-# ✅ Crear 5 namespaces
-# ✅ Crear secretos con contraseñas
-# ✅ Desplegar PostgreSQL (PromptSales)
-# ✅ Desplegar MongoDB (PromptContent)
-# ✅ Desplegar SQL Server Ads (PromptAds)
-# ✅ Desplegar SQL Server CRM (PromptCRM)
-# ✅ Desplegar Redis (Caché)
+# Crear 5 namespaces
+# Crear secretos con contraseñas
+# Desplegar PostgreSQL (PromptSales)
+# Desplegar MongoDB (PromptContent)
+# Desplegar SQL Server Ads (PromptAds)
+# Desplegar SQL Server CRM (PromptCRM)
+# Desplegar Redis (Caché)
 ```
 
 ### 4. Esperar a que los pods estén listos
@@ -208,11 +200,11 @@ kubectl get pods --all-namespaces
 
 ---
 
-## 🔌 Conectarse a las Bases de Datos
+## Conectarse a las Bases de Datos
 
-Ahora que Kubernetes está corriendo, puedes conectarte a cada base de datos con sus herramientas gráficas:
+Ahora que Kubernetes está corriendo, se puede conectar a cada base de datos con sus herramientas gráficas. Obvio son recomendaciones pero si. En el caso de SSMS esta bien. 
 
-### 🐘 PostgreSQL (PromptSales) - pgAdmin
+### PostgreSQL (PromptSales) - pgAdmin
 
 1. Abrir **pgAdmin 4**
 2. Click derecho en **Servers** → **Register** → **Server**
@@ -233,7 +225,7 @@ CREATE DATABASE promptsales;
 
 ---
 
-### 🍃 MongoDB (PromptContent) - MongoDB Compass
+### MongoDB (PromptContent) - MongoDB Compass
 
 1. Abrir **MongoDB Compass**
 2. En "New Connection" usar:
@@ -247,11 +239,11 @@ CREATE DATABASE promptsales;
 ### 🗄️ SQL Server Ads (PromptAds) - SSMS
 
 1. Abrir **SSMS**
-2. **Server name:** `localhost,31433` (⚠️ usar **coma**, no dos puntos)
+2. **Server name:** `localhost,31433` ( usar **coma**, no dos puntos)
 3. **Authentication:** SQL Server Authentication
 4. **Login:** `sa`
 5. **Password:** `YourStrong!Passw0rd`
-6. **Encryption:** Cambiar de "Mandatory" a **"Optional"** ⚠️ IMPORTANTE
+6. **Encryption:** Cambiar de "Mandatory" a **"Optional"**  IMPORTANTE
 7. Click **Connect**
 
 **Crear la base de datos:**
@@ -262,10 +254,10 @@ GO
 
 ---
 
-### 🗄️ SQL Server CRM (PromptCRM) - SSMS
+### SQL Server CRM (PromptCRM) - SSMS
 
 1. Abrir **SSMS** (nueva ventana)
-2. **Server name:** `localhost,32433` (⚠️ usar **coma**)
+2. **Server name:** `localhost,32433` ( usar **coma**)
 3. **Authentication:** SQL Server Authentication
 4. **Login:** `sa`
 5. **Password:** `YourStrong!Passw0rd`
@@ -280,7 +272,7 @@ GO
 
 ---
 
-### 🔴 Redis - RedisInsight
+### Redis - RedisInsight
 
 1. Abrir **RedisInsight**
 2. Click **"Add Redis Database"**
@@ -292,9 +284,9 @@ GO
 
 ---
 
-## 📝 Flujo de Trabajo con Git y Scripts
+## Flujo de Trabajo con Git y Scripts
 
-### 🎯 Concepto Importante:
+### Concepto Importante:
 
 **Kubernetes NO sincroniza datos entre computadoras.**  
 Cada persona tiene su propia base de datos local corriendo en Kubernetes.
@@ -303,9 +295,9 @@ Para compartir **schemas** (tablas, colecciones) y **datos**, usamos **scripts S
 
 ---
 
-### 📥 Cuando un compañero sube un script nuevo
+### Cuando un alguien sube un script nuevo
 
-**Ejemplo:** Christopher crea tablas en PostgreSQL y sube el script a GitHub.
+**Ejemplo:** Dylan crea tablas en PostgreSQL y sube el script a GitHub.
 
 **En tu computadora debes:**
 
@@ -322,13 +314,13 @@ git log --oneline -5
 
 **Ahora tienes 3 opciones para ejecutar el script:**
 
-#### ✅ **Opción 1: pgAdmin (MÁS FÁCIL - RECOMENDADO)**
+#### **Opción 1: pgAdmin (MÁS FÁCIL - RECOMENDADO)**
 
 1. Abrir **pgAdmin**
 2. Conectarse a `PromptSales Local`
 3. Click derecho en base de datos `promptsales` → **Query Tool**
 4. **File** → **Open** → Seleccionar `PromptSales/Scripts/001-create-users-table.sql`
-5. Click en **▶️ Execute**
+5. Click en ** Execute**
 
 #### Opción 2: Desde PowerShell directo
 
@@ -352,7 +344,7 @@ kubectl exec -n promptsales deployment/postgresql -- psql -U postgres -d prompts
 
 ---
 
-### 📤 Cuando TÚ creas un script nuevo
+### Cuando tu creas un script nuevo
 
 **Ejemplo:** Creas una tabla nueva en MongoDB.
 
@@ -380,7 +372,7 @@ git push origin main
 
 ---
 
-### 📂 Convención de nombres de scripts
+### Convencion de nombres de scripts
 
 Para mantener orden, usar este formato:
 
@@ -390,7 +382,7 @@ Para mantener orden, usar este formato:
 003-stored-procedures.sql
 ```
 
-**Numeración por base de datos:**
+**Numeracion por base de datos:**
 
 - **PromptSales:** `001-create-users.sql`, `002-create-campaigns.sql`
 - **PromptAds:** `001-create-ads-table.sql`, `002-seed-data.sql`
@@ -399,11 +391,11 @@ Para mantener orden, usar este formato:
 
 ---
 
-## 🎨 Diseño Gráfico de Bases de Datos
+## Diseño Gráfico de Bases de Datos
 
-Cada base de datos usa herramientas diferentes para diseñar visualmente:
+Cada base de datos usa herramientas diferentes para diseñar visualmente, son recomendaciones:
 
-### 🐘 PostgreSQL (PromptSales)
+### PostgreSQL (PromptSales)
 
 **Opciones:**
 
@@ -426,11 +418,11 @@ Cada base de datos usa herramientas diferentes para diseñar visualmente:
 
 ---
 
-### 🍃 MongoDB (PromptContent)
+### MongoDB (PromptContent)
 
 **Opciones:**
 
-#### **Opción 1: Mongoose (Recomendado por el profesor)**
+#### **Opción 1: Mongoose (Recomendado por el profe)**
 ```javascript
 // Definir schema en código JavaScript/TypeScript
 const campaignSchema = new mongoose.Schema({
@@ -456,12 +448,12 @@ db = client.promptcontent
 4. Agregar documentos de ejemplo
 5. MongoDB NO requiere schema fijo, pero puedes documentar la estructura en JSON
 
-**⚠️ Importante:** MongoDB NO tiene "diagrama físico" tradicional como SQL.  
+** Importante:** MongoDB NO tiene "diagrama físico" tradicional como SQL.  
 Documentas la estructura en archivos JSON o con código (Mongoose/PyMongo).
 
 ---
 
-### 🗄️ SQL Server (PromptAds & PromptCRM)
+### SQL Server (PromptAds & PromptCRM)
 
 **Opciones:**
 
@@ -483,7 +475,7 @@ Documentas la estructura en archivos JSON o con código (Mongoose/PyMongo).
 
 ---
 
-### 🔴 Redis
+### Redis
 
 **Redis NO tiene diseñador gráfico** porque usa estructura clave-valor simple.
 
@@ -502,7 +494,7 @@ Documentas la estructura en archivos JSON o con código (Mongoose/PyMongo).
 
 ---
 
-## 🔧 Comandos Útiles
+## Comandos Útiles
 
 ### Ver estado del cluster
 
@@ -546,7 +538,7 @@ kubectl delete pod -n promptsales <nombre-del-pod>
 ### Eliminar TODO y empezar de cero
 
 ```powershell
-# ⚠️ ESTO ELIMINA TODOS LOS DATOS
+# ESTO ELIMINA TODOS LOS DATOS
 cd kubernetes/scripts
 .\delete-all.ps1
 
@@ -556,7 +548,7 @@ cd kubernetes/scripts
 
 ---
 
-## ❓ Solución de Problemas
+## Solución de Problemas
 
 ### Problema: "kubectl no se reconoce como comando"
 
@@ -625,46 +617,4 @@ taskkill /PID <PID> /F
 
 ---
 
-## 📚 Recursos Adicionales
 
-### Documentación Oficial:
-- **Kubernetes:** https://kubernetes.io/docs/
-- **PostgreSQL:** https://www.postgresql.org/docs/
-- **MongoDB:** https://www.mongodb.com/docs/
-- **SQL Server:** https://learn.microsoft.com/en-us/sql/
-- **Redis:** https://redis.io/docs/
-
-### Tutoriales Recomendados:
-- **Git Básico:** https://www.youtube.com/watch?v=HiXLkL42tMU
-- **Kubernetes para principiantes:** https://www.youtube.com/watch?v=X48VuDVv0do
-
----
-
-## 👥 Contacto del Equipo
-
-Si tienes problemas, pregunta en el canal de Discord del grupo.
-
-**Recuerda:** Todos deben dar **status reports** al menos 2 veces por semana en Discord.
-
----
-
-## ✅ Checklist de Verificación
-
-Marca cuando completes cada paso:
-
-- [ ] Git instalado y configurado
-- [ ] Docker Desktop instalado
-- [ ] Kubernetes habilitado en Docker Desktop
-- [ ] kubectl instalado
-- [ ] Repositorio clonado
-- [ ] `deploy-all.ps1` ejecutado exitosamente
-- [ ] pgAdmin conectado a PostgreSQL
-- [ ] MongoDB Compass conectado a MongoDB
-- [ ] SSMS conectado a SQL Server Ads
-- [ ] SSMS conectado a SQL Server CRM
-- [ ] RedisInsight conectado a Redis
-- [ ] Probado ejecutar un script de ejemplo
-
----
-
-**¡Listo! Ahora tienes todo el ambiente configurado y puedes empezar a trabajar en las bases de datos.** 🎉
