@@ -176,7 +176,7 @@ EXIT
 
 ## Sencillez
 
-Crear un Archivo de Profile con lo siguiente:
+Se crea un archivo de $Profile con los comandos ya existentes, es basicamente un script de configuracion en Powershell, se ejecuta automaticamente cada vez que se abre una ventana en powershell. 
 
 ```
 function psql-promptsales { 
