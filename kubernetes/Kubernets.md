@@ -150,3 +150,105 @@ EXIT
 exit
 
 ```
+
+### Redis
+
+```
+# Conectarse a Redis
+kubectl exec -it -n redis deployment/redis -- redis-cli -a redis123
+
+PING
+SET test_key "Redis está funcionando correctamente!"
+GET test_key
+KEYS *
+EXIT
+
+```
+
+Forma mas sencilla:
+
+Crear un Archivo de Profile con lo siguiente:
+
+```
+function psql-promptsales { 
+    kubectl exec -it -n promptsales deployment/postgresql -- psql -U postgres -d promptsales 
+}
+
+function mongo-promptcontent { 
+    kubectl exec -it -n promptcontent deployment/mongodb -- mongosh -u mongouser -p mongo123 --authenticationDatabase admin promptcontent 
+}
+
+function sqlcmd-ads { 
+    kubectl exec -it -n promptads deployment/sqlserver-ads -- /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong!Passw0rd' -C 
+}
+
+function sqlcmd-crm { 
+    kubectl exec -it -n promptcrm deployment/sqlserver-crm -- /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong!Passw0rd' -C 
+}
+
+function redis-cli-ps { 
+    kubectl exec -it -n redis deployment/redis -- redis-cli -a redis123 
+}
+```
+
+Cada una de ellas hace que directamente uno se conecte y haga las consultas
+
+Y luego para todas hacer esto:
+
+- PostgreSQL
+
+```
+\dt
+SELECT * FROM test_connection;
+\q
+exit
+```
+
+- Mongo DB
+
+```
+show collections
+db.test_users.find()
+exit
+exit
+
+```
+
+- SQL Server Ads
+
+```
+USE promptads;
+GO
+SELECT * FROM test_connection;
+GO
+EXIT
+exit
+
+```
+
+- SQL Server CRM
+
+```
+USE promptcrm;
+GO
+SELECT * FROM test_connection;
+GO
+EXIT
+exit
+
+```
+
+- Redis 
+
+```
+KEYS *
+GET test_key
+EXIT
+exit
+
+```
+
+
+
+
+
