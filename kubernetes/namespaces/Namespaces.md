@@ -14,13 +14,11 @@ Analogía:
 
 En el proyecto seria algo asi: 
 
-Namespace promptsales = Todo lo relacionado con PromptSales (PostgreSQL)
-Namespace promptads = Todo lo relacionado con PromptAds (SQL Server Ads)
-Namespace promptcontent = Todo lo relacionado con PromptContent (MongoDB)
-Namespace promptcrm = Todo lo relacionado con PromptCRM (SQL Server CRM)
-Namespace redis = Todo lo relacionado con Redis
+- Namespace promptsales = Todo lo relacionado con PromptSales (PostgreSQL)
+- Namespace promptads = Todo lo relacionado con PromptAds (SQL Server Ads)
+- Namespace promptcontent = Todo lo relacionado con PromptContent (MongoDB)
+- Namespace promptcrm = Todo lo relacionado con PromptCRM (SQL Server CRM)
+- Namespace redis = Todo lo relacionado con Redis
 
 Así cada base de datos vive en su propio "espacio" sin mezclarse con el resto digamos. 
-
-#### Que son los archivos de YAML
 
