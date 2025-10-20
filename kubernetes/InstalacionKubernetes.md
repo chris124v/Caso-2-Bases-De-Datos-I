@@ -13,9 +13,8 @@ Esta guia te llevará desde cero hasta tener todo el ambiente de desarrollo func
 3. [Configurar y Desplegar Kubernetes](#configurar-y-desplegar-kubernetes)
 4. [Conectarse a las Bases de Datos](#conectarse-a-las-bases-de-datos)
 5. [Flujo de Trabajo con Git y Scripts](#flujo-de-trabajo-con-git-y-scripts)
-6. [Diseño Gráfico de Bases de Datos](#diseño-gráfico-de-bases-de-datos)
-7. [Comandos Útiles](#comandos-útiles)
-8. [Solución de Problemas](#solución-de-problemas)
+6. [Comandos Útiles](#comandos-útiles)
+7. [Solución de Problemas](#solución-de-problemas)
 
 ---
 
@@ -50,6 +49,8 @@ https://www.docker.com/products/docker-desktop/
 
 ### 3. kubectl (CLI de Kubernetes)
 
+Se recomienda hacer esto desde powershell como admin.
+
 ```powershell
 # Descargar kubectl
 curl.exe -LO "https://dl.k8s.io/release/v1.28.0/bin/windows/amd64/kubectl.exe"
@@ -63,7 +64,7 @@ kubectl version --client
 
 ### 4. Herramientas Gráficas para Bases de Datos
 
-Estas solo son recomendadas pero es como para tener una idea de como se conectan. 
+Estas son las que vamos a usar de fijo. 
 
 #### pgAdmin 4 (PostgreSQL) - PromptSales
 - **Descargar:** https://www.pgadmin.org/download/
@@ -114,30 +115,6 @@ git clone https://github.com/tu-usuario/Caso-2-Bases-De-Datos-I.git
 
 # Entrar a la carpeta
 cd Caso-2-Bases-De-Datos-I
-```
-
-### 3. Verificar la estructura
-
-```powershell
-# Ver la estructura del proyecto
-tree /F
-
-# Deberías ver algo como:
-# ├── kubernetes/
-# │   ├── scripts/
-# │   ├── namespaces/
-# │   ├── secrets/
-# │   └── databases/
-# ├── PromptSales/
-# │   └── Scripts/
-# ├── PromptAds/
-# │   └── Scripts/
-# ├── PromptContent/
-# │   └── Scripts/
-# ├── PromptCRM/
-# │   └── Scripts/
-# └── Redis/
-#     └── Scripts/
 ```
 
 ---
@@ -202,7 +179,7 @@ kubectl get pods --all-namespaces
 
 ## Conectarse a las Bases de Datos
 
-Ahora que Kubernetes está corriendo, se puede conectar a cada base de datos con sus herramientas gráficas. Obvio son recomendaciones pero si. En el caso de SSMS esta bien. 
+Ahora que Kubernetes está corriendo, se puede conectar a cada base de datos con sus herramientas gráficas. Esta son las que vamos a usar de fijo.
 
 ### PostgreSQL (PromptSales) - pgAdmin
 
@@ -233,10 +210,11 @@ CREATE DATABASE promptsales;
    mongodb://mongouser:mongo123@localhost:30017/promptcontent?authSource=admin
    ```
 3. Click **Connect**
+4. Ir a create database, poner el nombre "promptContent" y crea una coleccion random como "prueba", esto de prueba luego se borra.
 
 ---
 
-### 🗄️ SQL Server Ads (PromptAds) - SSMS
+### SQL Server Ads (PromptAds) - SSMS
 
 1. Abrir **SSMS**
 2. **Server name:** `localhost,31433` ( usar **coma**, no dos puntos)
@@ -370,6 +348,9 @@ git push origin main
 
 **Ahora tus compañeros podrán hacer `git pull` y ejecutar tu script.**
 
+### Importante
+El principio de compartir los scripts de creacion entre bases es sencillo. Ya que todos trabajamos bases diferentes estas siempre estan creadas, pero cuando una persona sube su script y otra persona quiere descargarlo hace git pull y despues en el graficador importa el archivo completo del script. Osea los datos de las bases se borran totalmente y nada mas importa el script nuevo con los cambios. Esto es mas sencillo dado a que todos trabajamos en bases diferentes.
+
 ---
 
 ### Convencion de nombres de scripts
@@ -377,101 +358,10 @@ git push origin main
 Para mantener orden, usar este formato:
 
 ```
-001-descripcion-corta.sql
-002-otra-tabla.sql
+001-script-creacion.sql
+002-script-creacion.sql
 003-stored-procedures.sql
 ```
-
-**Numeracion por base de datos:**
-
-- **PromptSales:** `001-create-users.sql`, `002-create-campaigns.sql`
-- **PromptAds:** `001-create-ads-table.sql`, `002-seed-data.sql`
-- **PromptContent:** `001-create-collections.js`
-- **PromptCRM:** `001-create-clients-table.sql`
-
----
-
-## Diseño Gráfico de Bases de Datos
-
-Cada base de datos usa herramientas diferentes para diseñar visualmente, son recomendaciones:
-
-### PostgreSQL (PromptSales)
-
-**Opciones:**
-
-#### **Opción 1: Supabase (Recomendado por el profesor)**
-1. Crear cuenta gratuita en https://supabase.com
-2. Crear nuevo proyecto
-3. Ir a **Table Editor**
-4. Diseñar tablas visualmente
-5. Copiar el SQL generado a tus scripts locales
-
-#### **Opción 2: pgAdmin 4 ERD Tool**
-1. Abrir **pgAdmin**
-2. Click derecho en `promptsales` → **ERD For Database**
-3. Diseñar tablas arrastrando elementos
-4. **File** → **Generate SQL** → Copiar a script
-
-#### **Opción 3: DBeaver (Gratis)**
-- Descargar: https://dbeaver.io/
-- Soporta diseño visual de PostgreSQL
-
----
-
-### MongoDB (PromptContent)
-
-**Opciones:**
-
-#### **Opción 1: Mongoose (Recomendado por el profe)**
-```javascript
-// Definir schema en código JavaScript/TypeScript
-const campaignSchema = new mongoose.Schema({
-  name: String,
-  status: String,
-  createdAt: Date
-});
-```
-
-#### **Opción 2: PyMongo (Python)**
-```python
-# Definir estructura en Python
-from pymongo import MongoClient
-
-client = MongoClient('mongodb://mongouser:mongo123@localhost:30017')
-db = client.promptcontent
-```
-
-#### **Opción 3: MongoDB Compass (GUI)**
-1. Abrir **MongoDB Compass**
-2. Conectarse a `promptcontent`
-3. Click en **"Create Collection"**
-4. Agregar documentos de ejemplo
-5. MongoDB NO requiere schema fijo, pero puedes documentar la estructura en JSON
-
-** Importante:** MongoDB NO tiene "diagrama físico" tradicional como SQL.  
-Documentas la estructura en archivos JSON o con código (Mongoose/PyMongo).
-
----
-
-### SQL Server (PromptAds & PromptCRM)
-
-**Opciones:**
-
-#### **Opción 1: SSMS Database Diagrams**
-1. Abrir **SSMS**
-2. Conectarse a `localhost,31433` (PromptAds) o `localhost,32433` (PromptCRM)
-3. Expandir base de datos → Click derecho en **"Database Diagrams"**
-4. **"New Database Diagram"**
-5. Diseñar tablas visualmente
-6. Click derecho → **Generate Change Script** → Copiar a archivo
-
-#### **Opción 2: SQL Server Data Tools (SSDT)**
-- Incluido en Visual Studio
-- Diseño visual más avanzado
-
-#### **Opción 3: dbdiagram.io (Online, gratis)**
-- https://dbdiagram.io/
-- Diseñar visualmente y exportar SQL para SQL Server
 
 ---
 
