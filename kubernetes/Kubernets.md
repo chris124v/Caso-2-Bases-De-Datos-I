@@ -217,7 +217,7 @@ exit
 
 ```
 show collections
-db.test_users.find()
+db.usuarios.find()
 exit
 exit
 
