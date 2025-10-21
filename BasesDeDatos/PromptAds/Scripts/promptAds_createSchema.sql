@@ -388,6 +388,40 @@ CREATE TABLE PANotificationRequests (
     FOREIGN KEY (IdRequestStatus) REFERENCES PARequestStatus(IdRequestStatus)
 );
 
+CREATE TABLE PA_LogLevels (
+    IdLogLevel TINYINT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE PA_LogTypes (
+    IdLogType TINYINT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE PA_LogSources (
+    IdLogSource TINYINT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE PA_Logs (
+    IdLog BIGINT IDENTITY(1,1) PRIMARY KEY,
+    createdAt DATETIME DEFAULT GETDATE(),
+    description VARCHAR(500) NOT NULL,
+    computer VARCHAR(100) NULL,
+    username VARCHAR(50) NULL,
+    IdRef1 BIGINT NULL,
+    IdRef2 BIGINT NULL,
+    value1 VARCHAR(200) NULL,
+    value2 VARCHAR(200) NULL,
+    IdLogType TINYINT NOT NULL,
+    IdLogLevel TINYINT NOT NULL,
+    IdLogSource TINYINT NOT NULL,
+    checksum VARBINARY(250) NULL,
+    FOREIGN KEY (IdLogType) REFERENCES PA_LogTypes(IdLogType),
+    FOREIGN KEY (IdLogLevel) REFERENCES PA_LogLevels(IdLogLevel),
+    FOREIGN KEY (IdLogSource) REFERENCES PA_LogSources(IdLogSource)
+);
+
 -- Agregar FK pendientes
 ALTER TABLE PAAdMedias ADD CONSTRAINT FK_PAAdMedias_PAAPISetups 
     FOREIGN KEY (IdAPISetup) REFERENCES PAAPISetups(IdAPISetup);
