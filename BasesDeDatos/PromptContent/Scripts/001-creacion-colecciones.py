@@ -26,10 +26,10 @@ def create_database_and_collections():
         print("-" * 60)
         
         # ============================================
-        # 1. COLECCIÓN: users
+        # 1. COLECCIÓN: PCUsers
         # ============================================
         try:
-            db.create_collection("users", validator={
+            db.create_collection("PCUsers", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["userId", "email", "name", "role", "createdAt"],
@@ -45,22 +45,22 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'users' creada")
+            print("✓ Colección 'PCUsers' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'users' ya existe")
+            print("⚠ Colección 'PCUsers' ya existe")
         
-        # Crear índices para users, mejora la velocidad de consulta y se asegura de que 
+        # Crear índices para PCUsers, mejora la velocidad de consulta y se asegura de que 
         # los valores de ID y email sean únicos 
-        db.users.create_index([("userId", ASCENDING)], unique=True)
-        db.users.create_index([("email", ASCENDING)], unique=True)
-        db.users.create_index([("role", ASCENDING)])
-        print("  → Índices creados para 'users'")
+        db.PCUsers.create_index([("userId", ASCENDING)], unique=True)
+        db.PCUsers.create_index([("email", ASCENDING)], unique=True)
+        db.PCUsers.create_index([("role", ASCENDING)])
+        print("  → Índices creados para 'PCPCUsers'")
         
         # ============================================
-        # 2. COLECCIÓN: external_services
+        # 2. COLECCIÓN: PCExternalServices
         # ============================================
         try:
-            db.create_collection("external_services", validator={
+            db.create_collection("PCExternalServices", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["serviceId", "name", "baseUrl", "authMethod", "createdAt"],
@@ -79,19 +79,19 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'external_services' creada")
+            print("✓ Colección 'PCExternalServices' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'external_services' ya existe")
+            print("⚠ Colección 'PCExternalServices' ya existe")
         
-        db.external_services.create_index([("serviceId", ASCENDING)], unique=True)
-        db.external_services.create_index([("name", ASCENDING)])
-        print("  → Índices creados para 'external_services'")
+        db.PCExternalServices.create_index([("serviceId", ASCENDING)], unique=True)
+        db.PCExternalServices.create_index([("name", ASCENDING)])
+        print("  → Índices creados para 'PCExternalServices'")
         
         # ============================================
-        # 3. COLECCIÓN: api_call_logs
+        # 3. COLECCIÓN: PCApi_Call_Logs
         # ============================================
         try:
-            db.create_collection("api_call_logs", validator={
+            db.create_collection("PCApi_Call_Logs", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["logId", "serviceId", "timestamp"],
@@ -113,21 +113,21 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'api_call_logs' creada")
+            print("✓ Colección 'PCApi_Call_Logs' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'api_call_logs' ya existe")
+            print("⚠ Colección 'PCApi_Call_Logs' ya existe")
         
-        db.api_call_logs.create_index([("logId", ASCENDING)], unique=True)
-        db.api_call_logs.create_index([("serviceId", ASCENDING)])
-        db.api_call_logs.create_index([("timestamp", DESCENDING)])
-        db.api_call_logs.create_index([("userId", ASCENDING)])
-        print("  → Índices creados para 'api_call_logs'")
+        db.PCApi_Call_Logs.create_index([("logId", ASCENDING)], unique=True)
+        db.PCApi_Call_Logs.create_index([("serviceId", ASCENDING)])
+        db.PCApi_Call_Logs.create_index([("timestamp", DESCENDING)])
+        db.PCApi_Call_Logs.create_index([("userId", ASCENDING)])
+        print("  → Índices creados para 'PCApi_Call_Logs'")
         
         # ============================================
-        # 4. COLECCIÓN: ai_models_catalog
+        # 4. COLECCIÓN: PCAi_Models_Catalog
         # ============================================
         try:
-            db.create_collection("ai_models_catalog", validator={
+            db.create_collection("PCAi_Models_Catalog", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["modelId", "name", "version", "createdAt"],
@@ -140,19 +140,19 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'ai_models_catalog' creada")
+            print("✓ Colección 'PCAi_Models_Catalog' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'ai_models_catalog' ya existe")
+            print("⚠ Colección 'PCAi_Models_Catalog' ya existe")
         
-        db.ai_models_catalog.create_index([("modelId", ASCENDING)], unique=True)
-        db.ai_models_catalog.create_index([("name", ASCENDING)])
-        print("  → Índices creados para 'ai_models_catalog'")
+        db.PCAi_Models_Catalog.create_index([("modelId", ASCENDING)], unique=True)
+        db.PCAi_Models_Catalog.create_index([("name", ASCENDING)])
+        print("  → Índices creados para 'PCAi_Models_Catalog'")
         
         # ============================================
-        # 5. COLECCIÓN: ai_model_logs
+        # 5. COLECCIÓN: PCAi_Model_Logs
         # ============================================
         try:
-            db.create_collection("ai_model_logs", validator={
+            db.create_collection("PCAi_Model_Logs", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["logId", "modelId", "timestamp"],
@@ -172,20 +172,20 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'ai_model_logs' creada")
+            print("✓ Colección 'PCAi_Model_Logs' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'ai_model_logs' ya existe")
+            print("⚠ Colección 'PCAi_Model_Logs' ya existe")
         
-        db.ai_model_logs.create_index([("logId", ASCENDING)], unique=True)
-        db.ai_model_logs.create_index([("modelId", ASCENDING)])
-        db.ai_model_logs.create_index([("timestamp", DESCENDING)])
-        print("  → Índices creados para 'ai_model_logs'")
+        db.PCAi_Model_Logs.create_index([("logId", ASCENDING)], unique=True)
+        db.PCAi_Model_Logs.create_index([("modelId", ASCENDING)])
+        db.PCAi_Model_Logs.create_index([("timestamp", DESCENDING)])
+        print("  → Índices creados para 'PCAi_Model_Logs'")
         
         # ============================================
-        # 6. COLECCIÓN: content_types
+        # 6. COLECCIÓN: PC_Content_Types
         # ============================================
         try:
-            db.create_collection("content_types", validator={
+            db.create_collection("PC_Content_Types", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["contentTypeId", "name", "createdAt"],
@@ -198,19 +198,19 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'content_types' creada")
+            print("✓ Colección 'PC_Content_Types' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'content_types' ya existe")
+            print("⚠ Colección 'PC_Content_Types' ya existe")
         
-        db.content_types.create_index([("contentTypeId", ASCENDING)], unique=True)
-        db.content_types.create_index([("name", ASCENDING)])
-        print("  → Índices creados para 'content_types'")
+        db.PC_Content_Types.create_index([("contentTypeId", ASCENDING)], unique=True)
+        db.PC_Content_Types.create_index([("name", ASCENDING)])
+        print("  → Índices creados para 'PC_Content_Types'")
         
         # ============================================
-        # 7. COLECCIÓN: images
+        # 7. COLECCIÓN: PCimages
         # ============================================
         try:
-            db.create_collection("images", validator={
+            db.create_collection("PCimages", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["imageId", "imageUrl", "description", "hashtags", "createdAt"],
@@ -233,22 +233,22 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'images' creada")
+            print("✓ Colección 'PCimages' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'images' ya existe")
+            print("⚠ Colección 'PCimages' ya existe")
         
-        db.images.create_index([("imageId", ASCENDING)], unique=True)
-        db.images.create_index([("hashtags", ASCENDING)])
-        db.images.create_index([("description", TEXT)])
-        db.images.create_index([("createdAt", DESCENDING)])
-        db.images.create_index([("status", ASCENDING)])
-        print("  → Índices creados para 'images'")
+        db.PCimages.create_index([("imageId", ASCENDING)], unique=True)
+        db.PCimages.create_index([("hashtags", ASCENDING)])
+        db.PCimages.create_index([("description", TEXT)])
+        db.PCimages.create_index([("createdAt", DESCENDING)])
+        db.PCimages.create_index([("status", ASCENDING)])
+        print("  → Índices creados para 'PCimages'")
         
         # ============================================
-        # 8. COLECCIÓN: content_requests
+        # 8. COLECCIÓN: PC_Content_Requests
         # ============================================
         try:
-            db.create_collection("content_requests", validator={
+            db.create_collection("PC_Content_Requests", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["requestId", "clientId", "contentType", "createdAt"],
@@ -267,20 +267,20 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'content_requests' creada")
+            print("✓ Colección 'PC_Content_Requests' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'content_requests' ya existe")
+            print("⚠ Colección 'PC_Content_Requests' ya existe")
         
-        db.content_requests.create_index([("requestId", ASCENDING)], unique=True)
-        db.content_requests.create_index([("clientId", ASCENDING)])
-        db.content_requests.create_index([("createdAt", DESCENDING)])
-        print("  → Índices creados para 'content_requests'")
+        db.PC_Content_Requests.create_index([("requestId", ASCENDING)], unique=True)
+        db.PC_Content_Requests.create_index([("clientId", ASCENDING)])
+        db.PC_Content_Requests.create_index([("createdAt", DESCENDING)])
+        print("  → Índices creados para 'PC_Content_Requests'")
         
         # ============================================
-        # 9. COLECCIÓN: clients
+        # 9. COLECCIÓN: PC_Clients
         # ============================================
         try:
-            db.create_collection("clients", validator={
+            db.create_collection("PC_Clients", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["clientId", "email", "name", "createdAt"],
@@ -296,19 +296,19 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'clients' creada")
+            print("✓ Colección 'PC_Clients' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'clients' ya existe")
+            print("⚠ Colección 'PC_Clients' ya existe")
         
-        db.clients.create_index([("clientId", ASCENDING)], unique=True)
-        db.clients.create_index([("email", ASCENDING)], unique=True)
-        print("  → Índices creados para 'clients'")
+        db.PC_Clients.create_index([("clientId", ASCENDING)], unique=True)
+        db.PC_Clients.create_index([("email", ASCENDING)], unique=True)
+        print("  → Índices creados para 'PC_Clients'")
         
         # ============================================
-        # 10. COLECCIÓN: subscription_plans
+        # 10. COLECCIÓN: PCSubscription_Plans
         # ============================================
         try:
-            db.create_collection("subscription_plans", validator={
+            db.create_collection("PCSubscription_Plans", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["planId", "name", "price", "createdAt"],
@@ -325,19 +325,19 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'subscription_plans' creada")
+            print("✓ Colección 'PCSubscription_Plans' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'subscription_plans' ya existe")
+            print("⚠ Colección 'PCSubscription_Plans' ya existe")
         
-        db.subscription_plans.create_index([("planId", ASCENDING)], unique=True)
-        db.subscription_plans.create_index([("name", ASCENDING)])
-        print("  → Índices creados para 'subscription_plans'")
+        db.PCSubscription_Plans.create_index([("planId", ASCENDING)], unique=True)
+        db.PCSubscription_Plans.create_index([("name", ASCENDING)])
+        print("  → Índices creados para 'PCSubscription_Plans'")
         
         # ============================================
-        # 11. COLECCIÓN: features
+        # 11. COLECCIÓN: PCFeatures
         # ============================================
         try:
-            db.create_collection("features", validator={
+            db.create_collection("PCFeatures", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["featureId", "name", "createdAt"],
@@ -350,18 +350,18 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'features' creada")
+            print("✓ Colección 'PCFeatures' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'features' ya existe")
+            print("⚠ Colección 'PCFeatures' ya existe")
         
-        db.features.create_index([("featureId", ASCENDING)], unique=True)
-        print("  → Índices creados para 'features'")
+        db.PCFeatures.create_index([("featureId", ASCENDING)], unique=True)
+        print("  → Índices creados para 'PCFeatures'")
         
         # ============================================
-        # 12. COLECCIÓN: payment_methods
+        # 12. COLECCIÓN: PCPayment_Methods
         # ============================================
         try:
-            db.create_collection("payment_methods", validator={
+            db.create_collection("PCPayment_Methods", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["methodId", "name", "type", "createdAt"],
@@ -375,18 +375,18 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'payment_methods' creada")
+            print("✓ Colección 'PCPayment_Methods' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'payment_methods' ya existe")
+            print("⚠ Colección 'PCPayment_Methods' ya existe")
         
-        db.payment_methods.create_index([("methodId", ASCENDING)], unique=True)
-        print("  → Índices creados para 'payment_methods'")
+        db.PCPayment_Methods.create_index([("methodId", ASCENDING)], unique=True)
+        print("  → Índices creados para 'PCPayment_Methods'")
         
         # ============================================
-        # 13. COLECCIÓN: payment_schedules
+        # 13. COLECCIÓN: PCPayment_Schedules
         # ============================================
         try:
-            db.create_collection("payment_schedules", validator={
+            db.create_collection("PCPayment_Schedules", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["scheduleId", "subscriptionId", "amount", "dueDate"],
@@ -402,20 +402,20 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'payment_schedules' creada")
+            print("✓ Colección 'PCPayment_Schedules' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'payment_schedules' ya existe")
+            print("⚠ Colección 'PCPayment_Schedules' ya existe")
         
-        db.payment_schedules.create_index([("scheduleId", ASCENDING)], unique=True)
-        db.payment_schedules.create_index([("subscriptionId", ASCENDING)])
-        db.payment_schedules.create_index([("dueDate", ASCENDING)])
-        print("  → Índices creados para 'payment_schedules'")
+        db.PCPayment_Schedules.create_index([("scheduleId", ASCENDING)], unique=True)
+        db.PCPayment_Schedules.create_index([("subscriptionId", ASCENDING)])
+        db.PCPayment_Schedules.create_index([("dueDate", ASCENDING)])
+        print("  → Índices creados para 'PCPayment_Schedules'")
         
         # ============================================
-        # 14. COLECCIÓN: payment_transactions
+        # 14. COLECCIÓN: PCPayment_Transactions
         # ============================================
         try:
-            db.create_collection("payment_transactions", validator={
+            db.create_collection("PCPayment_Transactions", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["transactionId", "subscriptionId", "amount", "timestamp"],
@@ -435,21 +435,21 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'payment_transactions' creada")
+            print("✓ Colección 'PCPayment_Transactions' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'payment_transactions' ya existe")
+            print("⚠ Colección 'PCPayment_Transactions' ya existe")
         
-        db.payment_transactions.create_index([("transactionId", ASCENDING)], unique=True)
-        db.payment_transactions.create_index([("subscriptionId", ASCENDING)])
-        db.payment_transactions.create_index([("clientId", ASCENDING)])
-        db.payment_transactions.create_index([("timestamp", DESCENDING)])
-        print("  → Índices creados para 'payment_transactions'")
+        db.PCPayment_Transactions.create_index([("transactionId", ASCENDING)], unique=True)
+        db.PCPayment_Transactions.create_index([("subscriptionId", ASCENDING)])
+        db.PCPayment_Transactions.create_index([("clientId", ASCENDING)])
+        db.PCPayment_Transactions.create_index([("timestamp", DESCENDING)])
+        print("  → Índices creados para 'PCPayment_Transactions'")
         
         # ============================================
-        # 15. COLECCIÓN: campaigns
+        # 15. COLECCIÓN: PCCampaigns
         # ============================================
         try:
-            db.create_collection("campaigns", validator={
+            db.create_collection("PCCampaigns", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["campaignId", "name", "description", "createdAt"],
@@ -469,14 +469,14 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'campaigns' creada")
+            print("✓ Colección 'PCCampaigns' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'campaigns' ya existe")
+            print("⚠ Colección 'PCCampaigns' ya existe")
         
-        db.campaigns.create_index([("campaignId", ASCENDING)], unique=True)
-        db.campaigns.create_index([("createdAt", DESCENDING)])
-        db.campaigns.create_index([("status", ASCENDING)])
-        print("  → Índices creados para 'campaigns'")
+        db.PCCampaigns.create_index([("campaignId", ASCENDING)], unique=True)
+        db.PCCampaigns.create_index([("createdAt", DESCENDING)])
+        db.PCCampaigns.create_index([("status", ASCENDING)])
+        print("  → Índices creados para 'PCCampaigns'")
         
         # ============================================
         # RESUMEN FINAL
@@ -498,6 +498,7 @@ def create_database_and_collections():
         print(f"\n✗ Error: {e}")
         sys.exit(1)
 
+#Ejecutamos el script
 if 1 == 1:
     print("=" * 60)
     print("CREACIÓN DE BASE DE DATOS - PROMPTCONTENT")
