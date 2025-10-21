@@ -17,12 +17,12 @@ En este documento realizaremos la documentacion de PromptSales, Prompt Content, 
 ---
 
 ## Tecnologias Utilizadas.
-- Prompt Sales = PostgreSQL, Diseñador =
-- Prompt Content = MongoDB, Diseñador =
+- Prompt Sales = PostgreSQL, Diseñador = Pg Admin 4
+- Prompt Content = MongoDB, Diseñador = Mongo Compass y Pymongo
 - Prompt Ads = SQL Server
 - Prompt CRM = SQL Server
+- Redis = Redis Insight
 
-Faltan varios aqui 
 
 ---
 
@@ -35,7 +35,7 @@ En los diseños de las entidades de Prompt Sales seguiremos este formato.
 Ejemplo: PS (Prompt Sales)
 - Nombre Tabla = PSUsers
 - Nombre PK = IdUser
-- Nombre FK = IDUser
+- Nombre FK = IdUser
 
 Listado de Entidades:
 
@@ -61,7 +61,7 @@ En los diseños de las entidades de Prompt Ads seguiremos este formato.
 Ejemplo: PA (Prompt Ads)
 - Nombre Tabla = PAUsers
 - Nombre PK = IdUser
-- Nombre FK = IDUserFK
+- Nombre FK = IdUser
 
 Listado de Entidades:
 
@@ -84,7 +84,7 @@ En los diseños de las entidades de Prompt Content seguiremos este formato.
 Ejemplo: PC (Prompt Content)
 - Nombre Tabla = PCUsers
 - Nombre PK = IdUser
-- Nombre FK = IDUser
+- Nombre FK = IdUser
 
 Listado de Entidades:
 
@@ -106,7 +106,7 @@ En los diseños de las entidades de Prompt CRM (Client Response Management) segu
 Ejemplo: PCR (Prompt CRM)
 - Nombre Tabla = PCRUsers
 - Nombre PK = IdUser
-- Nombre FK = IDUser
+- Nombre FK = IdUser
 
 Listado de Entidades:
 
@@ -128,7 +128,7 @@ En los diseños de las entidades de Redis seguiremos este formato.
 Ejemplo: R (Redis)
 - Nombre Tabla = RUsers
 - Nombre PK = IdUser
-- Nombre FK = IDUser
+- Nombre FK = IdUser
 
 Listado de Entidades:
 
