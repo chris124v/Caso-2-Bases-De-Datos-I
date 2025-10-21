@@ -388,22 +388,22 @@ CREATE TABLE PANotificationRequests (
     FOREIGN KEY (IdRequestStatus) REFERENCES PARequestStatus(IdRequestStatus)
 );
 
-CREATE TABLE PA_LogLevels (
+CREATE TABLE PALogLevels (
     IdLogLevel TINYINT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE PA_LogTypes (
+CREATE TABLE PALogTypes (
     IdLogType TINYINT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE PA_LogSources (
+CREATE TABLE PALogSources (
     IdLogSource TINYINT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE PA_Logs (
+CREATE TABLE PALogs (
     IdLog BIGINT IDENTITY(1,1) PRIMARY KEY,
     createdAt DATETIME DEFAULT GETDATE(),
     description VARCHAR(500) NOT NULL,
@@ -417,9 +417,9 @@ CREATE TABLE PA_Logs (
     IdLogLevel TINYINT NOT NULL,
     IdLogSource TINYINT NOT NULL,
     checksum VARBINARY(250) NULL,
-    FOREIGN KEY (IdLogType) REFERENCES PA_LogTypes(IdLogType),
-    FOREIGN KEY (IdLogLevel) REFERENCES PA_LogLevels(IdLogLevel),
-    FOREIGN KEY (IdLogSource) REFERENCES PA_LogSources(IdLogSource)
+    FOREIGN KEY (IdLogType) REFERENCES PALogTypes(IdLogType),
+    FOREIGN KEY (IdLogLevel) REFERENCES PALogLevels(IdLogLevel),
+    FOREIGN KEY (IdLogSource) REFERENCES PALogSources(IdLogSource)
 );
 
 -- Agregar FK pendientes
