@@ -58,6 +58,8 @@ Se agregó un script que crea 15 colecciones nuevas para la DB de promptcontent,
 
 ---
 
+Se terminó la documentación del primer script y también la documentación pertinente de todas las colecciones
+
 ---
 
 #### Chris
