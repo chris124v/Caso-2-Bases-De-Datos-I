@@ -21,8 +21,8 @@ def create_database_and_collections():
         client = MongoClient(MONGO_URL)
         db = client[DATABASE_NAME]
         
-        print(f"✓ Conectado a MongoDB")
-        print(f"✓ Base de datos: {DATABASE_NAME}")
+        print(f"Conectado a MongoDB")
+        print(f"Base de datos: {DATABASE_NAME}")
         print("-" * 60)
         
         # ============================================
@@ -45,22 +45,23 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCUsers' creada")
+            print("Colección 'PCUsers' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCUsers' ya existe")
+            print("Colección 'PCUsers' ya existe")
         
-        # Crear índices para PCUsers, mejora la velocidad de consulta y se asegura de que 
-        # los valores de ID y email sean únicos 
+        # ÍNDICES
+        # SIRVEN PARA MEJORAR EL TIEMPO DE CONSULTA DE ALGUNOS VALORES Y
+        # PARA ASEGURARSE DE QUE LOS VALORES QUE DEBEN SER ÚNICOS EN LA BD, NO SE REPITAN 
         db.PCUsers.create_index([("userId", ASCENDING)], unique=True)
         db.PCUsers.create_index([("email", ASCENDING)], unique=True)
         db.PCUsers.create_index([("role", ASCENDING)])
         print("  → Índices creados para 'PCPCUsers'")
         
         # ============================================
-        # 2. COLECCIÓN: PCExternalServices
+        # 2. COLECCIÓN: PCExternal_Services
         # ============================================
         try:
-            db.create_collection("PCExternalServices", validator={
+            db.create_collection("PCExternal_Services", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["serviceId", "name", "baseUrl", "authMethod", "createdAt"],
@@ -79,13 +80,14 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCExternalServices' creada")
+            print("Colección 'PCExternal_Services' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCExternalServices' ya existe")
+            print("Colección 'PCExternal_Services' ya existe")
         
-        db.PCExternalServices.create_index([("serviceId", ASCENDING)], unique=True)
-        db.PCExternalServices.create_index([("name", ASCENDING)])
-        print("  → Índices creados para 'PCExternalServices'")
+        # ÍNDICES
+        db.PCExternal_Services.create_index([("serviceId", ASCENDING)], unique=True)
+        db.PCExternal_Services.create_index([("name", ASCENDING)])
+        print("  → Índices creados para 'PCExternal_Services'")
         
         # ============================================
         # 3. COLECCIÓN: PCApi_Call_Logs
@@ -113,10 +115,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCApi_Call_Logs' creada")
+            print("Colección 'PCApi_Call_Logs' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCApi_Call_Logs' ya existe")
+            print("Colección 'PCApi_Call_Logs' ya existe")
         
+        # ÍNDICES
         db.PCApi_Call_Logs.create_index([("logId", ASCENDING)], unique=True)
         db.PCApi_Call_Logs.create_index([("serviceId", ASCENDING)])
         db.PCApi_Call_Logs.create_index([("timestamp", DESCENDING)])
@@ -140,10 +143,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCAi_Models_Catalog' creada")
+            print("Colección 'PCAi_Models_Catalog' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCAi_Models_Catalog' ya existe")
+            print("Colección 'PCAi_Models_Catalog' ya existe")
         
+        # ÍNDICES
         db.PCAi_Models_Catalog.create_index([("modelId", ASCENDING)], unique=True)
         db.PCAi_Models_Catalog.create_index([("name", ASCENDING)])
         print("  → Índices creados para 'PCAi_Models_Catalog'")
@@ -172,10 +176,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCAi_Model_Logs' creada")
+            print("Colección 'PCAi_Model_Logs' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCAi_Model_Logs' ya existe")
+            print("Colección 'PCAi_Model_Logs' ya existe")
         
+        # ÍNDICES
         db.PCAi_Model_Logs.create_index([("logId", ASCENDING)], unique=True)
         db.PCAi_Model_Logs.create_index([("modelId", ASCENDING)])
         db.PCAi_Model_Logs.create_index([("timestamp", DESCENDING)])
@@ -198,10 +203,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PC_Content_Types' creada")
+            print("Colección 'PC_Content_Types' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PC_Content_Types' ya existe")
+            print("Colección 'PC_Content_Types' ya existe")
         
+        # ÍNDICES
         db.PC_Content_Types.create_index([("contentTypeId", ASCENDING)], unique=True)
         db.PC_Content_Types.create_index([("name", ASCENDING)])
         print("  → Índices creados para 'PC_Content_Types'")
@@ -233,10 +239,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCimages' creada")
+            print("Colección 'PCimages' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCimages' ya existe")
+            print("Colección 'PCimages' ya existe")
         
+        # ÍNDICES
         db.PCimages.create_index([("imageId", ASCENDING)], unique=True)
         db.PCimages.create_index([("hashtags", ASCENDING)])
         db.PCimages.create_index([("description", TEXT)])
@@ -269,8 +276,9 @@ def create_database_and_collections():
             })
             print("✓ Colección 'PC_Content_Requests' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PC_Content_Requests' ya existe")
+            print("Colección 'PC_Content_Requests' ya existe")
         
+        # ÍNDICES
         db.PC_Content_Requests.create_index([("requestId", ASCENDING)], unique=True)
         db.PC_Content_Requests.create_index([("clientId", ASCENDING)])
         db.PC_Content_Requests.create_index([("createdAt", DESCENDING)])
@@ -296,10 +304,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PC_Clients' creada")
+            print("Colección 'PC_Clients' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PC_Clients' ya existe")
+            print("Colección 'PC_Clients' ya existe")
         
+        # ÍNDICES
         db.PC_Clients.create_index([("clientId", ASCENDING)], unique=True)
         db.PC_Clients.create_index([("email", ASCENDING)], unique=True)
         print("  → Índices creados para 'PC_Clients'")
@@ -325,10 +334,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCSubscription_Plans' creada")
+            print("Colección 'PCSubscription_Plans' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCSubscription_Plans' ya existe")
+            print("Colección 'PCSubscription_Plans' ya existe")
         
+        # ÍNDICES
         db.PCSubscription_Plans.create_index([("planId", ASCENDING)], unique=True)
         db.PCSubscription_Plans.create_index([("name", ASCENDING)])
         print("  → Índices creados para 'PCSubscription_Plans'")
@@ -350,10 +360,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCFeatures' creada")
+            print("Colección 'PCFeatures' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCFeatures' ya existe")
+            print("Colección 'PCFeatures' ya existe")
         
+        # ÍNDICES
         db.PCFeatures.create_index([("featureId", ASCENDING)], unique=True)
         print("  → Índices creados para 'PCFeatures'")
         
@@ -375,10 +386,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCPayment_Methods' creada")
+            print("Colección 'PCPayment_Methods' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCPayment_Methods' ya existe")
+            print("Colección 'PCPayment_Methods' ya existe")
         
+        # ÍNDICES
         db.PCPayment_Methods.create_index([("methodId", ASCENDING)], unique=True)
         print("  → Índices creados para 'PCPayment_Methods'")
         
@@ -402,10 +414,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCPayment_Schedules' creada")
+            print("Colección 'PCPayment_Schedules' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCPayment_Schedules' ya existe")
+            print("Colección 'PCPayment_Schedules' ya existe")
         
+        # ÍNDICES
         db.PCPayment_Schedules.create_index([("scheduleId", ASCENDING)], unique=True)
         db.PCPayment_Schedules.create_index([("subscriptionId", ASCENDING)])
         db.PCPayment_Schedules.create_index([("dueDate", ASCENDING)])
@@ -435,10 +448,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCPayment_Transactions' creada")
+            print("Colección 'PCPayment_Transactions' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCPayment_Transactions' ya existe")
+            print("Colección 'PCPayment_Transactions' ya existe")
         
+        # ÍNDICES
         db.PCPayment_Transactions.create_index([("transactionId", ASCENDING)], unique=True)
         db.PCPayment_Transactions.create_index([("subscriptionId", ASCENDING)])
         db.PCPayment_Transactions.create_index([("clientId", ASCENDING)])
@@ -469,10 +483,11 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCCampaigns' creada")
+            print("Colección 'PCCampaigns' creada")
         except CollectionInvalid:
-            print("⚠ Colección 'PCCampaigns' ya existe")
+            print("Colección 'PCCampaigns' ya existe")
         
+        # ÍNDICES
         db.PCCampaigns.create_index([("campaignId", ASCENDING)], unique=True)
         db.PCCampaigns.create_index([("createdAt", DESCENDING)])
         db.PCCampaigns.create_index([("status", ASCENDING)])
@@ -482,8 +497,8 @@ def create_database_and_collections():
         # RESUMEN FINAL
         # ============================================
         print("-" * 60)
-        print(f"✓ Base de datos '{DATABASE_NAME}' configurada exitosamente")
-        print(f"✓ Total de colecciones creadas: 15")
+        print(f" Base de datos '{DATABASE_NAME}' configurada exitosamente")
+        print(f" Total de colecciones creadas: 15")
         
         # Listar todas las colecciones
         collections = db.list_collection_names()
@@ -492,10 +507,10 @@ def create_database_and_collections():
             print(f"  {i}. {col}")
         
         client.close()
-        print("\n✓ Conexión cerrada")
+        print("\n Conexión cerrada")
         
     except Exception as e:
-        print(f"\n✗ Error: {e}")
+        print(f"\n Error: {e}")
         sys.exit(1)
 
 #Ejecutamos el script
