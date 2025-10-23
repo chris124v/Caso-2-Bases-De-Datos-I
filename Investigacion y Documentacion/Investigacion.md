@@ -81,7 +81,7 @@ Desde esta plataforma se diseñan estrategias completas que abarcan campañas, c
 
 ## Sección de investigación para Prompt Sales (Chris y Miguel)
 
-- Datos de clientes: información de empresas, productos, objetivos de venta, presupuestos y contactos. (?)  
+### Datos de clientes: información de empresas, productos, objetivos de venta, presupuestos y contactos. (?)  
 
 * Empresas Clientes: Nombre, industria, tamano, ubicacion
 
@@ -94,7 +94,7 @@ Desde esta plataforma se diseñan estrategias completas que abarcan campañas, c
 * Contactos: Usuarios puede referirse aqui, contact types y demas. 
 
 
-- Datos de campañas: mensajes, medios, tiempos, presupuestos, métricas de rendimiento. (?)
+### Datos de campañas: mensajes, medios, tiempos, presupuestos, métricas de rendimiento. (?)
 
 Info sobre cada campana de marketing que haya. A mi parecer esto seria de prompts ads. 
 
@@ -107,7 +107,7 @@ Info sobre cada campana de marketing que haya. A mi parecer esto seria de prompt
 * Metricas: Resultados clicks, conversiones ventas. 
 
 
-- Datos de contenido: materiales creados, formatos, versiones aprobadas, derechos de uso. (?) 
+### Datos de contenido: materiales creados, formatos, versiones aprobadas, derechos de uso. (?) 
 
 Esta claramente seria para prompt content, me parece que cada pregunta va guida a cada BD. 
 
@@ -122,7 +122,7 @@ Esta claramente seria para prompt content, me parece que cada pregunta va guida 
 * Derechos de uso: Licencias, restricciones etc .. 
 
 
-- Datos de interacción: leads, historial de comunicación, respuestas automáticas, comportamiento del usuario. (?) 
+### Datos de interacción: leads, historial de comunicación, respuestas automáticas, comportamiento del usuario. (?) 
 
 Esto seria justamente para la base de prompt CRM. 
 
@@ -135,7 +135,7 @@ Esto seria justamente para la base de prompt CRM.
 * Comportamientos: Que paginas visito, que links clico, cuanto tiempo estuvo etc .. 
 
 
-- Datos de integración: conexiones API, autenticaciones, sincronización de datos entre sistemas externos. (?) 
+### Datos de integración: conexiones API, autenticaciones, sincronización de datos entre sistemas externos. (?) 
 
 Esto seria mas que todo para la conexion con sistemas externos, creo que esto deberia ser aplicado a todas las tablas. 
 
@@ -148,7 +148,7 @@ Esto seria mas que todo para la conexion con sistemas externos, creo que esto de
 * Logs de integracion: Registro de exitos y errores.  
 
 
-- Módulos de IA: generación de contenido, predicción de intención de compra, optimización de anuncios, análisis de sentimiento y ranking de rendimiento. (?)
+### Módulos de IA: generación de contenido, predicción de intención de compra, optimización de anuncios, análisis de sentimiento y ranking de rendimiento. (?)
 
 * Generación de contenido: Prompts usados, resultados generados
 
@@ -164,7 +164,7 @@ Esto seria mas que todo para la conexion con sistemas externos, creo que esto de
 
 ## Preguntas sobre la visión técnica de Prompt Sales
 
-1. Interconexión entre subempresas: ¿Qué son los MCP (Model Context Protocol)?
+### 1. Interconexión entre subempresas: ¿Qué son los MCP (Model Context Protocol)?
 
 MCP es un protocolo de comunicación creado por Anthropic (la empresa que creó Claude) para permitir que modelos de IA se conecten de forma estandarizada con diferentes fuentes de datos y herramientas.
 
@@ -175,7 +175,7 @@ Piensa en MCP como un "traductor universal" entre:
 - APIs externas
 - Herramientas y servicios
 
-Para que sirven los MCPs.
+#### Para que sirven los MCPs.
 
 Problema que resuelve:
 Antes de MCP, si querías que una IA accediera a:
@@ -187,7 +187,7 @@ Antes de MCP, si querías que una IA accediera a:
 
 Tenías que programar conexiones específicas para cada caso, sin un estándar común.
 
-Solución con MCP:
+#### Solución con MCP:
 MCP proporciona un protocolo estándar donde:
 
 - Defines "tools" (herramientas) que la IA puede usar
@@ -215,14 +215,14 @@ Estos serian los componentes de todo MCP:
    - Ejemplo: esquemas de base de datos, archivos, documentos
 
 
-¿Por qué usar MCP para interconectar las bases de datos?
+##### ¿Por qué usar MCP para interconectar las bases de datos?
 
 Sin MCP: IA → Acceso directo a PostgreSQL = (la IA podría hacer DROP TABLE, DELETE, etc.)
 
 Con MCP: IA → MCP Server → PostgreSQL = (el servidor controla QUÉ puede hacer la IA)
 
 
-### Interoperabilidad entre diferentes bases de datos
+#### Interoperabilidad entre diferentes bases de datos
 
 ```
 MCP Server de PromptSales puede:
@@ -235,7 +235,7 @@ MCP Server de PromptSales puede:
 Todo bajo el MISMO protocolo
 
 ```
-### Consultas en lenguaje natural
+#### Consultas en lenguaje natural
 
 ```
 Usuario: "¿Cuál fue el ROI de las campañas de diciembre?"
@@ -248,9 +248,9 @@ IA (usando MCP):
 
 ```
 
-### ¿Por qué interconectar mediante servidores MCP?
+#### ¿Por qué interconectar mediante servidores MCP?
 
-### 1. Cada subempresa tiene su propio MCP Server:
+#### 1. Cada subempresa tiene su propio MCP Server:
 
 ```
 PromptContent → MCP Server Content
@@ -260,13 +260,13 @@ PromptSales → MCP Server Sales (centralizado)
 
 ```
 
-### 2. El MCP Server de PromptSales puede:
+#### 2. El MCP Server de PromptSales puede:
 - Consultar su propia base (PostgreSQL)
 - **Llamar a otros MCP Servers** (Content, Ads, CRM) cuando necesite datos detallados
 - Mantener todo bajo el mismo protocolo
 
 
-### 3. Beneficios de esta arquitectura:
+#### 3. Beneficios de esta arquitectura:
 
 - Seguridad: Cada servidor controla su propio acceso
 - Modularidad: Cada subempresa es independiente
@@ -274,7 +274,7 @@ PromptSales → MCP Server Sales (centralizado)
 - Mantenibilidad: Cambios en una base no afectan a las otras
 - IA-Ready: Cualquier IA puede consultar mediante MCP
 
-En resumen 
+#### En resumen 
 
 MCP es el protocolo que permite:
 
@@ -286,7 +286,7 @@ MCP es el protocolo que permite:
 En realidad todo se puede hacer con APIS rest pero teoricamente es mejor con MCPs dado al modelado de la IA. 
 
 
-2. Despliegue, orquestación y mantenimiento: ¿Qué es Kubernetes?
+### 2. Despliegue, orquestación y mantenimiento: ¿Qué es Kubernetes?
 
 Kubernetes (K8s) es una plataforma de orquestación de contenedores de código abierto que automatiza el despliegue, escalado y gestión de aplicaciones containerizadas. Es como un "director de orquesta" que coordina múltiples contenedores (como Docker) en un clúster de máquinas.
 
@@ -432,7 +432,7 @@ kubectl logs nombre-del-pod -n namespace
 kubectl delete -f archivo.yaml
 ```
 
-3. Integración de servicios externos o internos: ¿Usamos API o servidores MCP?  
+### 3. Integración de servicios externos o internos: ¿Usamos API o servidores MCP?  
 
 En realidad los MCPs es lo mismo que las APIs rest solo que los MCPs son mas nuevos y estandarizados para IAs. Por ejemplo, los mcps descubren automatica las capacidades osea los tools disponibles para interactuar con las bases de datos.
 
@@ -453,7 +453,7 @@ Usa MCP cuando:
 
 Como tal el portal web no existe. Nosotros disenamos las tablas y ya.
 
-Beneficios que da usar MCPs. 
+#### Beneficios que da usar MCPs. 
 
 - Está específicamente requerido en el caso
 - Es más eficiente para IA (menos tokens, más rápido)
@@ -462,11 +462,11 @@ Beneficios que da usar MCPs.
 - Cumple mejor con los requerimientos no funcionales de rendimiento
 
 
-4. Aplicaciones web y paneles administrativos: ¿Qué es Vercel? ¿Qué sistema de despliegue continuo (CI/CD) se usa?  
+### 4. Aplicaciones web y paneles administrativos: ¿Qué es Vercel? ¿Qué sistema de despliegue continuo (CI/CD) se usa?  
 
 Vercel es una plataforma de hosting y despliegue en la nube, especializada en aplicaciones web modernas, especialmente front end y full stack. 
 
-Carateristicas: 
+#### Carateristicas: 
 
 1. Hosting optimizado para frameworks modernos
 
@@ -482,7 +482,7 @@ Tu aplicación se replica en múltiples servidores alrededor del mundo para meno
 - Usuario en Japón → Servidor en Tokio (15ms)
 - Usuario en Europa → Servidor en Frankfurt (18ms)
 
-Ventajas:
+#### Ventajas:
 
 - Facil de usar
 - Previews automaticos = Cada Pull Request en GitHub genera una **URL de preview**:
@@ -490,13 +490,13 @@ Ventajas:
 - Variables de entorno sencillas para el dashboard en vercel.
 - Analytics integrado = metricas de tiempo de carga, visitas, core web vitals y errores. 
 
-### Que es CI/CD? 
+#### Que es CI/CD? 
 
 **CI/CD** significa **Continuous Integration / Continuous Deployment** (Integración Continua / Despliegue Continuo).
 
 Es una metodología de desarrollo que automatiza todo el proceso desde que escribes código hasta que está en producción.
 
-### CI - Integracion Continua 
+#### CI - Integracion Continua 
 
 Definición: Integrar código frecuentemente (varias veces al día) y verificar automáticamente que funcione.
 
@@ -528,11 +528,11 @@ Cada desarrollador:
 Si algo falla → Notifica inmediatamente
 ```
 
-### CD - Despliegue continuo 
+#### CD - Despliegue continuo 
 
 Definición: Cada cambio que pasa los tests se despliega automáticamente a producción.
 
-### **Flujo sin CD:**
+#### **Flujo sin CD:**
 ```
 1. Developer termina feature
 2. Hace pull request
@@ -547,7 +547,7 @@ Definición: Cada cambio que pasa los tests se despliega automáticamente a prod
    - Rezar que funcione
 ```
 
-### **Flujo con CD:**
+#### **Flujo con CD:**
 ```
 1. Developer termina feature
 2. Hace pull request
@@ -567,7 +567,7 @@ Importane mencionar que CI/CD esta integrado de forma nativa en Vercel.
 
 
 
-5. Bases de datos en la nube: ¿Qué es Redis? ¿Qué es una base de datos centralizada?
+### 5. Bases de datos en la nube: ¿Qué es Redis? ¿Qué es una base de datos centralizada?
 
 Redis significa REmote DIctionary Server (Servidor de Diccionario Remoto).Es una base de datos en memoria (RAM) ultra-rápida que almacena datos en formato clave-valor. Todo el almacenamiento se hace en RAM, el modelo clave valor es como un hashmap. El usar Redis nos ayuda a reducir la cantidad de llamadas a apis y mcps, esto ademas de que minimiza los tokens de la ia y aumenta la velocidad de respuesta. 
 
@@ -599,40 +599,49 @@ Implementamos Redis localmente en Kubernetes por:
 ---
 
 ## Preguntas sobre requerimientos no funcionales
+---
 
 ### 1. Rendimiento
-a. Promedio de respuesta del portal web: 2.5 segundos en operaciones estándar. ¿Cómo se logra?  
 
-b. Consultas cacheadas mediante Redis: resultados en menos de 400 milisegundos. ¿Cómo se logra?  
+#### a. Promedio de respuesta del portal web: 2.5 segundos en operaciones estándar. ¿Cómo se logra?  
 
-c. ¿Cómo conseguir que la generación automática dure menos de 7 segundos y la IA compleja menos de 20 segundos?
+#### b. Consultas cacheadas mediante Redis: resultados en menos de 400 milisegundos. ¿Cómo se logra?  
+
+#### c. ¿Cómo conseguir que la generación automática dure menos de 7 segundos y la IA compleja menos de 20 segundos?
+
+---
 
 ### 2. Escalabilidad
-a. La arquitectura debe soportar hasta 10 veces la carga base sin degradación perceptible, que significa esto?  
+#### a. La arquitectura debe soportar hasta 10 veces la carga base sin degradación perceptible, que significa esto?  
 
-b. Kubernetes debe permitir autoescalado horizontal basado en CPU, memoria y número de solicitudes concurrentes, que significa esto?
+#### b. Kubernetes debe permitir autoescalado horizontal basado en CPU, memoria y número de solicitudes concurrentes, que significa esto?
+
+---
 
 ### 3. Tolerancia a fallos
-a. Disponibilidad mínima del sistema: 99.9% mensual, que significa? 
 
-b. Los contenedores críticos deben reiniciarse automáticamente ante fallas, quee significa?
+#### a. Disponibilidad mínima del sistema: 99.9% mensual, que significa? 
 
-c. Redis y las bases de datos deben contar con replicación en tiempo real y failover automático, que significa esto?
+#### b. Los contenedores críticos deben reiniciarse automáticamente ante fallas, quee significa?
 
+#### c. Redis y las bases de datos deben contar con replicación en tiempo real y failover automático, que significa esto?
+
+---
 ### 4. Seguridad
-a. Autenticación y autorización mediante OAuth 2.0. Que es esto y como se aplica? 
 
-b. Comunicación cifrada entre servicios con TLS 1.3. Que es esto y qee significa? 
+#### a. Autenticación y autorización mediante OAuth 2.0. Que es esto y como se aplica? 
 
-c. Cifrado de datos en reposo con AES-256. Como logro este cifrado de datos?
+#### b. Comunicación cifrada entre servicios con TLS 1.3. Que es esto y qee significa? 
+
+#### c. Cifrado de datos en reposo con AES-256. Como logro este cifrado de datos?
 Esto seria simplemente el cifrado de datos con VARBINARY o similares con informacion sensible.
 
 AES = Advanced Encryption Standard, 256 = Tamaño de la clave (bits) - muy seguro. Es un algoritmo de cifrado simetrico. 
 
-d. Auditoría y logging centralizado con retención de 90 días. Como configuro esto?
+#### d. Auditoría y logging centralizado con retención de 90 días. Como configuro esto?
 Esto es basicamente llevar el registro de logs para la auditorias, con la tabla de logs ya se ejemplifica bien. 
 
-e. Cumplimiento con estándares internacionales de protección de datos (GDPR, CCPA) y principio de mínimo privilegio. Como cumplo con estos estandares y que son?
+#### e. Cumplimiento con estándares internacionales de protección de datos (GDPR, CCPA) y principio de mínimo privilegio. Como cumplo con estos estandares y que son?
 
 Reglamento General de Protección de Datos (GDPR)
 
@@ -732,10 +741,10 @@ e. Prompt Sales en PostgreSQL (Chris y Miguel)
 
 ## Otros aspectos
 
-1. Todo el despliegue se realizará con Kubernetes, pudiendo montarse local o por VPN distribuida. Que es esto y como lo hago?  
-2. ¿Qué es un pod separado?  
-3. No se desarrollará el portal web, solo bases de datos e integraciones MCP.  
-4. ¿Qué es N8N?  
+#### 1. Todo el despliegue se realizará con Kubernetes, pudiendo montarse local o por VPN distribuida. Que es esto y como lo hago?  
+#### 2. ¿Qué es un pod separado?  
+#### 3. No se desarrollará el portal web, solo bases de datos e integraciones MCP.  
+#### 4. ¿Qué es N8N?  
 
 N8N es una herramienta de automatización visual (como Zapier pero open-source) que puedes usar para:
 
@@ -744,7 +753,7 @@ Conectar diferentes servicios
 Crear MCP Servers sin programar desde cero
 
 
-5. Mantener una bitácora de uso de IA que incluya, como mantengo dicha bitacora:
+#### 5. Mantener una bitácora de uso de IA que incluya, como mantengo dicha bitacora:
    - Fecha y hora  
    - Nombre del estudiante  
    - Prompt  
