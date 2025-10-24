@@ -131,3 +131,52 @@ Notas. No hay notas
 Avance 19 de octubre
 
 Diseno preliminar de la base de prompts crm con todas sus caracteristicas generales. Esto no se documento en el chat de disc pero se puede comprobar en los commits.
+
+
+---
+
+---
+
+## Anotaciones de clase
+
+### Dylan:
+Un proceso de ventas efectivo tendría al menos un 7% de conversión.  
+PromptContent maneja el proceso creativo de campañas, integraciones con plataformas (tablas: nombres, URLs, métodos, autenticación, configuración REST o MCP).  
+PromptAds gestiona campañas y su optimización.  
+PromptCRM da seguimiento a leads y cierre de ventas.  
+Todo se conecta mediante servidores MCP.  
+Indexación de descripciones con IA, monitoreo de rendimiento de consultas, y uso de plantillas predefinidas para procedimientos transaccionales.
+
+### Luan:
+- Al final del semestre habrá una entrevista laboral (vale 8%).  
+- “Leads” son los datos para definir la demografía objetivo.  
+- PromptContent requiere: nombres, URLs, métodos, auths, parámetros y configuración REST.  
+- Para PromptAds se investigarán campaign managers (LinkedIn, Facebook, Instagram).  
+- Creación de una base de datos en Redis.
+
+### Lindsay:
+**PromptContent**
+- Genera descripciones de anuncios y propuestas revisadas.  
+- Tablas: pedidos de usuario, URLs adjuntas, resultados IA.  
+
+**AdContent**
+- Maneja campañas publicitarias, estadísticas, población clave, tablas de resultados y de ventas.  
+
+**CRM**
+- Gestiona interesados, tiempo de visualización, comentarios, conversiones e intereses comunes.
+
+### Miguel:
+- Crear BD en Redis para consultas recurrentes y disminuir uso de APIs.  
+- Minimizar uso de tokens de IA.  
+- Investigar Vercel para despliegue web.  
+- Crear base PromptAds con todas sus tablas.  
+- Almacenar imágenes, videos y audios del contenido creado en PromptContent.
+
+### Christopher:
+- El diseno de Mongo no hay diagrama fisico, solo Json, podemos usar moongosee o pymongo.
+- Buscae lugares para disenar en Postgre Sql como Supa base o pg admin,
+- n8n es para crear servidores MCP.
+- Usar linked in campaign manager y trade desk como ejemplos a seguir.
+- El resto de anotaciones esta en el canal de where-wolves-5.
+
+---

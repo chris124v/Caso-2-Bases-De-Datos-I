@@ -1,7 +1,56 @@
--- Script de creación de base de datos PromptAds
-
+-- Crear base de datos
 USE promptads;
 GO
+
+-- Tablas de ubicación geográfica
+CREATE TABLE PACountries (
+    IdCountry TINYINT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(60) NOT NULL
+);
+
+CREATE TABLE PAStates (
+    IdState INT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(60) NOT NULL,
+    IdCountry TINYINT NOT NULL,
+    FOREIGN KEY (IdCountry) REFERENCES PACountries(IdCountry)
+);
+
+CREATE TABLE PACities (
+    IdCity INT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(60) NOT NULL,
+    IdState INT NOT NULL,
+    FOREIGN KEY (IdState) REFERENCES PAStates(IdState)
+);
+
+CREATE TABLE PAAddresses (
+    IdAddress INT IDENTITY(1,1) PRIMARY KEY,
+    line1 VARCHAR(200) NOT NULL,
+    line2 VARCHAR(200) NOT NULL,
+    zipCode VARCHAR(10) NOT NULL,
+    IdCity INT NOT NULL,
+    FOREIGN KEY (IdCity) REFERENCES PACities(IdCity)
+);
+
+CREATE TABLE PACurrencies (
+    IdCurrency SMALLINT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(60) NOT NULL,
+    isoCode VARCHAR(3) NOT NULL,
+    currencySymbol VARCHAR(5) NOT NULL,
+    IdCountry TINYINT NOT NULL,
+    FOREIGN KEY (IdCountry) REFERENCES PACountries(IdCountry)
+);
+
+CREATE TABLE PAExchangeRates (
+    IdExchangeRate SMALLINT IDENTITY(1,1) PRIMARY KEY,
+    startDate DATETIME NOT NULL,
+    endDate DATETIME NULL,
+    exchangeRate DECIMAL(10,4) NOT NULL,
+    IdCurrencySource SMALLINT NOT NULL,
+    IdCurrencyDestiny SMALLINT NOT NULL,
+    isCurrent BIT DEFAULT 1,
+    FOREIGN KEY (IdCurrencySource) REFERENCES PACurrencies(IdCurrency),
+    FOREIGN KEY (IdCurrencyDestiny) REFERENCES PACurrencies(IdCurrency)
+);
 
 -- Tablas de multimedia
 CREATE TABLE PAMediafileTypes (
@@ -36,10 +85,19 @@ CREATE TABLE PAUsers (
     FOREIGN KEY (IdUserStatus) REFERENCES PAUserStatus(IdUserStatus)
 );
 
+CREATE TABLE PAOrganizationStatus (
+    IdOrganizationStatus TINYINT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(30) NOT NULL
+);
+
 CREATE TABLE PAOrganizations (
     IdOrganization INT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(60) NOT NULL,
-    enabled BIT DEFAULT 1
+    legalName VARCHAR(60) NOT NULL,
+    email VARCHAR(80) NOT NULL,
+    createdAt DATETIME NOT NULL,
+    organizationStatus TINYINT NOT NULL,
+    FOREIGN KEY (organizationStatus) REFERENCES PAOrganizationStatus(IdOrganizationStatus)
 );
 
 CREATE TABLE PAUserPerOrganization (
@@ -55,16 +113,16 @@ CREATE TABLE PAUserPerOrganization (
 CREATE TABLE PARoles (
     IdRole INT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
-    description VARCHAR(200) NULL
+    description VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE PAUserXRoles (
+    IdUserRole INT IDENTITY(1,1) PRIMARY KEY,
     IdUser INT NOT NULL,
     IdRole INT NOT NULL,
     createdAt DATETIME DEFAULT GETDATE(),
     enabled BIT DEFAULT 1,
     checksum VARBINARY(250) NULL,
-    PRIMARY KEY (IdUser, IdRole),
     FOREIGN KEY (IdUser) REFERENCES PAUsers(IdUser),
     FOREIGN KEY (IdRole) REFERENCES PARoles(IdRole)
 );
@@ -72,7 +130,7 @@ CREATE TABLE PAUserXRoles (
 CREATE TABLE PAPermissions (
     IdPermission INT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    description VARCHAR(200) NULL,
+    description VARCHAR(200) NOT NULL,
     code VARCHAR(20) UNIQUE NOT NULL,
     module VARCHAR(50) NOT NULL
 );
@@ -97,11 +155,15 @@ CREATE TABLE PAScheduleRecurrencies (
 
 CREATE TABLE PASchedules (
     IdSchedule INT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
     IdScheduleRecurrency TINYINT NOT NULL,
-    startDate DATETIME NOT NULL,
-    endDate DATETIME NOT NULL,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    startHours TIME NOT NULL,
+    endHours TIME NOT NULL,
     lastExecute DATETIME NULL,
     nextExecute DATETIME NOT NULL,
+    createdAt DATETIME NOT NULL,
     enabled BIT DEFAULT 1,
     deleted BIT DEFAULT 0,
     FOREIGN KEY (IdScheduleRecurrency) REFERENCES PAScheduleRecurrencies(IdScheduleRecurrency)
@@ -112,10 +174,10 @@ CREATE TABLE PACampaigns (
     IdCampaign INT IDENTITY(1,1) PRIMARY KEY,
     IdOrganization INT NOT NULL,
     name VARCHAR(60) NOT NULL,
-    description VARCHAR(200) NULL,
+    description VARCHAR(200) NOT NULL,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME DEFAULT GETDATE(),
-    endsAt DATETIME NULL,
+    endsAt DATETIME NOT NULL,
     enabled BIT DEFAULT 1,
     deleted BIT DEFAULT 0,
     checksum VARBINARY(255) NULL,
@@ -132,23 +194,38 @@ CREATE TABLE PAAdStatus (
     name VARCHAR(20) NOT NULL
 );
 
+CREATE TABLE PAAdMedias (
+    IdAdMedia SMALLINT IDENTITY(1,1) PRIMARY KEY,
+    IdAPISetup INT NULL,
+    name VARCHAR(30) NOT NULL
+);
+
 CREATE TABLE PACampaignAds (
     IdCampaignAd BIGINT IDENTITY(1,1) PRIMARY KEY,
     IdCampaign INT NOT NULL,
     title VARCHAR(50) NOT NULL,
-    description VARCHAR(200) NULL,
-    body TEXT NULL,
-    adMedia SMALLINT NULL,
+    description VARCHAR(200) NOT NULL,
+    body TEXT NOT NULL,
+    IdAdMedia SMALLINT NOT NULL,
     IdAdType TINYINT NOT NULL,
-    redirectURL VARCHAR(255) NULL,
+    redirectURL VARCHAR(255) NOT NULL,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME DEFAULT GETDATE(),
-    adSchedule INT NULL,
     IdAdStatus TINYINT NOT NULL,
     checksum VARBINARY(255) NULL,
     FOREIGN KEY (IdCampaign) REFERENCES PACampaigns(IdCampaign),
+    FOREIGN KEY (IdAdMedia) REFERENCES PAAdMedias(IdAdMedia),
     FOREIGN KEY (IdAdType) REFERENCES PAAdTypes(IdAdType),
     FOREIGN KEY (IdAdStatus) REFERENCES PAAdStatus(IdAdStatus)
+);
+
+CREATE TABLE PAAdSchedules (
+    IdAdSchedule INT IDENTITY(1,1) PRIMARY KEY,
+    IdCampaignAd BIGINT NOT NULL,
+    IdSchedule INT NOT NULL,
+    enabled BIT DEFAULT 1,
+    FOREIGN KEY (IdCampaignAd) REFERENCES PACampaignAds(IdCampaignAd),
+    FOREIGN KEY (IdSchedule) REFERENCES PASchedules(IdSchedule)
 );
 
 CREATE TABLE PAAdMediafiles (
@@ -161,6 +238,7 @@ CREATE TABLE PAAdMediafiles (
     FOREIGN KEY (IdMediafile) REFERENCES PAMediafiles(IdMediafile)
 );
 
+-- Tablas de reacciones
 CREATE TABLE PAReactionTypes (
     IdReactionType TINYINT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(20) NOT NULL
@@ -176,17 +254,11 @@ CREATE TABLE PAReactionsPerAd (
 );
 
 -- Tablas de influencers
-CREATE TABLE PAAdMedias (
-    IdAdMedia SMALLINT IDENTITY(1,1) PRIMARY KEY,
-    IdAPISetup INT NULL,
-    name VARCHAR(30) NOT NULL
-);
-
 CREATE TABLE PAInfluencers (
     IdInfluencer INT IDENTITY(1,1) PRIMARY KEY,
     username VARCHAR(60) NOT NULL,
-    followers BIGINT NULL,
-    bio VARCHAR(250) NULL,
+    followers BIGINT NOT NULL,
+    bio VARCHAR(250) NOT NULL,
     IdAdMedia SMALLINT NOT NULL,
     FOREIGN KEY (IdAdMedia) REFERENCES PAAdMedias(IdAdMedia)
 );
@@ -218,64 +290,76 @@ CREATE TABLE PAInfluencerContacts (
 );
 
 -- Tablas de públicos objetivo
-CREATE TABLE PAPublicTypes (
-    IdPublicType SMALLINT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(30) NOT NULL
-);
-
 CREATE TABLE PATargetPublics (
     IdTargetPublic INT IDENTITY(1,1) PRIMARY KEY,
-    IdPublicType SMALLINT NOT NULL,
-    value INT NOT NULL,
-    maxRange INT NULL,
-    FOREIGN KEY (IdPublicType) REFERENCES PAPublicTypes(IdPublicType)
+    name VARCHAR(30) NOT NULL,
+    description VARCHAR(80) NOT NULL
 );
 
-CREATE TABLE PACampaignPublics (
+CREATE TABLE PAAdPublics (
     IdCampaignPublic INT IDENTITY(1,1) PRIMARY KEY,
-    IdCampaign INT NOT NULL,
+    IdCampaignAd BIGINT NOT NULL,
     IdTargetPublic INT NOT NULL,
     enabled BIT DEFAULT 1,
-    FOREIGN KEY (IdCampaign) REFERENCES PACampaigns(IdCampaign),
+    FOREIGN KEY (IdCampaignAd) REFERENCES PACampaignAds(IdCampaignAd),
     FOREIGN KEY (IdTargetPublic) REFERENCES PATargetPublics(IdTargetPublic)
 );
 
--- Tablas de pagos y monedas
-CREATE TABLE PACountries (
-    IdCountry SMALLINT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(60) NOT NULL
+CREATE TABLE PAPublicFeatures (
+    IdPublicFeature SMALLINT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    dataType VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE PACurrencies (
-    IdCurrency SMALLINT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(60) NOT NULL,
-    isoCode VARCHAR(3) NOT NULL,
-    currencySymbol VARCHAR(5) NULL,
-    IdCountry SMALLINT NULL,
-    FOREIGN KEY (IdCountry) REFERENCES PACountries(IdCountry)
+CREATE TABLE PAPublicValues (
+    IdPublicValue INT IDENTITY(1,1) PRIMARY KEY,
+    IdPublicFeature SMALLINT NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    minValue VARCHAR(80) NULL,
+    maxValue VARCHAR(80) NULL,
+    value VARCHAR(80) NULL,
+    FOREIGN KEY (IdPublicFeature) REFERENCES PAPublicFeatures(IdPublicFeature)
 );
 
+CREATE TABLE PATargetConfigurations (
+    IdTargetConfiguration INT IDENTITY(1,1) PRIMARY KEY,
+    IdTargetPublic INT NOT NULL,
+    IdPublicValue INT NOT NULL,
+    enabled BIT DEFAULT 1,
+    FOREIGN KEY (IdTargetPublic) REFERENCES PATargetPublics(IdTargetPublic),
+    FOREIGN KEY (IdPublicValue) REFERENCES PAPublicValues(IdPublicValue)
+);
+
+-- Tablas de transacciones
+CREATE TABLE PACampaignTransactionTypes (
+    IdCampaignTransactionType TINYINT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE PACampaignTransactions (
+    IdCampaignTransaction INT IDENTITY(1,1) PRIMARY KEY,
+    description VARCHAR(80) NOT NULL,
+    amount DECIMAL(16,2) NOT NULL,
+    IdCampaignTransactionType TINYINT NOT NULL,
+    createdAt DATETIME DEFAULT GETDATE(),
+    IdCampaignAd BIGINT NOT NULL,
+    IdPayment BIGINT NOT NULL,
+    IdMediafile INT NULL,
+    checksum VARBINARY(255) NULL,
+    FOREIGN KEY (IdCampaignTransactionType) REFERENCES PACampaignTransactionTypes(IdCampaignTransactionType),
+    FOREIGN KEY (IdCampaignAd) REFERENCES PACampaignAds(IdCampaignAd)
+);
+
+-- Tablas de pagos
 CREATE TABLE PAPaymentTypes (
     IdPaymentType TINYINT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    description VARCHAR(200) NULL
+    description VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE PAPaymentStatus (
     IdPaymentStatus TINYINT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(60) NOT NULL
-);
-
-CREATE TABLE PAPayments (
-    IdPayment BIGINT IDENTITY(1,1) PRIMARY KEY,
-    IdPaymentMethod TINYINT NOT NULL,
-    IdPaymentType TINYINT NOT NULL,
-    transactionAmount DECIMAL(16,2) NOT NULL,
-    IdCurrency SMALLINT NOT NULL,
-    description VARCHAR(100) NULL,
-    createdAt DATETIME DEFAULT GETDATE(),
-    IdPaymentStatus TINYINT NOT NULL,
-    checksum VARBINARY(250) NULL
 );
 
 CREATE TABLE PAPaymentMethods (
@@ -286,60 +370,44 @@ CREATE TABLE PAPaymentMethods (
     enabled BIT DEFAULT 1
 );
 
-CREATE TABLE PACampaignExpenses (
-    IdCampaignExpense INT IDENTITY(1,1) PRIMARY KEY,
-    description VARCHAR(200) NULL,
-    amount DECIMAL(16,2) NOT NULL,
-    createdAt DATETIME DEFAULT GETDATE(),
+CREATE TABLE PAPayments (
+    IdPayment BIGINT IDENTITY(1,1) PRIMARY KEY,
+    IdPaymentMethod TINYINT NOT NULL,
+    IdPaymentType TINYINT NOT NULL,
+    transactionAmount DECIMAL(16,2) NOT NULL,
     IdCurrency SMALLINT NOT NULL,
-    IdCampaign INT NOT NULL,
-    IdPayment BIGINT NOT NULL,
-    IdMediafile INT NULL,
-    checksum VARBINARY(255) NULL,
-    FOREIGN KEY (IdCurrency) REFERENCES PACurrencies(IdCurrency),
-    FOREIGN KEY (IdCampaign) REFERENCES PACampaigns(IdCampaign),
-    FOREIGN KEY (IdPayment) REFERENCES PAPayments(IdPayment),
-    FOREIGN KEY (IdMediafile) REFERENCES PAMediafiles(IdMediafile)
-);
-
-CREATE TABLE PACampaignInvestments (
-    IdCampaignInvestment INT IDENTITY(1,1) PRIMARY KEY,
-    description VARCHAR(200) NULL,
-    amount DECIMAL(16,2) NOT NULL,
+    description VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT GETDATE(),
-    IdCurrency SMALLINT NOT NULL,
-    IdCampaign INT NOT NULL,
-    IdPayment BIGINT NOT NULL,
-    IdMediafile INT NULL,
-    checksum VARBINARY(255) NULL,
+    IdPaymentStatus TINYINT NOT NULL,
+    checksum VARBINARY(250) NULL,
+    FOREIGN KEY (IdPaymentMethod) REFERENCES PAPaymentMethods(IdPaymentMethod),
+    FOREIGN KEY (IdPaymentType) REFERENCES PAPaymentTypes(IdPaymentType),
     FOREIGN KEY (IdCurrency) REFERENCES PACurrencies(IdCurrency),
-    FOREIGN KEY (IdCampaign) REFERENCES PACampaigns(IdCampaign),
-    FOREIGN KEY (IdPayment) REFERENCES PAPayments(IdPayment),
-    FOREIGN KEY (IdMediafile) REFERENCES PAMediafiles(IdMediafile)
+    FOREIGN KEY (IdPaymentStatus) REFERENCES PAPaymentStatus(IdPaymentStatus)
 );
 
 -- Tablas de suscripciones
 CREATE TABLE PASubscriptions (
     IdSubscription SMALLINT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
-    description VARCHAR(200) NULL
+    description VARCHAR(200) NOT NULL
 );
 
-CREATE TABLE PAFeatures (
-    IdFeature INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE PASubscriptionFeatures (
+    IdSubscriptionFeature INT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
-    description VARCHAR(200) NULL,
+    description VARCHAR(200) NOT NULL,
     dataType VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE PAFeaturePerSubscription (
     IdFeaturePerSubscription INT IDENTITY(1,1) PRIMARY KEY,
     IdSubscription SMALLINT NOT NULL,
-    IdFeature INT NOT NULL,
-    value VARCHAR(80) NULL,
-    unlimited BIT DEFAULT 0,
+    IdSubscriptionFeature INT NOT NULL,
+    value VARCHAR(80) NOT NULL,
+    unlimited BIT NOT NULL,
     FOREIGN KEY (IdSubscription) REFERENCES PASubscriptions(IdSubscription),
-    FOREIGN KEY (IdFeature) REFERENCES PAFeatures(IdFeature)
+    FOREIGN KEY (IdSubscriptionFeature) REFERENCES PASubscriptionFeatures(IdSubscriptionFeature)
 );
 
 CREATE TABLE PASubscriptionPerUser (
@@ -363,7 +431,7 @@ CREATE TABLE PAAPISetups (
     IdAPIType SMALLINT NOT NULL,
     APIkey VARCHAR(255) NOT NULL,
     URL VARCHAR(255) NOT NULL,
-    configuration NVARCHAR(MAX),
+    configuration NVARCHAR(MAX) NOT NULL,
     FOREIGN KEY (IdAPIType) REFERENCES PAAPITypes(IdAPIType)
 );
 
@@ -379,8 +447,8 @@ CREATE TABLE PANotificationRequests (
     IdCampaignAd BIGINT NOT NULL,
     IdContactType TINYINT NOT NULL,
     IdAPISetup INT NOT NULL,
-    createdAt DATETIME DEFAULT GETDATE(),
-    output NVARCHAR(MAX),
+    createdAt DATETIME NOT NULL,
+    output NVARCHAR(MAX) NOT NULL,
     IdRequestStatus SMALLINT NOT NULL,
     FOREIGN KEY (IdCampaignAd) REFERENCES PACampaignAds(IdCampaignAd),
     FOREIGN KEY (IdContactType) REFERENCES PAContactTypes(IdContactType),
@@ -388,6 +456,7 @@ CREATE TABLE PANotificationRequests (
     FOREIGN KEY (IdRequestStatus) REFERENCES PARequestStatus(IdRequestStatus)
 );
 
+-- Tablas de Logs
 CREATE TABLE PALogLevels (
     IdLogLevel TINYINT IDENTITY(1,1) PRIMARY KEY,
     name VARCHAR(30) NOT NULL
@@ -421,26 +490,18 @@ CREATE TABLE PALogs (
     FOREIGN KEY (IdLogLevel) REFERENCES PALogLevels(IdLogLevel),
     FOREIGN KEY (IdLogSource) REFERENCES PALogSources(IdLogSource)
 );
+GO
 
--- Agregar FK pendientes
+-- Agregar FK pendientes después de crear todas las tablas
 ALTER TABLE PAAdMedias ADD CONSTRAINT FK_PAAdMedias_PAAPISetups 
     FOREIGN KEY (IdAPISetup) REFERENCES PAAPISetups(IdAPISetup);
 
 ALTER TABLE PAPaymentMethods ADD CONSTRAINT FK_PAPaymentMethods_PAAPISetups 
     FOREIGN KEY (IdAPISetup) REFERENCES PAAPISetups(IdAPISetup);
 
-ALTER TABLE PAPayments ADD CONSTRAINT FK_PAPayments_PAPaymentMethods 
-    FOREIGN KEY (IdPaymentMethod) REFERENCES PAPaymentMethods(IdPaymentMethod);
+ALTER TABLE PACampaignTransactions ADD CONSTRAINT FK_PACampaignTransactions_PAPayments 
+    FOREIGN KEY (IdPayment) REFERENCES PAPayments(IdPayment);
 
-ALTER TABLE PAPayments ADD CONSTRAINT FK_PAPayments_PAPaymentTypes 
-    FOREIGN KEY (IdPaymentType) REFERENCES PAPaymentTypes(IdPaymentType);
-
-ALTER TABLE PAPayments ADD CONSTRAINT FK_PAPayments_PAPaymentStatus 
-    FOREIGN KEY (IdPaymentStatus) REFERENCES PAPaymentStatus(IdPaymentStatus);
-
-ALTER TABLE PAPayments ADD CONSTRAINT FK_PAPayments_PACurrencies 
-    FOREIGN KEY (IdCurrency) REFERENCES PACurrencies(IdCurrency);
-
-ALTER TABLE PACampaignAds ADD CONSTRAINT FK_PACampaignAds_PASchedules 
-    FOREIGN KEY (adSchedule) REFERENCES PASchedules(IdSchedule);
+ALTER TABLE PACampaignTransactions ADD CONSTRAINT FK_PACampaignTransactions_PAMediafiles 
+    FOREIGN KEY (IdMediafile) REFERENCES PAMediafiles(IdMediafile);
 GO
