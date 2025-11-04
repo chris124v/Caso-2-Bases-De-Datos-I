@@ -32,15 +32,18 @@ def create_database_and_collections():
             db.create_collection("PCUsers", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["userId", "email", "name", "role", "createdAt"],
+                    "required": ["userId", "email", "name", "role", "createdAt", "authMethod"],
                     "properties": {
                         "userId": {"bsonType": "string"},
                         "email": {"bsonType": "string"},
                         "name": {"bsonType": "string"},
                         "role": {"bsonType": "string", "enum": ["admin", "marketer", "agent", "client"]},
-                        "platform": {"bsonType": "string", "enum": ["promptcontent", "promptads", "promptcrm", "web"]},
+                        "passwordHash": {"bsonType": "string"}, 
+                        "authMethod": {"bsonType": "string", "enum": ["local", "oauth_google", "oauth_microsoft", "sso"]},
+                        "lastPasswordChange": {"bsonType": "date"},
+                        "twoFactorEnabled": {"bsonType": "bool"},
                         "createdAt": {"bsonType": "date"},
-                        "lastLogin": {"bsonType": "date"},
+                        "lastLogin": {"bsonType": "date"},  
                         "status": {"bsonType": "string", "enum": ["active", "inactive", "suspended"]}
                     }
                 }
@@ -78,6 +81,9 @@ def create_database_and_collections():
                         "createdAt": {"bsonType": "date"},
                         "updatedAt": {"bsonType": "date"}
                     }
+                },
+                "configuration": {  
+                    "bsonType": "object"
                 }
             })
             print("Colección 'PCExternal_Services' creada")
@@ -96,7 +102,8 @@ def create_database_and_collections():
             db.create_collection("PCApi_Call_Logs", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["logId", "serviceId", "timestamp"],
+                    "required": ["logId", "serviceId", "timestamp", "request", "response",
+                                 "statusCode", "userId", "platform", "ipAddress"],
                     "properties": {
                         "logId": {"bsonType": "string"},
                         "serviceId": {"bsonType": "string"},
@@ -109,6 +116,8 @@ def create_database_and_collections():
                         "result": {"bsonType": "string"},
                         "userId": {"bsonType": "string"},
                         "platform": {"bsonType": "string"},
+                        "ipAddress": {"bsonType": "string"},
+                        "processType": {"bsonType": "string"},
                         "timestamp": {"bsonType": "date"},
                         "processedAt": {"bsonType": "date"},
                         "errorDetails": {"bsonType": "string"}
@@ -133,11 +142,20 @@ def create_database_and_collections():
             db.create_collection("PCAi_Models_Catalog", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["modelId", "name", "version", "createdAt"],
+                    "required": ["modelId", "name", "provider", "modelEndpoint", "version", "createdAt"],
                     "properties": {
                         "modelId": {"bsonType": "string"},
                         "name": {"bsonType": "string"},
                         "description": {"bsonType": "string"},
+                        "provider": {
+                            "bsonType": "string",
+                            "enum": ["openai", "anthropic", "google", "huggingface", "aws_bedrock", "azure_openai", "custom"]},
+                        "baseModel": {"bsonType": "string"},
+                        "modelEndpoint": {"bsonType": "string"},
+                        "isFineTuned": {"bsonType": "bool"},
+                        "fineTunedModelId": {"bsonType": "string"},
+                        "fineTunedAt": {"bsonType": "date"},
+                        "status": {"bsonType": "string", "enum": ["active", "inactive", "testing"]},
                         "createdAt": {"bsonType": "date"},
                         "updatedAt": {"bsonType": "date"}
                     }
@@ -159,7 +177,7 @@ def create_database_and_collections():
             db.create_collection("PCAi_Model_Logs", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["logId", "modelId", "timestamp"],
+                    "required": ["logId", "modelId", "timestamp", "input", "output", "userId", "status", "ipAddress"],
                     "properties": {
                         "logId": {"bsonType": "string"},
                         "modelId": {"bsonType": "string"},
@@ -168,6 +186,8 @@ def create_database_and_collections():
                         "output": {"bsonType": "object"},
                         "parameters": {"bsonType": "object"},
                         "userId": {"bsonType": "string"},
+                        "ipAddress": {"bsonType": "string"},
+                        "processType": {"bsonType": "string"},
                         "timestamp": {"bsonType": "date"},
                         "processingTime": {"bsonType": "int"},
                         "status": {"bsonType": "string"},
@@ -219,7 +239,7 @@ def create_database_and_collections():
             db.create_collection("PCimages", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["imageId", "imageUrl", "description", "hashtags", "createdAt"],
+                    "required": ["imageId", "imageUrl", "description", "hashtags", "createdAt", "status", "clientId", "format"],
                     "properties": {
                         "imageId": {"bsonType": "string"},
                         "imageUrl": {"bsonType": "string"},
@@ -231,6 +251,13 @@ def create_database_and_collections():
                         "category": {"bsonType": "string", "enum": ["social", "ads", "web", "email", "other"]},
                         "platform": {"bsonType": "array"},
                         "vectorEmbedding": {"bsonType": "array"},
+                        "clientId": {"bsonType": "string"},
+                        "campaignId": {"bsonType": "string"},
+                        "requestId": {"bsonType": "string"},
+                        "requestedBy": {"bsonType": "string"},
+                        "adId": {"bsonType": "string"},
+                        "strategyId": {"bsonType": "string"},
+                        "deliveryStatus": {"bsonType": "string", "enum": ["pending", "delivered", "notified"]},
                         "createdAt": {"bsonType": "date"},
                         "updatedAt": {"bsonType": "date"},
                         "status": {"bsonType": "string", "enum": ["draft", "approved", "archived"]},
@@ -249,6 +276,8 @@ def create_database_and_collections():
         db.PCimages.create_index([("description", TEXT)])
         db.PCimages.create_index([("createdAt", DESCENDING)])
         db.PCimages.create_index([("status", ASCENDING)])
+        db.PCimages.create_index([("clientId", ASCENDING)])
+        db.PCimages.create_index([("campaignId", ASCENDING)])
         print("  → Índices creados para 'PCimages'")
         
         # ============================================
@@ -258,7 +287,7 @@ def create_database_and_collections():
             db.create_collection("PC_Content_Requests", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["requestId", "clientId", "contentType", "createdAt"],
+                    "required": ["requestId", "clientId", "contentType", "createdAt", "status", "ipAddress", "httpMethod", "requestHeaders", "requestBody"],
                     "properties": {
                         "requestId": {"bsonType": "string"},
                         "clientId": {"bsonType": "string"},
@@ -266,7 +295,23 @@ def create_database_and_collections():
                         "description": {"bsonType": "string"},
                         "targetAudience": {"bsonType": "string"},
                         "campaignDescription": {"bsonType": "string"},
-                        "generatedContent": {"bsonType": "array"},
+                        "httpMethod": {"bsonType": "string", "enum": ["GET", "POST", "PUT", "DELETE", "PATCH"]},
+                        "requestHeaders": {"bsonType": "object"},
+                        "requestBody": {"bsonType": "object"},
+                        "ipAddress": {"bsonType": "string"},
+                        "generatedContent": {
+                            "bsonType": "array",
+                            "description": "Contenido generado como resultado",
+                            "items": {
+                                "bsonType": "object",
+                                "properties": {
+                                    "contentId": {"bsonType": "string"},
+                                    "contentType": {"bsonType": "string"},
+                                    "url": {"bsonType": "string"},
+                                    "metadata": {"bsonType": "object"}
+                                    }
+                            }
+                        },
                         "status": {"bsonType": "string", "enum": ["pending", "processing", "completed", "failed"]},
                         "createdAt": {"bsonType": "date"},
                         "completedAt": {"bsonType": "date"},
@@ -279,9 +324,13 @@ def create_database_and_collections():
             print("Colección 'PC_Content_Requests' ya existe")
         
         # ÍNDICES
-        db.PC_Content_Requests.create_index([("requestId", ASCENDING)], unique=True)
-        db.PC_Content_Requests.create_index([("clientId", ASCENDING)])
-        db.PC_Content_Requests.create_index([("createdAt", DESCENDING)])
+        db.content_requests.create_index([("requestId", ASCENDING)], unique=True)
+        db.content_requests.create_index([("clientId", ASCENDING)])
+        db.content_requests.create_index([("userId", ASCENDING)])
+        db.content_requests.create_index([("createdAt", DESCENDING)])
+        db.content_requests.create_index([("status", ASCENDING)])
+        db.content_requests.create_index([("contentType", ASCENDING)])
+        db.content_requests.create_index([("ipAddress", ASCENDING)])
         print("  → Índices creados para 'PC_Content_Requests'")
         
         # ============================================
@@ -291,7 +340,7 @@ def create_database_and_collections():
             db.create_collection("PC_Clients", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["clientId", "email", "name", "createdAt"],
+                    "required": ["clientId", "email", "name", "createdAt", "status"],
                     "properties": {
                         "clientId": {"bsonType": "string"},
                         "email": {"bsonType": "string"},
@@ -300,7 +349,35 @@ def create_database_and_collections():
                         "phone": {"bsonType": "string"},
                         "createdAt": {"bsonType": "date"},
                         "updatedAt": {"bsonType": "date"},
-                        "status": {"bsonType": "string", "enum": ["active", "inactive", "suspended"]}
+                        "status": {"bsonType": "string", "enum": ["active", "inactive", "suspended"]},
+                        "subscriptions": {
+                            "bsonType": "array",
+                            "items": {
+                                "bsonType": "object",
+                                "properties": {
+                                    "subscriptionId": {"bsonType": "string"},
+                                    "planId": {"bsonType": "string"},
+                                    "planName": {"bsonType": "string"},
+                                    "status": {"bsonType": "string", "enum": ["active", "paused", "cancelled"]},
+                                    "startDate": {"bsonType": "date"},
+                                    "endDate": {"bsonType": "date"},
+                                    "renewalDate": {"bsonType": "date"},
+                                    "paymentStatus": {"bsonType": "string", "enum": ["paid", "pending", "failed"]},
+                                    "usageTracking": {
+                                        "bsonType": "object",
+                                        "description": "Rastreo de uso por feature",
+                                        "additionalProperties": {
+                                            "bsonType": "object",
+                                            "properties": {
+                                                "used": {"bsonType": "int"},
+                                                "limit": {"bsonType": "int"},
+                                                "resetDate": {"bsonType": "date"}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             })
@@ -311,6 +388,7 @@ def create_database_and_collections():
         # ÍNDICES
         db.PC_Clients.create_index([("clientId", ASCENDING)], unique=True)
         db.PC_Clients.create_index([("email", ASCENDING)], unique=True)
+        db.PC_Clients.create_index([("status", ASCENDING)], unique=True)
         print("  → Índices creados para 'PC_Clients'")
         
         # ============================================
@@ -329,6 +407,19 @@ def create_database_and_collections():
                         "currency": {"bsonType": "string"},
                         "billingCycle": {"bsonType": "string", "enum": ["monthly", "quarterly", "annual"]},
                         "status": {"bsonType": "string", "enum": ["active", "discontinued"]},
+                        "features": {
+                            "bsonType": "array",
+                            "description": "Features incluidas en este plan con sus límites",
+                            "items": {
+                                "bsonType": "object",
+                                "required": ["featureId", "limit"],
+                                "properties": {
+                                    "featureId": {"bsonType": "string"},
+                                    "featureName": {"bsonType": "string"},
+                                    "limit": {"bsonType": "int", "description": "-1 para ilimitado"},
+                                }
+                            }
+                        },
                         "createdAt": {"bsonType": "date"},
                         "updatedAt": {"bsonType": "date"}
                     }
@@ -341,6 +432,7 @@ def create_database_and_collections():
         # ÍNDICES
         db.PCSubscription_Plans.create_index([("planId", ASCENDING)], unique=True)
         db.PCSubscription_Plans.create_index([("name", ASCENDING)])
+        db.PCsubscription_Plans.create_index([("status", ASCENDING)])
         print("  → Índices creados para 'PCSubscription_Plans'")
         
         # ============================================
@@ -431,7 +523,7 @@ def create_database_and_collections():
             db.create_collection("PCPayment_Transactions", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["transactionId", "subscriptionId", "amount", "timestamp"],
+                    "required": ["transactionId", "subscriptionId", "clientId", "amount", "timestamp"],
                     "properties": {
                         "transactionId": {"bsonType": "string"},
                         "subscriptionId": {"bsonType": "string"},
