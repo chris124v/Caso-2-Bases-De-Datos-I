@@ -250,6 +250,7 @@ def create_database_and_collections():
                         "hashtags": {"bsonType": "array"},
                         "category": {"bsonType": "string", "enum": ["social", "ads", "web", "other"]},
                         "platform": {"bsonType": "string", "enum": ["Youtube", "Instagram", "Facebook", "Tiktok", "other"]},
+                        "vectorEmbedding": {"bsonType": "array"},
                         "userID": {"bsonType": "string"}, 
                         "clientId": {"bsonType": "string"},
                         "requestId": {"bsonType": "string"},
