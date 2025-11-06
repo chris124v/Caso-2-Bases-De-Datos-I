@@ -245,8 +245,9 @@ CREATE TABLE IF NOT EXISTS public."PSFeatures"
     name character varying(40) NOT NULL,
     description character varying(150) NOT NULL,
     "dataType" character varying(30) NOT NULL,
-    "createdAt" timestamp without time zone NOT NULL,
+    "Value" character varying(30) NOT NULL,
     "featurePrice" numeric(10, 2),
+    "createdAt" timestamp without time zone NOT NULL,
     PRIMARY KEY ("IdFeature")
 );
 
@@ -297,8 +298,7 @@ CREATE TABLE IF NOT EXISTS public."PSCampaigns"
     "sourceServiceId" integer NOT NULL,
     "sourceServiceName" integer NOT NULL,
     "IdCurrency" integer NOT NULL,
-    "IdService" integer NOT NULL,
-    "IdControl" integer NOT NULL,
+    "IdRunLog" bigint NOT NULL,
     PRIMARY KEY ("IdCampaign", "IdCampaignStatus")
 );
 
@@ -308,13 +308,6 @@ CREATE TABLE IF NOT EXISTS public."PSCampaignMetrics"
     "IdCampaign" integer NOT NULL,
     "metricDate" timestamp without time zone NOT NULL,
     "totalReach" bigint,
-    "totalImpressions" bigint,
-    "totalClicks" bigint,
-    "totalViews" bigint,
-    "totalLikes" bigint,
-    "totalShares" bigint,
-    "totalComments" bigint,
-    "totalReactions" bigint,
     "totalLeads" integer NOT NULL,
     "qualifiedLeads" integer,
     "totalConversions" integer,
@@ -339,18 +332,13 @@ CREATE TABLE IF NOT EXISTS public."PSCampaignChannels"
     "totalSpent" numeric(12, 2) NOT NULL,
     "totalRevenue" numeric(12, 2) NOT NULL,
     leads integer NOT NULL,
-    conversions integer NOT NULL,
-    impressions bigint NOT NULL,
-    clicks bigint NOT NULL,
     "channelROI" numeric(10, 4) NOT NULL,
-    "conversionRate" numeric(5, 4) NOT NULL,
-    "clickRate" numeric(5, 4) NOT NULL,
     "createdAt" timestamp without time zone NOT NULL,
     "updatedAt" timestamp without time zone NOT NULL,
     PRIMARY KEY ("IdChannelSummary")
 );
 
-CREATE TABLE IF NOT EXISTS public."PSCampaingMarkets"
+CREATE TABLE IF NOT EXISTS public."PSCampaignMarkets"
 (
     "IdCampaignMarket" integer NOT NULL,
     "IdCampaign" integer NOT NULL,
@@ -410,12 +398,7 @@ CREATE TABLE IF NOT EXISTS public."PSContentUsage"
     "contentId" character varying(200) NOT NULL,
     "contentType" character varying(30) NOT NULL,
     "contentTitle" character varying(200) NOT NULL,
-    "usageCount" integer NOT NULL,
-    "totalViews" integer NOT NULL,
-    "totalLikes" integer NOT NULL,
-    "totalShares" integer NOT NULL,
-    "totalComments" integer NOT NULL,
-    "engamentRate" numeric(5, 4) NOT NULL,
+    "usageCount" bigint NOT NULL,
     "createdAt" timestamp without time zone NOT NULL,
     "updatedAt" timestamp without time zone NOT NULL,
     PRIMARY KEY ("IdContentUsage")
@@ -430,39 +413,17 @@ CREATE TABLE IF NOT EXISTS public."PSCampaignStatus"
     PRIMARY KEY ("IdCampaignStatus")
 );
 
-CREATE TABLE IF NOT EXISTS public."PSETLSources"
+CREATE TABLE IF NOT EXISTS public."PSETLConfig"
 (
-    "IdSource" integer NOT NULL,
-    "sourceName" integer NOT NULL,
-    "IdSourceType" integer NOT NULL,
-    description character varying(150) NOT NULL,
+    "IdConfig" integer NOT NULL,
+    "IdConnection" integer NOT NULL,
+    schedule character varying(100),
     "connectionString" text NOT NULL,
+    priority integer NOT NULL,
     enabled bit NOT NULL DEFAULT 1,
-    priority smallint NOT NULL,
     "createdAt" timestamp without time zone NOT NULL,
     "updatedAt" timestamp without time zone NOT NULL,
-    PRIMARY KEY ("IdSource", "IdSourceType")
-);
-
-CREATE TABLE IF NOT EXISTS public."PSETLControl"
-(
-    "IdControl" integer NOT NULL,
-    "IdSource" integer NOT NULL,
-    "runStartTime" timestamp without time zone NOT NULL,
-    "runEndTime" timestamp without time zone NOT NULL,
-    status character varying(40) NOT NULL,
-    "recordsProccessed" bigint NOT NULL,
-    "recordsInserted" bigint NOT NULL,
-    "recordsUpdated" bigint NOT NULL,
-    "recordsFailed" bigint NOT NULL,
-    "lastProccessedID" bigint NOT NULL,
-    "executionTime" timestamp without time zone NOT NULL,
-    "averageRecordTime" numeric(10, 4) NOT NULL,
-    "detailsMessage" text,
-    "executedBy" character varying(20) NOT NULL,
-    "createdAt" timestamp without time zone NOT NULL,
-    "IdServiceConnection" integer NOT NULL,
-    PRIMARY KEY ("IdControl")
+    PRIMARY KEY ("IdConfig")
 );
 
 CREATE TABLE IF NOT EXISTS public."PSETLErrors"
@@ -484,31 +445,6 @@ CREATE TABLE IF NOT EXISTS public."PSETLErrors"
     PRIMARY KEY ("IdError")
 );
 
-CREATE TABLE IF NOT EXISTS public."PSETLDataSync"
-(
-    "IdDataSync" integer NOT NULL,
-    "IdSource" integer NOT NULL,
-    "sourceTable" character varying(100) NOT NULL,
-    "targetTable" character varying(100) NOT NULL,
-    "lastSync" timestamp without time zone NOT NULL,
-    "lastSyncId" bigint NOT NULL,
-    "totalRecords" bigint NOT NULL,
-    "lastSyncDuration" timestamp without time zone NOT NULL,
-    "lastSuccesfulSync" timestamp without time zone NOT NULL,
-    "createdAt" timestamp without time zone NOT NULL,
-    "updatedAt" timestamp without time zone NOT NULL,
-    PRIMARY KEY ("IdDataSync")
-);
-
-CREATE TABLE IF NOT EXISTS public."PSETLSourceTypes"
-(
-    "IdSourceType" integer NOT NULL,
-    name character varying(40) NOT NULL,
-    description character varying(200) NOT NULL,
-    "createdAt" timestamp without time zone NOT NULL,
-    PRIMARY KEY ("IdSourceType")
-);
-
 CREATE TABLE IF NOT EXISTS public."PSAuthMethods"
 (
     "IdAuthMethod" integer NOT NULL,
@@ -519,9 +455,9 @@ CREATE TABLE IF NOT EXISTS public."PSAuthMethods"
     PRIMARY KEY ("IdAuthMethod")
 );
 
-CREATE TABLE IF NOT EXISTS public."PSAPISetups"
+CREATE TABLE IF NOT EXISTS public."PSAPIConfig"
 (
-    "IdAPISetup" integer NOT NULL,
+    "IdAPIConfig" integer NOT NULL,
     "apiName" character varying(100) NOT NULL,
     "apiProvider" character varying(100) NOT NULL,
     "apiVersion" character varying(20) NOT NULL,
@@ -533,14 +469,13 @@ CREATE TABLE IF NOT EXISTS public."PSAPISetups"
     "accessToken" bytea NOT NULL,
     "tokenExpiresAt" timestamp without time zone NOT NULL,
     enabled bit NOT NULL DEFAULT 1,
-    "lastUsed" timestamp without time zone NOT NULL,
-    "lastTestResult" character varying(20) NOT NULL,
     "createdAt" timestamp without time zone NOT NULL,
     "updatedAt" timestamp without time zone NOT NULL,
-    PRIMARY KEY ("IdAPISetup")
+    "IdService" integer NOT NULL,
+    PRIMARY KEY ("IdAPIConfig")
 );
 
-CREATE TABLE IF NOT EXISTS public."PSMCPServers"
+CREATE TABLE IF NOT EXISTS public."PSMCPServerConfig"
 (
     "IdMCPServer" integer NOT NULL,
     "serverName" character varying(100) NOT NULL,
@@ -548,14 +483,13 @@ CREATE TABLE IF NOT EXISTS public."PSMCPServers"
     description character varying(300) NOT NULL,
     "serverURL" character varying(255) NOT NULL,
     "serverPort" integer NOT NULL,
-    protocol character varying(10) NOT NULL,
     "IdAuthMethod" integer NOT NULL,
     "authToken" bytea NOT NULL,
     "availableTools" character varying(300) NOT NULL,
     "isActive" bit NOT NULL DEFAULT 1,
-    "responseTime" timestamp without time zone NOT NULL,
     "createdAt" timestamp without time zone NOT NULL,
     "updatedAt" timestamp without time zone NOT NULL,
+    "IdService" integer NOT NULL,
     PRIMARY KEY ("IdMCPServer")
 );
 
@@ -618,22 +552,20 @@ CREATE TABLE IF NOT EXISTS public."PSServices"
     PRIMARY KEY ("IdService")
 );
 
-CREATE TABLE IF NOT EXISTS public."PSServiceConnections"
+CREATE TABLE IF NOT EXISTS public."PSServiceConnectionConfig"
 (
-    "IdServiceConnection" integer NOT NULL,
-    "IdSourceService" integer NOT NULL,
-    "IdTargetService" integer NOT NULL,
-    "connectionType" character varying(40) NOT NULL,
-    "IdAPISetup" integer,
-    "IdMCPServer" integer,
+    "IdConnection" integer NOT NULL,
+    "connectionName" character varying(100) NOT NULL,
+    "connectionType" character varying(20) NOT NULL,
+    credentials text NOT NULL,
+    endpoint text NOT NULL,
+    metadata jsonb,
     enabled integer NOT NULL DEFAULT 1,
-    "lastConnection" timestamp without time zone NOT NULL,
-    "lastConnectionResult" character varying(40) NOT NULL,
-    "totalRequests" bigint NOT NULL,
-    "succesfulRequets" bigint NOT NULL,
     "createdAt" timestamp without time zone NOT NULL,
     "updatedAt" timestamp without time zone NOT NULL,
-    PRIMARY KEY ("IdServiceConnection")
+    "IdSourceService" integer NOT NULL,
+    "IdTargetService" integer NOT NULL,
+    PRIMARY KEY ("IdConnection")
 );
 
 CREATE TABLE IF NOT EXISTS public."PSServiceTypes"
@@ -643,6 +575,89 @@ CREATE TABLE IF NOT EXISTS public."PSServiceTypes"
     description character varying(150) NOT NULL,
     "createdAt" timestamp without time zone NOT NULL,
     PRIMARY KEY ("IdServiceType")
+);
+
+CREATE TABLE IF NOT EXISTS public."PSETLRunLog"
+(
+    "IdRunLog" serial NOT NULL,
+    "IdConfig" integer NOT NULL,
+    "runStart" timestamp without time zone NOT NULL,
+    "runEnd" timestamp without time zone NOT NULL,
+    "rowsProcessed" integer NOT NULL,
+    message text NOT NULL,
+    "lastProcessedID" bigint NOT NULL,
+    "recordsFailed" bigint NOT NULL,
+    "recordsInserted" bigint NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL,
+    PRIMARY KEY ("IdRunLog")
+);
+
+CREATE TABLE IF NOT EXISTS public."PSServiceConnectionLog"
+(
+    "IdServiceLog" serial NOT NULL,
+    "IdConnection" integer NOT NULL,
+    message text,
+    "connectionResult" character varying(30) NOT NULL,
+    "totalRequests" bigint NOT NULL,
+    "succesfullRequests" bigint NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL,
+    PRIMARY KEY ("IdServiceLog")
+);
+
+CREATE TABLE IF NOT EXISTS public."PSReactionTypes"
+(
+    "IdReactionType" integer NOT NULL,
+    name character varying(40) NOT NULL,
+    description character varying(150) NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL,
+    PRIMARY KEY ("IdReactionType")
+);
+
+CREATE TABLE IF NOT EXISTS public."PSCampaignMetricsReactions"
+(
+    "PSReactionTypes_IdReactionType" integer NOT NULL,
+    "PSCampaignMetrics_IdCampaignMetric" integer NOT NULL,
+    "reactionCount" bigint NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL,
+    "updatedAt" timestamp without time zone NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS public."PSETLDelta"
+(
+    "IdETLDelta" integer NOT NULL,
+    database character varying(30) NOT NULL,
+    view character varying(50) NOT NULL,
+    "lastInput" timestamp without time zone NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL,
+    "IdRunLog" integer NOT NULL,
+    PRIMARY KEY ("IdETLDelta")
+);
+
+CREATE TABLE IF NOT EXISTS public."PSRawData"
+(
+    "IdRawData" bigint NOT NULL,
+    "sourceService" character varying(30) NOT NULL,
+    "sourceTable" character varying(60) NOT NULL,
+    "sourceRecordID" character varying(100) NOT NULL,
+    "operationType" character varying(30) NOT NULL,
+    "isProcessed" bit NOT NULL DEFAULT 0,
+    "createdAt" timestamp without time zone NOT NULL,
+    "updateAt" timestamp without time zone NOT NULL,
+    "IdRunLog" integer NOT NULL,
+    PRIMARY KEY ("IdRawData")
+);
+
+CREATE TABLE IF NOT EXISTS public."PSCRUDRawData"
+(
+    "IdCrud" bigint NOT NULL,
+    "targetTable" character varying(40) NOT NULL,
+    "executionTimeMs" numeric(10, 3) NOT NULL,
+    "isProcessed" bit NOT NULL DEFAULT 0,
+    "targetRecordID" character varying(100) NOT NULL,
+    "IdRawData" bigint NOT NULL,
+    "updatedAt" timestamp without time zone NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL,
+    PRIMARY KEY ("IdCrud")
 );
 
 ALTER TABLE IF EXISTS public."PSUsers"
@@ -878,16 +893,8 @@ ALTER TABLE IF EXISTS public."PSCampaigns"
 
 
 ALTER TABLE IF EXISTS public."PSCampaigns"
-    ADD FOREIGN KEY ("IdService")
-    REFERENCES public."PSServices" ("IdService") MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public."PSCampaigns"
-    ADD FOREIGN KEY ("IdControl")
-    REFERENCES public."PSETLControl" ("IdControl") MATCH SIMPLE
+    ADD FOREIGN KEY ("IdRunLog")
+    REFERENCES public."PSETLRunLog" ("IdRunLog") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -909,7 +916,7 @@ ALTER TABLE IF EXISTS public."PSCampaignChannels"
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."PSCampaingMarkets"
+ALTER TABLE IF EXISTS public."PSCampaignMarkets"
     ADD FOREIGN KEY ("IdCampaign")
     REFERENCES public."PSCampaigns" ("IdCampaign") MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -949,25 +956,9 @@ ALTER TABLE IF EXISTS public."PSContentUsage"
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."PSETLSources"
-    ADD FOREIGN KEY ("IdSourceType")
-    REFERENCES public."PSETLSourceTypes" ("IdSourceType") MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public."PSETLControl"
-    ADD FOREIGN KEY ("IdSource")
-    REFERENCES public."PSETLSources" ("IdSource") MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public."PSETLControl"
-    ADD FOREIGN KEY ("IdServiceConnection")
-    REFERENCES public."PSServiceConnections" ("IdServiceConnection") MATCH SIMPLE
+ALTER TABLE IF EXISTS public."PSETLConfig"
+    ADD FOREIGN KEY ("IdConnection")
+    REFERENCES public."PSServiceConnectionConfig" ("IdConnection") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -975,21 +966,13 @@ ALTER TABLE IF EXISTS public."PSETLControl"
 
 ALTER TABLE IF EXISTS public."PSETLErrors"
     ADD FOREIGN KEY ("IdControl")
-    REFERENCES public."PSETLControl" ("IdControl") MATCH SIMPLE
+    REFERENCES public."PSETLConfig" ("IdConfig") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."PSETLDataSync"
-    ADD FOREIGN KEY ("IdSource")
-    REFERENCES public."PSETLSources" ("IdSource") MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public."PSAPISetups"
+ALTER TABLE IF EXISTS public."PSAPIConfig"
     ADD FOREIGN KEY ("IdAuthMethod")
     REFERENCES public."PSAuthMethods" ("IdAuthMethod") MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -997,9 +980,25 @@ ALTER TABLE IF EXISTS public."PSAPISetups"
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."PSMCPServers"
+ALTER TABLE IF EXISTS public."PSAPIConfig"
+    ADD FOREIGN KEY ("IdService")
+    REFERENCES public."PSServices" ("IdService") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSMCPServerConfig"
     ADD FOREIGN KEY ("IdAuthMethod")
     REFERENCES public."PSAuthMethods" ("IdAuthMethod") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSMCPServerConfig"
+    ADD FOREIGN KEY ("IdService")
+    REFERENCES public."PSServices" ("IdService") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -1007,7 +1006,7 @@ ALTER TABLE IF EXISTS public."PSMCPServers"
 
 ALTER TABLE IF EXISTS public."PSAPICallLogs"
     ADD FOREIGN KEY ("IdAPISetup")
-    REFERENCES public."PSAPISetups" ("IdAPISetup") MATCH SIMPLE
+    REFERENCES public."PSAPIConfig" ("IdAPIConfig") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -1015,7 +1014,7 @@ ALTER TABLE IF EXISTS public."PSAPICallLogs"
 
 ALTER TABLE IF EXISTS public."PSAPICallLogs"
     ADD FOREIGN KEY ("IdControl")
-    REFERENCES public."PSETLControl" ("IdControl") MATCH SIMPLE
+    REFERENCES public."PSETLConfig" ("IdConfig") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -1023,7 +1022,7 @@ ALTER TABLE IF EXISTS public."PSAPICallLogs"
 
 ALTER TABLE IF EXISTS public."PSMCPRequestLogs"
     ADD FOREIGN KEY ("IdMCPServer")
-    REFERENCES public."PSMCPServers" ("IdMCPServer") MATCH SIMPLE
+    REFERENCES public."PSMCPServerConfig" ("IdMCPServer") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -1031,7 +1030,7 @@ ALTER TABLE IF EXISTS public."PSMCPRequestLogs"
 
 ALTER TABLE IF EXISTS public."PSMCPRequestLogs"
     ADD FOREIGN KEY ("IdControl")
-    REFERENCES public."PSETLControl" ("IdControl") MATCH SIMPLE
+    REFERENCES public."PSETLConfig" ("IdConfig") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -1045,7 +1044,7 @@ ALTER TABLE IF EXISTS public."PSServices"
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."PSServiceConnections"
+ALTER TABLE IF EXISTS public."PSServiceConnectionConfig"
     ADD FOREIGN KEY ("IdSourceService")
     REFERENCES public."PSServices" ("IdService") MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -1053,7 +1052,7 @@ ALTER TABLE IF EXISTS public."PSServiceConnections"
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."PSServiceConnections"
+ALTER TABLE IF EXISTS public."PSServiceConnectionConfig"
     ADD FOREIGN KEY ("IdTargetService")
     REFERENCES public."PSServices" ("IdService") MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -1061,17 +1060,57 @@ ALTER TABLE IF EXISTS public."PSServiceConnections"
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."PSServiceConnections"
-    ADD FOREIGN KEY ("IdAPISetup")
-    REFERENCES public."PSAPISetups" ("IdAPISetup") MATCH SIMPLE
+ALTER TABLE IF EXISTS public."PSETLRunLog"
+    ADD FOREIGN KEY ("IdConfig")
+    REFERENCES public."PSETLConfig" ("IdConfig") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."PSServiceConnections"
-    ADD FOREIGN KEY ("IdMCPServer")
-    REFERENCES public."PSMCPServers" ("IdMCPServer") MATCH SIMPLE
+ALTER TABLE IF EXISTS public."PSServiceConnectionLog"
+    ADD FOREIGN KEY ("IdConnection")
+    REFERENCES public."PSServiceConnectionConfig" ("IdConnection") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSCampaignMetricsReactions"
+    ADD FOREIGN KEY ("PSReactionTypes_IdReactionType")
+    REFERENCES public."PSReactionTypes" ("IdReactionType") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSCampaignMetricsReactions"
+    ADD FOREIGN KEY ("PSCampaignMetrics_IdCampaignMetric")
+    REFERENCES public."PSCampaignMetrics" ("IdCampaignMetric") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSETLDelta"
+    ADD FOREIGN KEY ("IdRunLog")
+    REFERENCES public."PSETLRunLog" ("IdRunLog") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSRawData"
+    ADD FOREIGN KEY ("IdRunLog")
+    REFERENCES public."PSETLRunLog" ("IdRunLog") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSCRUDRawData"
+    ADD FOREIGN KEY ("IdRawData")
+    REFERENCES public."PSRawData" ("IdRawData") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
