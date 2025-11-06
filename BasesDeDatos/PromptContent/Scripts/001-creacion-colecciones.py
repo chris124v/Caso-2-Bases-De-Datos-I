@@ -49,7 +49,7 @@ def create_database_and_collections():
                 }
             })
             print("Colección 'PCUsers' creada")
-        except CollectionInvalid:
+        except CollectionInvalid:       
             print("Colección 'PCUsers' ya existe")
         
         # ÍNDICES
@@ -58,7 +58,7 @@ def create_database_and_collections():
         db.PCUsers.create_index([("userId", ASCENDING)], unique=True)
         db.PCUsers.create_index([("email", ASCENDING)], unique=True)
         db.PCUsers.create_index([("role", ASCENDING)])
-        print("  → Índices creados para 'PCPCUsers'")
+        print("  → Índices creados para 'PCUsers'")
         
         # ============================================
         # 2. COLECCIÓN: PCExternal_Services
@@ -67,23 +67,23 @@ def create_database_and_collections():
             db.create_collection("PCExternal_Services", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["serviceId", "name", "baseUrl", "authMethod", "createdAt"],
+                    "required": ["serviceId", "name", "baseUrl", "configuration", "authMethod", "createdAt"],
                     "properties": {
                         "serviceId": {"bsonType": "string"},
                         "name": {"bsonType": "string"},
                         "baseUrl": {"bsonType": "string"},
-                        "authMethod": {"bsonType": "string", "enum": ["OAuth2", "API_KEY", "Bearer", "Basic", "Custom"]},
+                        "authMethod": {"bsonType": "string"},
                         "encryptedCredentials": {"bsonType": "string"},
                         "secretKey": {"bsonType": "string"},
                         "apiKey": {"bsonType": "string"},
                         "status": {"bsonType": "string", "enum": ["active", "inactive", "testing"]},
                         "lastTestedAt": {"bsonType": "date"},
                         "createdAt": {"bsonType": "date"},
-                        "updatedAt": {"bsonType": "date"}
-                    }
-                },
-                "configuration": {  
-                    "bsonType": "object"
+                        "updatedAt": {"bsonType": "date"},
+                        "configuration": {  
+                                            "bsonType": "object"
+                                        }
+                    },
                 }
             })
             print("Colección 'PCExternal_Services' creada")
@@ -207,10 +207,10 @@ def create_database_and_collections():
         print("  → Índices creados para 'PCAi_Model_Logs'")
         
         # ============================================
-        # 6. COLECCIÓN: PC_Content_Types
+        # 6. COLECCIÓN: PCContent_Types
         # ============================================
         try:
-            db.create_collection("PC_Content_Types", validator={
+            db.create_collection("PCContent_Types", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["contentTypeId", "name", "createdAt"],
@@ -223,68 +223,67 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("Colección 'PC_Content_Types' creada")
+            print("Colección 'PCContent_Types' creada")
         except CollectionInvalid:
-            print("Colección 'PC_Content_Types' ya existe")
+            print("Colección 'PCContent_Types' ya existe")
         
         # ÍNDICES
-        db.PC_Content_Types.create_index([("contentTypeId", ASCENDING)], unique=True)
-        db.PC_Content_Types.create_index([("name", ASCENDING)])
-        print("  → Índices creados para 'PC_Content_Types'")
+        db.PCContent_Types.create_index([("contentTypeId", ASCENDING)], unique=True)
+        db.PCContent_Types.create_index([("name", ASCENDING)])
+        print("  → Índices creados para 'PCContent_Types'")
         
         # ============================================
-        # 7. COLECCIÓN: PCimages
+        # 7. COLECCIÓN: PCmedia
         # ============================================
         try:
-            db.create_collection("PCimages", validator={
+            db.create_collection("PCmedia", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["imageId", "imageUrl", "description", "hashtags", "createdAt", "status", "clientId", "format"],
+                    "required": ["clientId", "requestDescription", "hashtags", "status", "format"],
                     "properties": {
-                        "imageId": {"bsonType": "string"},
-                        "imageUrl": {"bsonType": "string"},
+                        "mediaId": {"bsonType": "string"},
+                        "mediaUrl": {"bsonType": "string"},
                         "fileName": {"bsonType": "string"},
-                        "format": {"bsonType": "string", "enum": ["jpg", "png", "gif", "webp"]},
+                        "format": {"bsonType": "string"},
                         "size": {"bsonType": "int"},
                         "description": {"bsonType": "string"},
                         "hashtags": {"bsonType": "array"},
-                        "category": {"bsonType": "string", "enum": ["social", "ads", "web", "email", "other"]},
-                        "platform": {"bsonType": "array"},
-                        "vectorEmbedding": {"bsonType": "array"},
+                        "category": {"bsonType": "string", "enum": ["social", "ads", "web", "other"]},
+                        "platform": {"bsonType": "string", "enum": ["Youtube", "Instagram", "Facebook", "Tiktok", "other"]},
+                        "userID": {"bsonType": "string"}, 
                         "clientId": {"bsonType": "string"},
-                        "campaignId": {"bsonType": "string"},
                         "requestId": {"bsonType": "string"},
-                        "requestedBy": {"bsonType": "string"},
+                        "requestDescrption": {"bsonType": "string"},
+                        "campaignId": {"bsonType": "string"},
                         "adId": {"bsonType": "string"},
                         "strategyId": {"bsonType": "string"},
-                        "deliveryStatus": {"bsonType": "string", "enum": ["pending", "delivered", "notified"]},
+                        "deliveryStatus": {"bsonType": "string", "enum": ["Pending", "Delivered", "Processing"]},
                         "createdAt": {"bsonType": "date"},
                         "updatedAt": {"bsonType": "date"},
-                        "status": {"bsonType": "string", "enum": ["draft", "approved", "archived"]},
                         "usageCount": {"bsonType": "int"},
                         "rights": {"bsonType": "string"}
                     }
                 }
             })
-            print("Colección 'PCimages' creada")
+            print("Colección 'PCmedia' creada")
         except CollectionInvalid:
             print("Colección 'PCimages' ya existe")
         
         # ÍNDICES
-        db.PCimages.create_index([("imageId", ASCENDING)], unique=True)
-        db.PCimages.create_index([("hashtags", ASCENDING)])
-        db.PCimages.create_index([("description", TEXT)])
-        db.PCimages.create_index([("createdAt", DESCENDING)])
-        db.PCimages.create_index([("status", ASCENDING)])
-        db.PCimages.create_index([("clientId", ASCENDING)])
-        db.PCimages.create_index([("campaignId", ASCENDING)])
-        print("  → Índices creados para 'PCimages'")
+        db.PCmedia.create_index([("mediaId", ASCENDING)], unique=True)
+        db.PCmedia.create_index([("hashtags", ASCENDING)])
+        db.PCmedia.create_index([("description", TEXT)])
+        db.PCmedia.create_index([("createdAt", DESCENDING)])
+        db.PCmedia.create_index([("status", ASCENDING)])
+        db.PCmedia.create_index([("clientId", ASCENDING)])
+        db.PCmedia.create_index([("campaignId", ASCENDING)])
+        print("  → Índices creados para 'PCmedia'")
         
         # ============================================
-        # 8. COLECCIÓN: PC_Content_Requests
+        # 8. COLECCIÓN: PCContent_Requests
         # ============================================
         try:
-            db.create_collection("PC_Content_Requests", validator={
+            db.create_collection("PCContent_Requests", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["requestId", "clientId", "contentType", "createdAt", "status", "ipAddress", "httpMethod", "requestHeaders", "requestBody"],
@@ -319,25 +318,25 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PC_Content_Requests' creada")
+            print("✓ Colección 'PCContent_Requests' creada")
         except CollectionInvalid:
-            print("Colección 'PC_Content_Requests' ya existe")
+            print("Colección 'PCContent_Requests' ya existe")
         
         # ÍNDICES
-        db.content_requests.create_index([("requestId", ASCENDING)], unique=True)
-        db.content_requests.create_index([("clientId", ASCENDING)])
-        db.content_requests.create_index([("userId", ASCENDING)])
-        db.content_requests.create_index([("createdAt", DESCENDING)])
-        db.content_requests.create_index([("status", ASCENDING)])
-        db.content_requests.create_index([("contentType", ASCENDING)])
-        db.content_requests.create_index([("ipAddress", ASCENDING)])
-        print("  → Índices creados para 'PC_Content_Requests'")
+        db.PCContent_Requests.create_index([("requestId", ASCENDING)], unique=True)
+        db.PCContent_Requests.create_index([("clientId", ASCENDING)])
+        db.PCContent_Requests.create_index([("userId", ASCENDING)])
+        db.PCContent_Requests.create_index([("createdAt", DESCENDING)])
+        db.PCContent_Requests.create_index([("status", ASCENDING)])
+        db.PCContent_Requests.create_index([("contentType", ASCENDING)])
+        db.PCContent_Requests.create_index([("ipAddress", ASCENDING)])
+        print("  → Índices creados para 'PCContent_Requests'")
         
         # ============================================
         # 9. COLECCIÓN: PC_Clients
         # ============================================
         try:
-            db.create_collection("PC_Clients", validator={
+            db.create_collection("PCClients", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
                     "required": ["clientId", "email", "name", "createdAt", "status"],
@@ -381,15 +380,15 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("Colección 'PC_Clients' creada")
+            print("Colección 'PCClients' creada")
         except CollectionInvalid:
             print("Colección 'PC_Clients' ya existe")
         
         # ÍNDICES
-        db.PC_Clients.create_index([("clientId", ASCENDING)], unique=True)
-        db.PC_Clients.create_index([("email", ASCENDING)], unique=True)
-        db.PC_Clients.create_index([("status", ASCENDING)], unique=True)
-        print("  → Índices creados para 'PC_Clients'")
+        db.PCClients.create_index([("clientId", ASCENDING)], unique=True)
+        db.PCClients.create_index([("email", ASCENDING)], unique=True)
+        db.PCClients.create_index([("status", ASCENDING)], unique=True)
+        print("  → Índices creados para 'PCClients'")
         
         # ============================================
         # 10. COLECCIÓN: PCSubscription_Plans
@@ -432,7 +431,7 @@ def create_database_and_collections():
         # ÍNDICES
         db.PCSubscription_Plans.create_index([("planId", ASCENDING)], unique=True)
         db.PCSubscription_Plans.create_index([("name", ASCENDING)])
-        db.PCsubscription_Plans.create_index([("status", ASCENDING)])
+        db.PCSubscription_Plans.create_index([("status", ASCENDING)])
         print("  → Índices creados para 'PCSubscription_Plans'")
         
         # ============================================
@@ -447,7 +446,6 @@ def create_database_and_collections():
                         "featureId": {"bsonType": "string"},
                         "name": {"bsonType": "string"},
                         "description": {"bsonType": "string"},
-                        "metricsTracked": {"bsonType": "array"},
                         "createdAt": {"bsonType": "date"}
                     }
                 }
@@ -470,7 +468,7 @@ def create_database_and_collections():
                     "required": ["methodId", "name", "type", "createdAt"],
                     "properties": {
                         "methodId": {"bsonType": "string"},
-                        "name": {"bsonType": "string", "enum": ["credit_card", "debit_card", "paypal", "stripe", "wire_transfer"]},
+                        "name": {"bsonType": "string", "enum": ["credit_card", "debit_card", "paypal", "wire_transfer"]},
                         "type": {"bsonType": "string"},
                         "description": {"bsonType": "string"},
                         "isActive": {"bsonType": "bool"},
