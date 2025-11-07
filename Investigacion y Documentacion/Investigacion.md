@@ -784,7 +784,7 @@ Ventajas del Procesamiento Delta
 * Menor consumo de red al transferir menos datos
 * Escalabilidad mejorada al crecer el volumen de datos
 
-- Implementación del Delta
+-Implementación del Delta
 El procesamiento delta se implementa mediante:
 
 Almacenamiento de timestamp de última ejecución: la tabla PSETLDelta guarda la fecha y hora de la última vez que se procesaron datos de cada fuente
