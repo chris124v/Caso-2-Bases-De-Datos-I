@@ -734,7 +734,96 @@ e. Prompt Sales en PostgreSQL (Chris y Miguel)
 
 #### d. Prompt Sales (?)
 - ¿Qué es un ETL y cómo crear uno que se ejecute cada 11 minutos actualizando solo valores delta?  
+
+- ¿Qué es un ETL?
+ETL es un acrónimo que significa Extract, Transform, Load (Extraer, Transformar, Cargar). Es un proceso automatizado que mueve y transforma datos desde uno o varios sistemas de origen hacia un sistema de destino, aplicando reglas de negocio y transformaciones en el camino.
+Componentes del ETL
+
+- Extract (Extraer)
+La fase de extracción consiste en obtener datos de una o múltiples fuentes de información. Estas fuentes pueden ser bases de datos relacionales, archivos planos, APIs REST, servicios web, o cualquier sistema que contenga datos relevantes para el proceso. Durante esta fase se identifican los datos necesarios y se establece la conexión con las fuentes de origen.
+En el contexto del proyecto PromptSales, la extracción involucra conectarse a tres bases de datos diferentes:
+
+* PromptAds en SQL Server: contiene información sobre campañas publicitarias, gastos, métricas de rendimiento y anuncios publicados
+* PromptCRM en SQL Server: almacena datos de leads, clientes potenciales, conversiones y montos de ventas
+* PromptContent en MongoDB: guarda información sobre el contenido utilizado en campañas, incluyendo imágenes, descripciones y engagement
+
+- Transform (Transformar)
+La fase de transformación es el núcleo del proceso ETL. Aquí se aplican reglas de negocio, se limpian los datos, se realizan cálculos, se combinan registros de diferentes fuentes y se prepara la información para su carga final. Las transformaciones típicas incluyen:
+
+* Limpieza de datos: eliminar registros duplicados, corregir valores nulos, estandarizar formatos
+* Cálculos y agregaciones: sumar montos, calcular promedios, determinar métricas derivadas
+* Combinación de datos: unir información de múltiples fuentes usando claves comunes
+* Validación: verificar que los datos cumplan con reglas de integridad y consistencia
+* Filtrado: seleccionar solo los registros relevantes según criterios específicos
+
+Para el proyecto PromptSales, las transformaciones principales incluyen:
+
+- Calcular el ROI (Return on Investment) de cada campaña: (ingresos - gastos) / gastos
+- Determinar tasas de conversión: número de conversiones / número de leads
+- Calcular costo por lead: gasto total / número de leads generados
+- Sumarizar métricas por campaña, canal, mercado y período temporal
+- Combinar datos de las tres fuentes usando IdCampaign como clave común
+
+- Load (Cargar)
+La fase de carga consiste en insertar o actualizar los datos transformados en el sistema de destino. Dependiendo del caso de uso, esto puede ser una inserción completa, una actualización incremental, o una combinación de ambas (upsert). Es importante manejar correctamente los conflictos y garantizar la integridad referencial.
+
+En PromptSales, la carga implica:
+
+* Insertar o actualizar registros en las tablas de sumarización (PSCampaigns, PSCampaignMetrics, PSLeadsSumarry, PSSalesSumarry)
+* Registrar la ejecución del ETL en PSETLRunLog
+* Actualizar las marcas de tiempo en PSETLDelta para el control de cambios
+* Manejar errores y registrarlos en PSETLErrors
+
+- Concepto de Procesamiento Delta
+El procesamiento delta es una técnica de optimización que consiste en procesar únicamente los datos que han cambiado desde la última ejecución del ETL, en lugar de reprocesar todo el conjunto de datos cada vez.
+Ventajas del Procesamiento Delta
+
+* Reducción significativa del tiempo de procesamiento
+* Menor carga en los sistemas de origen
+* Uso más eficiente de recursos computacionales
+* Menor consumo de red al transferir menos datos
+* Escalabilidad mejorada al crecer el volumen de datos
+
+-Implementación del Delta
+El procesamiento delta se implementa mediante:
+
+Almacenamiento de timestamp de última ejecución: la tabla PSETLDelta guarda la fecha y hora de la última vez que se procesaron datos de cada fuente
+Filtrado en la extracción: las queries de extracción incluyen condiciones WHERE que filtran por fecha de actualización mayor a la última ejecución
+Actualización del timestamp: después de cada ejecución exitosa, se actualiza el timestamp en PSETLDelta
+
 - ¿Qué herramienta de diseño visual de pipelines se puede usar (no pandas)?  
+
+¿Qué es un Pipeline?
+Un pipeline (tubería de datos) es la secuencia completa y automatizada de pasos que conforman el proceso ETL. Un pipeline incluye no solo las tres fases del ETL, sino también componentes adicionales como:
+
+* Scheduling: mecanismo para ejecutar el pipeline automáticamente en intervalos definidos
+* Orquestación: coordinación de múltiples tareas y manejo de dependencias
+* Monitoreo: seguimiento del estado de ejecución y detección de fallos
+* Manejo de errores: reintentos, notificaciones y recuperación ante fallos
+* Logging: registro detallado de cada ejecución para auditoría y troubleshooting
+
+Arquitectura del Pipeline
+Un pipeline típico sigue esta estructura:
+
+- Trigger: evento o programación temporal que inicia el proceso
+- Extracción de datos desde fuentes
+- lmacenamiento temporal (staging area) para datos crudos
+- Aplicación de transformaciones
+- Validación de datos transformados
+- Carga en sistema de destino
+- Actualización de metadatos y control de cambios
+- Registro de la ejecución y sus resultados
+
+El Pipeline ETL de PromptSales
+Arquitectura Específica
+El pipeline de PromptSales tiene las siguientes características:
+Frecuencia de Ejecución
+
+* El ETL se ejecuta cada 11 minutos de forma automática. Esta frecuencia permite mantener los datos actualizados sin sobrecargar los sistemas de origen.
+
+
+
+
 - ¿Qué son triggers, cursores, interbloqueos, extracción de metadata, monitoreo de consultas, coalesce, case, joins, y control de permisos mediante grant y revoke?
 
 ---
