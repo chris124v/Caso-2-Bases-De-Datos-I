@@ -21,11 +21,11 @@ metadata:
   namespace: default
 type: Opaque
 stringData:
-  database: mydb
-  username: myuser
-  password: mypass
+  database: promptsales
+  username: postgres
+  password: postgres123
 ---
-# Ejemplo de Secret para SQL Server
+# Ejemplo de Secret para SQL Server 1
 apiVersion: v1
 kind: Secret
 metadata:
@@ -33,9 +33,21 @@ metadata:
   namespace: default
 type: Opaque
 stringData:
-  database: sqldb
+  database: promptads
   username: sa
-  password: StrongPasswordHere
+  password: YourStrong!Passw0rd
+---
+# Ejemplo de Secret para SQL Server 2
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sqlserver2-credentials
+  namespace: default
+type: Opaque
+stringData:
+  database: promptcrm
+  username: sa
+  password: YourStrong!Passw0rd
 ---
 # Ejemplo de Secret para MongoDB
 apiVersion: v1
@@ -45,6 +57,9 @@ metadata:
   namespace: default
 type: Opaque
 stringData:
-  database: my_mongo_db
-  username: mongo_user
-  password: mongo_password
+  database: promptcontent
+  # Si tu MongoDB NO usa autenticación (como en tu caso con MongoDB Compass),
+  # puedes omitir username/password. Si usas autenticación, descomenta y
+  # rellena las siguientes claves:
+  # username: promptcontent
+  # password: mongo_password

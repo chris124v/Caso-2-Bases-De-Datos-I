@@ -1,0 +1,29 @@
+postgresql:
+  service_name: localhost:30432
+  database: promptsales
+  username: postgres
+  password: postgres123
+  namespace: promptsales
+  use_k8s_service: false
+
+mongodb:
+  service_name: localhost:30017
+  database: promptcontent
+  namespace: promptcontent
+  use_k8s_service: false
+
+sqlserver:
+  service_name: localhost:31433
+  database: promptads
+  username: sa
+  password: YourStrong!Passw0rd
+  namespace: promptads
+  use_k8s_service: false
+
+sqlserver2:
+  service_name: localhost:32433
+  database: promptcrm
+  username: sa
+  password: YourStrong!Passw0rd
+  namespace: promptcrm
+  use_k8s_service: false
