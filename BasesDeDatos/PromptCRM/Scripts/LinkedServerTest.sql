@@ -1,0 +1,1 @@
+select * from [DESKTOP-65RRTMG\LINKEDSERVERTEST].[PromptAds].[dbo].[PACampaigns]
