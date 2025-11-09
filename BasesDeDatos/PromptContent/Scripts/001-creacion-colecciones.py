@@ -239,7 +239,7 @@ def create_database_and_collections():
             db.create_collection("PCmedia", validator={
                 "$jsonSchema": {
                     "bsonType": "object",
-                    "required": ["clientId", "requestDescription", "hashtags", "status", "format"],
+                    "required": ["clientId", "requestDescription", "hashtags", "deliveryStatus", "format"],
                     "properties": {
                         "mediaId": {"bsonType": "string"},
                         "mediaUrl": {"bsonType": "string"},
@@ -251,10 +251,10 @@ def create_database_and_collections():
                         "category": {"bsonType": "string", "enum": ["social", "ads", "web", "other"]},
                         "platform": {"bsonType": "string", "enum": ["Youtube", "Instagram", "Facebook", "Tiktok", "other"]},
                         "vectorEmbedding": {"bsonType": "array"},
-                        "userID": {"bsonType": "string"}, 
+                        "userId": {"bsonType": "string"}, 
                         "clientId": {"bsonType": "string"},
                         "requestId": {"bsonType": "string"},
-                        "requestDescrption": {"bsonType": "string"},
+                        "requestDescription": {"bsonType": "string"},
                         "campaignId": {"bsonType": "string"},
                         "adId": {"bsonType": "string"},
                         "strategyId": {"bsonType": "string"},
