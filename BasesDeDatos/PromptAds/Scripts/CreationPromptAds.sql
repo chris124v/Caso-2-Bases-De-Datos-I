@@ -65,6 +65,7 @@ CREATE TABLE [dbo].[PAAdPerformances](
 	[IdPublishedAd] [bigint] NOT NULL,
 	[budget] [decimal](16, 2) NOT NULL,
 	[expenses] [decimal](16, 2) NOT NULL,
+	[revenue] [decimal](16, 2) NOT NULL,
 	[IdAdSentiment] [tinyint] NOT NULL,
 	[createdAt] [datetime] NOT NULL,
 	[IdLastAdPerformance] [bigint] NULL,
@@ -1279,3 +1280,4 @@ USE [master]
 GO
 ALTER DATABASE [promptads] SET  READ_WRITE 
 GO
+

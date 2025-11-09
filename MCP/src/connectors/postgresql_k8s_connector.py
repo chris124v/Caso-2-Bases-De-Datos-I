@@ -13,8 +13,12 @@ class PostgreSQLK8sConnector(BaseDatabaseConnector, KubernetesAwareConnector):
             endpoint = self.get_service_endpoint(service_name, namespace)
             host, port = endpoint.split(":")
         else:
-            host = service_name
-            port = "5432"
+            # support passing host:port in service_name when not using k8s service
+            if ":" in service_name:
+                host, port = service_name.rsplit(":", 1)
+            else:
+                host = service_name
+                port = "5432"
 
 
         self.connection_string = f"postgresql://{username}:{password}@{host}:{port}/{database}"

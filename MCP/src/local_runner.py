@@ -94,6 +94,29 @@ async def build_connectors_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
             use_k8s_service=bool(sql_cfg.get("use_k8s_service", False)),
         )
 
+    # Optional: support two SQL Server entries like sqlserver1 / sqlserver2
+    sql1_cfg = cfg.get("sqlserver1") or cfg.get("sql1")
+    if sql1_cfg:
+        connectors["sql1"] = SQLServerK8sConnector(
+            service_name=sql1_cfg.get("service_name", "localhost"),
+            database=sql1_cfg.get("database", "master"),
+            username=sql1_cfg.get("username", "sa"),
+            password=sql1_cfg.get("password", ""),
+            namespace=sql1_cfg.get("namespace", "default"),
+            use_k8s_service=bool(sql1_cfg.get("use_k8s_service", False)),
+        )
+
+    sql2_cfg = cfg.get("sqlserver2") or cfg.get("sql2")
+    if sql2_cfg:
+        connectors["sql2"] = SQLServerK8sConnector(
+            service_name=sql2_cfg.get("service_name", "localhost"),
+            database=sql2_cfg.get("database", "master"),
+            username=sql2_cfg.get("username", "sa"),
+            password=sql2_cfg.get("password", ""),
+            namespace=sql2_cfg.get("namespace", "default"),
+            use_k8s_service=bool(sql2_cfg.get("use_k8s_service", False)),
+        )
+
     return connectors
 
 
