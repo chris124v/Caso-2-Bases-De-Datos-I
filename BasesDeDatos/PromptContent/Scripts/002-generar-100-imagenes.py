@@ -24,10 +24,9 @@ PIXABAY_API_KEY = "53186043-03d471fac4bce3d4ea7b8a2f7"
 # IA para generar descripciones 
 AI_PROVIDER = "groq"
 
-# API Keys - Solo necesitas configurar la que vayas a usar
-GEMINI_API_KEY = "AIzaSyDNIdmNff2wTES6wZQpvLAwwSZr0e8Vdp8"      
-GROQ_API_KEY = "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"          
-ANTHROPIC_API_KEY = "Por implementar"
+# API Keys - CADA UNO DEBE PONER SU API KEY DE GROQ AQUÍ https://console.groq.com/keys   
+GROQ_API_KEY = "AQUÍ"          
+
 
 # ============================================
 # INICIALIZAR CLIENTE DE IA
@@ -36,18 +35,7 @@ ANTHROPIC_API_KEY = "Por implementar"
 AI_CLIENT = None
 AI_DISPONIBLE = False
 
-if AI_PROVIDER == "gemini":
-    try:
-        # pip install google-generativeai
-        import google.generativeai as genai
-        genai.configure(api_key=GEMINI_API_KEY)
-        AI_CLIENT = genai.GenerativeModel('gemini-1.5-flash')
-        AI_DISPONIBLE = True
-        print("✅ Google Gemini inicializado")
-    except Exception as e:
-        print(f"⚠️  Error con Gemini: {e}")
-
-elif AI_PROVIDER == "groq":
+if AI_PROVIDER == "groq":
     try:
         from groq import Groq
         AI_CLIENT = Groq(api_key=GROQ_API_KEY)
