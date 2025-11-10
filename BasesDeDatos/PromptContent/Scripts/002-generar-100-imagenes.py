@@ -8,6 +8,7 @@ import pymongo
 import random
 import requests
 import time
+import os
 from datetime import datetime, timedelta
 
 # ============================================
@@ -17,8 +18,47 @@ MONGO_URL = "mongodb://mongouser:mongo123@localhost:30017/promptcontent?authSour
 DATABASE_NAME = "promptcontent"
 TOTAL_IMAGENES = 100
 
-# LLave de acceso que nos permite acceder a las imágenes en UNPLASH
-UNSPLASH_ACCESS_KEY = "PTgVrbtcNmHoTZrfKCExQ3URmMRHIWhFFWpmQpwg9wQ"  
+# API de Imágenes
+PIXABAY_API_KEY = "53186043-03d471fac4bce3d4ea7b8a2f7" 
+
+# IA para generar descripciones 
+AI_PROVIDER = "groq"
+
+# API Keys - Solo necesitas configurar la que vayas a usar
+GEMINI_API_KEY = "AIzaSyDNIdmNff2wTES6wZQpvLAwwSZr0e8Vdp8"      
+GROQ_API_KEY = "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"          
+ANTHROPIC_API_KEY = "Por implementar"
+
+# ============================================
+# INICIALIZAR CLIENTE DE IA
+# ============================================
+
+AI_CLIENT = None
+AI_DISPONIBLE = False
+
+if AI_PROVIDER == "gemini":
+    try:
+        # pip install google-generativeai
+        import google.generativeai as genai
+        genai.configure(api_key=GEMINI_API_KEY)
+        AI_CLIENT = genai.GenerativeModel('gemini-1.5-flash')
+        AI_DISPONIBLE = True
+        print("✅ Google Gemini inicializado")
+    except Exception as e:
+        print(f"⚠️  Error con Gemini: {e}")
+
+elif AI_PROVIDER == "groq":
+    try:
+        from groq import Groq
+        AI_CLIENT = Groq(api_key=GROQ_API_KEY)
+        AI_DISPONIBLE = True
+        print("✅ Groq (Llama 3) inicializado")
+    except Exception as e:
+        print(f"⚠️  Error con Groq: {e}")
+        
+else:
+    print("ℹ️  Modo sin IA - usando descripciones simples")
+
 
 # ============================================
 # CATEGORÍAS Y DATOS BASE
@@ -91,16 +131,144 @@ HASHTAGS_BASE = {
 }
 
 # ============================================
-# FUNCIONES DE GENERACIÓN
+# FUNCIONES DE IA - MULTI-PROVIDER
 # ============================================
 
-def obtener_imagen_unsplash(keyword, orientacion):
+def llamar_ia(prompt):
+    """
+    ⭐ Función universal que llama a cualquier proveedor de IA
+    """
+    if not AI_DISPONIBLE:
+        return None
     
-    url = "https://api.unsplash.com/photos/random"
+    try:
+        if AI_PROVIDER == "gemini":
+            # Google Gemini
+            response = AI_CLIENT.generate_content(prompt)
+            return response.text.strip()
+            
+        elif AI_PROVIDER == "groq":
+            # Groq (Llama 3)
+            response = AI_CLIENT.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=200,
+                temperature=0.7
+            )
+            return response.choices[0].message.content.strip()
+            
+        elif AI_PROVIDER == "anthropic":
+            # Anthropic Claude
+            response = AI_CLIENT.messages.create(
+                model="claude-3-5-sonnet-20241022",
+                max_tokens=200,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            return response.content[0].text.strip()
+            
+    except Exception as e:
+        print(f"    ⚠️  Error con IA: {e}")
+        return None
+
+
+def generar_keywords_secundarios(keyword_principal, categoria, estilo, color):
+    """Genera 1-2 keywords secundarios usando IA"""
+    if not AI_DISPONIBLE:
+        return [estilo] if random.random() > 0.5 else []
+    
+    prompt = f"""Genera 1-2 keywords cortos en inglés relacionados con: "{keyword_principal}"
+Contexto: categoría={categoria}, estilo={estilo}, color={color}
+
+Responde SOLO con los keywords separados por comas, sin explicaciones.
+Ejemplo: "modern, sleek" o "vintage"
+"""
+    
+    resultado = llamar_ia(prompt)
+    
+    if resultado:
+        keywords_extra = resultado.split(',')
+        keywords_extra = [k.strip() for k in keywords_extra if k.strip()]
+        return keywords_extra[:2]
+    
+    return []
+
+
+def enriquecer_descripcion_con_ia(metadata_pixabay, keyword_principal, categoria, estilo, color):
+    """Enriquece descripción usando metadata real de Pixabay + IA"""
+    tags_pixabay = metadata_pixabay.get("tags", [])
+    
+    if AI_DISPONIBLE:
+        tags_str = ", ".join(tags_pixabay) if tags_pixabay else "no disponibles"
+        
+        prompt = f"""Crea una descripción profesional en español para marketing de esta imagen:
+
+DATOS REALES DE LA IMAGEN (PIXABAY):
+- Tags: {tags_str}
+- Keyword buscado: {keyword_principal}
+- Categoría: {categoria}
+- Estilo: {estilo}
+- Color: {color}
+
+REQUISITOS:
+1. Máximo 100 palabras
+2. DEBE mencionar el keyword "{keyword_principal}"
+3. DEBE basarse en los tags reales de la imagen
+4. Enfoque en uso para campañas de marketing digital
+5. Descripción profesional y atractiva
+
+Responde SOLO con la descripción, sin títulos ni explicaciones adicionales."""
+
+        resultado = llamar_ia(prompt)
+        
+        if resultado:
+            # Validar que el keyword aparezca
+            if keyword_principal.lower() not in resultado.lower():
+                resultado = f"Imagen de {keyword_principal}: {resultado}"
+            return resultado
+    
+    # Fallback sin IA
+    return generar_descripcion_simple(tags_pixabay, keyword_principal, estilo, color)
+
+
+def generar_descripcion_simple(tags, keyword, estilo, color):
+    """Fallback sin IA: descripción simple pero coherente"""
+    if tags and len(tags) > 0:
+        base = f"imagen con {', '.join(tags[:3])}"
+    else:
+        base = f"contenido visual de {keyword}"
+    
+    descripcion = f"Contenido visual profesional: {base}. "
+    descripcion += f"Diseño {estilo} con paleta de colores {color}, "
+    descripcion += f"ideal para campañas de marketing digital en redes sociales. "
+    descripcion += f"Recurso visual optimizado para {keyword} y contenido publicitario."
+    
+    return descripcion
+
+
+# ============================================
+# FUNCIONES DE PIXABAY
+# ============================================
+
+def obtener_imagen_pixabay_mejorada(keyword_principal, keywords_secundarios, orientacion):
+    """Obtiene imagen de Pixabay con metadata"""
+    query_parts = [keyword_principal] + keywords_secundarios
+    query = " ".join(query_parts)
+    
+    url = "https://pixabay.com/api/"
+    
+    orientacion_map = {
+        "landscape": "horizontal",
+        "portrait": "vertical",
+        "squarish": "all"
+    }
+    
     params = {
-        "query": keyword,
-        "orientation": orientacion,
-        "client_id": UNSPLASH_ACCESS_KEY
+        "key": PIXABAY_API_KEY,
+        "q": query,
+        "image_type": "photo",
+        "orientation": orientacion_map.get(orientacion, "all"),
+        "per_page": 3,
+        "safesearch": "true"
     }
     
     try:
@@ -108,195 +276,121 @@ def obtener_imagen_unsplash(keyword, orientacion):
         
         if response.status_code == 200:
             data = response.json()
-            return {
-                "url": data["urls"]["regular"], 
-                "url_full": data["urls"]["full"],
-                "width": data["width"],
-                "height": data["height"],
-                "photographer": data["user"]["name"],
-                "unsplash_id": data["id"]
-            }
-        elif response.status_code == 403:
-            print(f"    ⚠️  Rate limit alcanzado (403) - usando placeholder")
-            return None
+            
+            if data.get("hits") and len(data["hits"]) > 0:
+                hit = random.choice(data["hits"])
+                
+                tags_string = hit.get("tags", "")
+                tags_list = [tag.strip() for tag in tags_string.split(",") if tag.strip()]
+                
+                return {
+                    "url": hit["webformatURL"],
+                    "url_full": hit["largeImageURL"],
+                    "width": hit["imageWidth"],
+                    "height": hit["imageHeight"],
+                    "photographer": hit["user"],
+                    "pixabay_id": hit["id"],
+                    "tags": tags_list,
+                    "views": hit.get("views", 0),
+                    "likes": hit.get("likes", 0),
+                    "downloads": hit.get("downloads", 0)
+                }
+            else:
+                print(f"No results")
+                return None
         else:
-            print(f"    ⚠️  Error {response.status_code} - usando placeholder")
+            print(f"Error {response.status_code}")
             return None
             
-    except requests.exceptions.Timeout:
-        print(f"    ⚠️  Timeout - usando placeholder")
-        return None
     except Exception as e:
-        print(f"    ⚠️  Error: {e} - usando placeholder")
+        print(f"Error: {e}")
         return None
 
 
-def generar_url_placeholder(index, width=1920, height=1080):
-    """Genera URL de imagen placeholder como plan de emergencia"""
-    return f"https://picsum.photos/id/{index}/{width}/{height}"
-
-
-def generar_descripcion(categoria, keyword, estilo, color, keyword_es):
-    """Genera una descripción amplia y coherente usando templates"""
-    
-    iluminaciones = ["natural", "de estudio", "dramática", "suave", "difusa", "lateral"]
-    fondos = ["degradado", "sólido", "texturizado", "bokeh", "abstracto", "geométrico"]
-    tipografias = ["moderna sans-serif", "elegante serif", "bold", "minimalista", "handwritten", "display"]
-    plataformas = ["redes sociales", "anuncios digitales", "campañas de email", "banners web", "stories", "posts"]
-    enfoques = ["producto", "ambiente", "textura", "detalles", "composición", "concepto"]
-    composiciones = ["centrada", "asimétrica", "regla de tercios", "minimalista", "dinámica", "equilibrada"]
-    publicos = ["millennial", "gen-z", "profesional", "familiar", "joven", "adulto"]
-    formatos = ["cuadrado 1:1", "vertical 9:16", "horizontal 16:9", "story", "banner", "thumbnail"]
-    
-    # 5 templates diferentes para variedad
-    templates = [
-        f"Banner publicitario de {keyword_es} con estilo {estilo}, dominado por tonos {color}. "
-        f"Composición profesional con iluminación {random.choice(iluminaciones)}, "
-        f"fondo {random.choice(fondos)} y tipografía {random.choice(tipografias)}. "
-        f"Ideal para {random.choice(plataformas)}, target audiencia {random.choice(publicos)}.",
-        
-        f"Imagen de {keyword_es} con diseño {estilo}, destacando elementos {color}. "
-        f"Fotografía de alta resolución con enfoque en {random.choice(enfoques)}. "
-        f"Composición {random.choice(composiciones)} con iluminación {random.choice(iluminaciones)}, "
-        f"perfecta para público {random.choice(publicos)} en formato {random.choice(formatos)}.",
-        
-        f"Diseño visual de {keyword_es} estilo {estilo} en paleta de colores {color}. "
-        f"Layout {random.choice(['limpio', 'dinámico', 'equilibrado', 'audaz'])} "
-        f"con elementos {random.choice(['geométricos', 'orgánicos', 'abstractos', 'realistas'])}. "
-        f"Optimizado para {random.choice(['Instagram', 'Facebook', 'LinkedIn', 'TikTok'])} "
-        f"con fondo {random.choice(fondos)} y tipografía {random.choice(tipografias)}.",
-        
-        f"Contenido visual premium de {keyword_es} con enfoque {estilo} y tonalidad {color}. "
-        f"Producción {random.choice(['editorial', 'comercial', 'publicitaria', 'conceptual'])} "
-        f"con iluminación {random.choice(iluminaciones)} y composición {random.choice(composiciones)}. "
-        f"Diseñado para {random.choice(plataformas)} targeting {random.choice(publicos)}.",
-        
-        f"Fotografía profesional de {keyword_es} en estilo {estilo}, paleta {color}. "
-        f"Escena {random.choice(['minimalista', 'elaborada', 'natural', 'producida'])} "
-        f"con fondo {random.choice(fondos)}, iluminación {random.choice(iluminaciones)}. "
-        f"Formato {random.choice(formatos)} para {random.choice(plataformas)}."
-    ]
-    
-    return random.choice(templates)
-
-
-def generar_hashtags(categoria, keyword, estilo, color, num_hashtags=10):
-    """Genera hashtags relevantes y coherentes"""
-    
+def generar_hashtags_mejorados(categoria, keyword, tags_pixabay):
+    """Genera hashtags combinando base + tags reales"""
     hashtags = []
     
-    # Hashtags base de la categoría (3-4)
-    hashtags.extend(random.sample(HASHTAGS_BASE.get(categoria, []), min(4, len(HASHTAGS_BASE.get(categoria, [])))))
+    hashtags.extend(random.sample(HASHTAGS_BASE.get(categoria, []), min(3, len(HASHTAGS_BASE.get(categoria, [])))))
+    hashtags.append(f"#{keyword.replace(' ', '').lower()}")
     
-    # Hashtags específicos
-    hashtags.append(f"#{keyword.replace(' ', '')}")
-    hashtags.append(f"#{estilo}")
-    hashtags.append(f"#{color.replace(' ', '')}")
+    if tags_pixabay:
+        for tag in tags_pixabay[:3]:
+            hashtag = f"#{tag.replace(' ', '').replace('-', '').lower()}"
+            if hashtag not in hashtags:
+                hashtags.append(hashtag)
     
-    # Hashtags generales de marketing
-    generales = ["#contentcreation", "#marketing", "#branding", "#visualcontent", 
-                 "#socialmedia", "#digitalmarketing", "#creative", "#advertising"]
-    hashtags.extend(random.sample(generales, 3))
-    
-    # Eliminar duplicados y limitar
-    hashtags_unicos = list(dict.fromkeys(hashtags))
-    
-    return hashtags_unicos[:num_hashtags]
+    hashtags = list(set(hashtags))
+    random.shuffle(hashtags)
+    return hashtags[:random.randint(8, 12)]
 
 
-# Mapeo de keywords en inglés a español para descripciones
-KEYWORD_ES_MAP = {
-    "smartphone": "smartphone", "laptop": "laptop", "tablet": "tablet", "smartwatch": "smartwatch",
-    "headphones": "auriculares", "camera": "cámara", "drone": "drone", "gaming": "gaming",
-    "clothing": "ropa", "shoes": "zapatos", "accessories": "accesorios", "bag": "bolso",
-    "watch": "reloj", "sunglasses": "gafas de sol", "jewelry": "joyería", "perfume": "perfume",
-    "food": "comida", "drink": "bebida", "dessert": "postre", "gourmet": "plato gourmet",
-    "coffee": "café", "smoothie": "smoothie", "salad": "ensalada", "burger": "hamburguesa",
-    "beach": "playa", "mountain": "montaña", "city": "ciudad", "landscape": "paisaje",
-    "architecture": "arquitectura", "hotel": "hotel", "resort": "resort", "adventure": "aventura",
-    "office": "oficina", "meeting": "reunión", "presentation": "presentación", "workspace": "workspace",
-    "team": "equipo", "conference": "conferencia", "startup": "startup", "coworking": "coworking",
-    "gym": "gimnasio", "yoga": "yoga", "running": "running", "exercise": "ejercicio",
-    "sport": "deporte", "training": "entrenamiento", "crossfit": "crossfit", "pilates": "pilates",
-    "living room": "sala", "kitchen": "cocina", "bedroom": "dormitorio", "garden": "jardín",
-    "decoration": "decoración", "bathroom": "baño", "terrace": "terraza", "interior": "interior",
-    "flowers": "flores", "trees": "árboles", "animals": "animales", "water": "agua",
-    "sky": "cielo", "forest": "bosque", "ocean": "océano", 
-    "painting": "pintura", "illustration": "ilustración", "design": "diseño", "abstract": "abstracto",
-    "sculpture": "escultura", "graffiti": "graffiti", "digital art": "arte digital", "mural": "mural",
-    "wedding": "boda", "party": "fiesta", "celebration": "celebración", "concert": "concierto",
-    "festival": "festival", "birthday": "cumpleaños", "graduation": "graduación", "gala": "gala"
-}
 
+# ============================================
+# FUNCIÓN PRINCIPAL
+# ============================================
 
 def generar_100_imagenes():
-    """
-    Función principal que genera 100 imágenes con toda su metadata
-    """
-    # Conectar a MongoDB
+    """Genera 100 imágenes con Pixabay + Multi-IA"""
+    
     print("🔌 Conectando a MongoDB...")
     client = pymongo.MongoClient(MONGO_URL)
     db = client[DATABASE_NAME]
     
-    # Verificar que la colección existe
     if "PCmedia" not in db.list_collection_names():
-        print("❌ Error: La colección 'PCmedia' no existe. Ejecuta primero el script de creación de colecciones.")
+        print("❌ Error: La colección 'PCmedia' no existe.")
         return
     
-    print(f"Conectado a base de datos: {DATABASE_NAME}")
-    print(f"Generando {TOTAL_IMAGENES} imágenes con Unsplash API...\n")
-    print("Esto puede tardar unos minutos debido al rate limit de Unsplash (50/hora)\n")
+    print(f"✅ Conectado a base de datos: {DATABASE_NAME}")
+    print(f"🎨 Generando {TOTAL_IMAGENES} imágenes")
+    print(f"📸 Proveedor de imágenes: PIXABAY (5000/hora)")
+    print(f"🤖 Proveedor de IA: {AI_PROVIDER.upper() if AI_DISPONIBLE else 'NINGUNO (fallback)'}\n")
     
     imagenes_generadas = []
     contador = 1
-    imagenes_unsplash = 0
+    imagenes_pixabay = 0
     imagenes_placeholder = 0
     
-    # Generar 10 imágenes por cada categoría
     for categoria, config in CATEGORIAS.items():
-        print(f"Categoría: {categoria.upper()}")
+        print(f"\n📁 Categoría: {categoria.upper()}")
         
-        for i in range(1):  # 10 imágenes por categoría
-            # Seleccionar elementos aleatorios
+        for i in range(10):
             keyword = random.choice(config["keywords"])
-            keyword_es = KEYWORD_ES_MAP.get(keyword, keyword)
             estilo = random.choice(config["estilos"])
             color = random.choice(config["colores"])
             
-            # Generar descripción amplia
-            descripcion = generar_descripcion(categoria, keyword, estilo, color, keyword_es)
+            print(f"  🔍 {contador:3d}/100: '{keyword}' ({estilo}, {color})", end="")
             
-            # Generar hashtags clasificadores
-            hashtags = generar_hashtags(categoria, keyword, estilo, color)
+            keywords_secundarios = generar_keywords_secundarios(keyword, categoria, estilo, color)
+            if keywords_secundarios:
+                print(f" +[{', '.join(keywords_secundarios)}]", end="")
             
-            # Orientación aleatoria
             orientacion = random.choice(["landscape", "portrait", "squarish"])
+            imagen_data = obtener_imagen_pixabay_mejorada(keyword, keywords_secundarios, orientacion)
             
-            # Intentar obtener imagen de Unsplash
-            print(f"  🔍 {contador:3d}/100: Buscando '{keyword}' en Unsplash...", end=" ")
-            imagen_data = obtener_imagen_unsplash(keyword, orientacion)
-            
-            # Determinar deliveryStatus según la fuente de la imagen
             if imagen_data:
-                # Imagen de Unsplash obtenida - DELIVERED
+                descripcion = enriquecer_descripcion_con_ia(imagen_data, keyword, categoria, estilo, color)
+                hashtags = generar_hashtags_mejorados(categoria, keyword, imagen_data.get("tags", []))
+                
                 image_url = imagen_data["url"]
                 width = imagen_data["width"]
                 height = imagen_data["height"]
-                delivery_status = "Delivered"  # ← Unsplash = Delivered
-                print(f"✅ Unsplash → Delivered")
-                imagenes_unsplash += 1
+                delivery_status = "Delivered"
+                print(f" → ✅ Pixabay")
+                imagenes_pixabay += 1
             else:
-                # Fallback a placeholder - PROCESSING
+                descripcion = generar_descripcion_simple([], keyword, estilo, color)
+                hashtags = generar_hashtags_mejorados(categoria, keyword, [])
+                
                 width, height = (1920, 1080) if orientacion == "landscape" else (1080, 1920)
-                image_url = generar_url_placeholder(contador, width, height)
-                delivery_status = "Processing"  # ← Placeholder = Processing
-                print(f"📦 Placeholder → Processing")
+                image_url = " "
+                delivery_status = "Processing"
+                print(f" → 📦 Placeholder")
                 imagenes_placeholder += 1
-            # Crear documento completo
+            
             PCmedia = {
-                # Campos requeridos
-                "clientId": f"CLIENT_{random.randint(1, 20):03d}", #Este campo no será random al final
-                "requestDescription": descripcion, #Este campo se debe corregir cuando se conecte este código con el de PC_Content_Requests
+                "clientId": f"CLIENT_{random.randint(1, 20):03d}",
+                "requestDescription": descripcion,
                 "hashtags": hashtags,
                 "deliveryStatus": delivery_status,
                 "format": random.choice(["jpg", "png", "webp"]),
@@ -308,15 +402,10 @@ def generar_100_imagenes():
                 "description": descripcion,
                 "category": "ads",
                 "platform": random.choice(["Youtube", "Instagram", "Facebook", "Tiktok", "other"]),
-                "userId": f"USER_{random.randint(1, 20):03d}", #Este campo no será random al final
+                "userId": f"USER_{random.randint(1, 20):03d}",
                 
-                #Faltan requestId, adId y campaignId
-                
-                
-                # Fechas variadas
                 "createdAt": datetime.utcnow() - timedelta(days=random.randint(1, 180)),
                 "updatedAt": datetime.utcnow() - timedelta(days=random.randint(0, 30)),
-                
                 
                 "usageCount": random.randint(0, 50),
                 "rights": random.choice(["proprietary", "CC0", "CC-BY", "CC-BY-SA"]),
@@ -324,57 +413,38 @@ def generar_100_imagenes():
             
             imagenes_generadas.append(PCmedia)
             contador += 1
-            
-            # Pequeña pausa para no saturar la API (opcional, pero recomendado)
-            time.sleep(0.5)
-        
-        print()
+            time.sleep(0.3)
     
-    # Insertar todas las imágenes en MongoDB
-    print(f"\n💾 Insertando {len(imagenes_generadas)} imágenes en MongoDB...")
+    print(f"\n\n💾 Insertando {len(imagenes_generadas)} imágenes en MongoDB...")
     try:
         result = db.PCmedia.insert_many(imagenes_generadas)
-        print(f"✅ {len(result.inserted_ids)} imágenes insertadas exitosamente")
+        print(f"✅ {len(result.inserted_ids)} imágenes insertadas")
         
-        # Estadísticas
-        print(f"\nEstadísticas:")
-        print(f"  • Imágenes de Unsplash: {imagenes_unsplash}")
+        print(f"\n📊 Estadísticas:")
+        print(f"  • Imágenes de Pixabay: {imagenes_pixabay}")
         print(f"  • Imágenes placeholder: {imagenes_placeholder}")
         print(f"  • Total: {len(imagenes_generadas)}")
+        print(f"  • Tasa de éxito: {(imagenes_pixabay/len(imagenes_generadas)*100):.1f}%")
+        print(f"  • Proveedor IA: {AI_PROVIDER if AI_DISPONIBLE else 'Ninguno'}")
         
-        # Verificar inserción
-        total_en_db = db.PCmedia.count_documents({})
-        print(f"\nTotal de imágenes en la base de datos: {total_en_db}")
-        
-        # Distribución por status
-        print("\nDistribución por status:")
-        for deliveryStatus in ["Pending", "Delivered", "Processing"]:
-            count = db.PCmedia.count_documents({"deliveryStatus": deliveryStatus}),
-            print(f"  • {deliveryStatus}: {count} imágenes")
-        
-        print("\n¡Generación completada exitosamente!")
-
+        print("\n✨ ¡Generación completada!")
         
     except Exception as e:
-        print(f"❌ Error al insertar imágenes: {e}")
-    
+        print(f"❌ Error: {e}")
     finally:
         client.close()
-        print("\nConexión cerrada")
-
 
 # ============================================
 # EJECUCIÓN
 # ============================================
 if __name__ == "__main__":
-    print("=" * 70)
-    print("GENERACIÓN DE 100 IMÁGENES CON UNSPLASH API - PROMPTCONTENT")
-    print("=" * 70)
+    print("=" * 80)
+    print("GENERACIÓN DE 100 IMÁGENES - PIXABAY + MULTI-IA")
+    print("=" * 80)
     print()
-    
-    # Ejecutar generación
+
     generar_100_imagenes()
     
-    print("\n" + "=" * 70)
-    print("FIN DEL SCRIPT")
-    print("=" * 70)
+    print("\n" + "=" * 80)
+
+
