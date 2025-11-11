@@ -1,4 +1,4 @@
-USE [PromptAds]
+USE [promptads]
 GO
 /****** Object:  Database [promptads]    Script Date: 2/11/2025 12:36:44 ******/
 
