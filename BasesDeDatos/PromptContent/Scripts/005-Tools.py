@@ -1,10 +1,14 @@
 """
-Función getContent() para MCP Server
-Busca imágenes en Pinecone basándose en la colección PCmedia de MongoDB
+Tools para MCP Server de PromptContent
+1. getContent() - Busca imágenes en Pinecone basándose en PCmedia
+2. generateCampaignMessages() - Genera mensajes de campaña por audiencia
 """
 
 from pinecone import Pinecone
 from pymongo import MongoClient
+from datetime import datetime
+import uuid
+import random
 
 # ============================================
 # CONFIGURACIÓN
@@ -18,14 +22,58 @@ DATABASE_NAME = "promptcontent"
 PINECONE_API_KEY = "pcsk_4eQyKL_JsDiByJXLDbFbt8RZE5StEFGXGxvEs3C4op2tpRm4Q6Swjh6r7e7veFWsVTBn6H"
 INDEX_NAME = "promptcontent-images"
 
-# Inicializar clientes 
+# IA Provider (configurable)
+AI_PROVIDER = "groq"
+GEMINI_API_KEY = "TU_GEMINI_KEY_AQUI"
+GROQ_API_KEY = "" # GRUPO WPP
+ANTHROPIC_API_KEY = "TU_CLAUDE_KEY_AQUI"
+
+# Inicializar clientes MongoDB y Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
 pinecone_index = pc.Index(INDEX_NAME)
 mongo_client = MongoClient(MONGO_URL)
 db = mongo_client[DATABASE_NAME]
 
+# Inicializar IA
+AI_CLIENT = None
+AI_DISPONIBLE = False
+
+if AI_PROVIDER == "groq":
+    try:
+        from groq import Groq
+        AI_CLIENT = Groq(api_key=GROQ_API_KEY)
+        AI_DISPONIBLE = True
+        print("✅ IA inicializada: Groq")
+    except Exception as e:
+        print(f"⚠️  Groq no disponible: {e}")
+
+
 # ============================================
-# FUNCIÓN getContent()
+# FUNCIÓN AUXILIAR: Llamar IA
+# ============================================
+
+def llamar_ia(prompt):
+    """Función universal para llamar a cualquier proveedor de IA"""
+    if not AI_DISPONIBLE:
+        return None
+    
+    try:
+        if AI_PROVIDER == "groq":
+            response = AI_CLIENT.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=500,
+                temperature=0.7
+            )
+            return response.choices[0].message.content.strip()
+            
+    except Exception as e:
+        print(f"Error en IA: {e}")
+        return None
+
+
+# ============================================
+# TOOL 1: getContent()
 # ============================================
 
 def getContent(descripcion_textual, top_k=5):
@@ -38,7 +86,7 @@ def getContent(descripcion_textual, top_k=5):
         results = pinecone_index.search(
             namespace="__default__",
             query={
-                "top_k": top_k * 2,  # Pedimos el doble para tener margen
+                "top_k": top_k * 2,
                 "inputs": {
                     'text': descripcion_textual
                 }
@@ -72,7 +120,7 @@ def getContent(descripcion_textual, top_k=5):
                 "mediaUrl": 1,
                 "category": 1,
                 "platform": 1,
-                "_id": 0  # No incluir el _id de MongoDB
+                "_id": 0
             }
         ))
         
@@ -105,30 +153,274 @@ def getContent(descripcion_textual, top_k=5):
 
 
 # ============================================
-# EJEMPLO DE USO
+# TOOL 2: generateCampaignMessages()
+# ============================================
+
+def generateCampaignMessages(campaign_description, target_audiences, client_id="CLIENT_DEFAULT"):
+    """
+    Genera mensajes de campaña personalizados por audiencia
+
+    """
+    
+    try:
+        # 1. Generar IDs únicos
+        request_id = f"REQ_{uuid.uuid4().hex[:8].upper()}"
+        timestamp = datetime.utcnow()
+        
+        # 2. Registrar solicitud en PCContent_Requests
+        request_doc = {
+            "requestId": request_id,
+            "clientId": client_id,
+            "contentType": "campaign_messages",
+            "description": campaign_description,
+            "targetAudience": ", ".join(target_audiences),
+            "campaignDescription": campaign_description,
+            "httpMethod": "POST",
+            "requestHeaders": {"Content-Type": "application/json"},
+            "requestBody": {
+                "campaignDescription": campaign_description,
+                "targetAudiences": target_audiences
+            },
+            "ipAddress": "127.0.0.1",  # Placeholder
+            "status": "processing",
+            "createdAt": timestamp
+        }
+        
+        db.PCContent_Requests.insert_one(request_doc)
+        print(f"✅ Solicitud registrada: {request_id}")
+        
+        # 3. Generar mensajes para cada audiencia
+        mensajes_por_audiencia = {}
+        media_ids_generados = []
+        contador_mensajes = 1
+        
+        for audiencia in target_audiences:
+            print(f"📝 Generando mensajes para audiencia: {audiencia}")
+            
+            # Generar 3 mensajes para esta audiencia
+            mensajes = []
+            
+            for i in range(3):
+                mensaje = generar_mensaje_individual(
+                    campaign_description, 
+                    audiencia, 
+                    i + 1
+                )
+                mensajes.append(mensaje)
+                
+                # Guardar cada mensaje en PCmedia
+                media_id = f"MSG_{request_id}_{contador_mensajes:03d}"
+                
+                # Generar hashtags basados en audiencia y campaña
+                hashtags = generar_hashtags_campana(campaign_description, audiencia)
+                hashtags.append("#campaignmessage")  # Siempre incluir este hashtag
+                
+                media_doc = {
+                    "mediaId": media_id,
+                    "clientId": client_id,
+                    "requestId": request_id,
+                    "requestDescription": campaign_description,
+                    "description": mensaje,
+                    "hashtags": hashtags,
+                    "deliveryStatus": "Delivered",
+                    "format": "text",
+                    "category": "social",
+                    "platform": "other",
+                    "mediaUrl": "",  # Los mensajes de texto no tienen URL
+                    "fileName": f"{media_id}.txt",
+                    "size": len(mensaje),
+                    "userId": f"USER_SYSTEM",
+                    "createdAt": timestamp,
+                    "updatedAt": timestamp,
+                    "usageCount": 0,
+                    "rights": "proprietary",
+                    # Metadata adicional para mensajes de campaña
+                    "campaignMetadata": {
+                        "targetAudience": audiencia,
+                        "messageNumber": i + 1,
+                        "campaignDescription": campaign_description
+                    }
+                }
+                
+                db.PCmedia.insert_one(media_doc)
+                media_ids_generados.append(media_id)
+                contador_mensajes += 1
+            
+            mensajes_por_audiencia[audiencia] = mensajes
+            print(f"   ✅ {len(mensajes)} mensajes generados para {audiencia}")
+        
+        # 4. Actualizar solicitud a completada
+        db.PCContent_Requests.update_one(
+            {"requestId": request_id},
+            {
+                "$set": {
+                    "status": "completed",
+                    "completedAt": datetime.utcnow(),
+                    "generatedContent": [
+                        {
+                            "contentId": media_id,
+                            "contentType": "campaign_message",
+                            "metadata": {"targetAudience": aud}
+                        }
+                        for media_id, aud in zip(media_ids_generados, 
+                                                  [a for a in target_audiences for _ in range(3)])
+                    ]
+                }
+            }
+        )
+        
+        print(f"✅ Campaña completada: {len(media_ids_generados)} mensajes generados")
+        
+        # 5. Retornar resultado
+        return {
+            "requestId": request_id,
+            "status": "completed",
+            "campaignDescription": campaign_description,
+            "targetAudiences": target_audiences,
+            "messagesGenerated": mensajes_por_audiencia,
+            "mediaIds": media_ids_generados,
+            "totalMessages": len(media_ids_generados)
+        }
+        
+    except Exception as e:
+        print(f"❌ Error en generateCampaignMessages: {e}")
+        
+        # Actualizar solicitud a fallida si existe
+        if 'request_id' in locals():
+            db.PCContent_Requests.update_one(
+                {"requestId": request_id},
+                {"$set": {"status": "failed", "errorMessage": str(e)}}
+            )
+        
+        return {
+            "status": "failed",
+            "error": str(e)
+        }
+
+
+# ============================================
+# FUNCIONES AUXILIARES PARA GENERACIÓN
+# ============================================
+
+def generar_mensaje_individual(campaign_description, audiencia, numero_mensaje):
+    """Genera un mensaje individual para una audiencia específica"""
+    
+    if AI_DISPONIBLE:
+        # Usar IA para generar mensaje personalizado
+        prompt = f"""Crea un mensaje de campaña de marketing en español para la siguiente audiencia.
+
+DESCRIPCIÓN DE CAMPAÑA:
+{campaign_description}
+
+AUDIENCIA OBJETIVO:
+{audiencia}
+
+REQUISITOS:
+- Mensaje corto y atractivo (máximo 150 palabras)
+- Adaptado específicamente para {audiencia}
+- Tono apropiado para la audiencia
+- Incluir call-to-action si es relevante
+- Enfoque en beneficios para la audiencia
+- Intenta no mencionar directamente el nombre de la audiencia en general ({audiencia})
+
+Responde SOLO con el mensaje, sin títulos ni explicaciones adicionales.
+Este es el mensaje #{numero_mensaje} de 3 para esta audiencia, hazlo único."""
+
+        mensaje = llamar_ia(prompt)
+        
+        if mensaje:
+            return mensaje
+    
+    # Fallback: mensaje de plantilla
+    plantillas = [
+        f"¡Atención {audiencia}! {campaign_description}. Descubre cómo esto puede cambiar tu experiencia. ¡No te lo pierdas!",
+        f"Para {audiencia} que buscan lo mejor: {campaign_description}. Una oportunidad única diseñada pensando en ti.",
+        f"{campaign_description} - Creado especialmente para {audiencia}. Únete a esta experiencia increíble hoy."
+    ]
+    
+    return plantillas[numero_mensaje - 1]
+
+
+def generar_hashtags_campana(campaign_description, audiencia):
+    """Genera hashtags relevantes para la campaña"""
+    
+    # Hashtags base
+    hashtags_base = ["#marketing", "#campaign", "#socialmedia"]
+    
+    # Extraer palabras clave de la descripción
+    palabras = campaign_description.lower().split()
+    palabras_clave = [p for p in palabras if len(p) > 4][:2]
+    hashtags_campana = [f"#{p.replace(' ', '')}" for p in palabras_clave]
+    
+    # Hashtag de audiencia
+    hashtag_audiencia = f"#{audiencia.replace(' ', '').replace('-', '')}"
+    
+    # Combinar y limitar a 6-8 hashtags
+    todos_hashtags = hashtags_base + hashtags_campana + [hashtag_audiencia]
+    
+    # Eliminar duplicados y retornar
+    return list(dict.fromkeys(todos_hashtags))[:6]
+
+
+# ============================================
+# EJEMPLOS DE USO
 # ============================================
 
 if __name__ == "__main__":
-    # Ejemplo 1: Buscar laptops
-    print("Búsqueda 1: 'telefono moderno'")
     print("=" * 80)
-    resultados = getContent("telefono moderno", top_k=3)
-    
-    for i, img in enumerate(resultados, 1):
-        print(f"\n{i}. {img['mediaId']} (score: {img['score']})")
-        print(f"   Descripción: {img['description'][:70]}...")
-        print(f"   Hashtags: {', '.join(img['hashtags'][:5])}")
-        print(f"   URL: {img['mediaUrl']}")
-    
-    print("\n" + "=" * 80)
-    
-    # Ejemplo 2: Buscar comida
-    print("\nBúsqueda 2: 'paisajes lindos'")
+    print("TOOLS DE PROMPTCONTENT - EJEMPLOS")
     print("=" * 80)
+    print()
+    
+    # ========================================
+    # EJEMPLO 1: getContent()
+    # ========================================
+    print("📸 TOOL 1: getContent()")
+    print("-" * 80)
+    print("Búsqueda: 'laptop moderno para oficina'")
+    print()
+    
     resultados = getContent("paisajes lindos", top_k=3)
     
-    for i, img in enumerate(resultados, 1):
-        print(f"\n{i}. {img['mediaId']} (score: {img['score']})")
-        print(f"   Descripción: {img['description'][:70]}...")
-        print(f"   Hashtags: {', '.join(img['hashtags'][:5])}")
-        print(f"   URL: {img['mediaUrl']}")
+    if resultados:
+        for i, img in enumerate(resultados, 1):
+            print(f"{i}. {img['mediaId']} (score: {img['score']})")
+            print(f"   Descripción: {img['description'][:60]}...")
+            print(f"   Hashtags: {', '.join(img['hashtags'][:4])}")
+            print(f"   URL: {img["mediaUrl"]}")
+            print()
+    else:
+        print("No se encontraron resultados")
+    
+    print("=" * 80)
+    print()
+    
+    # ========================================
+    # EJEMPLO 2: generateCampaignMessages()
+    # ========================================
+    print("📝 TOOL 2: generateCampaignMessages()")
+    print("-" * 80)
+    print("Campaña: Lanzamiento de nueva laptop gaming")
+    print("Audiencias: estudiantes, programadores, diseñadores gráficos")
+    print()
+    
+    resultado_campana = generateCampaignMessages(
+        campaign_description="Lanzamiento de nueva línea de laptops gaming con RTX 4090, pantalla 240Hz y diseño RGB personalizable",
+        target_audiences=["estudiantes", "programadores", "diseñadores gráficos"],
+        client_id="CLIENT_001"
+    )
+    
+    if resultado_campana['status'] == 'completed':
+        print(f"✅ Request ID: {resultado_campana['requestId']}")
+        print(f"✅ Total mensajes: {resultado_campana['totalMessages']}")
+        print()
+        
+        for audiencia, mensajes in resultado_campana['messagesGenerated'].items():
+            print(f"📢 Mensajes para {audiencia}:")
+            for i, mensaje in enumerate(mensajes, 1):
+                print(f"   {i}. {mensaje[:80]}...")
+            print()
+    else:
+        print(f"❌ Error: {resultado_campana.get('error', 'Unknown error')}")
+    
+    print("=" * 80)

@@ -24,8 +24,13 @@ PIXABAY_API_KEY = "53186043-03d471fac4bce3d4ea7b8a2f7"
 # IA para generar descripciones 
 AI_PROVIDER = "groq"
 
+<<<<<<< HEAD
+# API Keys - CADA UNO DEBE PONER LA API KEY DE GROQ AQUÍ (ESTÁ ANCLADA EN EL GRUPO DE WPP)   
+GROQ_API_KEY = ""          
+=======
 # API Keys - CADA UNO DEBE PONER SU API KEY DE GROQ AQUÍ https://console.groq.com/keys   
 GROQ_API_KEY = "AQUI"          
+>>>>>>> parent of e2fa5a1 (Listas ambas tools promptContent)
 
 
 # ============================================
