@@ -308,7 +308,6 @@ CREATE TABLE IF NOT EXISTS public."PSCampaignMetrics"
     "IdCampaignMetric" integer NOT NULL,
     "IdCampaign" integer NOT NULL,
     "metricDate" timestamp without time zone NOT NULL,
-    "totalReach" bigint,
     "totalLeads" integer NOT NULL,
     "qualifiedLeads" integer,
     "totalConversions" integer,
@@ -317,6 +316,7 @@ CREATE TABLE IF NOT EXISTS public."PSCampaignMetrics"
     "dailyRevenue" numeric(12, 2),
     "costPerLead" numeric(12, 2),
     "costPerConversion" numeric(12, 2),
+    channels character varying(200) NOT NULL,
     "averageOrderValue" numeric(12, 2),
     "createdAt" timestamp without time zone NOT NULL,
     "updatedAt" timestamp without time zone NOT NULL,
@@ -324,29 +324,13 @@ CREATE TABLE IF NOT EXISTS public."PSCampaignMetrics"
     PRIMARY KEY ("IdCampaignMetric")
 );
 
-CREATE TABLE IF NOT EXISTS public."PSCampaignChannels"
-(
-    "IdChannelSummary" integer NOT NULL,
-    "IdCampaign" integer NOT NULL,
-    "channelName" character varying(40) NOT NULL,
-    "channelType" character varying(40) NOT NULL,
-    "totalSpent" numeric(12, 2) NOT NULL,
-    "totalRevenue" numeric(12, 2) NOT NULL,
-    leads integer NOT NULL,
-    "channelROI" numeric(10, 4) NOT NULL,
-    "createdAt" timestamp without time zone NOT NULL,
-    "updatedAt" timestamp without time zone NOT NULL,
-    PRIMARY KEY ("IdChannelSummary")
-);
-
 CREATE TABLE IF NOT EXISTS public."PSCampaignMarkets"
 (
     "IdCampaignMarket" integer NOT NULL,
     "IdCampaign" integer NOT NULL,
-    "IdCountry" integer NOT NULL,
+    "IdCountry" integer,
     "IdState" integer,
     "IdCity" bigint,
-    "totalReach" bigint NOT NULL,
     conversions integer NOT NULL,
     "totalRevenue" numeric(12, 2) NOT NULL,
     leads integer NOT NULL,
@@ -354,6 +338,8 @@ CREATE TABLE IF NOT EXISTS public."PSCampaignMarkets"
     "marketROI" numeric(10, 4) NOT NULL,
     "conversionRate" numeric(5, 4) NOT NULL,
     "averageOrderValie" numeric(10, 2) NOT NULL,
+    "targetPublicName" character varying NOT NULL,
+    "targetPublicId" integer NOT NULL,
     "createdAt" timestamp without time zone NOT NULL,
     "updatedAt" timestamp without time zone NOT NULL,
     PRIMARY KEY ("IdCampaignMarket")
@@ -398,10 +384,14 @@ CREATE TABLE IF NOT EXISTS public."PSContentUsage"
     "IdCampaign" integer NOT NULL,
     "contentId" character varying(200) NOT NULL,
     "contentType" character varying(30) NOT NULL,
-    "contentTitle" character varying(200) NOT NULL,
-    "usageCount" bigint NOT NULL,
-    "createdAt" timestamp without time zone NOT NULL,
+    "contentTitle" character varying(200),
+    channel character varying(30) NOT NULL,
+    hashtags text,
+    "contentURL" character varying(500) NOT NULL,
+    "usageCount" integer NOT NULL,
+    "usedInAds" text NOT NULL,
     "updatedAt" timestamp without time zone NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL,
     PRIMARY KEY ("IdContentUsage")
 );
 
@@ -661,6 +651,35 @@ CREATE TABLE IF NOT EXISTS public."PSCRUDRawData"
     PRIMARY KEY ("IdCrud")
 );
 
+CREATE TABLE IF NOT EXISTS public."PSPublishedAds"
+(
+    "IdPublishedAd" bigint NOT NULL,
+    "IdCampaign" integer NOT NULL,
+    "channelName" character varying(30) NOT NULL,
+    "channelType" character varying(20) NOT NULL,
+    "influencerName" character varying(50),
+    "influencerFollowers" bigint,
+    body text NOT NULL,
+    "redirectURL" character varying(256) NOT NULL,
+    budget numeric(12, 2) NOT NULL,
+    expenses numeric(12, 2) NOT NULL,
+    "adSentiment" character varying(30) NOT NULL,
+    "publishedAt" timestamp without time zone NOT NULL,
+    "adStatus" character varying(30) NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL,
+    "updatedAt" timestamp without time zone NOT NULL,
+    PRIMARY KEY ("IdPublishedAd")
+);
+
+CREATE TABLE IF NOT EXISTS public."PSPublishedAdsReactions"
+(
+    "IdReactionType" integer NOT NULL,
+    "IdPublishedAd" bigint NOT NULL,
+    "reactionCount" bigint NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL,
+    "updatedAt" timestamp without time zone NOT NULL
+);
+
 ALTER TABLE IF EXISTS public."PSUsers"
     ADD FOREIGN KEY ("IdUserStatus")
     REFERENCES public."PSUserStatus" ("IdUserStatus") MATCH SIMPLE
@@ -917,14 +936,6 @@ ALTER TABLE IF EXISTS public."PSCampaignMetrics"
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."PSCampaignChannels"
-    ADD FOREIGN KEY ("IdCampaign")
-    REFERENCES public."PSCampaigns" ("IdCampaign") MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
 ALTER TABLE IF EXISTS public."PSCampaignMarkets"
     ADD FOREIGN KEY ("IdCampaign")
     REFERENCES public."PSCampaigns" ("IdCampaign") MATCH SIMPLE
@@ -1120,6 +1131,22 @@ ALTER TABLE IF EXISTS public."PSRawData"
 ALTER TABLE IF EXISTS public."PSCRUDRawData"
     ADD FOREIGN KEY ("IdRawData")
     REFERENCES public."PSRawData" ("IdRawData") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSPublishedAds"
+    ADD FOREIGN KEY ("IdCampaign")
+    REFERENCES public."PSCampaigns" ("IdCampaign") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSPublishedAdsReactions"
+    ADD FOREIGN KEY ("IdReactionType", "IdPublishedAd")
+    REFERENCES public."PSReactionTypes" ("IdReactionType", "IdPublishedAd") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
