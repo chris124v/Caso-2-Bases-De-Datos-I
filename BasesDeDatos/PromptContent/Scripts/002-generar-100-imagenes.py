@@ -25,7 +25,7 @@ PIXABAY_API_KEY = "53186043-03d471fac4bce3d4ea7b8a2f7"
 AI_PROVIDER = "groq"
 
 # API Keys - CADA UNO DEBE PONER SU API KEY DE GROQ AQUÍ https://console.groq.com/keys   
-GROQ_API_KEY = "AQUÍ"          
+GROQ_API_KEY = "AQUI"          
 
 
 # ============================================
@@ -124,7 +124,7 @@ HASHTAGS_BASE = {
 
 def llamar_ia(prompt):
     """
-    ⭐ Función universal que llama a cualquier proveedor de IA
+    Función universal que llama a cualquier proveedor de IA
     """
     if not AI_DISPONIBLE:
         return None
@@ -162,7 +162,7 @@ def llamar_ia(prompt):
 def generar_keywords_secundarios(keyword_principal, categoria, estilo, color):
     """Genera 1-2 keywords secundarios usando IA"""
     if not AI_DISPONIBLE:
-        return [estilo] if random.random() > 0.5 else []
+        return [estilo]
     
     prompt = f"""Genera 1-2 keywords cortos en inglés relacionados con: "{keyword_principal}"
 Contexto: categoría={categoria}, estilo={estilo}, color={color}
@@ -198,7 +198,7 @@ DATOS REALES DE LA IMAGEN (PIXABAY):
 - Color: {color}
 
 REQUISITOS:
-1. Máximo 100 palabras
+1. Máximo 50 palabras
 2. DEBE mencionar el keyword "{keyword_principal}"
 3. DEBE basarse en los tags reales de la imagen
 4. Enfoque en uso para campañas de marketing digital
