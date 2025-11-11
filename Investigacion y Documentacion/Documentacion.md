@@ -171,7 +171,17 @@ Listado de Entidades:
 ## Requerimientos No Funcionales
 
 
+# Casos a resolver para el ETL 
 
+# PromptAds 
+
+- Hay que agregar localizacion para las campaigns, puede ser opcional osea nulo pero se tiene que agregar.
+
+# PromptCRM
+
+- Hay que definir como los leads se convierten en compradores, es por el estado?
+- Que son los clientes? 
+- Preguntarle al profe si es necesario saber las ventas realizadas por los clientes finales. 
 
 
 
