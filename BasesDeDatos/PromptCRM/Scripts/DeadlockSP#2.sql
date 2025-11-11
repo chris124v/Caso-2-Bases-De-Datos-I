@@ -1,17 +1,7 @@
 USE PromptCrm
 
-IF OBJECT_ID('tempdb.dbo.##ProductsTest') IS NOT NULL DROP TABLE ##ProductsTest
-CREATE TABLE ##ProductsTest (
-	IdProduct INT PRIMARY KEY IDENTITY(1,1),
-	ProductName VARCHAR(30),
-	Price DECIMAL(16,2),
-	Quantity INT,
-	CreatedAt DATETIME,
-	UpdatedAt DATETIME
-)
-
 GO
-CREATE OR ALTER PROCEDURE [dbo].[SPDeadlock1]
+CREATE OR ALTER PROCEDURE [dbo].[SPDeadlock2]
 AS 
 BEGIN
 	
@@ -20,8 +10,7 @@ BEGIN
 	DECLARE @ErrorNumber INT, @ErrorSeverity INT, @ErrorState INT, @CustomError INT
 	DECLARE @Message VARCHAR(200)
 	DECLARE @InicieTransaccion BIT
-
-
+	
 	SET @InicieTransaccion = 0
 	IF @@TRANCOUNT=0 BEGIN
 		SET @InicieTransaccion = 1
@@ -32,21 +21,22 @@ BEGIN
 	BEGIN TRY
 		SET @CustomError = 2001
 
-		-- SP1 hace lock en fila 2
+		-- SP2 hace lock en fila 3
 		UPDATE dbo.##ProductsTest
 		SET
-			Quantity = Quantity - 1,
+			Price = 4000,
 			UpdatedAt = CURRENT_TIMESTAMP
-		WHERE IdProduct = 2;
+		WHERE IdProduct = 3;
 
 		WAITFOR DELAY '00:00:05'
 
-		-- SP1 espera el lock de SP2
+		-- SP2 espera el lock de SP3
 		UPDATE dbo.##ProductsTest
 		SET
-			Quantity = Quantity - 3,
+			Price = 1600,
 			UpdatedAt = CURRENT_TIMESTAMP
-		WHERE IdProduct = 3;
+		WHERE IdProduct = 1;
+
 					
 		IF @InicieTransaccion=1 BEGIN
 			COMMIT
@@ -71,15 +61,4 @@ END
 RETURN 0
 GO
 
-
-DELETE FROM dbo.##ProductsTest
-DBCC CHECKIDENT('tempdb.dbo.##ProductsTest', reseed, 1)
-DECLARE @CurrTime DATETIME = CURRENT_TIMESTAMP
-INSERT INTO dbo.##ProductsTest (ProductName, Price, Quantity, CreatedAt, UpdatedAt)
-VALUES
-	('Salsa Lizano', 1200, 23, @CurrTime, @CurrTime),
-	('Cepillo de Dientes', 2000, 15, @CurrTime, @CurrTime),
-	('Detergente', 3500, 10, @CurrTime, @CurrTime)
-
-EXEC dbo.SPDeadlock1
-SELECT * FROM dbo.##ProductsTest
+EXEC dbo.SPDeadlock2
