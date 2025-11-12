@@ -9,6 +9,15 @@ from pymongo import MongoClient
 from datetime import datetime
 import uuid
 import random
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+# Usar las variables
+PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+AI_PROVIDER = os.getenv('AI_PROVIDER', 'groq')  # Valor por defecto
 
 # ============================================
 # CONFIGURACIÓN
@@ -19,14 +28,8 @@ MONGO_URL = "mongodb://mongouser:mongo123@localhost:30017/promptcontent?authSour
 DATABASE_NAME = "promptcontent"
 
 # Pinecone
-PINECONE_API_KEY = "pcsk_4eQyKL_JsDiByJXLDbFbt8RZE5StEFGXGxvEs3C4op2tpRm4Q6Swjh6r7e7veFWsVTBn6H"
 INDEX_NAME = "promptcontent-images"
 
-# IA Provider (configurable)
-AI_PROVIDER = "groq"
-GEMINI_API_KEY = "TU_GEMINI_KEY_AQUI"
-GROQ_API_KEY = "wpp" # GRUPO WPP
-ANTHROPIC_API_KEY = "TU_CLAUDE_KEY_AQUI"
 
 # Inicializar clientes MongoDB y Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
