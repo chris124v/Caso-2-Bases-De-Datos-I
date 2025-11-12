@@ -129,3 +129,21 @@ async def create_server():
     server_instance = DatabaseMCPServer()
     await server_instance.initialize_from_config()
     return server_instance.server
+
+# Al final de server.py, reemplaza o agrega:
+if __name__ == "__main__":
+    import asyncio
+    from mcp.server.stdio import stdio_server
+    
+    async def main():
+        server_instance = DatabaseMCPServer()
+        await server_instance.initialize_from_config()
+        
+        async with stdio_server() as (read_stream, write_stream):
+            await server_instance.server.run(
+                read_stream, 
+                write_stream, 
+                server_instance.server.create_initialization_options()
+            )
+    
+    asyncio.run(main())
