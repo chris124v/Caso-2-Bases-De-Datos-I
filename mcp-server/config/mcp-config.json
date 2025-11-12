@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "database-server": {
+      "command": "python",
+      "args": [
+        "C:/Users/migue/Documents/Bases-de-Datos/Casos/Caso-2-Bases-De-Datos-I/mcp-server/server.py"
+      ],
+      "cwd": "C:/Users/migue/Documents/Bases-de-Datos/Casos/Caso-2-Bases-De-Datos-I/mcp-server"
+    }
+  }
+}
