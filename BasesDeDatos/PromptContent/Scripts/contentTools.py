@@ -25,7 +25,7 @@ INDEX_NAME = "promptcontent-images"
 # IA Provider (configurable)
 AI_PROVIDER = "groq"
 GEMINI_API_KEY = "TU_GEMINI_KEY_AQUI"
-GROQ_API_KEY = "" # GRUPO WPP
+GROQ_API_KEY = "wpp" # GRUPO WPP
 ANTHROPIC_API_KEY = "TU_CLAUDE_KEY_AQUI"
 
 # Inicializar clientes MongoDB y Pinecone

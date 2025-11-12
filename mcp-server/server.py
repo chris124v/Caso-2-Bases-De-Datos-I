@@ -1,6 +1,7 @@
 # server.py
 from mcp.server import Server
 import mcp.types as types
+import sys
 
 from connectors.mongo_connector import MongoDBConnector
 from connectors.sqlserver_connector import SQLServerConnector
@@ -48,6 +49,18 @@ class DatabaseMCPServer:
                         },
                         "required": ["database"]
                     }
+                ),
+                types.Tool(
+                    name="get_content",
+                    description="Busca imágenes en Pinecone basándose en descripción textual",
+                    inputSchema={
+                        "type": "object",
+                        "properties": {
+                            "descripcion": {"type": "string"},
+                            "top_k": {"type": "integer", "default": 5}
+                        },
+                        "required": ["descripcion"]
+                    }
                 )
             ]
         
@@ -57,6 +70,8 @@ class DatabaseMCPServer:
                 return await self._execute_query(**arguments)
             elif name == "get_schema":
                 return await self._get_schema(**arguments)
+            elif name == "get_content":
+                return await self._get_content(**arguments)
 
     async def initialize_from_config(self):
         """Inicializar conectores desde YAML"""
@@ -104,27 +119,40 @@ class DatabaseMCPServer:
             password=sql2_config["password"]
         )
 
-    async def _execute_query(self, database: str, query: str, parameters: dict = None):
-        connector = self.connectors.get(database)
-        if not connector:
-            return [types.TextContent(type="text", text=f"Database {database} not found")]
-        
+    async def _get_content(self, descripcion: str, top_k: int = 5):
+        """
+        Maneja las llamadas al tool get_content
+        """
         try:
-            results = await connector.execute_query(query, parameters or {})
-            return [types.TextContent(type="text", text=str(results))]
+            import sys
+            # Aquí llamas a tu función getContent() existente
+            ruta_base = r"C:\Users\migue\Documents\Bases-de-Datos\Casos\Caso-2-Bases-De-Datos-I"
+            sys.path.append(ruta_base)  
+            # Importar desde la ruta relativa
+            from BasesDeDatos.PromptContent.Scripts.contentTools import getContent
+                    
+            resultados = getContent(descripcion, top_k)
+            
+            # Formatear la respuesta para MCP
+            if resultados:
+                texto_resultado = f"Se encontraron {len(resultados)} imagenes:\n\n"
+                for i, img in enumerate(resultados, 1):
+                    # Limpiar caracteres problemáticos
+                    descripcion_limpia = str(img.get('description', '')).encode('utf-8', 'ignore').decode('utf-8')
+                    hashtags_limpios = [str(tag).encode('utf-8', 'ignore').decode('utf-8') for tag in img.get('hashtags', [])]
+                    
+                    texto_resultado += f"{i}. {img.get('mediaId', '')} (score: {img.get('score', 0)})\n"
+                    texto_resultado += f"   Descripcion: {descripcion_limpia}\n"
+                    texto_resultado += f"   Hashtags: {', '.join(hashtags_limpios)}\n"
+                    texto_resultado += f"   URL: {img.get('mediaUrl', 'N/A')}\n\n"
+            else:
+                texto_resultado = "No se encontraron imagenes para esa descripcion"
+            
+            return [types.TextContent(type="text", text=texto_resultado)]
+            
         except Exception as e:
-            return [types.TextContent(type="text", text=f"Error: {str(e)}")]
-
-    async def _get_schema(self, database: str, table: str = None):
-        connector = self.connectors.get(database)
-        if not connector:
-            return [types.TextContent(type="text", text=f"Database {database} not found")]
-        
-        try:
-            schema = await connector.get_schema(table)
-            return [types.TextContent(type="text", text=str(schema))]
-        except Exception as e:
-            return [types.TextContent(type="text", text=f"Error: {str(e)}")]
+            error_limpio = str(e).encode('utf-8', 'ignore').decode('utf-8')
+            return [types.TextContent(type="text", text=f"Error en get_content: {error_limpio}")]
 
 async def create_server():
     server_instance = DatabaseMCPServer()
