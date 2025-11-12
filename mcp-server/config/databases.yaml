@@ -4,13 +4,11 @@ postgresql:
   username: postgres
   password: postgres123
   namespace: promptsales
-  use_k8s_service: false
 
 mongodb:
   service_name: localhost:30017
   database: promptcontent
   namespace: promptcontent
-  use_k8s_service: false
 
 sqlserver:
   service_name: localhost:31433
@@ -18,7 +16,6 @@ sqlserver:
   username: sa
   password: YourStrong!Passw0rd
   namespace: promptads
-  use_k8s_service: false
 
 sqlserver2:
   service_name: localhost:32433
@@ -26,4 +23,3 @@ sqlserver2:
   username: sa
   password: YourStrong!Passw0rd
   namespace: promptcrm
-  use_k8s_service: false
