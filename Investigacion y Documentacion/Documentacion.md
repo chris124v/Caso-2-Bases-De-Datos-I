@@ -181,7 +181,7 @@ Listado de Entidades:
 
 - Hay que definir como los leads se convierten en compradores, es por el estado?
 - Que son los clientes? 
-- Preguntarle al profe si es necesario saber las ventas realizadas por los clientes finales. 
+- Preguntarle al profe si es necesario saber las ventas realizadas por los clientes finales
 
 
 
