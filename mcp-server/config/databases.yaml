@@ -10,6 +10,9 @@ mongodb:
   host: localhost
   port: 30017
   database: promptcontent
+  username: mongouser # Agregar usuario
+  password: mongo123 # Agregar contraseña
+  authSource: admin # Agregar base de autenticación
   namespace: promptcontent
 
 sqlserver1:
