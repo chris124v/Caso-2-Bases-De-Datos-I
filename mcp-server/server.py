@@ -70,7 +70,27 @@ class DatabaseMCPServer:
                         },
                         "required": ["descripcion"]
                     }
-                )
+                ),
+                types.Tool(
+                name="generate_campaign_messages",
+                description="Genera mensajes de campaña personalizados por audiencia",
+                inputSchema={
+                    "type": "object",
+                        "properties": {
+                            "campaign_description": {"type": "string"},
+                            "target_audiences": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                                "description": "Lista de audiencias objetivo"
+                            },
+                            "client_id": {
+                                "type": "string", 
+                                "default": "CLIENT_DEFAULT"
+                            }
+                        },
+                    "required": ["campaign_description", "target_audiences"]
+                }
+            )
             ]
         
         @self.server.call_tool()
@@ -81,6 +101,8 @@ class DatabaseMCPServer:
                 return await self._get_schema(**arguments)
             elif name == "get_content":
                 return await self._get_content(**arguments)
+            elif name == "generate_campaign_messages":  
+                return await self._generate_campaign_messages(**arguments)
 
     async def initialize_from_config(self):
         """Inicializar conectores desde YAML"""
@@ -156,6 +178,39 @@ class DatabaseMCPServer:
         except Exception as e:
             return [types.TextContent(type="text", text=f"Error en get_content: {str(e)}")]
         
+    async def _generate_campaign_messages(self, campaign_description: str, target_audiences: list, client_id: str = "CLIENT_DEFAULT"):
+        """
+        Maneja las llamadas al tool generate_campaign_messages
+        """
+        try:
+            import sys
+            ruta_base = r"C:\Users\migue\Documents\Bases-de-Datos\Casos\Caso-2-Bases-De-Datos-I"
+            sys.path.append(ruta_base)  
+            from BasesDeDatos.PromptContent.Scripts.contentTools import generateCampaignMessages
+            
+            # Llamar a la función existente
+            resultado = generateCampaignMessages(campaign_description, target_audiences, client_id)
+            
+            # Formatear la respuesta para MCP
+            if resultado.get('status') == 'completed':
+                texto_resultado = f"✅ Campaña generada exitosamente!\n\n"
+                texto_resultado += f"📋 Request ID: {resultado['requestId']}\n"
+                texto_resultado += f"🎯 Audiencias: {', '.join(resultado['targetAudiences'])}\n"
+                texto_resultado += f"📝 Total mensajes: {resultado['totalMessages']}\n\n"
+                
+                texto_resultado += "📢 Mensajes generados por audiencia:\n"
+                for audiencia, mensajes in resultado['messagesGenerated'].items():
+                    texto_resultado += f"\n👥 {audiencia}:\n"
+                    for i, mensaje in enumerate(mensajes, 1):
+                        texto_resultado += f"   {i}. {mensaje}\n"
+            
+            else:
+                texto_resultado = f"❌ Error al generar campaña: {resultado.get('error', 'Error desconocido')}"
+            
+            return [types.TextContent(type="text", text=texto_resultado)]
+            
+        except Exception as e:
+            return [types.TextContent(type="text", text=f"Error en generate_campaign_messages: {str(e)}")]
 
 async def create_server():
     server_instance = DatabaseMCPServer()
