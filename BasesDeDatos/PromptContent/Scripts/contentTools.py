@@ -155,6 +155,8 @@ def getContent(descripcion_textual, top_k=5):
         return []
 
 
+
+
 # ============================================
 # TOOL 2: generateCampaignMessages()
 # ============================================

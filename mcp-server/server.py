@@ -2,11 +2,20 @@
 from mcp.server import Server
 import mcp.types as types
 import sys
+import io
 
 from connectors.mongo_connector import MongoDBConnector
 from connectors.sqlserver_connector import SQLServerConnector
 from connectors.postgresql_connector import PostgreSQLConnector
 from config.config_manager import ConfigManager
+
+# 🔥 FORZAR CODIFICACIÓN UTF-8 A NIVEL DEL SISTEMA
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='ignore')
+if sys.stderr.encoding != 'utf-8':
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='ignore')
+
+print("✅ Codificación forzada a UTF-8")
 
 class DatabaseMCPServer:
     def __init__(self):
@@ -125,34 +134,28 @@ class DatabaseMCPServer:
         """
         try:
             import sys
-            # Aquí llamas a tu función getContent() existente
             ruta_base = r"C:\Users\migue\Documents\Bases-de-Datos\Casos\Caso-2-Bases-De-Datos-I"
             sys.path.append(ruta_base)  
-            # Importar desde la ruta relativa
             from BasesDeDatos.PromptContent.Scripts.contentTools import getContent
                     
             resultados = getContent(descripcion, top_k)
             
-            # Formatear la respuesta para MCP
+            # Formatear la respuesta para MCP - SIN encode/decode
             if resultados:
-                texto_resultado = f"Se encontraron {len(resultados)} imagenes:\n\n"
+                texto_resultado = f"Se encontraron {len(resultados)} imágenes:\n\n"
                 for i, img in enumerate(resultados, 1):
-                    # Limpiar caracteres problemáticos
-                    descripcion_limpia = str(img.get('description', '')).encode('utf-8', 'ignore').decode('utf-8')
-                    hashtags_limpios = [str(tag).encode('utf-8', 'ignore').decode('utf-8') for tag in img.get('hashtags', [])]
-                    
                     texto_resultado += f"{i}. {img.get('mediaId', '')} (score: {img.get('score', 0)})\n"
-                    texto_resultado += f"   Descripcion: {descripcion_limpia}\n"
-                    texto_resultado += f"   Hashtags: {', '.join(hashtags_limpios)}\n"
+                    texto_resultado += f"   Descripción: {img.get('description', '')}\n"
+                    texto_resultado += f"   Hashtags: {', '.join(img.get('hashtags', []))}\n"
                     texto_resultado += f"   URL: {img.get('mediaUrl', 'N/A')}\n\n"
             else:
-                texto_resultado = "No se encontraron imagenes para esa descripcion"
+                texto_resultado = "No se encontraron imágenes para esa descripción"
             
             return [types.TextContent(type="text", text=texto_resultado)]
             
         except Exception as e:
-            error_limpio = str(e).encode('utf-8', 'ignore').decode('utf-8')
-            return [types.TextContent(type="text", text=f"Error en get_content: {error_limpio}")]
+            return [types.TextContent(type="text", text=f"Error en get_content: {str(e)}")]
+        
 
 async def create_server():
     server_instance = DatabaseMCPServer()
