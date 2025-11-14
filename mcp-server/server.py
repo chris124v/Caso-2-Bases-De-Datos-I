@@ -122,13 +122,13 @@ class DatabaseMCPServer:
         # MongoDB
         mongo_config = db_configs["mongodb"]
         self.connectors["mongodb"] = MongoDBConnector(
-        host=mongo_config["host"],
-        port=mongo_config["port"],
-        database=mongo_config["database"],
-        username=mongo_config.get("username"),
-        password=mongo_config.get("password"),
-        authSource=mongo_config.get("authSource", "admin")
-    )
+            host=mongo_config["host"],
+            port=mongo_config["port"],
+            database=mongo_config["database"],
+            username=mongo_config.get("username"),
+            password=mongo_config.get("password"),
+            authSource=mongo_config.get("authSource", "admin")
+        )
 
         # SQL Server 1
         sql1_config = db_configs["sqlserver1"]
