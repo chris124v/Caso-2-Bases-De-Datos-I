@@ -150,6 +150,21 @@ class DatabaseMCPServer:
             password=sql2_config["password"]
         )
 
+    async def _get_schema(self, database: str, table: str = None):
+        """
+        Maneja las llamadas al tool get_schema
+        """
+        try:
+            connector = self.connectors.get(database)
+            if not connector:
+                return [types.TextContent(type="text", text=f"Database {database} not found")]
+            
+            schema = await connector.get_schema(table)
+            return [types.TextContent(type="text", text=str(schema))]
+            
+        except Exception as e:
+            return [types.TextContent(type="text", text=f"Error getting schema: {str(e)}")]
+
     async def _get_content(self, descripcion: str, top_k: int = 5):
         """
         Maneja las llamadas al tool get_content
