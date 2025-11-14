@@ -1,0 +1,84 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/13/2025 10:03:35 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-782S70Q"
+  DTS:CreatorName="DESKTOP-782S70Q\Christopher"
+  DTS:DTSID="{DA58A832-3B99-462D-88D6-C8837CA5408F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LocaleID="5130"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{325198CC-9524-4398-8733-AE61CD2B0E49}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[promptads]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AA3B3D44-D1F9-41BB-81FB-0AF8BBB1F24F}"
+      DTS:ObjectName="promptads">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost,31433;User ID=sa;Initial Catalog=promptads;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{AA3B3D44-D1F9-41BB-81FB-0AF8BBB1F24F}localhost,31433.promptads.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADq22bokm0bop7XAN5Yl32LkqlMsFSGAYGYLdYz3U9lwQAAAAAOgAAAAAIAACAAAADY/sBUQK+uc0yGussSAmvuhC2syxAiwE7xARkNWzg5hDAAAAAaRP58c9bgZUn/DUy2RcnAKENEpuYOz9hP0Io896CZuzHkOdaNm3XxwHDBGEiZ1I9AAAAAHa447YpA6JjrWkpt5Pkohw+vsbO7IVIsJTsBETkWEtFna8wIk3Ph2mabgd0B+pAUM7SlZqoebjzNjSgNtCwhGw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[promptcontent]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{6483404E-1FAA-4E91-8B92-C0839C4AD0D4}"
+      DTS:ObjectName="promptcontent">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=mongouser;Dsn=MongoDBDNS;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[promptcrm]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{021E55AF-A3BC-442B-BB4D-3DF6EE0CB6A9}"
+      DTS:ObjectName="promptcrm">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost,32433;User ID=sa;Initial Catalog=promptcrm;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{021E55AF-A3BC-442B-BB4D-3DF6EE0CB6A9}localhost,32433.promptcrm.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC1uCaz44PFLHFLnuK9JQVct8BUxnkotrX37388+ZuMrwAAAAAOgAAAAAIAACAAAAD4n7vx1zG0dlkx7VPMCWZW0j2fqa7HN0RJVtyMXw3WljAAAABi9H1hpoaTlLX1xuqstxVt/JTfjkqeYrMcUgep14z4tmxXfKeNoxsF9SGPkAtveitAAAAANmBs9XjLQFQ40nXK3NfOy6rmT23rVtXov1mf8Kg55wpN2yj7QiEqqEV1V6n4Tb4kaF00zHoc8DjwEdIJdeeDbg</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[promptsales]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
+      DTS:ObjectName="promptsales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=postgres;Dsn=PostgreSQL_PromptSales;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables />
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
