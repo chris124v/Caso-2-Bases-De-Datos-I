@@ -9,7 +9,7 @@ from connectors.sqlserver_connector import SQLServerConnector
 from connectors.postgresql_connector import PostgreSQLConnector
 from config.config_manager import ConfigManager
 
-# 🔥 FORZAR CODIFICACIÓN UTF-8 A NIVEL DEL SISTEMA
+# FORZAR CODIFICACIÓN UTF-8 A NIVEL DEL SISTEMA PARA RESOLVER PROBLEMA DE EMOJIS Y CARACTERES ESPECIALES
 if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='ignore')
 if sys.stderr.encoding != 'utf-8':

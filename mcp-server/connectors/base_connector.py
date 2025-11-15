@@ -7,9 +7,8 @@ class BaseDatabaseConnector(ABC):
     @abstractmethod
     async def execute_query(self, query: str, params: Dict = None)-> List[Dict]:
 
-        """TAca taca taca 
-            unq query
-            cuando haya
+        """
+        Ejecuta un query en la base de datos
         
         """
         pass
