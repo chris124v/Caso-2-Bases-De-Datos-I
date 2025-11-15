@@ -109,5 +109,11 @@ SELECT 'PSPublishedAds', COUNT(*) FROM "PSPublishedAds"
 UNION ALL
 SELECT 'PSLeadsSummarry', COUNT(*) FROM "PSLeadsSumarry";
 
+-- Limpiar tablas para prueba limpia
+DELETE FROM "PSContentUsage";
+DELETE FROM "PSPublishedAds";
+DELETE FROM "PSLeadsSumarry";
+
+
 
 
