@@ -1145,8 +1145,16 @@ ALTER TABLE IF EXISTS public."PSPublishedAds"
 
 
 ALTER TABLE IF EXISTS public."PSPublishedAdsReactions"
-    ADD FOREIGN KEY ("IdReactionType", "IdPublishedAd")
-    REFERENCES public."PSReactionTypes" ("IdReactionType", "IdPublishedAd") MATCH SIMPLE
+    ADD FOREIGN KEY ("IdPublishedAd")
+    REFERENCES public."PSPublishedAds" ("IdPublishedAd") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."PSPublishedAdsReactions"
+    ADD FOREIGN KEY ("IdReactionType")
+    REFERENCES public."PSReactionTypes" ("IdReactionType") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;

@@ -1,0 +1,60 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Christopher\\OneDrive\\Documents\\TEC\\II Semestre 2025\\Bases de Datos I\\Caso2\\Caso-2-Bases-De-Datos-I\\BasesDeDatos\\PromptSales\\Scripts\\Caso2SSIS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{12F7D66F-D77C-D52F-364F-E348B2A3A0DD}|Caso2SSIS\\Caso2SSIS.dtproj|C:\\Users\\Christopher\\OneDrive\\Documents\\TEC\\II Semestre 2025\\Bases de Datos I\\Caso2\\Caso-2-Bases-De-Datos-I\\BasesDeDatos\\PromptSales\\Scripts\\Caso2SSIS\\Caso2SSIS\\Package.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{12F7D66F-D77C-D52F-364F-E348B2A3A0DD}|Caso2SSIS\\Caso2SSIS.dtproj|solutionrelative:Caso2SSIS\\Package.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Package.dtsx",
+              "DocumentMoniker": "C:\\Users\\Christopher\\OneDrive\\Documents\\TEC\\II Semestre 2025\\Bases de Datos I\\Caso2\\Caso-2-Bases-De-Datos-I\\BasesDeDatos\\PromptSales\\Scripts\\Caso2SSIS\\Caso2SSIS\\Package.dtsx",
+              "RelativeDocumentMoniker": "Caso2SSIS\\Package.dtsx",
+              "ToolTip": "C:\\Users\\Christopher\\OneDrive\\Documents\\TEC\\II Semestre 2025\\Bases de Datos I\\Caso2\\Caso-2-Bases-De-Datos-I\\BasesDeDatos\\PromptSales\\Scripts\\Caso2SSIS\\Caso2SSIS\\Package.dtsx",
+              "RelativeToolTip": "Caso2SSIS\\Package.dtsx",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-11-14T15:54:35.402Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

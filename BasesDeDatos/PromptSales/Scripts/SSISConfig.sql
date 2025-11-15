@@ -1,3 +1,5 @@
+-- Archivo de config de ssis porque no me aparecen los catalogos 
+
 USE master;
 GO
 
