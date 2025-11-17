@@ -46,9 +46,9 @@ if AI_PROVIDER == "groq":
         from groq import Groq
         AI_CLIENT = Groq(api_key=GROQ_API_KEY)
         AI_DISPONIBLE = True
-        print("✅ IA inicializada: Groq")
+        print("  IA inicializada: Groq")
     except Exception as e:
-        print(f"⚠️  Groq no disponible: {e}")
+        print(f"   Groq no disponible: {e}")
 
 
 # ============================================
@@ -192,7 +192,7 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
         }
         
         db.PCContent_Requests.insert_one(request_doc)
-        print(f"✅ Solicitud registrada: {request_id}")
+        print(f"  Solicitud registrada: {request_id}")
         
         # 3. Generar mensajes para cada audiencia
         mensajes_por_audiencia = {}
@@ -200,7 +200,7 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
         contador_mensajes = 1
         
         for audiencia in target_audiences:
-            print(f"📝 Generando mensajes para audiencia: {audiencia}")
+            print(f"  Generando mensajes para audiencia: {audiencia}")
             
             # Generar 3 mensajes para esta audiencia
             mensajes = []
@@ -252,7 +252,7 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
                 contador_mensajes += 1
             
             mensajes_por_audiencia[audiencia] = mensajes
-            print(f"   ✅ {len(mensajes)} mensajes generados para {audiencia}")
+            print(f"     {len(mensajes)} mensajes generados para {audiencia}")
         
         # 4. Actualizar solicitud a completada
         db.PCContent_Requests.update_one(
@@ -274,7 +274,7 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
             }
         )
         
-        print(f"✅ Campaña completada: {len(media_ids_generados)} mensajes generados")
+        print(f"  Campaña completada: {len(media_ids_generados)} mensajes generados")
         
         # 5. Retornar resultado
         return {
@@ -288,7 +288,7 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
         }
         
     except Exception as e:
-        print(f"❌ Error en generateCampaignMessages: {e}")
+        print(f"  Error en generateCampaignMessages: {e}")
         
         # Actualizar solicitud a fallida si existe
         if 'request_id' in locals():
@@ -382,10 +382,10 @@ if __name__ == "__main__":
     # ========================================
     print("📸 TOOL 1: getContent()")
     print("-" * 80)
-    print("Búsqueda: 'laptop moderno para oficina'")
+    print("Búsqueda: 'Montaña'")
     print()
     
-    resultados = getContent("paisajes lindos", top_k=3)
+    resultados = getContent("montaña", top_k=3)
     
     if resultados:
         for i, img in enumerate(resultados, 1):
@@ -403,29 +403,29 @@ if __name__ == "__main__":
     # ========================================
     # EJEMPLO 2: generateCampaignMessages()
     # ========================================
-    print("📝 TOOL 2: generateCampaignMessages()")
+    print("  TOOL 2: generateCampaignMessages()")
     print("-" * 80)
     print("Campaña: Lanzamiento de nueva laptop gaming")
     print("Audiencias: estudiantes, programadores, diseñadores gráficos")
     print()
     
     resultado_campana = generateCampaignMessages(
-        campaign_description="Lanzamiento de nueva línea de laptops gaming con RTX 4090, pantalla 240Hz y diseño RGB personalizable",
-        target_audiences=["estudiantes", "programadores", "diseñadores gráficos"],
+        campaign_description="genera una campaña de articulos festivos para celebraciones de cumpleaños y aniversarios",
+        target_audiences=["jovenes", "adultos mayores", "padres"],
         client_id="CLIENT_001"
     )
     
     if resultado_campana['status'] == 'completed':
-        print(f"✅ Request ID: {resultado_campana['requestId']}")
-        print(f"✅ Total mensajes: {resultado_campana['totalMessages']}")
+        print(f"  Request ID: {resultado_campana['requestId']}")
+        print(f"  Total mensajes: {resultado_campana['totalMessages']}")
         print()
         
         for audiencia, mensajes in resultado_campana['messagesGenerated'].items():
-            print(f"📢 Mensajes para {audiencia}:")
+            print(f"  Mensajes para {audiencia}:")
             for i, mensaje in enumerate(mensajes, 1):
                 print(f"   {i}. {mensaje[:80]}...")
             print()
     else:
-        print(f"❌ Error: {resultado_campana.get('error', 'Unknown error')}")
+        print(f"  Error: {resultado_campana.get('error', 'Unknown error')}")
     
     print("=" * 80)
