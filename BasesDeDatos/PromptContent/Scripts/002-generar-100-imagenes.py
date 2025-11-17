@@ -25,7 +25,7 @@ PIXABAY_API_KEY = "53186043-03d471fac4bce3d4ea7b8a2f7"
 AI_PROVIDER = "groq"
 
 # API Keys - CADA UNO DEBE PONER SU API KEY DE GROQ AQUÍ https://console.groq.com/keys   
-GROQ_API_KEY = "AQUI"          
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')         
 
 
 # ============================================
@@ -40,12 +40,12 @@ if AI_PROVIDER == "groq":
         from groq import Groq
         AI_CLIENT = Groq(api_key=GROQ_API_KEY)
         AI_DISPONIBLE = True
-        print("✅ Groq (Llama 3) inicializado")
+        print("Groq (Llama 3) inicializado")
     except Exception as e:
-        print(f"⚠️  Error con Groq: {e}")
+        print(f"Error con Groq: {e}")
         
 else:
-    print("ℹ️  Modo sin IA - usando descripciones simples")
+    print("ℹModo sin IA - usando descripciones simples")
 
 
 # ============================================
@@ -155,7 +155,7 @@ def llamar_ia(prompt):
             return response.content[0].text.strip()
             
     except Exception as e:
-        print(f"    ⚠️  Error con IA: {e}")
+        print(f"       Error con IA: {e}")
         return None
 
 
@@ -322,18 +322,18 @@ def generar_hashtags_mejorados(categoria, keyword, tags_pixabay):
 def generar_100_imagenes():
     """Genera 100 imágenes con Pixabay + Multi-IA"""
     
-    print("🔌 Conectando a MongoDB...")
+    print("  Conectando a MongoDB...")
     client = pymongo.MongoClient(MONGO_URL)
     db = client[DATABASE_NAME]
     
     if "PCmedia" not in db.list_collection_names():
-        print("❌ Error: La colección 'PCmedia' no existe.")
+        print("  Error: La colección 'PCmedia' no existe.")
         return
     
-    print(f"✅ Conectado a base de datos: {DATABASE_NAME}")
-    print(f"🎨 Generando {TOTAL_IMAGENES} imágenes")
-    print(f"📸 Proveedor de imágenes: PIXABAY (5000/hora)")
-    print(f"🤖 Proveedor de IA: {AI_PROVIDER.upper() if AI_DISPONIBLE else 'NINGUNO (fallback)'}\n")
+    print(f"  Conectado a base de datos: {DATABASE_NAME}")
+    print(f"  Generando {TOTAL_IMAGENES} imágenes")
+    print(f"  Proveedor de imágenes: PIXABAY (5000/hora)")
+    print(f"  Proveedor de IA: {AI_PROVIDER.upper() if AI_DISPONIBLE else 'NINGUNO (fallback)'}\n")
     
     imagenes_generadas = []
     contador = 1
@@ -341,7 +341,7 @@ def generar_100_imagenes():
     imagenes_placeholder = 0
     
     for categoria, config in CATEGORIAS.items():
-        print(f"\n📁 Categoría: {categoria.upper()}")
+        print(f"\n  Categoría: {categoria.upper()}")
         
         for i in range(10):
             keyword = random.choice(config["keywords"])
@@ -365,7 +365,7 @@ def generar_100_imagenes():
                 width = imagen_data["width"]
                 height = imagen_data["height"]
                 delivery_status = "Delivered"
-                print(f" → ✅ Pixabay")
+                print(f" →   Pixabay")
                 imagenes_pixabay += 1
             else:
                 descripcion = generar_descripcion_simple([], keyword, estilo, color)
@@ -374,7 +374,7 @@ def generar_100_imagenes():
                 width, height = (1920, 1080) if orientacion == "landscape" else (1080, 1920)
                 image_url = " "
                 delivery_status = "Processing"
-                print(f" → 📦 Placeholder")
+                print(f" →   Placeholder")
                 imagenes_placeholder += 1
             
             PCmedia = {
@@ -404,22 +404,22 @@ def generar_100_imagenes():
             contador += 1
             time.sleep(0.3)
     
-    print(f"\n\n💾 Insertando {len(imagenes_generadas)} imágenes en MongoDB...")
+    print(f"\n\n  Insertando {len(imagenes_generadas)} imágenes en MongoDB...")
     try:
         result = db.PCmedia.insert_many(imagenes_generadas)
-        print(f"✅ {len(result.inserted_ids)} imágenes insertadas")
+        print(f"  {len(result.inserted_ids)} imágenes insertadas")
         
-        print(f"\n📊 Estadísticas:")
+        print(f"\n  Estadísticas:")
         print(f"  • Imágenes de Pixabay: {imagenes_pixabay}")
         print(f"  • Imágenes placeholder: {imagenes_placeholder}")
         print(f"  • Total: {len(imagenes_generadas)}")
         print(f"  • Tasa de éxito: {(imagenes_pixabay/len(imagenes_generadas)*100):.1f}%")
         print(f"  • Proveedor IA: {AI_PROVIDER if AI_DISPONIBLE else 'Ninguno'}")
         
-        print("\n✨ ¡Generación completada!")
+        print("\n  ¡Generación completada!")
         
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"  Error: {e}")
     finally:
         client.close()
 

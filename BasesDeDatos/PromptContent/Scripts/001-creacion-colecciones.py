@@ -388,7 +388,7 @@ def create_database_and_collections():
         # ÍNDICES
         db.PCClients.create_index([("clientId", ASCENDING)], unique=True)
         db.PCClients.create_index([("email", ASCENDING)], unique=True)
-        db.PCClients.create_index([("status", ASCENDING)], unique=True)
+        db.PCClients.create_index([("status", ASCENDING)])
         print("  → Índices creados para 'PCClients'")
         
         # ============================================
