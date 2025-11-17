@@ -1,0 +1,32 @@
+postgresql:
+  host: localhost
+  port: 30432
+  database: promptsales
+  username: postgres
+  password: postgres123
+  namespace: promptsales
+
+mongodb:
+  host: localhost
+  port: 30017
+  database: promptcontent
+  username: mongouser # Agregar usuario
+  password: mongo123 # Agregar contraseña
+  authSource: admin # Agregar base de autenticación
+  namespace: promptcontent
+
+sqlserver1:
+  host: localhost
+  port: 31433
+  database: promptads
+  username: sa
+  password: YourStrong!Passw0rd
+  namespace: promptads
+
+sqlserver2:
+  host: localhost
+  port: 32433
+  database: promptcrm
+  username: sa
+  password: YourStrong!Passw0rd
+  namespace: promptcrm

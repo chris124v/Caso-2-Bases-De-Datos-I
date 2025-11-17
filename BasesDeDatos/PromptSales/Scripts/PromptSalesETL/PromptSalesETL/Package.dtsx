@@ -1,0 +1,3086 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/13/2025 10:03:35 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-782S70Q"
+  DTS:CreatorName="DESKTOP-782S70Q\Christopher"
+  DTS:DTSID="{DA58A832-3B99-462D-88D6-C8837CA5408F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LocaleID="5130"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{936A07E5-0A34-477A-AF6B-3469974E08CD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[promptads]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AA3B3D44-D1F9-41BB-81FB-0AF8BBB1F24F}"
+      DTS:ObjectName="promptads">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost,31433;User ID=sa;Initial Catalog=promptads;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{AA3B3D44-D1F9-41BB-81FB-0AF8BBB1F24F}localhost,31433.promptads.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACW9PI2kNSK3RJ2RPOtjJm5qjsv8A8P4iZoyaRnKky3/QAAAAAOgAAAAAIAACAAAADc/rR+7BejB2rRJpexuFO01m1yRRaNRibqobOtUuHjGDAAAADHqKcYLtPiZ+w088Ej+K1a3IkHab93rURZWMoNUnrtXYfzVs6SMXu/hyq2IOGOb1xAAAAA59Q7wGVxYgMp5FNPJSUpRV/sonBFH6ElLeH3wxOt5YOMBPWnAl6dLfw3l2n09gTJfQqs32slsAx5iBYtaEuCrA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[promptcontent]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{6483404E-1FAA-4E91-8B92-C0839C4AD0D4}"
+      DTS:ObjectName="promptcontent">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=mongouser;Dsn=MongoDBDNS;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[promptcrm]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{021E55AF-A3BC-442B-BB4D-3DF6EE0CB6A9}"
+      DTS:ObjectName="promptcrm">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost,32433;User ID=sa;Initial Catalog=promptcrm;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{021E55AF-A3BC-442B-BB4D-3DF6EE0CB6A9}localhost,32433.promptcrm.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACVj70PpyxEbXk1qV81+rTsn2g7fro7utLt8Fwas0tokgAAAAAOgAAAAAIAACAAAAD0xedpyo6aE2yHNiSU27hzbqc5LyeJoboAN7LWStk2vDAAAAAlF8s8S97sPO+2a2DN2Z5w61Ynir4BnC/pT5xDMSaZ4IMYCv9UzIRtGIcAfi7ehjFAAAAAXWoEpUjpbFO4HPrDjQFMPvKdrgN2tHzlIKPAA1spQmF91FO/Tdisl0IvosAP7BiNGwhWKU11grknaD1fcoVs+A</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[promptsales]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
+      DTS:ObjectName="promptsales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=postgres;Dsn=PostgreSQL_PromptSales;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4595BA6C-CB78-4A7E-8B50-90993534A8CC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastRunAds">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2024</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DBA462E9-57CE-4687-8821-3B18FCCFF95D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastRunContent">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2024</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3C33FB91-FC77-4E6F-81C4-9389E48AB233}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastRunCRM">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2024</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2AA847F2-0427-4E1D-9468-AEF487CB9DD6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR, 4) YEAR(@[User::LastRunContent]) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(@[User::LastRunContent]), 2) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(@[User::LastRunContent]), 2) + &quot; &quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hour&quot;, @[User::LastRunContent]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;minute&quot;, @[User::LastRunContent]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;second&quot;, @[User::LastRunContent]), 2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MongoFilterDate">
+      <DTS:VariableValue
+        DTS:DataType="8">2024-01-01 00:00:00</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1922A687-CA77-46DE-8C73-81E64BDACE5E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT &#xA;    IdPublishedAd, IdCampaign, channelName, channelType, adType,&#xA;    influencerName, influencerFollowers, body, redirectURL,&#xA;    budget, expenses, adSentiment, adStatus, publishedAt,&#xA;    createdAt, updatedAt&#xA;FROM vw_PublishedAds_Delta&#xA;WHERE maxUpdatedAt &gt; CAST('&quot; &#xA;+ (DT_WSTR, 4) YEAR(@[User::LastRunAds]) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(@[User::LastRunAds]), 2) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(@[User::LastRunAds]), 2) + &quot; &quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hour&quot;, @[User::LastRunAds]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;minute&quot;, @[User::LastRunAds]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;second&quot;, @[User::LastRunAds]), 2)&#xA;+ &quot;' AS DATETIME)&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SqlQueryAds">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT 
+    IdPublishedAd, IdCampaign, channelName, channelType, adType,
+    influencerName, influencerFollowers, body, redirectURL,
+    budget, expenses, adSentiment, adStatus, publishedAt,
+    createdAt, updatedAt
+FROM vw_PublishedAds_Delta
+WHERE maxUpdatedAt &gt; CAST('2024-01-01 00:00:00' AS DATETIME)</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C5F2D19D-CB6C-4622-8669-6495ED4996E0}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT &#xA;    SUBSTRING(imageId, 1, 200) AS contentId,&#xA;    SUBSTRING(filename, 1, 200) AS contentTitle,&#xA;    SUBSTRING(url, 1, 500) AS contentURL,&#xA;    usageCount,&#xA;    createdAt,&#xA;    updatedAt&#xA;FROM PCImages&#xA;WHERE imageId IS NOT NULL&#xA;  AND updatedAt &gt; '&quot; &#xA;+ (DT_WSTR, 4) YEAR(@[User::LastRunContent]) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(@[User::LastRunContent]), 2) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(@[User::LastRunContent]), 2) + &quot; &quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hour&quot;, @[User::LastRunContent]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;minute&quot;, @[User::LastRunContent]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;second&quot;, @[User::LastRunContent]), 2)&#xA;+ &quot;'&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SqlQueryContent">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT 
+    SUBSTRING(imageId, 1, 200) AS contentId,
+    SUBSTRING(filename, 1, 200) AS contentTitle,
+    SUBSTRING(url, 1, 500) AS contentURL,
+    usageCount,
+    createdAt,
+    updatedAt
+FROM PCImages
+WHERE imageId IS NOT NULL
+  AND updatedAt &gt; '2024-01-01 00:00:00'</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C5EA7746-46CD-4422-A849-8AFC71267176}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT &#xA;    IdCampaign, OrganizationName, CampaignCode, summaryDate,&#xA;    totalLeads, currentLeads, qualifiedLeads, convertedLeads, rejectedLeads,&#xA;    TotalClients, TotalRevenue, TotalInteractions, qualificationRate,&#xA;    conversionRate, leadChannels, CampaignStartDate, LastActivity,&#xA;    CreatedAt, UpdatedAt&#xA;FROM vw_LeadsSummary_Delta&#xA;WHERE maxUpdatedAt &gt; CAST('&quot; &#xA;+ (DT_WSTR, 4) YEAR(@[User::LastRunCRM]) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(@[User::LastRunCRM]), 2) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(@[User::LastRunCRM]), 2) + &quot; &quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hour&quot;, @[User::LastRunCRM]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;minute&quot;, @[User::LastRunCRM]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;second&quot;, @[User::LastRunCRM]), 2)&#xA;+ &quot;' AS DATETIME)&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SqlQueryCRM">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT 
+    IdCampaign, OrganizationName, CampaignCode, summaryDate,
+    totalLeads, currentLeads, qualifiedLeads, convertedLeads, rejectedLeads,
+    TotalClients, TotalRevenue, TotalInteractions, qualificationRate,
+    conversionRate, leadChannels, CampaignStartDate, LastActivity,
+    CreatedAt, UpdatedAt
+FROM vw_LeadsSummary_Delta
+WHERE maxUpdatedAt &gt; CAST('2024-01-01 00:00:00' AS DATETIME)</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_LoadContentUsage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AEA7E371-AFC1-47B5-B8B5-1BDC8B46406E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_LoadContentUsage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_LoadContentUsage\Extract de Mongo"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Extract de Mongo"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    SUBSTRING(imageId, 1, 200) AS contentId,
+    SUBSTRING(filename, 1, 200) AS contentTitle,
+    SUBSTRING(url, 1, 500) AS contentURL,
+    usageCount,
+    createdAt,
+    updatedAt
+FROM PCImages
+WHERE imageId IS NOT NULL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_LoadContentUsage\Extract de Mongo.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptcontent]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptcontent]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[contentId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[contentId]"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[contentId]"
+                      name="contentId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[contentTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[contentTitle]"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[contentTitle]"
+                      name="contentTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[contentURL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[contentURL]"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[contentURL]"
+                      name="contentURL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[usageCount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[usageCount]"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[usageCount]"
+                      name="usageCount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[createdAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[createdAt]"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[createdAt]"
+                      name="createdAt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[updatedAt]"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[updatedAt]"
+                      name="updatedAt"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[contentId]"
+                      dataType="wstr"
+                      length="2000"
+                      name="contentId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[contentTitle]"
+                      dataType="wstr"
+                      length="2000"
+                      name="contentTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[contentURL]"
+                      dataType="wstr"
+                      length="2000"
+                      name="contentURL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[usageCount]"
+                      dataType="i4"
+                      name="usageCount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      name="updatedAt" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[contentId]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[contentId]"
+                      name="contentId" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[contentTitle]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[contentTitle]"
+                      name="contentTitle" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[contentURL]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[contentURL]"
+                      name="contentURL" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[usageCount]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[usageCount]"
+                      name="usageCount" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[createdAt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[createdAt]"
+                      name="createdAt" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[updatedAt]"
+                      name="updatedAt" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_LoadContentUsage\Load to PSContentUsage"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Load to PSContentUsage"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"public"."PSContentUsage"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptsales]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptsales]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[contentId]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="contentId"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[contentId]"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[contentId]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[contentTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="contentTitle"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[contentTitle]"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[contentTitle]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[contentURL]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="contentURL"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[contentURL]"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[contentURL]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[usageCount]"
+                      cachedDataType="i4"
+                      cachedName="usageCount"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[usageCount]"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[usageCount]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[createdAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="createdAt"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[createdAt]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[contentType]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="contentType"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[contentType]"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[contentType]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[channel]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="channel"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[channel]"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[channel]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[hashtags]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="hashtags"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[hashtags]"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[hashtags]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[usedInAds]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="usedInAds"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[usedInAds]"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[usedInAds]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[updatedAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="updatedAt"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[updatedAt]"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[updatedAt]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdContentUsage]"
+                      dataType="i8"
+                      name="IdContentUsage" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdCampaign]"
+                      dataType="i4"
+                      name="IdCampaign" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[contentId]"
+                      dataType="wstr"
+                      length="200"
+                      name="contentId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[contentType]"
+                      dataType="wstr"
+                      length="30"
+                      name="contentType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[contentTitle]"
+                      dataType="wstr"
+                      length="200"
+                      name="contentTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[channel]"
+                      dataType="wstr"
+                      length="30"
+                      name="channel" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[hashtags]"
+                      dataType="wstr"
+                      length="4095"
+                      name="hashtags" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[contentURL]"
+                      dataType="wstr"
+                      length="500"
+                      name="contentURL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[usageCount]"
+                      dataType="i4"
+                      name="usageCount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[usedInAds]"
+                      dataType="wstr"
+                      length="4095"
+                      name="usedInAds" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      name="updatedAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_LoadContentUsage\Transform de Mongo"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Transform de Mongo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_LoadContentUsage\Transform de Mongo.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_LoadContentUsage\Transform de Mongo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[loadedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[loadedAt]"
+                      name="loadedAt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[updatedAt]"
+                      name="updatedAt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[contentType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[contentType]"
+                      name="contentType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,30)"image"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,30)"image"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[channel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[channel]"
+                      name="channel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,30)"Multi-channel"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,30)"Multi-channel"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[hashtags]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4000"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[hashtags]"
+                      name="hashtags"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,4000)""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,4000)""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[usedInAds]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4000"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[usedInAds]"
+                      name="usedInAds"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,4000)"Multiple Ads"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,4000)"Multiple Ads"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_LoadContentUsage\Transform de Mongo.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_LoadContentUsage.Paths[Derived Column Output]"
+              endId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET]"
+              name="Derived Column Output"
+              startId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_LoadContentUsage.Paths[Salida de origen de ADO NET]"
+              endId="Package\DFT_LoadContentUsage\Transform de Mongo.Inputs[Derived Column Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT_LoadLeadsSummary"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E6515360-0C86-4984-8596-881E5F9465D7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_LoadLeadsSummary"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract de PromptCRM"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+    c.IdCampaign,
+    o.OrganizationName,
+    c.CampaignCode,
+    
+    -- Fecha del resumen
+    CAST(GETDATE() AS DATE) AS summaryDate,
+    
+    -- Conteos de leads por estado
+    COUNT(DISTINCT l.IdLead) AS totalLeads,
+    COUNT(DISTINCT CASE WHEN l.IdStatus IN (1,2,3) THEN l.IdLead END) AS currentLeads,
+    COUNT(DISTINCT CASE WHEN l.IdStatus = 3 THEN l.IdLead END) AS qualifiedLeads,
+    COUNT(DISTINCT CASE WHEN l.IdStatus = 4 THEN l.IdLead END) AS convertedLeads,
+    COUNT(DISTINCT CASE WHEN l.IdStatus = 5 THEN l.IdLead END) AS rejectedLeads,
+    
+    -- Clientes y revenue
+    COUNT(DISTINCT cli.IdClient) AS TotalClients,
+    ISNULL(SUM(s.SaleTotal), 0) AS TotalRevenue,
+    COUNT(DISTINCT e.IdEvent) AS TotalInteractions,
+    
+    -- Tasas de conversión
+    CAST(
+        CASE 
+            WHEN COUNT(DISTINCT l.IdLead) &gt; 0 
+            THEN (CAST(COUNT(DISTINCT CASE WHEN l.IdStatus = 3 THEN l.IdLead END) AS FLOAT) / COUNT(DISTINCT l.IdLead)) * 100
+            ELSE 0 
+        END AS DECIMAL(5,2)
+    ) AS qualificationRate,
+    
+    CAST(
+        CASE 
+            WHEN COUNT(DISTINCT l.IdLead) &gt; 0 
+            THEN (CAST(COUNT(DISTINCT CASE WHEN l.IdStatus = 4 THEN l.IdLead END) AS FLOAT) / COUNT(DISTINCT l.IdLead)) * 100
+            ELSE 0 
+        END AS DECIMAL(5,2)
+    ) AS conversionRate,
+    
+    -- Canales (necesitarías una tabla de canales o fuente de leads)
+    'Multiple Channels' AS leadChannels,
+    
+    -- Timestamps
+    c.CreatedAt AS CampaignStartDate,
+    ISNULL(MAX(l.UpdatedAt), c.UpdatedAt) AS LastActivity,
+    c.CreatedAt,
+    GETDATE() AS UpdatedAt
+    
+FROM PCRCampaigns c
+INNER JOIN PCROrganizations o ON c.IdOrganization = o.IdOrganization
+LEFT JOIN PCRLeads l ON c.IdCampaign = l.IdCampaign
+LEFT JOIN PCRClientsPerCampaigns cpc ON c.IdCampaign = cpc.IdCampaign
+LEFT JOIN PCRClients cli ON cpc.IdClient = cli.IdClient
+LEFT JOIN PCRSalesHistory s ON cli.IdClient = s.IdClient
+LEFT JOIN PCREvents e ON l.IdLead = e.IdLead
+GROUP BY 
+    c.IdCampaign, 
+    o.OrganizationName, 
+    c.CampaignCode,
+    c.CreatedAt,
+    c.UpdatedAt</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">User::SqlQueryCRM</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptcrm]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptcrm]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[IdCampaign]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[IdCampaign]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[IdCampaign]"
+                      name="IdCampaign"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[OrganizationName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[OrganizationName]"
+                      length="50"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[OrganizationName]"
+                      name="OrganizationName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[CampaignCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[CampaignCode]"
+                      length="20"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[CampaignCode]"
+                      name="CampaignCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[TotalClients]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[TotalClients]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[TotalClients]"
+                      name="TotalClients"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[TotalRevenue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[TotalRevenue]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[TotalRevenue]"
+                      name="TotalRevenue"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[TotalInteractions]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[TotalInteractions]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[TotalInteractions]"
+                      name="TotalInteractions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[CampaignStartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[CampaignStartDate]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[CampaignStartDate]"
+                      name="CampaignStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[LastActivity]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[LastActivity]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[LastActivity]"
+                      name="LastActivity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[summaryDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[summaryDate]"
+                      length="10"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[summaryDate]"
+                      name="summaryDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[totalLeads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[totalLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[totalLeads]"
+                      name="totalLeads"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[currentLeads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[currentLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[currentLeads]"
+                      name="currentLeads"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[qualifiedLeads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[qualifiedLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[qualifiedLeads]"
+                      name="qualifiedLeads"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[convertedLeads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[convertedLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[convertedLeads]"
+                      name="convertedLeads"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[rejectedLeads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[rejectedLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[rejectedLeads]"
+                      name="rejectedLeads"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[qualificationRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[qualificationRate]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[qualificationRate]"
+                      name="qualificationRate"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[conversionRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[conversionRate]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[conversionRate]"
+                      name="conversionRate"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[leadChannels]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[leadChannels]"
+                      length="17"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[leadChannels]"
+                      name="leadChannels"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[CreatedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[CreatedAt]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[CreatedAt]"
+                      name="CreatedAt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[UpdatedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[UpdatedAt]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[UpdatedAt]"
+                      name="UpdatedAt"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[IdCampaign]"
+                      dataType="i4"
+                      name="IdCampaign" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[OrganizationName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OrganizationName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[CampaignCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CampaignCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[TotalClients]"
+                      dataType="i4"
+                      name="TotalClients" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[TotalRevenue]"
+                      dataType="numeric"
+                      name="TotalRevenue"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[TotalInteractions]"
+                      dataType="i4"
+                      name="TotalInteractions" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[CampaignStartDate]"
+                      dataType="dbTimeStamp"
+                      name="CampaignStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[LastActivity]"
+                      dataType="dbTimeStamp"
+                      name="LastActivity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[summaryDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="summaryDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[totalLeads]"
+                      dataType="i4"
+                      name="totalLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[currentLeads]"
+                      dataType="i4"
+                      name="currentLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[qualifiedLeads]"
+                      dataType="i4"
+                      name="qualifiedLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[convertedLeads]"
+                      dataType="i4"
+                      name="convertedLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[rejectedLeads]"
+                      dataType="i4"
+                      name="rejectedLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[qualificationRate]"
+                      dataType="numeric"
+                      name="qualificationRate"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[conversionRate]"
+                      dataType="numeric"
+                      name="conversionRate"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[leadChannels]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="leadChannels" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[CreatedAt]"
+                      dataType="dbTimeStamp"
+                      name="CreatedAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].ExternalColumns[UpdatedAt]"
+                      dataType="dbTimeStamp"
+                      name="UpdatedAt" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[IdCampaign]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[IdCampaign]"
+                      name="IdCampaign" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[OrganizationName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[OrganizationName]"
+                      name="OrganizationName" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[CampaignCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[CampaignCode]"
+                      name="CampaignCode" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[summaryDate]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[summaryDate]"
+                      name="summaryDate" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[totalLeads]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[totalLeads]"
+                      name="totalLeads" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[currentLeads]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[currentLeads]"
+                      name="currentLeads" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[qualifiedLeads]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[qualifiedLeads]"
+                      name="qualifiedLeads" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[convertedLeads]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[convertedLeads]"
+                      name="convertedLeads" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[rejectedLeads]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[rejectedLeads]"
+                      name="rejectedLeads" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[TotalClients]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[TotalClients]"
+                      name="TotalClients" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[TotalRevenue]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[TotalRevenue]"
+                      name="TotalRevenue"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[TotalInteractions]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[TotalInteractions]"
+                      name="TotalInteractions" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[qualificationRate]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[qualificationRate]"
+                      name="qualificationRate"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[conversionRate]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[conversionRate]"
+                      name="conversionRate"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[leadChannels]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[leadChannels]"
+                      name="leadChannels" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[CampaignStartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[CampaignStartDate]"
+                      name="CampaignStartDate" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[LastActivity]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[LastActivity]"
+                      name="LastActivity" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[CreatedAt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[CreatedAt]"
+                      name="CreatedAt" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[UpdatedAt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[UpdatedAt]"
+                      name="UpdatedAt" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_LoadLeadsSummary\Load En PromptSales"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Load En PromptSales"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"public"."PSLeadsSumarry"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptsales]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptsales]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[totalLeads]"
+                      cachedDataType="i4"
+                      cachedName="totalLeads"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[totalLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[totalLeads]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[currentLeads]"
+                      cachedDataType="i4"
+                      cachedName="currentLeads"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[currentLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[currentLeads]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[qualifiedLeads]"
+                      cachedDataType="i4"
+                      cachedName="qualifiedLeads"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[qualifiedLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[qualifiedLeads]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[convertedLeads]"
+                      cachedDataType="i4"
+                      cachedName="convertedLeads"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[convertedLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[convertedLeads]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[rejectedLeads]"
+                      cachedDataType="i4"
+                      cachedName="rejectedLeads"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[rejectedLeads]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[rejectedLeads]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[qualificationRate]"
+                      cachedDataType="numeric"
+                      cachedName="qualificationRate"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[qualificationRate]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[qualificationRate]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[leadChannels]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="leadChannels"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[leadChannels]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[leadChannels]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[ConversionRate]"
+                      cachedDataType="numeric"
+                      cachedName="ConversionRate"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[conversionRate]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output].Columns[ConversionRate]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[CreatedAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedAt"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[CreatedAt]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[UpdatedAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdatedAt"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[updatedAt]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output].Columns[UpdatedAt]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].Columns[LastActivity]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastActivity"
+                      externalMetadataColumnId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[sumarryDate]"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[LastActivity]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdLeadSumarry]"
+                      dataType="i4"
+                      name="IdLeadSumarry" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdCampaign]"
+                      dataType="i4"
+                      name="IdCampaign" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[sumarryDate]"
+                      dataType="dbTimeStamp"
+                      name="sumarryDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[totalLeads]"
+                      dataType="i4"
+                      name="totalLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[currentLeads]"
+                      dataType="i4"
+                      name="currentLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[qualifiedLeads]"
+                      dataType="i4"
+                      name="qualifiedLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[convertedLeads]"
+                      dataType="i4"
+                      name="convertedLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[rejectedLeads]"
+                      dataType="i4"
+                      name="rejectedLeads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[qualificationRate]"
+                      dataType="numeric"
+                      name="qualificationRate"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[conversionRate]"
+                      dataType="numeric"
+                      name="conversionRate"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[leadChannels]"
+                      dataType="wstr"
+                      length="200"
+                      name="leadChannels" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      name="updatedAt" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Transform de PromptCRM"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Inputs[Derived Column Input].Columns[totalLeads]"
+                      cachedDataType="i4"
+                      cachedName="totalLeads"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[totalLeads]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Inputs[Derived Column Input].Columns[convertedLeads]"
+                      cachedDataType="i4"
+                      cachedName="convertedLeads"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[convertedLeads]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Inputs[Derived Column Input].Columns[CampaignStartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CampaignStartDate"
+                      lineageId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[CampaignStartDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output].Columns[ConversionRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output].Columns[ConversionRate]"
+                      name="ConversionRate"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[totalLeads]} &gt; 0 ? (DT_NUMERIC,5,2)(((DT_R8)#{Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[convertedLeads]} / (DT_R8)#{Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[totalLeads]}) * 100.0) : (DT_NUMERIC,5,2)0.0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">totalLeads &gt; 0 ? (DT_NUMERIC,5,2)(((DT_R8)convertedLeads / (DT_R8)totalLeads) * 100.0) : (DT_NUMERIC,5,2)0.0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output].Columns[CreatedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output].Columns[CreatedAt]"
+                      name="CreatedAt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output].Columns[CampaignStartDate]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">CampaignStartDate</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output].Columns[UpdatedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output].Columns[UpdatedAt]"
+                      name="UpdatedAt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_LoadLeadsSummary.Paths[Derived Column Output]"
+              endId="Package\DFT_LoadLeadsSummary\Load En PromptSales.Inputs[Entrada de destino de ADO NET]"
+              name="Derived Column Output"
+              startId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_LoadLeadsSummary.Paths[OLE DB Source Output]"
+              endId="Package\DFT_LoadLeadsSummary\Transform de PromptCRM.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_LoadLeadsSummary\Extract de PromptCRM.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT_LoadPublishedAds"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6017A0B0-AD0E-4C2A-9ED5-DA19766F11AA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_LoadPublishedAds"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_LoadPublishedAds\Extract de PromptAds"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract de PromptAds"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+    pa.IdPublishedAd,
+    ca.IdCampaign,
+    ch.name AS channelName,
+    adt.name AS adType,
+    ISNULL(inf.username, 'Direct') AS influencerName,
+    ISNULL(inf.followers, 0) AS influencerFollowers,
+    SUBSTRING(ISNULL(pa.body, ''), 1, 4000) AS body,
+    SUBSTRING(ISNULL(pa.redirectURL, ''), 1, 500) AS redirectURL,
+    CAST(ISNULL(perf.budget, 0.00) AS DECIMAL(12,2)) AS budget,
+    CAST(ISNULL(perf.expenses, 0.00) AS DECIMAL(12,2)) AS expenses,
+    ISNULL(sent.name, 'Neutral') AS adSentiment,
+    pa.createdAt AS publishedAt,
+    ISNULL(st.name, 'Unknown') AS adStatus,
+    pa.createdAt,
+    ISNULL(pa.updatedAt, pa.createdAt) AS updatedAt
+FROM PAPublishedAds pa
+INNER JOIN PACampaignAds ca ON pa.IdCampaignAd = ca.IdCampaignAd
+LEFT JOIN PAOrganizationContacts oc ON pa.IdOrganizationContact = oc.IdOrganizationContact
+LEFT JOIN PAChannels ch ON oc.IdChannel = ch.IdChannel
+LEFT JOIN PAAdTypes adt ON ca.IdAdType = adt.IdAdType
+LEFT JOIN PAAdStatus st ON pa.IdAdStatus = st.IdAdStatus
+LEFT JOIN PAInfluencerContacts ic ON pa.IdInfluencerContact = ic.IdInfluencerContact
+LEFT JOIN PAInfluencers inf ON ic.IdInfluencer = inf.IdInfluencer
+LEFT JOIN (
+    SELECT IdPublishedAd, budget, expenses, IdAdSentiment
+    FROM PAAdPerformances
+    WHERE isCurrent = 1
+) perf ON pa.IdPublishedAd = perf.IdPublishedAd
+LEFT JOIN PAAdSentiments sent ON perf.IdAdSentiment = sent.IdAdSentiment
+WHERE pa.IdPublishedAd IS NOT NULL</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">User::SqlQueryAds</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptads]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptads]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[IdPublishedAd]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[IdPublishedAd]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[IdPublishedAd]"
+                      name="IdPublishedAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[IdCampaign]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[IdCampaign]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[IdCampaign]"
+                      name="IdCampaign"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[channelName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[channelName]"
+                      length="60"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[channelName]"
+                      name="channelName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[adType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[adType]"
+                      length="20"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[adType]"
+                      name="adType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[influencerName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[influencerName]"
+                      length="60"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[influencerName]"
+                      name="influencerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[influencerFollowers]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[influencerFollowers]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[influencerFollowers]"
+                      name="influencerFollowers"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[body]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[body]"
+                      length="4000"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[body]"
+                      name="body"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[redirectURL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[redirectURL]"
+                      length="255"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[redirectURL]"
+                      name="redirectURL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[budget]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[budget]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[budget]"
+                      name="budget"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[expenses]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[expenses]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[expenses]"
+                      name="expenses"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[adSentiment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[adSentiment]"
+                      length="30"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[adSentiment]"
+                      name="adSentiment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[publishedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[publishedAt]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[publishedAt]"
+                      name="publishedAt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[adStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[adStatus]"
+                      length="20"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[adStatus]"
+                      name="adStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[createdAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[createdAt]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[createdAt]"
+                      name="createdAt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[updatedAt]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[updatedAt]"
+                      name="updatedAt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[channelType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[channelType]"
+                      length="20"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[channelType]"
+                      name="channelType"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[IdPublishedAd]"
+                      dataType="i8"
+                      name="IdPublishedAd" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[IdCampaign]"
+                      dataType="i4"
+                      name="IdCampaign" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[channelName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="channelName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[adType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="adType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[influencerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="influencerName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[influencerFollowers]"
+                      dataType="i8"
+                      name="influencerFollowers" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[body]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4000"
+                      name="body" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[redirectURL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="redirectURL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[budget]"
+                      dataType="numeric"
+                      name="budget"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[expenses]"
+                      dataType="numeric"
+                      name="expenses"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[adSentiment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="adSentiment" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[publishedAt]"
+                      dataType="dbTimeStamp"
+                      name="publishedAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[adStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="adStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      name="updatedAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].ExternalColumns[channelType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="channelType" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[IdPublishedAd]"
+                      dataType="i8"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[IdPublishedAd]"
+                      name="IdPublishedAd" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[IdCampaign]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[IdCampaign]"
+                      name="IdCampaign" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[channelName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[channelName]"
+                      name="channelName" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[channelType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[channelType]"
+                      name="channelType" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[adType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[adType]"
+                      name="adType" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[influencerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[influencerName]"
+                      name="influencerName" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[influencerFollowers]"
+                      dataType="i8"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[influencerFollowers]"
+                      name="influencerFollowers" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[body]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4000"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[body]"
+                      name="body" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[redirectURL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[redirectURL]"
+                      name="redirectURL" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[budget]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[budget]"
+                      name="budget"
+                      precision="12"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[expenses]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[expenses]"
+                      name="expenses"
+                      precision="12"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[adSentiment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[adSentiment]"
+                      name="adSentiment" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[publishedAt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[publishedAt]"
+                      name="publishedAt" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[adStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[adStatus]"
+                      name="adStatus" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[createdAt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[createdAt]"
+                      name="createdAt" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[updatedAt]"
+                      name="updatedAt" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_LoadPublishedAds\Load en PromptSales"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Load en PromptSales"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"public"."PSPublishedAds"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptsales]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptsales]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[channelName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="channelName"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[channelName]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[channelName]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[influencerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="influencerName"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[influencerName]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[influencerName]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[influencerFollowers]"
+                      cachedDataType="i8"
+                      cachedName="influencerFollowers"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[influencerFollowers]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[influencerFollowers]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[body]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4000"
+                      cachedName="body"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[body]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[body]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[redirectURL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="redirectURL"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[redirectURL]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[redirectURL]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[budget]"
+                      cachedDataType="numeric"
+                      cachedName="budget"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[budget]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[budget]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[expenses]"
+                      cachedDataType="numeric"
+                      cachedName="expenses"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[expenses]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[expenses]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[adSentiment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="adSentiment"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[adSentiment]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[adSentiment]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[publishedAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="publishedAt"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[publishedAt]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[publishedAt]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[adStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="adStatus"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[adStatus]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[adStatus]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[createdAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="createdAt"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[createdAt]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].Columns[updatedAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="updatedAt"
+                      externalMetadataColumnId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[updatedAt]"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[updatedAt]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdPublishedAd]"
+                      dataType="i8"
+                      name="IdPublishedAd" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdCampaign]"
+                      dataType="i4"
+                      name="IdCampaign" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[channelName]"
+                      dataType="wstr"
+                      length="30"
+                      name="channelName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[channelType]"
+                      dataType="wstr"
+                      length="20"
+                      name="channelType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[influencerName]"
+                      dataType="wstr"
+                      length="50"
+                      name="influencerName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[influencerFollowers]"
+                      dataType="i8"
+                      name="influencerFollowers" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[body]"
+                      dataType="wstr"
+                      length="4095"
+                      name="body" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[redirectURL]"
+                      dataType="wstr"
+                      length="256"
+                      name="redirectURL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[budget]"
+                      dataType="numeric"
+                      name="budget"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[expenses]"
+                      dataType="numeric"
+                      name="expenses"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[adSentiment]"
+                      dataType="wstr"
+                      length="30"
+                      name="adSentiment" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[publishedAt]"
+                      dataType="dbTimeStamp"
+                      name="publishedAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[adStatus]"
+                      dataType="wstr"
+                      length="30"
+                      name="adStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET].ExternalColumns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      name="updatedAt" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadPublishedAds\Load en PromptSales.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Load en PromptSales.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadPublishedAds\Load en PromptSales.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_LoadPublishedAds\Transform de PromptAds"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Transform de PromptAds"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Inputs[Derived Column Input].Columns[publishedAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="publishedAt"
+                      lineageId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[publishedAt]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Outputs[Derived Column Output].Columns[hoursSincePublish]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Outputs[Derived Column Output].Columns[hoursSincePublish]"
+                      name="hoursSincePublish"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEDIFF]("hour",#{Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output].Columns[publishedAt]},[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("hour",publishedAt,GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_LoadPublishedAds.Paths[Derived Column Output]"
+              endId="Package\DFT_LoadPublishedAds\Load en PromptSales.Inputs[Entrada de destino de ADO NET]"
+              name="Derived Column Output"
+              startId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_LoadPublishedAds.Paths[OLE DB Source Output]"
+              endId="Package\DFT_LoadPublishedAds\Transform de PromptAds.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_LoadPublishedAds\Extract de PromptAds.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Last Run Ads"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Obtiene la ultima fecha de ejecucion para PromptAds"
+      DTS:DTSID="{66011174-A1A3-4ED7-9ADF-C5C4B1DD7166}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Last Run Ads"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
+          SQLTask:SqlStatementSource="SELECT &quot;lastInput&quot; &#xA;FROM public.&quot;PSETLDelta&quot; &#xA;WHERE view = 'vw_PublishedAds_Delta'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LastRunAds" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Last Run CRM"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL para lo ultimo que trae CRM"
+      DTS:DTSID="{1D2F4EAD-1609-495D-B0CF-2AE5E57EB0BF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Last Run CRM"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
+          SQLTask:SqlStatementSource="SELECT &quot;lastInput&quot; &#xA;FROM public.&quot;PSETLDelta&quot; &#xA;WHERE view = 'vw_LeadsSummary_Delta'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LastRunAds" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Last Run Ads"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{6A02B579-85B3-444F-8A6B-64D1EA078AF9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Last Run Ads"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
+          SQLTask:SqlStatementSource="UPDATE public.&quot;PSETLDelta&quot;&#xA;SET &quot;lastInput&quot; = CURRENT_TIMESTAMP&#xA;WHERE view = 'vw_PublishedAds_Delta'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Last Run CRM"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea updatear el ultimo run."
+      DTS:DTSID="{6CB36FAF-C0C1-4D05-8B5E-406F7BF30DF6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Last Run CRM"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
+          SQLTask:SqlStatementSource="UPDATE public.&quot;PSETLDelta&quot;&#xA;SET &quot;lastInput&quot; = CURRENT_TIMESTAMP&#xA;WHERE view = 'vw_LeadsSummary_Delta'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{68A7A4E8-9D3C-42CC-AD10-9A250146934F}"
+      DTS:From="Package\DFT_LoadContentUsage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\DFT_LoadPublishedAds" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{CF6C845F-A988-4148-9484-0514195AE27F}"
+      DTS:From="Package\DFT_LoadPublishedAds"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\DFT_LoadLeadsSummary" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{DC6A1812-1DC1-4EBE-B2C2-6543A0066D49}"
+      DTS:From="Package\Get Last Run Ads"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\DFT_LoadPublishedAds" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{6AFC40DD-4A39-46B8-BBE1-C958A53C37EF}"
+      DTS:From="Package\DFT_LoadPublishedAds"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\Update Last Run Ads" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{3BD3A2E4-5B2A-457B-B8BB-A0AA50CED2F5}"
+      DTS:From="Package\Get Last Run CRM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 4"
+      DTS:To="Package\DFT_LoadLeadsSummary" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{50A3A4FF-84B8-4FE1-9A95-78FE3B8225ED}"
+      DTS:From="Package\DFT_LoadLeadsSummary"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 5"
+      DTS:To="Package\Update Last Run CRM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="201,42"
+          Id="Package\DFT_LoadContentUsage"
+          TopLeft="253,185" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\DFT_LoadPublishedAds"
+          TopLeft="540,181" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\DFT_LoadLeadsSummary"
+          TopLeft="796,184" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="454,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86,0"
+              Start="0,0"
+              End="78.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="738,203.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58,0"
+              Start="0,0"
+              End="50.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Get Last Run Ads"
+          TopLeft="546,91" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Update Last Run Ads"
+          TopLeft="546,271" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="628.5,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,48"
+              Start="0,0"
+              End="10.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="6.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,24"
+                    Point2="10.5,24"
+                    Point3="10.5,28" />
+                  <mssgle:LineSegment
+                    End="10.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="638.25,223">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Get Last Run CRM"
+          TopLeft="792,85" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 4]"
+          TopLeft="878,127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22,57"
+              Start="0,0"
+              End="22,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="18,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18,28.5"
+                    Point2="22,28.5"
+                    Point3="22,32.5" />
+                  <mssgle:LineSegment
+                    End="22,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Update Last Run CRM"
+          TopLeft="804,264" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 5]"
+          TopLeft="899.25,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_LoadContentUsage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT_LoadContentUsage\Extract de Mongo"
+          TopLeft="154,79" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\DFT_LoadContentUsage\Transform de Mongo"
+          TopLeft="143,171" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\DFT_LoadContentUsage\Load to PSContentUsage"
+          TopLeft="145,292" />
+        <EdgeLayout
+          Id="Package\DFT_LoadContentUsage.Paths[Salida de origen de ADO NET]"
+          TopLeft="235,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_LoadContentUsage.Paths[Derived Column Output]"
+          TopLeft="233.5,213">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,79"
+              Start="0,0"
+              End="13,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5"
+                    Point2="0,39.5"
+                    Point3="4,39.5" />
+                  <mssgle:LineSegment
+                    End="9,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,39.5"
+                    Point2="13,39.5"
+                    Point3="13,43.5" />
+                  <mssgle:LineSegment
+                    End="13,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DFT_LoadPublishedAds">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DFT_LoadPublishedAds\Extract de PromptAds"
+          TopLeft="184.5,135.5" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\DFT_LoadPublishedAds\Transform de PromptAds"
+          TopLeft="172.5,213.5" />
+        <EdgeLayout
+          Id="Package\DFT_LoadPublishedAds.Paths[OLE DB Source Output]"
+          TopLeft="275.5,177.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="185,42"
+          Id="Package\DFT_LoadPublishedAds\Load en PromptSales"
+          TopLeft="181,300" />
+        <EdgeLayout
+          Id="Package\DFT_LoadPublishedAds.Paths[Derived Column Output]"
+          TopLeft="273.5,255.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.5"
+              Start="0,0"
+              End="0,37">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DFT_LoadLeadsSummary">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\DFT_LoadLeadsSummary\Extract de PromptCRM"
+          TopLeft="222,98" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\DFT_LoadLeadsSummary\Transform de PromptCRM"
+          TopLeft="216,189" />
+        <EdgeLayout
+          Id="Package\DFT_LoadLeadsSummary.Paths[OLE DB Source Output]"
+          TopLeft="319,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DFT_LoadLeadsSummary\Load En PromptSales"
+          TopLeft="231,295" />
+        <EdgeLayout
+          Id="Package\DFT_LoadLeadsSummary.Paths[Derived Column Output]"
+          TopLeft="322,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadContentUsage\Extract de Mongo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadContentUsage\Load to PSContentUsage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadPublishedAds\Extract de PromptAds">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadPublishedAds\Load en PromptSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadLeadsSummary\Extract de PromptCRM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadLeadsSummary\Load En PromptSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

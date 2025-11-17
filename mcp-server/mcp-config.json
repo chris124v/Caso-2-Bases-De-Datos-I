@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "database-server": {
+      "command": "python",
+      "args": ["server.py"],
+      "cwd": "."
+    }
+  }
+}

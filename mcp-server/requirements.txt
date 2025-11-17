@@ -1,0 +1,27 @@
+mcp>=1.0.0
+
+# Para MongoDB
+motor>=3.0.0
+pymongo>=4.0.0
+
+# Para SQL Server
+pyodbc>=4.0.0
+
+# Para PostgreSQL  
+asyncpg>=0.28.0
+psycopg2-binary>=2.9.0
+
+# Para Kubernetes
+kubernetes>=28.0.0
+
+# Utilidades
+pyyaml>=6.0
+asyncio
+
+# IA Providers
+groq>=0.9.0
+google-generativeai>=0.3.0
+anthropic>=0.25.0
+
+# Vector Database
+pinecone-client>=3.0.0

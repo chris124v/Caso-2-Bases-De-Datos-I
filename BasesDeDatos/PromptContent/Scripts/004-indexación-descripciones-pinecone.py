@@ -6,6 +6,7 @@ Permite búsqueda semántica de imágenes por descripción textual
 from pinecone import Pinecone
 from pymongo import MongoClient
 import uuid
+import os
 
 # ============================================
 # CONFIGURACIÓN
@@ -16,7 +17,7 @@ MONGO_URL = "mongodb://mongouser:mongo123@localhost:30017/promptcontent?authSour
 DATABASE_NAME = "promptcontent"
 
 # Pinecone
-PINECONE_API_KEY = "pcsk_4eQyKL_JsDiByJXLDbFbt8RZE5StEFGXGxvEs3C4op2tpRm4Q6Swjh6r7e7veFWsVTBn6H"
+PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
 INDEX_NAME = "promptcontent-images"
 
 # ============================================
@@ -43,7 +44,7 @@ try:
     
     # Contar imágenes
     total_imagenes = db.PCmedia.count_documents({})
-    print(f"📊 Total de imágenes en PCmedia: {total_imagenes}")
+    print(f"  Total de imágenes en PCmedia: {total_imagenes}")
     
     if total_imagenes == 0:
         print("No hay imágenes para indexar.")
@@ -63,7 +64,7 @@ print()
 print("Inicializando Pinecone...")
 try:
     pc = Pinecone(api_key=PINECONE_API_KEY)
-    print("✅ Pinecone inicializado")
+    print("  Pinecone inicializado")
 except Exception as e:
     print(f"Error inicializando Pinecone: {e}")
     exit(1)
@@ -87,17 +88,17 @@ if not pc.has_index(INDEX_NAME):
                 "field_map": {"text": "chunk_text"}
             }
         )
-        print(f"✅ Índice '{INDEX_NAME}' creado exitosamente")
+        print(f"  Índice '{INDEX_NAME}' creado exitosamente")
     except Exception as e:
         print(f"Error creando índice: {e}")
         exit(1)
 else:
-    print(f"✅ Índice '{INDEX_NAME}' ya existe")
+    print(f"  Índice '{INDEX_NAME}' ya existe")
 
 # Conectar al índice
 try:
     dense_index = pc.Index(INDEX_NAME)
-    print("✅ Conectado al índice")
+    print("  Conectado al índice")
 except Exception as e:
     print(f"Error conectando al índice: {e}")
     exit(1)
@@ -199,19 +200,19 @@ try:
                 records=batch
             )
             exitos += len(batch)
-            print(f"   ✅ Lote {batch_num}/{total_batches}: {len(batch)} registros insertados ({exitos}/{len(records)})")
+            print(f"     Lote {batch_num}/{total_batches}: {len(batch)} registros insertados ({exitos}/{len(records)})")
             
         except Exception as e:
             fallos += len(batch)
-            print(f"   ❌ Lote {batch_num}/{total_batches}: Error - {str(e)[:100]}")
+            print(f"     Lote {batch_num}/{total_batches}: Error - {str(e)[:100]}")
     
     print()
-    print(f"📊 Resultado:")
-    print(f"   ✅ Exitosos: {exitos}/{len(records)}")
-    print(f"   ❌ Fallidos: {fallos}/{len(records)}")
+    print(f"  Resultado:")
+    print(f"     Exitosos: {exitos}/{len(records)}")
+    print(f"     Fallidos: {fallos}/{len(records)}")
     
     if exitos > 0:
-        print(f"\n✅ Indexación completada con éxito")
+        print(f"\n  Indexación completada con éxito")
     else:
         print(f"\nNo se pudo indexar ningún registro")
     
@@ -224,10 +225,10 @@ print()
 # 7. VERIFICAR INDEXACIÓN
 # ============================================
 
-print("🔍 Verificando indexación...")
+print("  Verificando indexación...")
 try:
     # Hacer una búsqueda de prueba
-    test_query = "laptop moderno"
+    test_query = "montaña"
     print(f"   Búsqueda de prueba: '{test_query}'")
     
     results = dense_index.search(
@@ -242,7 +243,7 @@ try:
     
     if results and 'result' in results and 'hits' in results['result']:
         hits = results['result']['hits']
-        print(f"✅ Búsqueda exitosa: {len(hits)} resultados encontrados")
+        print(f"  Búsqueda exitosa: {len(hits)} resultados encontrados")
         
         if len(hits) > 0:
             print("\n   Primeros resultados:")
@@ -252,30 +253,27 @@ try:
                 print(f"     Texto: {hit['fields']['text'][:60]}...")
                 print()
     else:
-        print("⚠️  Búsqueda completada pero sin resultados")
+        print("   Búsqueda completada pero sin resultados")
         
 except Exception as e:
-    print(f"❌ Error en búsqueda de prueba: {e}")
+    print(f"  Error en búsqueda de prueba: {e}")
 
 # ============================================
 # 8. RESUMEN FINAL
 # ============================================
 
 print("=" * 80)
-print("✅ INDEXACIÓN COMPLETADA")
+print("  INDEXACIÓN COMPLETADA")
 print("=" * 80)
 print(f"""
-📊 Resumen:
+  Resumen:
    • Imágenes en MongoDB: {len(imagenes)}
    • Registros indexados: {len(records)}
    • Índice: {INDEX_NAME}
-   • Namespace: __default__
-   
-🔍 Ahora puedes buscar imágenes con:
-   python 004-buscar-imagenes-pinecone.py
+
 """)
 
 # Cerrar conexiones
 mongo_client.close()
-print("🔌 Conexión a MongoDB cerrada")
+print("  Conexión a MongoDB cerrada")
 print()

@@ -1,6 +1,7 @@
-USE PromptCrm
+USE promptcrm
+GO
 
-/*
+
 CREATE TYPE dbo.FirstNameMockup AS TABLE (
 	IdFirstName INT IDENTITY(1,1) PRIMARY KEY,
 	FirstName VARCHAR(40)
@@ -21,9 +22,10 @@ VALUES
 
 SELECT * FROM dbo.PCRFeatureTypes
 SELECT * FROM dbo.PCRClientStatuses
-*/
+
 
 GO
+
 CREATE OR ALTER PROCEDURE dbo.PCRSP_InsertClient
 	@FirstNames dbo.FirstNameMockup READONLY,
 	@LastNames dbo.LastNameMockup READONLY
@@ -202,10 +204,11 @@ BEGIN
 	SET @i = @i + 1
 END
 
-/*
+
 DELETE FROM dbo.PCRFeaturesPerClients
 DELETE FROM dbo.PCRClients
+DELETE FROM dbo.PCRClientsPerCampaigns
 SELECT * FROM dbo.PCRClients
+DELETE FROM dbo.PCRSalesHistory
 SELECT * FROM dbo.PCRFeaturesPerClients
 DBCC CHECKIDENT ('dbo.PCRClients', RESEED, 0)
-*/

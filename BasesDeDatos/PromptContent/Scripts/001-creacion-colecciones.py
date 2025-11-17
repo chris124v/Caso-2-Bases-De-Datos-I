@@ -1,7 +1,3 @@
-"""
-Script para crear todas las colecciones de MongoDB para PromptContent
-Incluye validaciones de esquema y creación de índices
-"""
 
 from pymongo import MongoClient, ASCENDING, DESCENDING, TEXT
 from pymongo.errors import CollectionInvalid
@@ -388,7 +384,7 @@ def create_database_and_collections():
         # ÍNDICES
         db.PCClients.create_index([("clientId", ASCENDING)], unique=True)
         db.PCClients.create_index([("email", ASCENDING)], unique=True)
-        db.PCClients.create_index([("status", ASCENDING)], unique=True)
+        db.PCClients.create_index([("status", ASCENDING)])
         print("  → Índices creados para 'PCClients'")
         
         # ============================================
