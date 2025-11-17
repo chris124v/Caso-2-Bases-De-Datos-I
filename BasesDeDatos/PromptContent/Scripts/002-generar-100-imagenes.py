@@ -6,10 +6,13 @@ Con descripciones amplias, coherentes y hashtags clasificadores
 
 import pymongo
 import random
+from dotenv import load_dotenv
 import requests
 import time
 import os
 from datetime import datetime, timedelta
+
+load_dotenv()
 
 # ============================================
 # CONFIGURACIÓN

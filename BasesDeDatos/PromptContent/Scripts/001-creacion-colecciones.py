@@ -1,7 +1,3 @@
-"""
-Script para crear todas las colecciones de MongoDB para PromptContent
-Incluye validaciones de esquema y creación de índices
-"""
 
 from pymongo import MongoClient, ASCENDING, DESCENDING, TEXT
 from pymongo.errors import CollectionInvalid
