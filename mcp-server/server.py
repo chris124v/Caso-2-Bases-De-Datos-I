@@ -29,37 +29,6 @@ class DatabaseMCPServer:
         async def handle_list_tools() -> list[types.Tool]:
             return [
                 types.Tool(
-                    name="execute_query",
-                    description="Execute query on database",
-                    inputSchema={
-                        "type": "object",
-                        "properties": {
-                            "database": {
-                                "type": "string",
-                                "enum": ["mongodb", "sqlserver1", "sqlserver2", "postgresql"]
-                            },
-                            "query": {"type": "string"},
-                            "parameters": {"type": "object"}
-                        },
-                        "required": ["database", "query"]
-                    }
-                ),
-                types.Tool(
-                    name="get_schema",
-                    description="Get database schema",
-                    inputSchema={
-                        "type": "object",
-                        "properties": {
-                            "database": {
-                                "type": "string",
-                                "enum": ["mongodb", "sqlserver1", "sqlserver2", "postgresql"]
-                            },
-                            "table": {"type": "string"}
-                        },
-                        "required": ["database"]
-                    }
-                ),
-                types.Tool(
                     name="get_content",
                     description="Busca imágenes en Pinecone basándose en descripción textual",
                     inputSchema={
@@ -149,21 +118,6 @@ class DatabaseMCPServer:
             username=sql2_config["username"],
             password=sql2_config["password"]
         )
-
-    async def _get_schema(self, database: str, table: str = None):
-        """
-        Maneja las llamadas al tool get_schema
-        """
-        try:
-            connector = self.connectors.get(database)
-            if not connector:
-                return [types.TextContent(type="text", text=f"Database {database} not found")]
-            
-            schema = await connector.get_schema(table)
-            return [types.TextContent(type="text", text=str(schema))]
-            
-        except Exception as e:
-            return [types.TextContent(type="text", text=f"Error getting schema: {str(e)}")]
 
     async def _get_content(self, descripcion: str, top_k: int = 5):
         """
