@@ -64,6 +64,7 @@ GO
 CREATE TABLE [dbo].[PAAdPerformances](
 	[IdAdPerformance] [bigint] IDENTITY(1,1) NOT NULL,
 	[IdPublishedAd] [bigint] NOT NULL,
+	[reach] [bigint] NOT NULL,
 	[budget] [decimal](16, 2) NOT NULL,
 	[expenses] [decimal](16, 2) NOT NULL,
 	[revenue] [decimal](16, 2) NOT NULL,
@@ -161,7 +162,7 @@ GO
 CREATE TABLE [dbo].[PACampaignAds](
 	[IdCampaignAd] [bigint] IDENTITY(1,1) NOT NULL,
 	[IdCampaign] [int] NOT NULL,
-	[title] [varchar](50) NOT NULL,
+	[title] [varchar](80) NOT NULL,
 	[description] [varchar](200) NOT NULL,
 	[IdAdType] [tinyint] NOT NULL,
 	[createdAt] [datetime] NOT NULL,
@@ -173,25 +174,45 @@ CREATE TABLE [dbo].[PACampaignAds](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PACampaigns]    Script Date: 2/11/2025 12:36:44 ******/
+/****** Object:  Table [dbo].[PACampaigns]    Script Date: 15/11/2025 17:02:32 ******/
 SET ANSI_NULLS ON
 GO
+
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE TABLE [dbo].[PACampaigns](
 	[IdCampaign] [int] IDENTITY(1,1) NOT NULL,
 	[IdOrganization] [int] NOT NULL,
 	[name] [varchar](60) NOT NULL,
 	[description] [varchar](200) NOT NULL,
+	[IdCity] [int] NOT NULL,
 	[createdAt] [datetime] NOT NULL,
 	[updatedAt] [datetime] NULL,
-	[endsAt] [datetime] NOT NULL,
-	[enabled] [bit] NOT NULL,
+	[startsAt] [date] NOT NULL,
+	[endsAt] [date] NOT NULL,
+	[IdCampaignStatus] [tinyint] NOT NULL,
 	[deleted] [bit] NOT NULL,
 	[checksum] [varbinary](255) NULL,
  CONSTRAINT [PK__PACampai__0AC4158316881AAB] PRIMARY KEY CLUSTERED 
 (
 	[IdCampaign] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PACampaignStatus]    Script Date: 15/11/2025 17:02:47 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PACampaignStatus](
+	[IdCampaignStatus] [tinyint] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](30) NOT NULL,
+ CONSTRAINT [PK_PACampaignStatus] PRIMARY KEY CLUSTERED 
+(
+	[IdCampaignStatus] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -504,7 +525,7 @@ CREATE TABLE [dbo].[PAOrganizations](
 	[legalName] [varchar](60) NULL,
 	[email] [varchar](80) NULL,
 	[createdAt] [datetime] NULL,
-	[organizationStatus] [tinyint] NOT NULL,
+	[IdOrganizationStatus] [tinyint] NOT NULL,
  CONSTRAINT [PK__PAOrgani__C14A1C27D0B9E691] PRIMARY KEY CLUSTERED 
 (
 	[IdOrganization] ASC
@@ -654,7 +675,7 @@ GO
 CREATE TABLE [dbo].[PAPublicValues](
 	[IdPublicValue] [int] IDENTITY(1,1) NOT NULL,
 	[IdPublicFeature] [smallint] NOT NULL,
-	[name] [varchar](30) NOT NULL,
+	[name] [varchar](80) NOT NULL,
 	[minValue] [varchar](80) NULL,
 	[maxValue] [varchar](80) NULL,
 	[value] [varchar](80) NULL,
@@ -709,6 +730,7 @@ GO
 CREATE TABLE [dbo].[PAReactionTypes](
 	[IdReactionType] [tinyint] IDENTITY(1,1) NOT NULL,
 	[name] [varchar](20) NOT NULL,
+	[reactionWeight] [smallint] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[IdReactionType] ASC
@@ -856,8 +878,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[PATargetPublics](
 	[IdTargetPublic] [int] IDENTITY(1,1) NOT NULL,
-	[name] [varchar](30) NOT NULL,
-	[description] [varchar](80) NOT NULL,
+	[name] [varchar](80) NOT NULL,
+	[description] [varchar](200) NOT NULL,
 	[createdAt] [datetime] NOT NULL,
 	[enabled] [bit] NOT NULL,
  CONSTRAINT [PK__PATarget__E38DC5943A4FF665] PRIMARY KEY CLUSTERED 
@@ -944,6 +966,8 @@ ALTER TABLE [dbo].[PAAdMediafiles] ADD  CONSTRAINT [DF__PAAdMedia__creat__0C85DE
 GO
 ALTER TABLE [dbo].[PAAdMediafiles] ADD  CONSTRAINT [DF__PAAdMedia__delet__0D7A0286]  DEFAULT ((0)) FOR [deleted]
 GO
+ALTER TABLE [dbo].[PAAdPerformances] ADD  CONSTRAINT [DF_PAAdPerformances_reach]  DEFAULT ((0)) FOR [reach]
+GO
 ALTER TABLE [dbo].[PAAdPerformances] ADD  CONSTRAINT [DF_PAAdPerformances_createdAt]  DEFAULT (getdate()) FOR [createdAt]
 GO
 ALTER TABLE [dbo].[PAAdPerformances] ADD  CONSTRAINT [DF_PAAdPerformances_isCurrent]  DEFAULT ((1)) FOR [isCurrent]
@@ -962,7 +986,7 @@ ALTER TABLE [dbo].[PACampaigns] ADD  CONSTRAINT [DF__PACampaig__creat__73BA3083]
 GO
 ALTER TABLE [dbo].[PACampaigns] ADD  CONSTRAINT [DF__PACampaig__updat__74AE54BC]  DEFAULT (getdate()) FOR [updatedAt]
 GO
-ALTER TABLE [dbo].[PACampaigns] ADD  CONSTRAINT [DF__PACampaig__enabl__75A278F5]  DEFAULT ((1)) FOR [enabled]
+ALTER TABLE [dbo].[PACampaigns] ADD  CONSTRAINT [DF__PACampaig__enabl__75A278F5]  DEFAULT ((1)) FOR [IdCampaignStatus]
 GO
 ALTER TABLE [dbo].[PACampaigns] ADD  CONSTRAINT [DF__PACampaig__delet__76969D2E]  DEFAULT ((0)) FOR [deleted]
 GO
@@ -1099,6 +1123,16 @@ REFERENCES [dbo].[PAOrganizations] ([IdOrganization])
 GO
 ALTER TABLE [dbo].[PACampaigns] CHECK CONSTRAINT [FK__PACampaig__IdOrg__778AC167]
 GO
+ALTER TABLE [dbo].[PACampaigns]  WITH CHECK ADD  CONSTRAINT [FK_PACampaigns_PACampaignStatus] FOREIGN KEY([IdCampaignStatus])
+REFERENCES [dbo].[PACampaignStatus] ([IdCampaignStatus])
+GO
+ALTER TABLE [dbo].[PACampaigns] CHECK CONSTRAINT [FK_PACampaigns_PACampaignStatus]
+GO
+ALTER TABLE [dbo].[PACampaigns]  WITH CHECK ADD  CONSTRAINT [FK_PACampaigns_PACities] FOREIGN KEY([IdCity])
+REFERENCES [dbo].[PACities] ([IdCity])
+GO
+ALTER TABLE [dbo].[PACampaigns] CHECK CONSTRAINT [FK_PACampaigns_PACities]
+GO
 ALTER TABLE [dbo].[PACampaignTransactions]  WITH CHECK ADD  CONSTRAINT [FK__PACampaig__IdCam__3B40CD36] FOREIGN KEY([IdCampaignTransactionType])
 REFERENCES [dbo].[PACampaignTransactionTypes] ([IdCampaignTransactionType])
 GO
@@ -1180,7 +1214,7 @@ REFERENCES [dbo].[PAOrganizations] ([IdOrganization])
 GO
 ALTER TABLE [dbo].[PAOrganizationContacts] CHECK CONSTRAINT [FK_PAOrganizationContacts_PAOrganizations]
 GO
-ALTER TABLE [dbo].[PAOrganizations]  WITH CHECK ADD  CONSTRAINT [FK_PAOrganizations_PAOrganizationStatus] FOREIGN KEY([organizationStatus])
+ALTER TABLE [dbo].[PAOrganizations]  WITH CHECK ADD  CONSTRAINT [FK_PAOrganizations_PAOrganizationStatus] FOREIGN KEY([IdOrganizationStatus])
 REFERENCES [dbo].[PAOrganizationStatus] ([IdOrganizationStatus])
 GO
 ALTER TABLE [dbo].[PAOrganizations] CHECK CONSTRAINT [FK_PAOrganizations_PAOrganizationStatus]
@@ -1281,4 +1315,3 @@ USE [master]
 GO
 ALTER DATABASE [promptads] SET  READ_WRITE 
 GO
-
