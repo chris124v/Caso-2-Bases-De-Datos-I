@@ -1,10 +1,3 @@
-/* 
- -------------------
- Dirty read problem
- -------------------
- -- Whether this transaction fails or not, SP_AddToClientAge will make changes to the uncommitted value, causing a dirty read
-*/
-
 use promptcrm
 
 GO
