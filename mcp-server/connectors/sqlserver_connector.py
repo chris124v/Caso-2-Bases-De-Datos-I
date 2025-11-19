@@ -10,44 +10,6 @@ class SQLServerConnector(BaseDatabaseConnector):
             f"UID={username};"
             f"PWD={password}"
         )
-
-    async def execute_query(self, query: str, params: dict = None) -> list[dict]:
-        import asyncio
-
-        def sync_execute():
-            conn = pyodbc.connect(self.connection_string)
-            cursor = conn.cursor()
-            
-            # Convertir parámetros dict a tupla si es necesario
-            param_values = tuple(params.values()) if params else ()
-            cursor.execute(query, param_values)
-            
-            # Obtener column names
-            if cursor.description:
-                columns = [column[0] for column in cursor.description]
-                results = [dict(zip(columns, row)) for row in cursor.fetchall()]
-            else:
-                results = []
-                
-            conn.close()
-            return results
-        
-        return await asyncio.to_thread(sync_execute)
-    
-    async def get_schema(self, table_name: str = None) -> dict:
-        if table_name:
-            query = """
-            SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE
-            FROM INFORMATION_SCHEMA.COLUMNS
-            WHERE TABLE_NAME = ?
-            ORDER BY ORDINAL_POSITION
-            """
-            results = await self.execute_query(query, {"table_name": table_name})
-            return {"table": table_name, "columns": results}
-        else:
-            query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'"
-            results = await self.execute_query(query)
-            return {"tables": [row["TABLE_NAME"] for row in results]}
         
     async def test_connection(self) -> bool:
         try:
