@@ -30,7 +30,7 @@ class DatabaseMCPServer:
             return [
                 types.Tool(
                     name="get_content",
-                    description="Busca imágenes en Pinecone basándose en descripción textual",
+                    description="Busca imagenes en una base de datos(INDEX Pinecone) revisando descripciones y hashtags para encontrar las que cumplan de forma mas precisa las especificaciones del usuario, se puede escoger cuantos match se quieren buscar",
                     inputSchema={
                         "type": "object",
                         "properties": {
@@ -42,7 +42,7 @@ class DatabaseMCPServer:
                 ),
                 types.Tool(
                 name="generate_campaign_messages",
-                description="Genera mensajes de campaña personalizados por audiencia",
+                description="GENERADOR DE MENSAJES DE CAMPAÑA: Crea mensajes de campaña adecuados para la tematica indicada y dirigida a los publicos meta que se indiquen, se generan 3 versiones de la campaña para ofrecer mas opciones al usuario y asi cumplir con el objetivo de forma mas eficiente y satisfactoria",
                 inputSchema={
                     "type": "object",
                         "properties": {
