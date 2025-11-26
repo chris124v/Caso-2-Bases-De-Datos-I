@@ -1,5 +1,4 @@
-﻿
-use promptads;
+﻿use promptads;
 
 -- ********************************
 --    NON ALGORITHMICAL INSERTS
