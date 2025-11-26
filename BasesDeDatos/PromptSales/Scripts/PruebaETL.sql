@@ -114,6 +114,7 @@ DELETE FROM "PSContentUsage";
 DELETE FROM "PSPublishedAds";
 DELETE FROM "PSLeadsSumarry";
 
+SELECT * FROM "PSContentUsage";
 
 
 

@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{936A07E5-0A34-477A-AF6B-3469974E08CD}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{1A191781-15CD-45D1-A98E-B19F4991EA0D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACW9PI2kNSK3RJ2RPOtjJm5qjsv8A8P4iZoyaRnKky3/QAAAAAOgAAAAAIAACAAAADc/rR+7BejB2rRJpexuFO01m1yRRaNRibqobOtUuHjGDAAAADHqKcYLtPiZ+w088Ej+K1a3IkHab93rURZWMoNUnrtXYfzVs6SMXu/hyq2IOGOb1xAAAAA59Q7wGVxYgMp5FNPJSUpRV/sonBFH6ElLeH3wxOt5YOMBPWnAl6dLfw3l2n09gTJfQqs32slsAx5iBYtaEuCrA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADDQDbWv1pIIj+I+rnSoMJjWAFXpcUhg3SDK7LzgS3dnAAAAAAOgAAAAAIAACAAAAAsPjztkL7dSfzVwwFgdh5vqDUvBHvKP0fjTgqiL3fD9DAAAAAuX+VoY4jy3ucZ4ZUUKLos8goSUqMv1dbALcPTKpOdRryHusIucrjVmWGHXn1hdzhAAAAA7kFRNdHqwbJ5q7e1utE9xENS6VNCGPZrAOQA40JIpar/ljOmfd6A+XxjGMYKsmn6dd3++T5WZO2mRbT66x5jfw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -40,7 +40,12 @@
       DTS:ObjectName="promptcontent">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="uid=mongouser;Dsn=MongoDBDNS;" />
+          DTS:ConnectionString="uid=mongouser;Dsn=MongoDBDNS;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA2WFxJ987jNfCz8m5sEqbiB3hW3Lgyr9hU8Gz99HnkMgAAAAAOgAAAAAIAACAAAACpghfOaTIe/XqaDa+UUGaqtHxBSOjQu7WGZhhfZLFF2SAAAACmDzAeb4mmBwgk67AFRXTN8B5eubE7g+CBPwaNgfag10AAAADSYUlFTZLNHVJpU7dbQPgdDImVh/q4GQxGbWvJZdvOLYNObv3FFr1xAYttF/refT4j6Am774HBBktiZpMOvzBR</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -56,7 +61,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACVj70PpyxEbXk1qV81+rTsn2g7fro7utLt8Fwas0tokgAAAAAOgAAAAAIAACAAAAD0xedpyo6aE2yHNiSU27hzbqc5LyeJoboAN7LWStk2vDAAAAAlF8s8S97sPO+2a2DN2Z5w61Ynir4BnC/pT5xDMSaZ4IMYCv9UzIRtGIcAfi7ehjFAAAAAXWoEpUjpbFO4HPrDjQFMPvKdrgN2tHzlIKPAA1spQmF91FO/Tdisl0IvosAP7BiNGwhWKU11grknaD1fcoVs+A</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA+0Vuf1Usahp8i3dqKa39t7ewdTFG1AEp60+QOK87MZQAAAAAOgAAAAAIAACAAAADdAEddz2O4CfCpxWgoho57Hwih3JAKMBOqR0WuvRczxTAAAACPg7tcHGlecF4huZcgZe/BhXuINV5wtP7OLjZZHtUVr+U3j2czJacP2nDYS3ilXwlAAAAANVi/bWg+PiEfmS2rRdosAqOD/N95zjxLg2ZoviCQUYu3z4RanEw0pBH7byF4cvEUVHGpdU7Ek6zldQQtKHV4yQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -67,7 +72,12 @@
       DTS:ObjectName="promptsales">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="uid=postgres;Dsn=PostgreSQL_PromptSales;" />
+          DTS:ConnectionString="uid=postgres;Dsn=PostgreSQL_PromptSales;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACzGB4cXkFPiHzherXZ09B0Nn/UaAK83qMIrvdvw6fubAAAAAAOgAAAAAIAACAAAAB6yIzFVjC8QvdR41McuCGAZkfnZS8J5V8h6jVcuOL28CAAAACVT07tUXr1HeirhtTJHrGzVyKDQ5M6sSsfSKGboBWZD0AAAABI6xas8VaMSK7tq6YLPx0Sp1qTsGUrFTZHe5VQfZWyxsEjbUGrVrxU5bw31Bh9Ao9imP6w68nlw5VhdqZEM78l</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -2646,29 +2656,45 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
         <NodeLayout
           Size="201,42"
           Id="Package\DFT_LoadContentUsage"
-          TopLeft="253,185" />
+          TopLeft="290,185" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\DFT_LoadLeadsSummary"
+          TopLeft="796,184" />
         <NodeLayout
           Size="198,42"
           Id="Package\DFT_LoadPublishedAds"
           TopLeft="540,181" />
         <NodeLayout
-          Size="208,42"
-          Id="Package\DFT_LoadLeadsSummary"
-          TopLeft="796,184" />
+          Size="165,42"
+          Id="Package\Get Last Run Ads"
+          TopLeft="541,83" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Get Last Run CRM"
+          TopLeft="792,85" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Update Last Run Ads"
+          TopLeft="546,271" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Update Last Run CRM"
+          TopLeft="804,264" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="454,204">
+          TopLeft="491,204">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="86,0"
+              EndConnector="49,0"
               Start="0,0"
-              End="78.5,0">
+              End="41.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="78.5,0" />
+                    End="41.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2699,40 +2725,32 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Get Last Run Ads"
-          TopLeft="546,91" />
-        <NodeLayout
-          Size="183,42"
-          Id="Package\Update Last Run Ads"
-          TopLeft="546,271" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="628.5,133">
+          TopLeft="623.5,125">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.5,48"
+              EndConnector="15.5,56"
               Start="0,0"
-              End="10.5,40.5">
+              End="15.5,48.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20" />
+                    End="0,24" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
                   <mssgle:LineSegment
-                    End="6.5,24" />
+                    End="11.5,28" />
                   <mssgle:CubicBezierSegment
-                    Point1="6.5,24"
-                    Point2="10.5,24"
-                    Point3="10.5,28" />
+                    Point1="11.5,28"
+                    Point2="15.5,28"
+                    Point3="15.5,32" />
                   <mssgle:LineSegment
-                    End="10.5,40.5" />
+                    End="15.5,48.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2763,10 +2781,6 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="172,42"
-          Id="Package\Get Last Run CRM"
-          TopLeft="792,85" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
           TopLeft="878,127">
@@ -2801,10 +2815,6 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Update Last Run CRM"
-          TopLeft="804,264" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 5]"
           TopLeft="899.25,226">
@@ -2836,10 +2846,6 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="165,42"
-          Id="Package\DFT_LoadContentUsage\Extract de Mongo"
-          TopLeft="154,79" />
-        <NodeLayout
           Size="181,42"
           Id="Package\DFT_LoadContentUsage\Transform de Mongo"
           TopLeft="143,171" />
@@ -2847,6 +2853,10 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
           Size="203,42"
           Id="Package\DFT_LoadContentUsage\Load to PSContentUsage"
           TopLeft="145,292" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT_LoadContentUsage\Extract de Mongo"
+          TopLeft="154,79" />
         <EdgeLayout
           Id="Package\DFT_LoadContentUsage.Paths[Salida de origen de ADO NET]"
           TopLeft="235,121">
@@ -2906,19 +2916,123 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadContentUsage\Load to PSContentUsage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadContentUsage\Extract de Mongo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT_LoadLeadsSummary">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DFT_LoadLeadsSummary\Load En PromptSales"
+          TopLeft="231,295" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\DFT_LoadLeadsSummary\Transform de PromptCRM"
+          TopLeft="216,189" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\DFT_LoadLeadsSummary\Extract de PromptCRM"
+          TopLeft="222,98" />
+        <EdgeLayout
+          Id="Package\DFT_LoadLeadsSummary.Paths[OLE DB Source Output]"
+          TopLeft="319,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_LoadLeadsSummary.Paths[Derived Column Output]"
+          TopLeft="322,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadLeadsSummary\Load En PromptSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_LoadLeadsSummary\Extract de PromptCRM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DFT_LoadPublishedAds">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="186,42"
-          Id="Package\DFT_LoadPublishedAds\Extract de PromptAds"
-          TopLeft="184.5,135.5" />
-        <NodeLayout
           Size="202,42"
           Id="Package\DFT_LoadPublishedAds\Transform de PromptAds"
           TopLeft="172.5,213.5" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\DFT_LoadPublishedAds\Load en PromptSales"
+          TopLeft="181,300" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DFT_LoadPublishedAds\Extract de PromptAds"
+          TopLeft="184.5,135.5" />
         <EdgeLayout
           Id="Package\DFT_LoadPublishedAds.Paths[OLE DB Source Output]"
           TopLeft="275.5,177.5">
@@ -2941,10 +3055,6 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="185,42"
-          Id="Package\DFT_LoadPublishedAds\Load en PromptSales"
-          TopLeft="181,300" />
         <EdgeLayout
           Id="Package\DFT_LoadPublishedAds.Paths[Derived Column Output]"
           TopLeft="273.5,255.5">
@@ -2970,94 +3080,6 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\DFT_LoadLeadsSummary">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="192,42"
-          Id="Package\DFT_LoadLeadsSummary\Extract de PromptCRM"
-          TopLeft="222,98" />
-        <NodeLayout
-          Size="208,42"
-          Id="Package\DFT_LoadLeadsSummary\Transform de PromptCRM"
-          TopLeft="216,189" />
-        <EdgeLayout
-          Id="Package\DFT_LoadLeadsSummary.Paths[OLE DB Source Output]"
-          TopLeft="319,140">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49"
-              Start="0,0"
-              End="0,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="186,42"
-          Id="Package\DFT_LoadLeadsSummary\Load En PromptSales"
-          TopLeft="231,295" />
-        <EdgeLayout
-          Id="Package\DFT_LoadLeadsSummary.Paths[Derived Column Output]"
-          TopLeft="322,231">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64"
-              Start="0,0"
-              End="0,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_LoadContentUsage\Extract de Mongo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_LoadContentUsage\Load to PSContentUsage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_LoadPublishedAds\Extract de PromptAds">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT_LoadPublishedAds\Load en PromptSales">
     <Properties>
@@ -3067,15 +3089,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_LoadLeadsSummary\Extract de PromptCRM">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_LoadLeadsSummary\Load En PromptSales">
+    design-time-name="Package\DFT_LoadPublishedAds\Extract de PromptAds">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
