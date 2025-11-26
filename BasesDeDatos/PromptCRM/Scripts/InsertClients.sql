@@ -208,7 +208,6 @@ END
 
 DELETE FROM dbo.PCRFeaturesPerClients
 DELETE FROM dbo.PCRClients
-DELETE FROM dbo.PCRClientsPerCampaigns
 SELECT * FROM dbo.PCRClients
 DELETE FROM dbo.PCRSalesHistory
 SELECT * FROM dbo.PCRFeaturesPerClients
