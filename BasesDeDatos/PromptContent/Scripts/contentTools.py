@@ -380,12 +380,12 @@ if __name__ == "__main__":
     # ========================================
     # EJEMPLO 1: getContent()
     # ========================================
-    print("📸 TOOL 1: getContent()")
+    print("TOOL 1: getContent()")
     print("-" * 80)
-    print("Búsqueda: 'Montaña'")
+    print("Búsqueda: 'Comida'")
     print()
     
-    resultados = getContent("montaña", top_k=3)
+    resultados = getContent("comida", top_k=3)
     
     if resultados:
         for i, img in enumerate(resultados, 1):

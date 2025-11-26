@@ -29,7 +29,7 @@ print("INDEXACIÓN DE IMÁGENES EN PINECONE")
 print("=" * 80)
 print()
 
-print("🔌 Conectando a MongoDB...")
+print(" Conectando a MongoDB...")
 try:
     mongo_client = MongoClient(MONGO_URL)
     db = mongo_client[DATABASE_NAME]

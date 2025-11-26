@@ -205,7 +205,7 @@ BEGIN
 	SET @i = @i + 1
 END
 
-
+/*
 DELETE FROM dbo.PCRFeaturesPerClients
 DELETE FROM dbo.PCRClients
 SELECT * FROM dbo.PCRClients
@@ -215,4 +215,5 @@ DBCC CHECKIDENT ('dbo.PCRClients', RESEED, 0)
 
 
 SELECT * FROM PCRClientStatuses;
+*/
 
