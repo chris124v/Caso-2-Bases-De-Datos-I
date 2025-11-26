@@ -23,11 +23,11 @@ BEGIN
 
 
 	SET @InicieTransaccion = 0
-	IF @@TRANCOUNT=0 BEGIN
+	--IF @@TRANCOUNT=0 BEGIN
 		SET @InicieTransaccion = 1
 		SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 		BEGIN TRANSACTION		
-	END
+	--END
 	
 	BEGIN TRY
 		SET @CustomError = 2001
@@ -40,7 +40,6 @@ BEGIN
 		WHERE IdProduct = 2;
 
 		EXEC dbo.SPDeadlock2
-		WAITFOR DELAY '00:00:05'
 
 		-- SP1 espera el lock de SP2
 		UPDATE dbo.##ProductsTest
@@ -84,11 +83,11 @@ BEGIN
 	DECLARE @InicieTransaccion BIT
 	
 	SET @InicieTransaccion = 0
-	IF @@TRANCOUNT=0 BEGIN
+	--IF @@TRANCOUNT=0 BEGIN
 		SET @InicieTransaccion = 1
 		SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 		BEGIN TRANSACTION		
-	END
+	--END
 	
 	BEGIN TRY
 		SET @CustomError = 2001
@@ -101,7 +100,6 @@ BEGIN
 		WHERE IdProduct = 3;
 
 		EXEC dbo.SPDeadlock3
-		WAITFOR DELAY '00:00:05'
 
 		-- SP2 espera el lock de SP3
 		UPDATE dbo.##ProductsTest
@@ -146,11 +144,11 @@ BEGIN
 	DECLARE @InicieTransaccion BIT
 
 	SET @InicieTransaccion = 0
-	IF @@TRANCOUNT=0 BEGIN
+	--IF @@TRANCOUNT=0 BEGIN
 		SET @InicieTransaccion = 1
 		SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 		BEGIN TRANSACTION		
-	END
+	--END
 	
 	BEGIN TRY
 		SET @CustomError = 2001
@@ -162,8 +160,6 @@ BEGIN
 			UpdatedAt = CURRENT_TIMESTAMP
 		WHERE IdProduct = 1;
 		
-
-		WAITFOR DELAY '00:00:05'
 
 		-- SP3 espera el lock de SP1
 		UPDATE dbo.##ProductsTest
