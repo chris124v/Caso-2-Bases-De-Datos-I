@@ -44,3 +44,6 @@ SELECT
     MIN("lastInput") AS fecha_inicial,
     MAX("lastInput") AS ultima_actualizacion
 FROM public."PSETLDelta";
+
+
+

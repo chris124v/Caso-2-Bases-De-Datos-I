@@ -1,4 +1,4 @@
-
+﻿
 use promptads;
 
 -- ********************************
@@ -75,7 +75,7 @@ INSERT INTO PAStates (name, IdCountry) VALUES
 INSERT INTO PACities (name, IdState) VALUES
 ('New York', 1),
 ('San Diego',2),
-('Escaz�',3);
+('Escazú',3);
 
 INSERT INTO PAPublicFeatures (name, dataType) VALUES
 ('age','INT'),
@@ -83,6 +83,21 @@ INSERT INTO PAPublicFeatures (name, dataType) VALUES
 ('occupation','VARCHAR'),
 ('interests','VARCHAR'),
 ('frequency_of_purchases_a_month','INT');
+
+INSERT INTO PALogLevels (name) VALUES
+('Info'),('Warning'),('Error'),('Critical')
+
+INSERT INTO PALogSources (name) VALUES
+('Database'), ('MCP server')
+
+INSERT INTO PALogTypes (name) VALUES
+('Login'), ('Logout'), ('Insert campaign')
+
+INSERT INTO PACurrencies (name, isoCode, currencySymbol, IdCountry) VALUES
+('US Dollar','USD','$',1),('Costa Rican Colon', 'CRC', '₡',2)
+
+INSERT INTO PAScheduleRecurrencies (name, intervalDays) VALUES
+('Daily', 1),('Weekly',7),('Monthly', 30)
 
 
 GO
@@ -850,7 +865,7 @@ INSERT INTO @CampaignStartersTVP (sentence, category) VALUES
 ('Watch the new', 'entertainment'), ('Stream the latest', 'entertainment'), ('Discover the show', 'entertainment'),
 ('Catch the premiere:', 'entertainment'), ('Enjoy the music live:', 'entertainment'),
 ('Join the movement on', 'action'), ('Act now,', 'action'), ('Start your journey,', 'action'), 
-('Unlock the future,', 'action'), ('Don�t miss out on', 'action')
+('Unlock the future,', 'action'), ('Don’t miss out on', 'action')
 
 
 DECLARE @CampaignAdjectiveProductsTVP AS dbo.CampaignAdjectiveProductMockup
@@ -1006,6 +1021,16 @@ DBCC CHECKIDENT ('PAOrganizationContacts', RESEED, 0)
 DELETE FROM PAOrganizations;
 DBCC CHECKIDENT ('PAOrganizations', RESEED, 0)
 
+DELETE FROM PACurrencies
+DBCC CHECKIDENT ('PACurrencies', RESEED, 0);
+DELETE FROM PAScheduleRecurrencies
+DBCC CHECKIDENT ('PAScheduleRecurrencies', RESEED, 0);
+DELETE FROM PALogLevels
+DBCC CHECKIDENT ('PALogLevels', RESEED, 0);
+DELETE FROM PALogSources
+DBCC CHECKIDENT ('PALogSources', RESEED, 0);
+DELETE FROM PALogTypes
+DBCC CHECKIDENT ('PALogTypes', RESEED, 0);
 DELETE FROM PAPublicFeatures;
 DBCC CHECKIDENT ('PAPublicFeatures', RESEED, 0)
 DELETE FROM PACities;
@@ -1031,3 +1056,5 @@ DELETE FROM PACampaignStatus;
 DBCC CHECKIDENT ('PACampaignStatus', RESEED, 0);
 
 */
+
+
