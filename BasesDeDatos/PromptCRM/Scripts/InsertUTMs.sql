@@ -1,8 +1,5 @@
 use promptcrm
 
-INSERT INTO dbo.PCRCampaignStatuses (StatusDescription)
-VALUES ('Vigente'), ('Acabada')
-
 CREATE TYPE dbo.CampaignsFromAds AS TABLE (
 	IdCampaign INT IDENTITY(1,1) PRIMARY KEY,
 	CampaignName VARCHAR(MAX),
@@ -10,27 +7,15 @@ CREATE TYPE dbo.CampaignsFromAds AS TABLE (
 	EndsAt DATETIME
 )
 
-INSERT INTO dbo.CampaignsFromAds (CampaignName, StartsAt, EndsAt)
-SELECT name, StartsAt, EndsAt
-FROM [DESKTOP-65RRTMG\LINKEDSERVERTEST].[promptads].[dbo].[PACampaigns]
-WHERE deleted = 0;
-
 CREATE TYPE dbo.UTMMediums AS TABLE (
 	IdMedium INT IDENTITY(1,1) PRIMARY KEY,
 	MediumName VARCHAR(MAX)
 )
 
-INSERT INTO dbo.UTMMediums (MediumName)
-VALUES ('Ad'),('Video'),('Social'),('Email'),('Referral')
-
 CREATE TYPE dbo.UTMSources AS TABLE (
 	IdSource INT IDENTITY(1,1) PRIMARY KEY,
 	SourceName VARCHAR(MAX)
 )
-
-INSERT INTO dbo.UTMSources (SourceName)
-VALUES ('Google'),('Newsletter'),('Facebook'),('Youtube'),('Yahoo'),('Reddit'),('Twitter')
-
 
 GO
 CREATE OR ALTER PROCEDURE dbo.PCRSP_InsertUTM
@@ -59,6 +44,12 @@ BEGIN
 	DECLARE @RandomMedium VARCHAR(MAX)
 	DECLARE @RandomSource VARCHAR(MAX)
 
+	DECLARE @StartTime DATETIME
+	DECLARE @CurrentTime DATETIME
+	DECLARE @RandomTime DATETIME
+	DECLARE @SecondsDiff INT
+	DECLARE @RandomSeconds INT
+
 	-- Operaciones de select que no tengan que ser bloqueadas
 
 	SELECT @MaxCampaignID = MAX(IdCampaign) FROM @Campaigns
@@ -73,6 +64,13 @@ BEGIN
 	SELECT @RandomMedium = MediumName FROM @Mediums WHERE IdMedium = @RandomMediumID
 	SELECT @RandomSource = SourceName FROM @Sources WHERE IdSource = @RandomSourceID
 
+	SET @StartTime = '2020-01-01 00:00:00'
+	SET @CurrentTime = CURRENT_TIMESTAMP
+
+	SET @SecondsDiff = DATEDIFF(SECOND, @StartTime, @CurrentTime)
+	SET @RandomSeconds = ROUND(((@SecondsDiff - 1) * RAND()), 0)
+	SET @RandomTime = DATEADD(SECOND, @RandomSeconds, @StartTime)
+
 	-- Inicio de la transaccion
 	SET @InicieTransaccion = 0
 	IF @@TRANCOUNT=0 BEGIN
@@ -86,8 +84,8 @@ BEGIN
 
 		-- A lo que vinimos
 
-		INSERT INTO dbo.PCRUTMData (UTMCampaign, UTMMedium, UTMSource)
-		VALUES (@RandomCampaign, @RandomMedium, @RandomSource)
+		INSERT INTO dbo.PCRUTMData (UTMCampaign, UTMMedium, UTMSource, CreatedAt)
+		VALUES (@RandomCampaign, @RandomMedium, @RandomSource, @RandomTime)
 
 		IF @InicieTransaccion=1 BEGIN
 			COMMIT
@@ -111,3 +109,26 @@ BEGIN
 END
 RETURN 0
 GO
+
+DECLARE @CampaignNamesTVP AS dbo.CampaignsFromAds
+DECLARE @UTMMediumsTVP AS dbo.UTMMediums
+DECLARE @UTMSourcesTVP AS dbo.UTMSources
+
+-- El FROM... hay que reemplazar el path por el nuevo linked server
+INSERT INTO @CampaignNamesTVP (CampaignName, StartsAt, EndsAt)
+SELECT name, StartsAt, EndsAt
+FROM [DESKTOP-65RRTMG\LINKEDSERVERTEST].[promptads].[dbo].[PACampaigns]
+WHERE deleted = 0;
+
+INSERT INTO @UTMMediumsTVP (MediumName)
+VALUES ('Ad'),('Video'),('Social'),('Email'),('Referral')
+
+INSERT INTO @UTMSourcesTVP (SourceName)
+VALUES ('Google'),('Newsletter'),('Facebook'),('Youtube'),('Yahoo'),('Reddit'),('Twitter')
+
+DECLARE @i INT = 0
+WHILE @i < 5000
+BEGIN
+	EXEC dbo.PCRSP_InsertUTM @CampaignNamesTVP, @UTMMediumsTVP, @UTMSourcesTVP
+	SET @i = @i + 1
+END
