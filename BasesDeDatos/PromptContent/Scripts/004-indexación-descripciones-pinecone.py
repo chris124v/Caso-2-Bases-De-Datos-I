@@ -2,7 +2,7 @@
 Script para indexar las descripciones de las 100 imágenes de PCmedia en Pinecone
 Permite búsqueda semántica de imágenes por descripción textual
 """
-
+from dotenv import load_dotenv
 from pinecone import Pinecone
 from pymongo import MongoClient
 import uuid
@@ -11,7 +11,7 @@ import os
 # ============================================
 # CONFIGURACIÓN
 # ============================================
-
+load_dotenv()
 # MongoDB
 MONGO_URL = "mongodb://mongouser:mongo123@localhost:30017/promptcontent?authSource=admin"
 DATABASE_NAME = "promptcontent"
@@ -29,7 +29,7 @@ print("INDEXACIÓN DE IMÁGENES EN PINECONE")
 print("=" * 80)
 print()
 
-print("🔌 Conectando a MongoDB...")
+print(" Conectando a MongoDB...")
 try:
     mongo_client = MongoClient(MONGO_URL)
     db = mongo_client[DATABASE_NAME]

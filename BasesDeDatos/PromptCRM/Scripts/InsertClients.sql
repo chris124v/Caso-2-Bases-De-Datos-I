@@ -12,7 +12,7 @@ CREATE TYPE dbo.LastNameMockup AS TABLE (
 	LastName VARCHAR(40)
 )
 
-/*
+
 INSERT INTO dbo.PCRFeatureTypes (TypeName)
 VALUES
 	('FirstName'), ('LastName'), ('Age')
@@ -23,7 +23,7 @@ VALUES
 
 SELECT * FROM dbo.PCRFeatureTypes
 SELECT * FROM dbo.PCRClientStatuses
-*/
+
 
 GO
 
@@ -205,10 +205,15 @@ BEGIN
 	SET @i = @i + 1
 END
 
-
+/*
 DELETE FROM dbo.PCRFeaturesPerClients
 DELETE FROM dbo.PCRClients
 SELECT * FROM dbo.PCRClients
 DELETE FROM dbo.PCRSalesHistory
 SELECT * FROM dbo.PCRFeaturesPerClients
 DBCC CHECKIDENT ('dbo.PCRClients', RESEED, 0)
+
+
+SELECT * FROM PCRClientStatuses;
+*/
+

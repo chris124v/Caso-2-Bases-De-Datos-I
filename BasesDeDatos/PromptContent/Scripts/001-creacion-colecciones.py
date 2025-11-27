@@ -54,7 +54,7 @@ def create_database_and_collections():
         db.PCUsers.create_index([("userId", ASCENDING)], unique=True)
         db.PCUsers.create_index([("email", ASCENDING)], unique=True)
         db.PCUsers.create_index([("role", ASCENDING)])
-        print("  → Índices creados para 'PCUsers'")
+        print(" Índices creados para 'PCUsers'")
         
         # ============================================
         # 2. COLECCIÓN: PCExternal_Services
@@ -89,7 +89,7 @@ def create_database_and_collections():
         # ÍNDICES
         db.PCExternal_Services.create_index([("serviceId", ASCENDING)], unique=True)
         db.PCExternal_Services.create_index([("name", ASCENDING)])
-        print("  → Índices creados para 'PCExternal_Services'")
+        print("  Índices creados para 'PCExternal_Services'")
         
         # ============================================
         # 3. COLECCIÓN: PCApi_Call_Logs
@@ -129,7 +129,7 @@ def create_database_and_collections():
         db.PCApi_Call_Logs.create_index([("serviceId", ASCENDING)])
         db.PCApi_Call_Logs.create_index([("timestamp", DESCENDING)])
         db.PCApi_Call_Logs.create_index([("userId", ASCENDING)])
-        print("  → Índices creados para 'PCApi_Call_Logs'")
+        print(" Índices creados para 'PCApi_Call_Logs'")
         
         # ============================================
         # 4. COLECCIÓN: PCAi_Models_Catalog
@@ -164,7 +164,7 @@ def create_database_and_collections():
         # ÍNDICES
         db.PCAi_Models_Catalog.create_index([("modelId", ASCENDING)], unique=True)
         db.PCAi_Models_Catalog.create_index([("name", ASCENDING)])
-        print("  → Índices creados para 'PCAi_Models_Catalog'")
+        print("  Índices creados para 'PCAi_Models_Catalog'")
         
         # ============================================
         # 5. COLECCIÓN: PCAi_Model_Logs
@@ -200,7 +200,7 @@ def create_database_and_collections():
         db.PCAi_Model_Logs.create_index([("logId", ASCENDING)], unique=True)
         db.PCAi_Model_Logs.create_index([("modelId", ASCENDING)])
         db.PCAi_Model_Logs.create_index([("timestamp", DESCENDING)])
-        print("  → Índices creados para 'PCAi_Model_Logs'")
+        print(" Índices creados para 'PCAi_Model_Logs'")
         
         # ============================================
         # 6. COLECCIÓN: PCContent_Types
@@ -226,7 +226,7 @@ def create_database_and_collections():
         # ÍNDICES
         db.PCContent_Types.create_index([("contentTypeId", ASCENDING)], unique=True)
         db.PCContent_Types.create_index([("name", ASCENDING)])
-        print("  → Índices creados para 'PCContent_Types'")
+        print(" Índices creados para 'PCContent_Types'")
         
         # ============================================
         # 7. COLECCIÓN: PCmedia
@@ -274,7 +274,7 @@ def create_database_and_collections():
         db.PCmedia.create_index([("status", ASCENDING)])
         db.PCmedia.create_index([("clientId", ASCENDING)])
         db.PCmedia.create_index([("campaignId", ASCENDING)])
-        print("  → Índices creados para 'PCmedia'")
+        print(" Índices creados para 'PCmedia'")
         
         # ============================================
         # 8. COLECCIÓN: PCContent_Requests
@@ -315,7 +315,7 @@ def create_database_and_collections():
                     }
                 }
             })
-            print("✓ Colección 'PCContent_Requests' creada")
+            print("Colección 'PCContent_Requests' creada")
         except CollectionInvalid:
             print("Colección 'PCContent_Requests' ya existe")
         
@@ -327,7 +327,7 @@ def create_database_and_collections():
         db.PCContent_Requests.create_index([("status", ASCENDING)])
         db.PCContent_Requests.create_index([("contentType", ASCENDING)])
         db.PCContent_Requests.create_index([("ipAddress", ASCENDING)])
-        print("  → Índices creados para 'PCContent_Requests'")
+        print(" Índices creados para 'PCContent_Requests'")
         
         # ============================================
         # 9. COLECCIÓN: PC_Clients
@@ -385,7 +385,7 @@ def create_database_and_collections():
         db.PCClients.create_index([("clientId", ASCENDING)], unique=True)
         db.PCClients.create_index([("email", ASCENDING)], unique=True)
         db.PCClients.create_index([("status", ASCENDING)])
-        print("  → Índices creados para 'PCClients'")
+        print(" Índices creados para 'PCClients'")
         
         # ============================================
         # 10. COLECCIÓN: PCSubscription_Plans
@@ -429,7 +429,7 @@ def create_database_and_collections():
         db.PCSubscription_Plans.create_index([("planId", ASCENDING)], unique=True)
         db.PCSubscription_Plans.create_index([("name", ASCENDING)])
         db.PCSubscription_Plans.create_index([("status", ASCENDING)])
-        print("  → Índices creados para 'PCSubscription_Plans'")
+        print("Índices creados para 'PCSubscription_Plans'")
         
         # ============================================
         # 11. COLECCIÓN: PCFeatures
@@ -453,7 +453,7 @@ def create_database_and_collections():
         
         # ÍNDICES
         db.PCFeatures.create_index([("featureId", ASCENDING)], unique=True)
-        print("  → Índices creados para 'PCFeatures'")
+        print("Índices creados para 'PCFeatures'")
         
         # ============================================
         # 12. COLECCIÓN: PCPayment_Methods
@@ -479,7 +479,7 @@ def create_database_and_collections():
         
         # ÍNDICES
         db.PCPayment_Methods.create_index([("methodId", ASCENDING)], unique=True)
-        print("  → Índices creados para 'PCPayment_Methods'")
+        print("Índices creados para 'PCPayment_Methods'")
         
         # ============================================
         # 13. COLECCIÓN: PCPayment_Schedules
@@ -509,7 +509,7 @@ def create_database_and_collections():
         db.PCPayment_Schedules.create_index([("scheduleId", ASCENDING)], unique=True)
         db.PCPayment_Schedules.create_index([("subscriptionId", ASCENDING)])
         db.PCPayment_Schedules.create_index([("dueDate", ASCENDING)])
-        print("  → Índices creados para 'PCPayment_Schedules'")
+        print(" Índices creados para 'PCPayment_Schedules'")
         
         # ============================================
         # 14. COLECCIÓN: PCPayment_Transactions
@@ -544,7 +544,7 @@ def create_database_and_collections():
         db.PCPayment_Transactions.create_index([("subscriptionId", ASCENDING)])
         db.PCPayment_Transactions.create_index([("clientId", ASCENDING)])
         db.PCPayment_Transactions.create_index([("timestamp", DESCENDING)])
-        print("  → Índices creados para 'PCPayment_Transactions'")
+        print("Índices creados para 'PCPayment_Transactions'")
         
         # ============================================
         # 15. COLECCIÓN: PCCampaigns
@@ -578,7 +578,7 @@ def create_database_and_collections():
         db.PCCampaigns.create_index([("campaignId", ASCENDING)], unique=True)
         db.PCCampaigns.create_index([("createdAt", DESCENDING)])
         db.PCCampaigns.create_index([("status", ASCENDING)])
-        print("  → Índices creados para 'PCCampaigns'")
+        print(" Índices creados para 'PCCampaigns'")
         
         # ============================================
         # RESUMEN FINAL

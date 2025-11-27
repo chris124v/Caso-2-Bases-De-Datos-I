@@ -1055,5 +1055,3 @@ DELETE FROM PACampaignStatus;
 DBCC CHECKIDENT ('PACampaignStatus', RESEED, 0);
 
 */
-
-
