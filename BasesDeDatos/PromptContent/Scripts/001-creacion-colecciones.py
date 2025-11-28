@@ -51,6 +51,7 @@ def create_database_and_collections():
         # ÍNDICES
         # SIRVEN PARA MEJORAR EL TIEMPO DE CONSULTA DE ALGUNOS VALORES Y
         # PARA ASEGURARSE DE QUE LOS VALORES QUE DEBEN SER ÚNICOS EN LA BD, NO SE REPITAN 
+        
         db.PCUsers.create_index([("userId", ASCENDING)], unique=True)
         db.PCUsers.create_index([("email", ASCENDING)], unique=True)
         db.PCUsers.create_index([("role", ASCENDING)])

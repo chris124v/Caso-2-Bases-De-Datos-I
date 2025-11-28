@@ -217,14 +217,14 @@ def llenar_usuarios(db, cantidad=30):
             "role": random.choice(roles),
             "status": random.choice(["active"] * 8 + ["inactive"] * 2),
             "authMethod": random.choice(auth_methods),
-            "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(30, 365)),
-            "lastLogin": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 30)),
+            "createdAt": datetime.utcnow() - timedelta(days=random.randint(30, 365)),
+            "lastLogin": datetime.utcnow() - timedelta(days=random.randint(0, 30)),
         }
         
         # Solo usuarios locales tienen passwordHash
         if usuario["authMethod"] == "local":
             usuario["passwordHash"] = hashlib.sha256(f"password{i}".encode()).hexdigest()
-            usuario["lastPasswordChange"] = datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 180))
+            usuario["lastPasswordChange"] = datetime.utcnow() - timedelta(days=random.randint(0, 180))
         
         usuario["twoFactorEnabled"] = random.choice([True, False])
         usuario["failedLoginAttempts"] = 0 if usuario["status"] == "active" else random.randint(0, 5)
@@ -258,8 +258,8 @@ def llenar_servicios_externos(db):
                 "requestsPerMinute": random.choice([50, 100, 200, 500]),
                 "requestsPerDay": random.choice([5000, 10000, 50000, 100000])
             },
-            "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(90, 365)),
-            "lastTestedAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 7)),
+            "createdAt": datetime.utcnow() - timedelta(days=random.randint(90, 365)),
+            "lastTestedAt": datetime.utcnow() - timedelta(days=random.randint(0, 7)),
         }
         servicios.append(servicio)
     
@@ -294,8 +294,8 @@ def llenar_api_call_logs(db, servicios, usuarios, cantidad=500):
             "ipAddress": fake.ipv4(),
             "userAgent": fake.user_agent(),
             "processType": random.choice(["user_request", "background_job", "scheduled_task"]),
-            "timestamp": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 90)),
-            "processedAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 90)),
+            "timestamp": datetime.utcnow() - timedelta(days=random.randint(0, 90)),
+            "processedAt": datetime.utcnow() - timedelta(days=random.randint(0, 90)),
         }
         logs.append(log)
     
@@ -321,12 +321,12 @@ def llenar_modelos_ia(db, cantidad=8):
             "isFineTuned": random.choice([True, False]),
             "version": random.choice(versiones_base),
             "status": random.choice(["active"] * 7 + ["testing", "inactive"]),
-            "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(30, 365)),
+            "createdAt": datetime.utcnow() - timedelta(days=random.randint(30, 365)),
         }
         
         if modelo["isFineTuned"]:
             modelo["fineTunedModelId"] = f"ft:{modelo['baseModel']}:promptcontent:v{i}"
-            modelo["fineTunedAt"] = datetime.now(datetime.UTC) - timedelta(days=random.randint(10, 180))
+            modelo["fineTunedAt"] = datetime.utcnow() - timedelta(days=random.randint(10, 180))
         
         modelos.append(modelo)
     
@@ -353,7 +353,7 @@ def llenar_model_logs(db, modelos, usuarios, cantidad=300):
             "userId": random.choice(user_ids),
             "ipAddress": fake.ipv4(),
             "processType": random.choice(["user_request"] * 7 + ["background_job"] * 3),
-            "timestamp": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 90)),
+            "timestamp": datetime.utcnow() - timedelta(days=random.randint(0, 90)),
             "processingTime": random.randint(500, 5000),
             "status": random.choice(["success"] * 9 + ["error"]),
             "tokensUsed": {
@@ -381,7 +381,7 @@ def llenar_content_types(db):
             "name": ct_data["name"],
             "description": ct_data["description"],
             "supportedPlatforms": ct_data["platforms"],
-            "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(180, 730)),
+            "createdAt": datetime.utcnow() - timedelta(days=random.randint(180, 730)),
         }
         content_types.append(content_type)
     
@@ -402,7 +402,7 @@ def llenar_features(db):
             "description": feat_data["description"],
             "metricsTracked": ["usage_count", "success_rate", "avg_processing_time"],
             "unitOfMeasure": feat_data["unit"],
-            "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(180, 730)),
+            "createdAt": datetime.utcnow() - timedelta(days=random.randint(180, 730)),
         }
         features.append(feature)
     
@@ -435,7 +435,7 @@ def llenar_subscription_plans(db):
                 }
                 for f in plan_data["features"]
             ],
-            "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(180, 730)),
+            "createdAt": datetime.utcnow() - timedelta(days=random.randint(180, 730)),
         }
         plans.append(plan)
     
@@ -462,13 +462,13 @@ def llenar_clientes(db, planes, cantidad=50):
                 "planId": random.choice(plan_ids),
                 "planName": random.choice([p["name"] for p in planes]),
                 "status": random.choice(["active"] * 8 + ["paused", "cancelled"]),
-                "startDate": datetime.now(datetime.UTC) - timedelta(days=random.randint(30, 365)),
-                "endDate": datetime.now(datetime.UTC) + timedelta(days=random.randint(30, 365)),
-                "renewalDate": datetime.now(datetime.UTC) + timedelta(days=random.randint(1, 30)),
+                "startDate": datetime.utcnow() - timedelta(days=random.randint(30, 365)),
+                "endDate": datetime.utcnow() + timedelta(days=random.randint(30, 365)),
+                "renewalDate": datetime.utcnow() + timedelta(days=random.randint(1, 30)),
                 "paymentStatus": random.choice(["paid"] * 8 + ["pending", "failed"]),
                 "usageTracking": {
-                    "FEAT_001": {"used": random.randint(0, 100), "limit": 200, "resetDate": datetime.now(datetime.UTC) + timedelta(days=15)},
-                    "FEAT_002": {"used": random.randint(0, 5000), "limit": 10000, "resetDate": datetime.now(datetime.UTC) + timedelta(days=15)},
+                    "FEAT_001": {"used": random.randint(0, 100), "limit": 200, "resetDate": datetime.utcnow() + timedelta(days=15)},
+                    "FEAT_002": {"used": random.randint(0, 5000), "limit": 10000, "resetDate": datetime.utcnow() + timedelta(days=15)},
                 }
             }
             subscriptions.append(subscription)
@@ -480,8 +480,8 @@ def llenar_clientes(db, planes, cantidad=50):
             "company": fake.company(),
             "phone": fake.phone_number(),
             "status": random.choice(["active"] * 9 + ["inactive"]),
-            "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(30, 730)),
-            "updatedAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 30)),
+            "createdAt": datetime.utcnow() - timedelta(days=random.randint(30, 730)),
+            "updatedAt": datetime.utcnow() - timedelta(days=random.randint(0, 30)),
             "subscriptions": subscriptions
         }
         clientes.append(cliente)
@@ -503,7 +503,7 @@ def llenar_payment_methods(db):
             "type": method_data["type"],
             "description": method_data["description"],
             "isActive": method_data["isActive"],
-            "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(365, 1095)),
+            "createdAt": datetime.utcnow() - timedelta(days=random.randint(365, 1095)),
         }
         methods.append(method)
     
@@ -529,10 +529,10 @@ def llenar_payment_schedules(db, clientes, methods, cantidad=150):
             "subscriptionId": subscription["subscriptionId"],
             "amount": random.choice([29.99, 79.99, 199.99, 499.99]),
             "currency": "USD",
-            "dueDate": datetime.now(datetime.UTC) + timedelta(days=random.randint(-30, 60)),
+            "dueDate": datetime.utcnow() + timedelta(days=random.randint(-30, 60)),
             "status": random.choice(["pending", "paid", "overdue"]),
             "paymentMethodId": random.choice(method_ids),
-            "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 90)),
+            "createdAt": datetime.utcnow() - timedelta(days=random.randint(0, 90)),
         }
         schedules.append(schedule)
     
@@ -562,8 +562,8 @@ def llenar_payment_transactions(db, clientes, methods, cantidad=250):
             "status": random.choice(["success"] * 8 + ["failed", "pending"]),
             "externalTransactionId": f"ext_{fake.uuid4()}",
             "details": {"last4": f"{random.randint(1000, 9999)}", "brand": random.choice(["Visa", "Mastercard", "Amex"])},
-            "timestamp": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 180)),
-            "processedAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 180)),
+            "timestamp": datetime.utcnow() - timedelta(days=random.randint(0, 180)),
+            "processedAt": datetime.utcnow() - timedelta(days=random.randint(0, 180)),
         }
         transactions.append(transaction)
     
@@ -583,7 +583,7 @@ def llenar_content_requests(db, clientes, cantidad=50):
     
     for i in range(1, cantidad + 1):
         client = random.choice(active_clients)
-        
+        datetime.utcnow()
         # Elegir una campaña coherente
         campaign_data = random.choice(CAMPAIGN_DATA)
         campaign_desc = campaign_data["description"]
@@ -596,7 +596,7 @@ def llenar_content_requests(db, clientes, cantidad=50):
             weights=[80, 15, 5]
         )[0]
         
-        created_at = datetime.now(datetime.UTC) - timedelta(days=random.randint(1, 180))
+        created_at = datetime.utcnow() - timedelta(days=random.randint(1, 180))
         
         request = {
             "requestId": f"REQ_{i:04d}",
@@ -650,7 +650,7 @@ def llenar_content_requests(db, clientes, cantidad=50):
     return requests
 
 
-def llenar_campaigns(db, cantidad=20):
+def llenar_campaigns(db, clientes, cantidad=20):
     """Genera campañas COHERENTES basadas en las descripciones reales"""
     print(f"\n📢 Generando {cantidad} campaigns coherentes...")
     
@@ -658,8 +658,12 @@ def llenar_campaigns(db, cantidad=20):
     db.PCCampaigns.delete_many({})
     
     campaigns = []
+    active_clients = [c for c in clientes if c["status"] == "active"]
     
     for i in range(1, cantidad + 1):
+        # Elegir cliente para esta campaña
+        client = random.choice(active_clients)
+        
         campaign_data = random.choice(CAMPAIGN_DATA)
         campaign_desc = campaign_data["description"]
         audiences = campaign_data["audiences"]
@@ -670,10 +674,11 @@ def llenar_campaigns(db, cantidad=20):
             weights=[30, 50, 10, 10]
         )[0]
         
-        created_at = datetime.now(datetime.UTC) - timedelta(days=random.randint(30, 365))
+        created_at = datetime.utcnow() - timedelta(days=random.randint(30, 365))
         
         campaign = {
             "campaignId": f"CAMP_{i:04d}",
+            "clientId": client["clientId"],
             "name": campaign_desc[:50],  # Primeras 50 chars como nombre
             "description": campaign_desc,
             "targetAudience": ", ".join(audiences),
@@ -684,7 +689,7 @@ def llenar_campaigns(db, cantidad=20):
             "startDate": created_at,
             "endDate": created_at + timedelta(days=random.randint(30, 180)),
             "createdAt": created_at,
-            "updatedAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 30))
+            "updatedAt": datetime.utcnow() - timedelta(days=random.randint(0, 30))
         }
         
         campaigns.append(campaign)
@@ -732,10 +737,10 @@ def llenar_todas_colecciones():
         content_types = llenar_content_types(db)
         features = llenar_features(db)
         
-        # 2. Planes de suscripción (dependen de features)
+        # 2. Planes de suscripción 
         planes = llenar_subscription_plans(db)
         
-        # 3. Clientes (dependen de planes)
+        # 3. Clientes 
         clientes = llenar_clientes(db, planes, cantidad=50)
         
         # 4. Métodos de pago
@@ -744,16 +749,16 @@ def llenar_todas_colecciones():
         # 5. Modelos IA
         modelos = llenar_modelos_ia(db, cantidad=8)
         
-        # 6. Logs y transacciones (dependen de otros)
+        # 6. Logs y transacciones
         llenar_api_call_logs(db, servicios, usuarios, cantidad=500)
         llenar_model_logs(db, modelos, usuarios, cantidad=300)
         llenar_payment_schedules(db, clientes, payment_methods, cantidad=150)
         llenar_payment_transactions(db, clientes, payment_methods, cantidad=250)
         
-        # 7. Content requests (dependen de clientes, usuarios, content types)
-        llenar_content_requests(db, clientes, usuarios, content_types, cantidad=200)
+        # 7. Content requests
+        llenar_content_requests(db, clientes, cantidad=200)
         
-        # 8. Campañas (dependen de clientes)
+        # 8. Campañas
         llenar_campaigns(db, clientes, cantidad=40)
         
         # Resumen final

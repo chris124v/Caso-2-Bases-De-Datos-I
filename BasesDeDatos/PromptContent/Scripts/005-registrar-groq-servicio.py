@@ -30,7 +30,7 @@ groq_service = {
         }
     },
     "status": "active",
-    "createdAt": datetime.now(datetime.UTC)
+    "createdAt": datetime.utcnow()
 }
 
 result = db.PCExternal_Services.update_one(
