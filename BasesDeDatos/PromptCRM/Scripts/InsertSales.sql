@@ -1,4 +1,12 @@
-use promptcrm
+USE promptcrm
+
+INSERT INTO PCREventTypes (TypeName)
+VALUES
+	('Purchase'), ('Click'), ('Download')
+
+INSERT INTO PCRLeadStatuses (StatusDescription)
+VALUES
+	('New'), ('AttemptedContact'), ('Qualified'), ('Converted')
 
 GO
 CREATE OR ALTER PROCEDURE dbo.PCRSP_InsertSales
@@ -23,6 +31,9 @@ BEGIN
 	DECLARE @RandomSeconds INT
 	DECLARE @RandomTime DATETIME
 	DECLARE @Checksum INT
+	DECLARE @LeadCode VARCHAR
+	DECLARE @EventRefID VARCHAR
+	DECLARE @NewLeadID INT
 	
 	-- Operaciones de select que no tengan que ser bloqueadas
 
@@ -39,6 +50,9 @@ BEGIN
 
 	SET @Checksum = CHECKSUM(@ClientID, @AmountPaid, @RandomTime, @UTMID)
 
+	SELECT @LeadCode = CAST(CONVERT(VARCHAR(255), NEWID()) AS VARCHAR(20))
+	SELECT @EventRefId = CAST(CONVERT(VARCHAR(255), NEWID()) AS VARCHAR(20))
+
 	-- Inicio de la transaccion
 	SET @InicieTransaccion = 0
 	IF @@TRANCOUNT=0 BEGIN
@@ -51,6 +65,15 @@ BEGIN
 		SET @CustomError = 2001
 
 		-- A lo que vinimos
+		INSERT INTO PCRLeads (LeadCode, IdStatus, CreatedAt, UpdatedAt, Enabled)
+		VALUES
+			(@LeadCode, 4, @RandomTime, @RandomTime, 1)
+
+		SET @NewLeadID = SCOPE_IDENTITY()
+
+		INSERT INTO PCREvents (IdEventType, EventRefID, EventDate, CreatedAt, UpdatedAt, IdLead, IdUTM)
+		VALUES
+			(1, @EventRefID, @RandomTime, @RandomTime, @NewLeadID, @UTMID)
 
 		INSERT INTO dbo.PCRSalesHistory (IdClient, SaleTotal, CreatedAt, UpdatedAt, Checksum, IdUTM)
 		VALUES
