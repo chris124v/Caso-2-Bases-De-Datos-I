@@ -5,8 +5,11 @@ Permite búsqueda semántica de imágenes por descripción textual
 from dotenv import load_dotenv
 from pinecone import Pinecone
 from pymongo import MongoClient
+from dotenv import load_dotenv
 import uuid
 import os
+
+load_dotenv()
 
 # ============================================
 # CONFIGURACIÓN

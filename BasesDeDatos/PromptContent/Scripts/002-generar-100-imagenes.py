@@ -1,6 +1,6 @@
 """
 Script para generar 100 imágenes algorítmicamente en MongoDB
-Con Unsplash API para obtener imágenes reales relacionadas
+Con Pixabay API para obtener imágenes reales relacionadas
 Con descripciones amplias, coherentes y hashtags clasificadores
 """
 
@@ -396,8 +396,8 @@ def generar_100_imagenes():
                 "platform": random.choice(["Youtube", "Instagram", "Facebook", "Tiktok", "other"]),
                 "userId": f"USER_{random.randint(1, 20):03d}",
                 
-                "createdAt": datetime.utcnow() - timedelta(days=random.randint(1, 180)),
-                "updatedAt": datetime.utcnow() - timedelta(days=random.randint(0, 30)),
+                "createdAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(1, 180)),
+                "updatedAt": datetime.now(datetime.UTC) - timedelta(days=random.randint(0, 30)),
                 
                 "usageCount": random.randint(0, 50),
                 "rights": random.choice(["proprietary", "CC0", "CC-BY", "CC-BY-SA"]),

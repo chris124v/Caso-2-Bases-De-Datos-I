@@ -55,23 +55,80 @@ if AI_PROVIDER == "groq":
 # FUNCIÓN AUXILIAR: Llamar IA
 # ============================================
 
-def llamar_ia(prompt):
-    """Función universal para llamar a cualquier proveedor de IA"""
+def llamar_ia(prompt, user_id="USER_SYSTEM"):
+    """Función universal para llamar a cualquier proveedor de IA CON LOGGING"""
     if not AI_DISPONIBLE:
         return None
     
+    timestamp_inicio = datetime.now(datetime.UTC)
+    log_id = f"LOG_{uuid.uuid4().hex[:8].upper()}"
+    
     try:
         if AI_PROVIDER == "groq":
-            response = AI_CLIENT.chat.completions.create(
-                model="llama-3.3-70b-versatile",
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=500,
-                temperature=0.7
-            )
-            return response.choices[0].message.content.strip()
+            # Preparar request
+            request_data = {
+                "model": "llama-3.3-70b-versatile",
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 500,
+                "temperature": 0.7
+            }
+            
+            # Llamar a Groq
+            response = AI_CLIENT.chat.completions.create(**request_data)
+            resultado = response.choices[0].message.content.strip()
+            
+            timestamp_fin = datetime.now(datetime.UTC)
+            response_time = int((timestamp_fin - timestamp_inicio).total_seconds() * 1000)
+            
+            # REGISTRAR EN PCApi_Call_Logs
+
+            log = {
+                "logId": log_id,
+                "serviceId": "SRV_GROQ_001",  # Conecta con PCExternal_Services
+                "endpoint": "/chat/completions",
+                "method": "POST",  #Método POST
+                "request": request_data,
+                "response": {
+                    "content": resultado[:500],
+                    "model": response.model,
+                    "usage": {
+                        "prompt_tokens": response.usage.prompt_tokens,
+                        "completion_tokens": response.usage.completion_tokens,
+                        "total_tokens": response.usage.total_tokens
+                    }
+                },
+                "statusCode": 200,
+                "responseTime": response_time,
+                "result": "success",
+                "userId": user_id,
+                "platform": "PromptContent",
+                "ipAddress": "127.0.0.1",
+                "processType": "ai_text_generation",
+                "timestamp": timestamp_inicio,
+                "processedAt": timestamp_fin
+            }
+            
+            db.PCApi_Call_Logs.insert_one(log)
+            # ============================================
+            
+            return resultado
             
     except Exception as e:
         print(f"Error en IA: {e}")
+        
+        # Registrar error
+        db.PCApi_Call_Logs.insert_one({
+            "logId": log_id,
+            "serviceId": "SRV_GROQ_001",
+            "method": "POST",
+            "statusCode": 500,
+            "errorDetails": str(e),
+            "timestamp": timestamp_inicio,
+            "userId": user_id,
+            "platform": "PromptContent",
+            "ipAddress": "127.0.0.1"
+        })
+        
         return None
 
 
@@ -170,7 +227,7 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
     try:
         # 1. Generar IDs únicos
         request_id = f"REQ_{uuid.uuid4().hex[:8].upper()}"
-        timestamp = datetime.utcnow()
+        timestamp = datetime.now(datetime.UTC)
         
         # 2. Registrar solicitud en PCContent_Requests
         request_doc = {
@@ -209,7 +266,8 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
                 mensaje = generar_mensaje_individual(
                     campaign_description, 
                     audiencia, 
-                    i + 1
+                    i + 1,
+                    client_id
                 )
                 mensajes.append(mensaje)
                 
@@ -260,7 +318,7 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
             {
                 "$set": {
                     "status": "completed",
-                    "completedAt": datetime.utcnow(),
+                    "completedAt": datetime.now(datetime.UTC),
                     "generatedContent": [
                         {
                             "contentId": media_id,
@@ -307,7 +365,7 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
 # FUNCIONES AUXILIARES PARA GENERACIÓN
 # ============================================
 
-def generar_mensaje_individual(campaign_description, audiencia, numero_mensaje):
+def generar_mensaje_individual(campaign_description, audiencia, numero_mensaje, user_id="USER_SYSTEM"):
     """Genera un mensaje individual para una audiencia específica"""
     
     if AI_DISPONIBLE:
@@ -331,7 +389,7 @@ REQUISITOS:
 Responde SOLO con el mensaje, sin títulos ni explicaciones adicionales.
 Este es el mensaje #{numero_mensaje} de 3 para esta audiencia, hazlo único."""
 
-        mensaje = llamar_ia(prompt)
+        mensaje = llamar_ia(prompt, user_id)
         
         if mensaje:
             return mensaje
