@@ -5,8 +5,11 @@ Permite búsqueda semántica de imágenes por descripción textual
 from dotenv import load_dotenv
 from pinecone import Pinecone
 from pymongo import MongoClient
+from dotenv import load_dotenv
 import uuid
 import os
+
+load_dotenv()
 
 # ============================================
 # CONFIGURACIÓN
@@ -139,18 +142,17 @@ for i, imagen in enumerate(imagenes, 1):
         
         # Validar que haya descripción
         if not description or description.strip() == "":
-            print(f"Imagen {media_id} sin descripción, usando placeholder")
+            print(f"⚠️ Imagen {media_id} sin descripción, usando placeholder")
             description = f"Imagen {media_id}"
         
-        # Crear registro para Pinecone
         record = {
-            "_id": media_id,                    # ID único
-            "text": description,                # Texto para búsqueda semántica
-            "hashtags": hashtags,               # Hashtags
-            "imageURL": media_url,              # URL de la imagen
-            "mediaId": media_id,                # ID adicional (metadata)
+            "_id": media_id,
+            "text": description,  # ← SOLO descripción (texto completo)
+            "imageURL": media_url,
+            "mediaId": media_id,
             "category": imagen.get("category", "ads"),
-            "platform": imagen.get("platform", "other")
+            "platform": imagen.get("platform", "other"),
+            "hashtags": hashtags  # Solo metadata, no afecta búsqueda
         }
         
         records.append(record)

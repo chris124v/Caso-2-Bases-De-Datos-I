@@ -55,23 +55,80 @@ if AI_PROVIDER == "groq":
 # FUNCIÓN AUXILIAR: Llamar IA
 # ============================================
 
-def llamar_ia(prompt):
-    """Función universal para llamar a cualquier proveedor de IA"""
+def llamar_ia(prompt, user_id="USER_SYSTEM"):
+    """Función universal para llamar a cualquier proveedor de IA CON LOGGING"""
     if not AI_DISPONIBLE:
         return None
     
+    timestamp_inicio = datetime.utcnow()
+    log_id = f"LOG_{uuid.uuid4().hex[:8].upper()}"
+    
     try:
         if AI_PROVIDER == "groq":
-            response = AI_CLIENT.chat.completions.create(
-                model="llama-3.3-70b-versatile",
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=500,
-                temperature=0.7
-            )
-            return response.choices[0].message.content.strip()
+            # Preparar request
+            request_data = {
+                "model": "llama-3.3-70b-versatile",
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 500,
+                "temperature": 0.7
+            }
+            
+            # Llamar a Groq
+            response = AI_CLIENT.chat.completions.create(**request_data)
+            resultado = response.choices[0].message.content.strip()
+            
+            timestamp_fin = datetime.utcnow()
+            response_time = int((timestamp_fin - timestamp_inicio).total_seconds() * 1000)
+            
+            # REGISTRAR EN PCApi_Call_Logs
+
+            log = {
+                "logId": log_id,
+                "serviceId": "SRV_GROQ_001",  # Conecta con PCExternal_Services
+                "endpoint": "/chat/completions",
+                "method": "POST",  #Método POST
+                "request": request_data,
+                "response": {
+                    "content": resultado[:500],
+                    "model": response.model,
+                    "usage": {
+                        "prompt_tokens": response.usage.prompt_tokens,
+                        "completion_tokens": response.usage.completion_tokens,
+                        "total_tokens": response.usage.total_tokens
+                    }
+                },
+                "statusCode": 200,
+                "responseTime": response_time,
+                "result": "success",
+                "userId": user_id,
+                "platform": "PromptContent",
+                "ipAddress": "127.0.0.1",
+                "processType": "ai_text_generation",
+                "timestamp": timestamp_inicio,
+                "processedAt": timestamp_fin
+            }
+            
+            db.PCApi_Call_Logs.insert_one(log)
+            # ============================================
+            
+            return resultado
             
     except Exception as e:
         print(f"Error en IA: {e}")
+        
+        # Registrar error
+        db.PCApi_Call_Logs.insert_one({
+            "logId": log_id,
+            "serviceId": "SRV_GROQ_001",
+            "method": "POST",
+            "statusCode": 500,
+            "errorDetails": str(e),
+            "timestamp": timestamp_inicio,
+            "userId": user_id,
+            "platform": "PromptContent",
+            "ipAddress": "127.0.0.1"
+        })
+        
         return None
 
 
@@ -79,24 +136,35 @@ def llamar_ia(prompt):
 # TOOL 1: getContent()
 # ============================================
 
-def getContent(descripcion_textual, top_k=5):
+def getContent(descripcion_textual, top_k=5, min_score=0.01):
     """
     Busca imágenes que coinciden con una descripción textual
+    
+    Args:
+        descripcion_textual: Texto a buscar
+        top_k: Número de resultados deseados
+        min_score: Score mínimo para considerar un resultado válido (default: 0.01)
+    
+    Returns:
+        Lista de imágenes ordenadas por relevancia, filtradas por min_score
     """
     
     try:
         # 1. Buscar en Pinecone usando búsqueda semántica
+        # Aumentamos el top_k para tener más candidatos antes de filtrar
+        search_k = top_k * 3
+        
         results = pinecone_index.search(
             namespace="__default__",
             query={
-                "top_k": top_k * 2,
+                "top_k": search_k,
                 "inputs": {
                     'text': descripcion_textual
                 }
             },
             rerank={
                 "model": "bge-reranker-v2-m3",
-                "top_n": top_k,
+                "top_n": search_k,
                 "rank_fields": ["text"]
             }
         )
@@ -110,10 +178,19 @@ def getContent(descripcion_textual, top_k=5):
         if len(hits) == 0:
             return []
         
-        # 3. Obtener IDs de las imágenes
-        media_ids = [hit['_id'] for hit in hits]
+        # 3. FILTRAR por score mínimo
+        hits_filtrados = [hit for hit in hits if hit['_score'] >= min_score]
         
-        # 4. Buscar información completa en MongoDB
+        if len(hits_filtrados) == 0:
+            return []
+        
+        # Limitar a top_k después de filtrar
+        hits_filtrados = hits_filtrados[:top_k]
+        
+        # 4. Obtener IDs de las imágenes
+        media_ids = [hit['_id'] for hit in hits_filtrados]
+        
+        # 5. Buscar información completa en MongoDB
         imagenes = list(db.PCmedia.find(
             {"mediaId": {"$in": media_ids}},
             {
@@ -127,13 +204,19 @@ def getContent(descripcion_textual, top_k=5):
             }
         ))
         
-        # 5. Crear diccionario para mapear scores
-        scores_map = {hit['_id']: hit['_score'] for hit in hits}
+        # 6. Crear diccionario para mapear scores
+        scores_map = {hit['_id']: hit['_score'] for hit in hits_filtrados}
         
-        # 6. Combinar información de MongoDB con scores de Pinecone
+        # 7. Combinar información de MongoDB con scores de Pinecone
         resultados = []
         for imagen in imagenes:
             media_id = imagen['mediaId']
+            score = scores_map.get(media_id, 0)
+            
+            # Doble verificación del score
+            if score < min_score:
+                continue
+            
             resultado = {
                 "mediaId": media_id,
                 "description": imagen.get('description', ''),
@@ -141,11 +224,11 @@ def getContent(descripcion_textual, top_k=5):
                 "mediaUrl": imagen.get('mediaUrl', ''),
                 "category": imagen.get('category', ''),
                 "platform": imagen.get('platform', ''),
-                "score": round(scores_map.get(media_id, 0), 3)
+                "score": round(score, 3)
             }
             resultados.append(resultado)
         
-        # 7. Ordenar por score (de mayor a menor)
+        # 8. Ordenar por score (de mayor a menor)
         resultados.sort(key=lambda x: x['score'], reverse=True)
         
         return resultados
@@ -153,8 +236,6 @@ def getContent(descripcion_textual, top_k=5):
     except Exception as e:
         print(f"Error en getContent: {e}")
         return []
-
-
 
 
 # ============================================
@@ -209,7 +290,8 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
                 mensaje = generar_mensaje_individual(
                     campaign_description, 
                     audiencia, 
-                    i + 1
+                    i + 1,
+                    client_id
                 )
                 mensajes.append(mensaje)
                 
@@ -307,7 +389,7 @@ def generateCampaignMessages(campaign_description, target_audiences, client_id="
 # FUNCIONES AUXILIARES PARA GENERACIÓN
 # ============================================
 
-def generar_mensaje_individual(campaign_description, audiencia, numero_mensaje):
+def generar_mensaje_individual(campaign_description, audiencia, numero_mensaje, user_id="USER_SYSTEM"):
     """Genera un mensaje individual para una audiencia específica"""
     
     if AI_DISPONIBLE:
@@ -331,7 +413,7 @@ REQUISITOS:
 Responde SOLO con el mensaje, sin títulos ni explicaciones adicionales.
 Este es el mensaje #{numero_mensaje} de 3 para esta audiencia, hazlo único."""
 
-        mensaje = llamar_ia(prompt)
+        mensaje = llamar_ia(prompt, user_id)
         
         if mensaje:
             return mensaje
@@ -382,10 +464,10 @@ if __name__ == "__main__":
     # ========================================
     print("TOOL 1: getContent()")
     print("-" * 80)
-    print("Búsqueda: 'Comida'")
+    print("Búsqueda: 'Vistas bellas'")
     print()
     
-    resultados = getContent("comida", top_k=3)
+    resultados = getContent("Vistas bellas", top_k=5)
     
     if resultados:
         for i, img in enumerate(resultados, 1):
@@ -400,7 +482,7 @@ if __name__ == "__main__":
     print("=" * 80)
     print()
     
-    # ========================================
+    """# ========================================
     # EJEMPLO 2: generateCampaignMessages()
     # ========================================
     print("  TOOL 2: generateCampaignMessages()")
@@ -428,4 +510,4 @@ if __name__ == "__main__":
     else:
         print(f"  Error: {resultado_campana.get('error', 'Unknown error')}")
     
-    print("=" * 80)
+    print("=" * 80)"""

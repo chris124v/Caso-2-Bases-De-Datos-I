@@ -1,6 +1,6 @@
 """
 Script para generar 100 imágenes algorítmicamente en MongoDB
-Con Unsplash API para obtener imágenes reales relacionadas
+Con Pixabay API para obtener imágenes reales relacionadas
 Con descripciones amplias, coherentes y hashtags clasificadores
 """
 
@@ -26,8 +26,7 @@ PIXABAY_API_KEY = "53186043-03d471fac4bce3d4ea7b8a2f7"
 
 # IA para generar descripciones 
 AI_PROVIDER = "groq"
-
-# API Keys - CADA UNO DEBE PONER SU API KEY DE GROQ AQUÍ https://console.groq.com/keys   
+  
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')         
 
 
@@ -133,12 +132,8 @@ def llamar_ia(prompt):
         return None
     
     try:
-        if AI_PROVIDER == "gemini":
-            # Google Gemini
-            response = AI_CLIENT.generate_content(prompt)
-            return response.text.strip()
             
-        elif AI_PROVIDER == "groq":
+        if AI_PROVIDER == "groq":
             # Groq (Llama 3)
             response = AI_CLIENT.chat.completions.create(
                 model="llama-3.3-70b-versatile",

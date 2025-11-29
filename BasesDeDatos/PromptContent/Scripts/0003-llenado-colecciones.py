@@ -61,6 +61,69 @@ FEATURES_DATA = [
     {"name": "Storage", "description": "Almacenamiento de contenido", "unit": "GB"},
 ]
 
+CAMPAIGN_DATA = [
+    {
+        "description": "Lanzamiento de nueva línea de productos tecnológicos de alto rendimiento",
+        "audiences": ["jóvenes profesionales tech", "early adopters", "entusiastas de tecnología"]
+    },
+    {
+        "description": "Promoción de temporada con descuentos en ropa deportiva premium",
+        "audiences": ["deportistas", "fitness enthusiasts", "atletas amateur"]
+    },
+    {
+        "description": "Campaña de concientización sobre alimentación saludable y vida balanceada",
+        "audiences": ["padres de familia", "profesionales ocupados", "personas health-conscious"]
+    },
+    {
+        "description": "Lanzamiento de app móvil para gestión de finanzas personales",
+        "audiences": ["millennials", "jóvenes profesionales", "emprendedores"]
+    },
+    {
+        "description": "Promoción de destinos turísticos en playas de Costa Rica",
+        "audiences": ["familias", "parejas", "viajeros aventureros"]
+    },
+    {
+        "description": "Campaña de productos orgánicos para el cuidado de la piel",
+        "audiences": ["mujeres 25-45", "personas con piel sensible", "eco-conscious consumers"]
+    },
+    {
+        "description": "Lanzamiento de servicio de streaming de contenido educativo infantil",
+        "audiences": ["padres", "maestros", "cuidadores de niños"]
+    },
+    {
+        "description": "Promoción de cursos online de programación y desarrollo web",
+        "audiences": ["estudiantes universitarios", "career changers", "autodidactas tech"]
+    },
+    {
+        "description": "Campaña de productos gaming para PC y consolas de nueva generación",
+        "audiences": ["gamers hardcore", "jóvenes 16-30", "streamers"]
+    },
+    {
+        "description": "Lanzamiento de servicio de entrega de comida saludable a domicilio",
+        "audiences": ["profesionales ocupados", "personas fitness", "familias modernas"]
+    },
+    {
+        "description": "Promoción de laptops gaming de alto rendimiento con RTX 4090",
+        "audiences": ["gamers profesionales", "content creators", "estudiantes de diseño"]
+    },
+    {
+        "description": "Campaña de productos para mascotas premium y orgánicos",
+        "audiences": ["dueños de mascotas", "pet lovers", "familias con perros/gatos"]
+    },
+    {
+        "description": "Lanzamiento de servicio de consultoría financiera para pymes",
+        "audiences": ["emprendedores", "dueños de pequeños negocios", "startups"]
+    },
+    {
+        "description": "Promoción de retiros de yoga y meditación en zonas naturales",
+        "audiences": ["personas estresadas", "practicantes de yoga", "buscadores de bienestar"]
+    },
+    {
+        "description": "Campaña de artículos festivos para celebraciones de cumpleaños y aniversarios",
+        "audiences": ["jóvenes", "adultos mayores", "padres organizadores de fiestas"]
+    }
+]
+
 # Planes de suscripción
 SUBSCRIPTION_PLANS_DATA = [
     {
@@ -508,86 +571,134 @@ def llenar_payment_transactions(db, clientes, methods, cantidad=250):
     print(f" {len(result.inserted_ids)} transacciones insertadas")
 
 
-def llenar_content_requests(db, clientes, usuarios, content_types, cantidad=200):
-    """Genera solicitudes de contenido"""
-    print(f"\n Generando {cantidad} content requests...")
-    requests_list = []
+def llenar_content_requests(db, clientes, cantidad=50):
+    """Genera solicitudes de contenido COHERENTES"""
+    print(f"\n📝 Generando {cantidad} content requests coherentes...")
     
-    client_ids = [c["clientId"] for c in clientes]
-    user_ids = [u["userId"] for u in usuarios]
-    type_names = [ct["name"] for ct in content_types]
+    # Limpiar antes de insertar
+    db.PCContent_Requests.delete_many({})
+    
+    requests = []
+    active_clients = [c for c in clientes if c["status"] == "active"]
     
     for i in range(1, cantidad + 1):
+        client = random.choice(active_clients)
+        datetime.utcnow()
+        # Elegir una campaña coherente
+        campaign_data = random.choice(CAMPAIGN_DATA)
+        campaign_desc = campaign_data["description"]
+        audiences = campaign_data["audiences"]
+        content_type = random.choice(["campaign_messages", "campaign_slogans", "social_post"])
+        
+        # Status realista (80% completed, 15% processing, 5% failed)
+        status_choice = random.choices(
+            ["completed", "processing", "failed"],
+            weights=[80, 15, 5]
+        )[0]
+        
+        created_at = datetime.utcnow() - timedelta(days=random.randint(1, 180))
+        
         request = {
             "requestId": f"REQ_{i:04d}",
-            "clientId": random.choice(client_ids),
-            "userId": random.choice(user_ids),
-            "contentType": random.choice(type_names),
-            "description": fake.sentence(),
-            "targetAudience": random.choice(["millennials", "gen-z", "professionals", "families"]),
-            "campaignDescription": fake.text(max_nb_chars=200),
-            "httpMethod": random.choice(["POST"] * 9 + ["GET"]),
-            "requestHeaders": {"Content-Type": "application/json", "Authorization": "Bearer token"},
-            "requestBody": {"style": "modern", "tone": "professional"},
-            "queryParams": {},
-            "ipAddress": fake.ipv4(),
-            "userAgent": fake.user_agent(),
-            "status": random.choice(["completed"] * 7 + ["pending", "processing", "failed"]),
-            "createdAt": datetime.utcnow() - timedelta(days=random.randint(0, 90)),
-            "completedAt": datetime.utcnow() - timedelta(days=random.randint(0, 85)),
-            "processingTime": random.randint(1000, 30000),
+            "clientId": client["clientId"],
+            "contentType": content_type,
+            "description": campaign_desc,
+            "targetAudience": ", ".join(audiences[:2]),  # Primeras 2 audiencias
+            "campaignDescription": campaign_desc,
+            "httpMethod": "POST",
+            "requestHeaders": {"Content-Type": "application/json"},
+            "requestBody": {
+                "campaignDescription": campaign_desc,
+                "targetAudiences": audiences[:2]
+            },
+            "ipAddress": f"192.168.{random.randint(1,255)}.{random.randint(1,255)}",
+            "status": status_choice,
+            "createdAt": created_at,
         }
         
-        # Si está completado, agregar contenido generado
-        if request["status"] == "completed":
+        # Si está completado, agregar fechas y contenido generado
+        if status_choice == "completed":
+            processing_time = random.randint(2000, 15000)  # 2-15 segundos
+            request["completedAt"] = created_at + timedelta(milliseconds=processing_time)
+            request["processingTime"] = processing_time
+            
+            # Simular contenido generado
+            num_items = 3 * len(audiences[:2])  # 3 mensajes por audiencia
             request["generatedContent"] = [
-                {"contentId": f"CNT_{i}_{j}", "contentType": request["contentType"], "url": fake.url()}
-                for j in range(random.randint(1, 3))
+                {
+                    "contentId": f"MSG_REQ_{i:04d}_{j:02d}",
+                    "contentType": content_type,
+                    "metadata": {"targetAudience": audiences[j % len(audiences[:2])]}
+                }
+                for j in range(1, num_items + 1)
             ]
+        elif status_choice == "failed":
+            request["errorMessage"] = random.choice([
+                "API rate limit exceeded",
+                "Invalid campaign description",
+                "Timeout error"
+            ])
         
-        requests_list.append(request)
+        requests.append(request)
     
-    result = db.PCContent_Requests.insert_many(requests_list)
-    print(f" {len(result.inserted_ids)} content requests insertados")
+    result = db.PCContent_Requests.insert_many(requests)
+    print(f"✅ {len(result.inserted_ids)} requests insertados")
+    print(f"   - Completados: {sum(1 for r in requests if r['status'] == 'completed')}")
+    print(f"   - En proceso: {sum(1 for r in requests if r['status'] == 'processing')}")
+    print(f"   - Fallidos: {sum(1 for r in requests if r['status'] == 'failed')}")
+    
+    return requests
 
 
-def llenar_campaigns(db, clientes, cantidad=40):
-    """Genera campañas"""
-    print(f"\n Generando {cantidad} campañas...")
+def llenar_campaigns(db, clientes, cantidad=20):
+    """Genera campañas COHERENTES basadas en las descripciones reales"""
+    print(f"\n📢 Generando {cantidad} campaigns coherentes...")
+    
+    # Limpiar antes de insertar
+    db.PCCampaigns.delete_many({})
+    
     campaigns = []
-    
-    client_ids = [c["clientId"] for c in clientes]
+    active_clients = [c for c in clientes if c["status"] == "active"]
     
     for i in range(1, cantidad + 1):
+        # Elegir cliente para esta campaña
+        client = random.choice(active_clients)
+        
+        campaign_data = random.choice(CAMPAIGN_DATA)
+        campaign_desc = campaign_data["description"]
+        audiences = campaign_data["audiences"]
+        
+        # Status realista
+        status = random.choices(
+            ["active", "completed", "draft", "archived"],
+            weights=[30, 50, 10, 10]
+        )[0]
+        
+        created_at = datetime.utcnow() - timedelta(days=random.randint(30, 365))
+        
         campaign = {
-            "campaignId": f"CAMP_{i:03d}",
-            "name": f"Campaign {fake.catch_phrase()}",
-            "description": fake.text(max_nb_chars=300),
-            "targetAudience": random.choice(["millennials 25-35", "gen-z 18-24", "professionals 30-50"]),
-            "campaignMessage": fake.sentence(),
-            "contentVersions": [
-                {
-                    "versionId": f"VER_{i}_{j}",
-                    "versionNumber": j,
-                    "content": fake.text(),
-                    "format": "text",
-                    "createdAt": datetime.utcnow() - timedelta(days=random.randint(0, 60)),
-                    "status": random.choice(["approved", "draft", "rejected"]),
-                    "approvedBy": f"USER_{random.randint(1, 10):03d}"
-                }
-                for j in range(1, random.randint(2, 4))
-            ],
-            "usedImages": [f"IMG_{random.randint(1, 100):03d}" for _ in range(random.randint(2, 5))],
-            "status": random.choice(["active"] * 4 + ["draft", "completed", "archived"]),
-            "startDate": datetime.utcnow() - timedelta(days=random.randint(0, 60)),
-            "endDate": datetime.utcnow() + timedelta(days=random.randint(30, 180)),
-            "createdAt": datetime.utcnow() - timedelta(days=random.randint(30, 180)),
-            "updatedAt": datetime.utcnow() - timedelta(days=random.randint(0, 30)),
+            "campaignId": f"CAMP_{i:04d}",
+            "clientId": client["clientId"],
+            "name": campaign_desc[:50],  # Primeras 50 chars como nombre
+            "description": campaign_desc,
+            "targetAudience": ", ".join(audiences),
+            "campaignMessage": f"Mensaje principal: {campaign_desc}",
+            "contentVersions": [f"v{j}" for j in range(1, random.randint(2, 5))],
+            "usedImages": [f"IMG_{random.randint(1,100):03d}" for _ in range(random.randint(3, 10))],
+            "status": status,
+            "startDate": created_at,
+            "endDate": created_at + timedelta(days=random.randint(30, 180)),
+            "createdAt": created_at,
+            "updatedAt": datetime.utcnow() - timedelta(days=random.randint(0, 30))
         }
+        
         campaigns.append(campaign)
     
     result = db.PCCampaigns.insert_many(campaigns)
-    print(f" {len(result.inserted_ids)} campañas insertadas")
+    print(f"✅ {len(result.inserted_ids)} campaigns insertadas")
+    print(f"   - Activas: {sum(1 for c in campaigns if c['status'] == 'active')}")
+    print(f"   - Completadas: {sum(1 for c in campaigns if c['status'] == 'completed')}")
+    
     return campaigns
 
 
@@ -626,10 +737,10 @@ def llenar_todas_colecciones():
         content_types = llenar_content_types(db)
         features = llenar_features(db)
         
-        # 2. Planes de suscripción (dependen de features)
+        # 2. Planes de suscripción 
         planes = llenar_subscription_plans(db)
         
-        # 3. Clientes (dependen de planes)
+        # 3. Clientes 
         clientes = llenar_clientes(db, planes, cantidad=50)
         
         # 4. Métodos de pago
@@ -638,16 +749,16 @@ def llenar_todas_colecciones():
         # 5. Modelos IA
         modelos = llenar_modelos_ia(db, cantidad=8)
         
-        # 6. Logs y transacciones (dependen de otros)
+        # 6. Logs y transacciones
         llenar_api_call_logs(db, servicios, usuarios, cantidad=500)
         llenar_model_logs(db, modelos, usuarios, cantidad=300)
         llenar_payment_schedules(db, clientes, payment_methods, cantidad=150)
         llenar_payment_transactions(db, clientes, payment_methods, cantidad=250)
         
-        # 7. Content requests (dependen de clientes, usuarios, content types)
-        llenar_content_requests(db, clientes, usuarios, content_types, cantidad=200)
+        # 7. Content requests
+        llenar_content_requests(db, clientes, cantidad=200)
         
-        # 8. Campañas (dependen de clientes)
+        # 8. Campañas
         llenar_campaigns(db, clientes, cantidad=40)
         
         # Resumen final
@@ -696,9 +807,6 @@ def llenar_todas_colecciones():
         print(f"  • Transacciones exitosas: {success_transactions}/{totales['PCPayment_Transactions']}")
         
         print("\n ¡Llenado completado exitosamente!")
-        print("\n Siguiente paso:")
-        print("   → Ejecutar script de indexación con FAISS (para PCmedia)")
-        print("   → Los vectorEmbedding de PCmedia se generarán en el siguiente paso")
         
     except Exception as e:
         print(f"\n Error durante el llenado: {e}")
