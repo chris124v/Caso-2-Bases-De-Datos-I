@@ -127,7 +127,7 @@ INSERT INTO @UTMSourcesTVP (SourceName)
 VALUES ('Google'),('Newsletter'),('Facebook'),('Youtube'),('Yahoo'),('Reddit'),('Twitter')
 
 DECLARE @i INT = 0
-WHILE @i < 5000
+WHILE @i < 500
 BEGIN
 	EXEC dbo.PCRSP_InsertUTM @CampaignNamesTVP, @UTMMediumsTVP, @UTMSourcesTVP
 	SET @i = @i + 1
