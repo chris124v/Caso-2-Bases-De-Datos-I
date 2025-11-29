@@ -73,7 +73,7 @@ BEGIN
 
 		INSERT INTO PCREvents (IdEventType, EventRefID, EventDate, CreatedAt, UpdatedAt, IdLead, IdUTM)
 		VALUES
-			(1, @EventRefID, @RandomTime, @RandomTime, @NewLeadID, @UTMID)
+			(1, @EventRefID, @RandomTime, @RandomTime, @RandomTime, @NewLeadID, @UTMID)
 
 		INSERT INTO dbo.PCRSalesHistory (IdClient, SaleTotal, CreatedAt, UpdatedAt, Checksum, IdUTM)
 		VALUES
