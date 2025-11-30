@@ -117,7 +117,7 @@ DECLARE @UTMSourcesTVP AS dbo.UTMSources
 -- El FROM... hay que reemplazar el path por el nuevo linked server
 INSERT INTO @CampaignNamesTVP (CampaignName, StartsAt, EndsAt)
 SELECT name, StartsAt, EndsAt
-FROM [DESKTOP-65RRTMG\LINKEDSERVERTEST].[promptads].[dbo].[PACampaigns]
+FROM [PROMPTADS_LINK].[promptads].[dbo].[PACampaigns]
 WHERE deleted = 0;
 
 INSERT INTO @UTMMediumsTVP (MediumName)

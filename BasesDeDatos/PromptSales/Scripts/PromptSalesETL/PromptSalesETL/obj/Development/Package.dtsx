@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{982B477F-6ECC-4C1A-A446-B44C944449CF}">
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{B99CD145-54D4-42B6-A46D-D20D13EACF2F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB3LkqViFl8lrIZGgBOc1+xAeHUaf9IcbssieA276gmKQAAAAAOgAAAAAIAACAAAABh/vw1gvHrjrH2GIqaSme89Vt8mEa+VBOSw8hYSRyO5jAAAABD3EJwAmQoUqAf/TWJB8VPCEkeM0rtxbVn7RvwQQqLhzmE0AAdLuoLv7dwWy4xxSdAAAAAKlu7Xb1+KRQT/+KWFoY80Ec7IFz2MSk4OZTNaUyi3vds6djsxfVsfX1u7EP3n7eXKbznCiiITpAtNebOeVCj+Q</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB3GhmX6tn8FHJLBNBy+WDPBco0jO9nfNV76r0018IpzQAAAAAOgAAAAAIAACAAAAAll1JNj/PTvl1pBmS2K7lH/U3wpmX1H1FIKq1QygDpxDAAAADnkzNb1reOFzIq+CXLWBZDTCyVPPO8XNwAJ9cObkfPwg/dEkkS4uezm7+co8553udAAAAAJt6m6e//zptcXzAgZoCR/4zvq1u3vwBaPYz7sxorOJiTs7eBK2YnKDiJQ/H6s87rLV9TehrCBOwwE7QbSswLEw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -44,7 +44,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABgx8JdcGBVbvIDsn+/fhJYSzwyeOnj/xWI6pZ34vHMagAAAAAOgAAAAAIAACAAAADDMuWLAmscpTbA8Y1tYBpvuqoRRRkqX3VqxhkdPrPYZiAAAAD1vK4HiRgm69fMre47PwRnULQ2Ln1QWjdHR04/rWmNQUAAAACWchCQa+yWQljbXeBzr7Qj/57TtLvuTf/CLLVsPJc78dbbfUizuqDdf9oJEf5m68K0vX+sGyQlUBeqiWb9LFwi</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADqeSH89zer+6bdT5ZiiWYvU1BuNHf9+M1mLDLrxX9DhgAAAAAOgAAAAAIAACAAAABnDbkEBkWcNaRbBOE94j3tvuY/0jVArzWJYo2wgPwDHiAAAAA4aSIGcG/3vhRrP26YeudY4SJpjlQK9F4yypSJSRy1sEAAAABwgzNL8vwNqk7SChCmcm7dlVSIrdg74YeUrgWpbiP/ox+y03xblpHgNiFyMEZZfuw9UkUQS+ZtpevQx/W3ibsC</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -61,7 +61,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAxEvy7b0B+l6Mc8IqjdB8PfoydG74MVI28nY9vIWHNNgAAAAAOgAAAAAIAACAAAABxZRAjCb0Qwb3mD+bFStK36Hjc2wUvxoXg+O4hJZoXizAAAAACKxO1u73zEtS2RAOXrCbkfT48abGEIWYtg6/mPL2MNLwNb7DIe6aFQK2NRcOkC+VAAAAALWp0WefiduFM3nR7UrQTqoJJfmesls5NO0uwB1yIUzRXM6SEDOKudwFcac6f8QkMEzmVzeOr0sUPG8R9KhHYRw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAu9HN5RpuJDKl71WABGsQts0KsVTWl5OxzoBrVwUi/WgAAAAAOgAAAAAIAACAAAADlXkV1GhhMkyFYS5Atx5NVfmZAAX39yfQVDE7E4OmuYzAAAAAyN+Gew7IQ3W5TNKdzUkjveWNQI25hin7kv29vPqDq2IiJ5IHVgFt1K0ZqRBLSsPNAAAAADUmST2bbYv/Nvul2oYQkBhmn0P9/uEUNG56LLUzxrR4gx5iX/BEl8dEOhmO13KJeOhYSwgZ16oUSNUo3R2oywQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -76,7 +76,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACm5/kkGbZ/hfhBRr57KaB19v/mnbTwmxj4wt+RXZaHkAAAAAAOgAAAAAIAACAAAADQSJuBVgcDWLl9+muQwz/Rd36sbS415B+6U/IHNnzSICAAAACVKmNmdvjv7y1D723wpXaRZbNTYkBjIEAEObkYslt1TUAAAAAAaYnYzuE6rSH9aZomk5W0frZnQHP1CQdHyMkT9LultSaEHkaS7Dmy23J0qTjMIp804w1VTMgMaYknvb1WUzRL</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABFQRCNcF0LuIYlPJ0mZ6WV2EHCNAH3uWB1gW7aoGXo+wAAAAAOgAAAAAIAACAAAACKKjrWyIDllmvGMRg8EiEziSsbdx9OJjQP9w/7UiftmyAAAABhUE+6ZeZWOyifg2KJtl4tUU45kXV/LBICYGAHEQwEtUAAAACshmRD5UGFsrA5PMOjnbKNrssglxjFkgWcpJ8PQl6te61LOHTTBqBRBRYmwQmPvvDBSLchU/kXjX/bF3d1PXoL</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -205,15 +205,18 @@ WHERE maxUpdatedAt &gt; CAST('2024-01-01 00:00:00' AS DATETIME)</DTS:VariableVal
                   description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
-    SUBSTRING(imageId, 1, 200) AS contentId,
-    SUBSTRING(filename, 1, 200) AS contentTitle,
-    SUBSTRING(url, 1, 500) AS contentURL,
-    usageCount,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP 100
+    SUBSTRING(CAST(mediaId AS VARCHAR(200)), 1, 200) AS contentId,
+    SUBSTRING(CAST(fileName AS VARCHAR(200)), 1, 200) AS contentTitle,
+    SUBSTRING(CAST(mediaUrl AS VARCHAR(500)), 1, 500) AS contentURL,
+    CAST(usageCount AS INT) AS usageCount,
     createdAt,
-    updatedAt
-FROM PCImages
-WHERE imageId IS NOT NULL</property>
+    updatedAt,
+    CAST(campaignId AS INT) AS campaignId,
+    SUBSTRING(CAST(hashtags AS VARCHAR(4000)), 1, 4000) AS hashtags, 
+SUBSTRING(CAST(platform AS VARCHAR(200)), 1, 200) AS channel
+FROM PCmedia
+WHERE mediaId IS NOT NULL</property>
                 <property
                   dataType="System.Int32"
                   description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
@@ -307,6 +310,35 @@ WHERE imageId IS NOT NULL</property>
                       lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[updatedAt]"
                       name="updatedAt"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[campaignId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[campaignId]"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[campaignId]"
+                      name="campaignId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[hashtags]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[hashtags]"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[hashtags]"
+                      name="hashtags"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[channel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[channel]"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[channel]"
+                      name="channel"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -337,6 +369,20 @@ WHERE imageId IS NOT NULL</property>
                       refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[updatedAt]"
                       dataType="dbTimeStamp"
                       name="updatedAt" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[campaignId]"
+                      dataType="i4"
+                      name="campaignId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[hashtags]"
+                      dataType="wstr"
+                      length="2000"
+                      name="hashtags" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].ExternalColumns[channel]"
+                      dataType="wstr"
+                      length="2000"
+                      name="channel" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -377,6 +423,23 @@ WHERE imageId IS NOT NULL</property>
                       dataType="dbTimeStamp"
                       lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[updatedAt]"
                       name="updatedAt" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[campaignId]"
+                      dataType="i4"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[campaignId]"
+                      name="campaignId" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[hashtags]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[hashtags]"
+                      name="hashtags" />
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[channel]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[channel]"
+                      name="channel" />
                     <outputColumn
                       refId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
@@ -486,17 +549,17 @@ WHERE imageId IS NOT NULL</property>
                     <inputColumn
                       refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[channel]"
                       cachedDataType="wstr"
-                      cachedLength="30"
+                      cachedLength="2000"
                       cachedName="channel"
                       externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[channel]"
-                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[channel]" />
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[channel]" />
                     <inputColumn
                       refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[hashtags]"
                       cachedDataType="wstr"
-                      cachedLength="4000"
+                      cachedLength="2000"
                       cachedName="hashtags"
                       externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[hashtags]"
-                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[hashtags]" />
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[hashtags]" />
                     <inputColumn
                       refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[usedInAds]"
                       cachedDataType="wstr"
@@ -510,6 +573,12 @@ WHERE imageId IS NOT NULL</property>
                       cachedName="updatedAt"
                       externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[updatedAt]"
                       lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[updatedAt]" />
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].Columns[IdCampaign]"
+                      cachedDataType="i4"
+                      cachedName="IdCampaign"
+                      externalMetadataColumnId="Package\DFT_LoadContentUsage\Load to PSContentUsage.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdCampaign]"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[IdCampaign]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -608,6 +677,13 @@ WHERE imageId IS NOT NULL</property>
                   refId="Package\DFT_LoadContentUsage\Transform de Mongo.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Inputs[Derived Column Input].Columns[campaignId]"
+                      cachedDataType="i4"
+                      cachedName="campaignId"
+                      lineageId="Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[campaignId]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -687,52 +763,6 @@ WHERE imageId IS NOT NULL</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[channel]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="30"
-                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[channel]"
-                      name="channel"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_WSTR,30)"Multi-channel"</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_WSTR,30)"Multi-channel"</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[hashtags]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="4000"
-                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[hashtags]"
-                      name="hashtags"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_WSTR,4000)""</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_WSTR,4000)""</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[usedInAds]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
@@ -753,6 +783,28 @@ WHERE imageId IS NOT NULL</property>
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">(DT_WSTR,4000)"Multiple Ads"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[IdCampaign]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_LoadContentUsage\Transform de Mongo.Outputs[Derived Column Output].Columns[IdCampaign]"
+                      name="IdCampaign"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\DFT_LoadContentUsage\Extract de Mongo.Outputs[Salida de origen de ADO NET].Columns[campaignId]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)campaignId</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -803,6 +855,7 @@ WHERE imageId IS NOT NULL</property>
       DTS:refId="Package\DFT_LoadLeadsSummary"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{E6515360-0C86-4984-8596-881E5F9465D7}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -2520,6 +2573,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       DTS:refId="Package\Get Last Run Ads"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Obtiene la ultima fecha de ejecucion para PromptAds"
+      DTS:Disabled="True"
       DTS:DTSID="{66011174-A1A3-4ED7-9ADF-C5C4B1DD7166}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -2541,6 +2595,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       DTS:refId="Package\Get Last Run CRM"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL para lo ultimo que trae CRM"
+      DTS:Disabled="True"
       DTS:DTSID="{1D2F4EAD-1609-495D-B0CF-2AE5E57EB0BF}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -2562,6 +2617,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       DTS:refId="Package\Update Last Run Ads"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
+      DTS:Disabled="True"
       DTS:DTSID="{6A02B579-85B3-444F-8A6B-64D1EA078AF9}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -2578,6 +2634,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       DTS:refId="Package\Update Last Run CRM"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea updatear el ultimo run."
+      DTS:Disabled="True"
       DTS:DTSID="{6CB36FAF-C0C1-4D05-8B5E-406F7BF30DF6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -2936,7 +2993,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
     design-time-name="Package\DFT_LoadLeadsSummary">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="186,42"
           Id="Package\DFT_LoadLeadsSummary\Load En PromptSales"
@@ -2968,9 +3025,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2992,9 +3047,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3020,7 +3073,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
     design-time-name="Package\DFT_LoadPublishedAds">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="202,42"
           Id="Package\DFT_LoadPublishedAds\Transform de PromptAds"
@@ -3052,9 +3105,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3076,9 +3127,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
