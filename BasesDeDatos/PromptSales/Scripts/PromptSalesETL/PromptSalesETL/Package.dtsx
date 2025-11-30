@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{B99CD145-54D4-42B6-A46D-D20D13EACF2F}">
+  DTS:VersionBuild="88"
+  DTS:VersionGUID="{DEDFCAE6-3BDA-41F1-81C1-21135EC5920A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAYXf0symILxJyLX5DECfbvbwYsPwJF6ifjGF2lci/J8QAAAAAOgAAAAAIAACAAAAA9VAU+SN/hjNea5Ny6eIkggc3mq56byhgeVyeP8HzHFjAAAACLOZ94wHWHmS//pdfS0VW7eVpZyVgc1Nm6vwWrVl037GtqF2ck+JtcXNbiwN8kHaVAAAAAIMd4Du6nXr0V6G0z3ANXMTDMfxj3LqRLUWFYxOYQNrG2d54oyh7kh0vCb5OYMYxdGLbkCiIZKZMFJI9ZRQ3mww</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADJhFlGTv+88j5SaIaBIUJS5ajVhYDFtrD62CKYA0wGGwAAAAAOgAAAAAIAACAAAACenH+2ts/sCi3wVLxQ3ydGf+hTK19rtNzxoO+w2FzDlTAAAACePiIEH5zYcVXLrOKkKaDjerqpFqcCL8MzdDoG9THMw9d+IO9kQorgFIhpJMcQVUpAAAAA4/CWZhTIuWs+ZOXFQ175IgdMlq4dOYX4isaTQLKV6YiZE+2LaNbS2iPPtN7ppFhrxu8ws2kszHZb6gEYtfXnHQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -44,7 +44,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACmZ1LjJ25S8mDeld/ErZs4UF2+f4OO591kainsboCfcAAAAAAOgAAAAAIAACAAAADZM1rW4f/xb5w5eY50+eAd7R2//8UtdAauGnUQy48tKyAAAABCSWecor+/PuqRMbyc+eXfIEIhE7LaPkQtRmSJcUVnfUAAAAAdQgcgVmEGSns2l7yA05UYidA0BMQpH+Dnrmv7lg75r+b0Tq3NVND9y3qfBtaDJl2nsZllsnUPyQwzQvxyKMQG</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADFN0+8GCxRXrBjv2Z2K9Dg/uMuOM7F5gp9bE7V5ZZzYgAAAAAOgAAAAAIAACAAAABHvuHX9qOcGmEbwHe25K5pxjtg36yez0BUULb+0QR6ICAAAAArW1MI+ZLcttvwJaEAGf2OMpDfzbGhp8ZXtIyGeKAOPkAAAADWXExwt261wuEIqm0pnxDw3peQlWEIg/nDoA56omHYCENr8BfXBL96Kmta/bKqAgR9Hzq/+O3rkI6QGZ21GkEo</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -61,7 +61,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB1ICEGTZVsSYY9cZNivck8PqRlGlNzvgmnJeDcWfi2BAAAAAAOgAAAAAIAACAAAACJXWGeYcdMMIRq2TSIk5SPJL5fivs90VL2j9apNkht3TAAAADj9N463fWd+ra6X1v09DGiX90P1BCF9ICxcqb/LtkE8HMcpwKuSb7BMhXwgT5Wk5hAAAAAlb1qAkt085d15UBvrKTmbUKcf/MmrNFaLKr24zYprwVyGQNiZYZEoAn107hu8VAaMBQLu2x8HudpQcxaZyY7mQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAASwUBCT7JZUTGLhdFJizMTb5G8z2gA9G0PGr9xH/KodQAAAAAOgAAAAAIAACAAAADKCQO7HTCjBPF/q+xwCsZ6AOxs043a9Nx+2u+yAvBPZjAAAAB09PH47ayyt6lsPrio2+VqF1fcVpCLSgjsHIKRBG8sfq0hnE2+cjDTZBoMCs6sktVAAAAAZtcgo8iv19flU8/oWc37YkVj2J2TUogS3X4gosc6IIOHJULP+UUzCSPpFfBmUFBC6dquY5fa0Z5+xp+aDUMe9Q</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -76,7 +76,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD689dTjit44Bk3J72MJS9j5a6jqTdp/CfOw5iF8coFHQAAAAAOgAAAAAIAACAAAAAgJe2Zu2y6/7oLn841yqwKxMR8sZSvuDKqN3MsMzKTHCAAAABVBMxtMQrrE2mw8I4sPxOq28EUBfHini8BcTXOkdEfXUAAAAAosmOT6nkTCxinp02bq/xwbH5H69A1G/GzSVuV0rZmF7Z9FDg3Seb6OXM/WuxO2yyojhinzrfL2n7wnA2Uxm0R</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADLJRmekEJE/Yp3egydKLAMmF1VSm1ueP7wM0AchfFxDgAAAAAOgAAAAAIAACAAAACDLZ/jj2pJF176EfnVS+ZjldsshvVHkbokkV24jPFRTiAAAABG+wt2YJqP6lLlhMOMluZ4tcJtgSSOhN3byEm4VoSVjEAAAAAu3lXTSp8YTqRUzlkXhM85awxMrw7Lh/yE8XjzEvODZ+v8SsVnyOAAjfSOn6t6osjUNDThTDQcBjFjJOq4F11O</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -84,96 +84,12 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4595BA6C-CB78-4A7E-8B50-90993534A8CC}"
+      DTS:DTSID="{17B88ED6-45F8-4C5B-AD79-440D545A3873}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="LastRunAds">
+      DTS:ObjectName="CurrentLogId">
       <DTS:VariableValue
-        DTS:DataType="7">1/1/2024</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{DBA462E9-57CE-4687-8821-3B18FCCFF95D}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="LastRunContent">
-      <DTS:VariableValue
-        DTS:DataType="7">1/1/2024</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{3C33FB91-FC77-4E6F-81C4-9389E48AB233}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="LastRunCRM">
-      <DTS:VariableValue
-        DTS:DataType="7">1/1/2024</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{2AA847F2-0427-4E1D-9468-AEF487CB9DD6}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="(DT_WSTR, 4) YEAR(@[User::LastRunContent]) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(@[User::LastRunContent]), 2) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(@[User::LastRunContent]), 2) + &quot; &quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hour&quot;, @[User::LastRunContent]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;minute&quot;, @[User::LastRunContent]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;second&quot;, @[User::LastRunContent]), 2)"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="MongoFilterDate">
-      <DTS:VariableValue
-        DTS:DataType="8">2024-01-01 00:00:00</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{1922A687-CA77-46DE-8C73-81E64BDACE5E}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT &#xA;    IdPublishedAd, IdCampaign, channelName, channelType, adType,&#xA;    influencerName, influencerFollowers, body, redirectURL,&#xA;    budget, expenses, adSentiment, adStatus, publishedAt,&#xA;    createdAt, updatedAt&#xA;FROM vw_PublishedAds_Delta&#xA;WHERE maxUpdatedAt &gt; CAST('&quot; &#xA;+ (DT_WSTR, 4) YEAR(@[User::LastRunAds]) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(@[User::LastRunAds]), 2) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(@[User::LastRunAds]), 2) + &quot; &quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hour&quot;, @[User::LastRunAds]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;minute&quot;, @[User::LastRunAds]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;second&quot;, @[User::LastRunAds]), 2)&#xA;+ &quot;' AS DATETIME)&quot;"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="SqlQueryAds">
-      <DTS:VariableValue
-        DTS:DataType="8">SELECT 
-    IdPublishedAd, IdCampaign, channelName, channelType, adType,
-    influencerName, influencerFollowers, body, redirectURL,
-    budget, expenses, adSentiment, adStatus, publishedAt,
-    createdAt, updatedAt
-FROM vw_PublishedAds_Delta
-WHERE maxUpdatedAt &gt; CAST('2024-01-01 00:00:00' AS DATETIME)</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{C5F2D19D-CB6C-4622-8669-6495ED4996E0}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT &#xA;    SUBSTRING(imageId, 1, 200) AS contentId,&#xA;    SUBSTRING(filename, 1, 200) AS contentTitle,&#xA;    SUBSTRING(url, 1, 500) AS contentURL,&#xA;    usageCount,&#xA;    createdAt,&#xA;    updatedAt&#xA;FROM PCImages&#xA;WHERE imageId IS NOT NULL&#xA;  AND updatedAt &gt; '&quot; &#xA;+ (DT_WSTR, 4) YEAR(@[User::LastRunContent]) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(@[User::LastRunContent]), 2) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(@[User::LastRunContent]), 2) + &quot; &quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hour&quot;, @[User::LastRunContent]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;minute&quot;, @[User::LastRunContent]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;second&quot;, @[User::LastRunContent]), 2)&#xA;+ &quot;'&quot;"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="SqlQueryContent">
-      <DTS:VariableValue
-        DTS:DataType="8">SELECT 
-    SUBSTRING(imageId, 1, 200) AS contentId,
-    SUBSTRING(filename, 1, 200) AS contentTitle,
-    SUBSTRING(url, 1, 500) AS contentURL,
-    usageCount,
-    createdAt,
-    updatedAt
-FROM PCImages
-WHERE imageId IS NOT NULL
-  AND updatedAt &gt; '2024-01-01 00:00:00'</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{C5EA7746-46CD-4422-A849-8AFC71267176}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT &#xA;    IdCampaign, OrganizationName, CampaignCode, summaryDate,&#xA;    totalLeads, currentLeads, qualifiedLeads, convertedLeads, rejectedLeads,&#xA;    TotalClients, TotalRevenue, TotalInteractions, qualificationRate,&#xA;    conversionRate, leadChannels, CampaignStartDate, LastActivity,&#xA;    CreatedAt, UpdatedAt&#xA;FROM vw_LeadsSummary_Delta&#xA;WHERE maxUpdatedAt &gt; CAST('&quot; &#xA;+ (DT_WSTR, 4) YEAR(@[User::LastRunCRM]) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(@[User::LastRunCRM]), 2) + &quot;-&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(@[User::LastRunCRM]), 2) + &quot; &quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hour&quot;, @[User::LastRunCRM]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;minute&quot;, @[User::LastRunCRM]), 2) + &quot;:&quot;&#xA;+ RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;second&quot;, @[User::LastRunCRM]), 2)&#xA;+ &quot;' AS DATETIME)&quot;"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="SqlQueryCRM">
-      <DTS:VariableValue
-        DTS:DataType="8">SELECT 
-    IdCampaign, OrganizationName, CampaignCode, summaryDate,
-    totalLeads, currentLeads, qualifiedLeads, convertedLeads, rejectedLeads,
-    TotalClients, TotalRevenue, TotalInteractions, qualificationRate,
-    conversionRate, leadChannels, CampaignStartDate, LastActivity,
-    CreatedAt, UpdatedAt
-FROM vw_LeadsSummary_Delta
-WHERE maxUpdatedAt &gt; CAST('2024-01-01 00:00:00' AS DATETIME)</DTS:VariableValue>
+        DTS:DataType="3">1</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -181,6 +97,7 @@ WHERE maxUpdatedAt &gt; CAST('2024-01-01 00:00:00' AS DATETIME)</DTS:VariableVal
       DTS:refId="Package\DFT_LoadContentUsage"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{AEA7E371-AFC1-47B5-B8B5-1BDC8B46406E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1758,6 +1675,7 @@ GROUP BY
       DTS:refId="Package\DFT_LoadPublishedAds"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{6017A0B0-AD0E-4C2A-9ED5-DA19766F11AA}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -2570,6 +2488,684 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Extract Raw - PromptAds"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FB71A2E4-3AB9-403E-9A6A-CB9F06445903}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Raw - PromptAds"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Raw - PromptAds\Extract PACampaigns"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract PACampaigns"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+    IdCampaign,
+    IdOrganization,
+    name,
+    description,
+    createdAt,
+    updatedAt
+FROM PACampaigns
+WHERE deleted = 0
+  AND updatedAt &gt; DATEADD(MINUTE, -15, GETDATE())
+  AND updatedAt &gt; DATEADD(MINUTE, -15, GETDATE())</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptads]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptads]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[IdCampaign]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[IdCampaign]"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[IdCampaign]"
+                      name="IdCampaign"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[IdOrganization]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[IdOrganization]"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[IdOrganization]"
+                      name="IdOrganization"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      length="60"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      length="200"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[createdAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[createdAt]"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[createdAt]"
+                      name="createdAt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[updatedAt]"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[updatedAt]"
+                      name="updatedAt"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[IdCampaign]"
+                      dataType="i4"
+                      name="IdCampaign" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[IdOrganization]"
+                      dataType="i4"
+                      name="IdOrganization" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].ExternalColumns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      name="updatedAt" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[IdCampaign]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[IdCampaign]"
+                      name="IdCampaign" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[IdOrganization]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[IdOrganization]"
+                      name="IdOrganization" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[createdAt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[createdAt]"
+                      name="createdAt" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[updatedAt]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[updatedAt]"
+                      name="updatedAt" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Raw - PromptAds\Load to PSRawData"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Load to PSRawData"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"public"."PSRawData"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Raw - PromptAds\Load to PSRawData.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptsales]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptsales]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].Columns[sourceService]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="sourceService"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[sourceService]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].Columns[sourceTable]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="sourceTable"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[sourceTable]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].Columns[sourceRecordID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sourceRecordID"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[sourceRecordID]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].Columns[operationType]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="operationType"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[operationType]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].Columns[rawData]"
+                      cachedDataType="wstr"
+                      cachedLength="123"
+                      cachedName="rawData"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[rawData]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].Columns[IdRunLog]"
+                      cachedDataType="i4"
+                      cachedName="IdRunLog"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[IdRunLog]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].Columns[updateAt_Raw]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="updateAt_Raw"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[updateAt]"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[updateAt_Raw]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].Columns[createdAt_Raw]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="createdAt_Raw"
+                      externalMetadataColumnId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[createdAt_Raw]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRawData]"
+                      dataType="i8"
+                      name="IdRawData" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
+                      dataType="wstr"
+                      length="30"
+                      name="sourceService" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
+                      dataType="wstr"
+                      length="60"
+                      name="sourceTable" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
+                      dataType="wstr"
+                      length="100"
+                      name="sourceRecordID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
+                      dataType="wstr"
+                      length="30"
+                      name="operationType" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[isProcessed]"
+                      dataType="wstr"
+                      length="5"
+                      name="isProcessed" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[updateAt]"
+                      dataType="dbTimeStamp"
+                      name="updateAt" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
+                      dataType="i4"
+                      name="IdRunLog" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
+                      dataType="wstr"
+                      length="4095"
+                      name="rawData" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Raw - PromptAds\Load to PSRawData.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptAds\Load to PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Load to PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptAds\Load to PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Raw - PromptAds\Prepare for PSRawData"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Prepare for PSRawData"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Inputs[Derived Column Input].Columns[IdCampaign]"
+                      cachedDataType="i4"
+                      cachedName="IdCampaign"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[IdCampaign]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Inputs[Derived Column Input].Columns[IdOrganization]"
+                      cachedDataType="i4"
+                      cachedName="IdOrganization"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[IdOrganization]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Inputs[Derived Column Input].Columns[name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="name"
+                      lineageId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[sourceService]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[sourceService]"
+                      name="sourceService"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,30)"PromptAds"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,30)"PromptAds"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[sourceTable]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="60"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[sourceTable]"
+                      name="sourceTable"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,60)"PACampaigns"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,60)"PACampaigns"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[sourceRecordID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[sourceRecordID]"
+                      name="sourceRecordID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)(DT_WSTR,10)#{Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[IdCampaign]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)(DT_WSTR,10)IdCampaign</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[operationType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[operationType]"
+                      name="operationType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,30)"INSERT"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,30)"INSERT"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[createdAt_Raw]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[createdAt_Raw]"
+                      name="createdAt_Raw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[updateAt_Raw]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[updateAt_Raw]"
+                      name="updateAt_Raw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[rawData]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="123"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[rawData]"
+                      name="rawData"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"{\"IdCampaign\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[IdCampaign]} + ",\"name\":\"" + #{Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[name]} + "\",\"IdOrganization\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output].Columns[IdOrganization]} + "}"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"{\"IdCampaign\":" + (DT_WSTR,10)IdCampaign + ",\"name\":\"" + name + "\",\"IdOrganization\":" + (DT_WSTR,10)IdOrganization + "}"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[IdRunLog]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output].Columns[IdRunLog]"
+                      name="IdRunLog"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Raw - PromptAds.Paths[Derived Column Output]"
+              endId="Package\Extract Raw - PromptAds\Load to PSRawData.Inputs[Entrada de destino de ADO NET]"
+              name="Derived Column Output"
+              startId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Extract Raw - PromptAds.Paths[OLE DB Source Output]"
+              endId="Package\Extract Raw - PromptAds\Prepare for PSRawData.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Extract Raw - PromptAds\Extract PACampaigns.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Get Last Run Ads"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Obtiene la ultima fecha de ejecucion para PromptAds"
@@ -2614,6 +3210,43 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Log ETL Run Start"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{F712FD6D-436E-4D6D-8CF9-1018FED485D9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Log ETL Run Start"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
+          SQLTask:SqlStatementSource="INSERT INTO public.&quot;PSETLRunLog&quot; (&#xA;    &quot;IdConfig&quot;,&#xA;    &quot;runStart&quot;,&#xA;    &quot;runEnd&quot;,&#xA;    &quot;rowsProcessed&quot;,&#xA;    &quot;message&quot;,&#xA;    &quot;lastProcessedID&quot;,&#xA;    &quot;recordsFailed&quot;,&#xA;    &quot;recordsInserted&quot;,&#xA;    &quot;createdAt&quot;&#xA;) VALUES (&#xA;    1,                    &#xA;    NOW(),                &#xA;    NOW(),                &#xA;    0,                    &#xA;    'ETL Started',        &#xA;    0,                    &#xA;    0,                   &#xA;    0,                    &#xA;    NOW()                 &#xA;)&#xA;RETURNING &quot;IdRunLog&quot;;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::CurrentLogId" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Process Raw to Final - Campaigns"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{4F93B472-1177-4695-A8FA-BE5B78074A48}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Process Raw to Final - Campaigns"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
+          SQLTask:SqlStatementSource="SELECT public.sp_ProcessRawCampaigns();" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Update Last Run Ads"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
@@ -2639,7 +3272,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Last Run CRM"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2697,6 +3330,22 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 5"
       DTS:To="Package\Update Last Run CRM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{231A68D7-B9A3-45EE-98FD-8D9EFE928979}"
+      DTS:From="Package\Log ETL Run Start"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 6"
+      DTS:To="Package\Extract Raw - PromptAds" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{F75036B0-0F38-40EA-8E05-8CA87880C131}"
+      DTS:From="Package\Extract Raw - PromptAds"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 7"
+      DTS:To="Package\Process Raw to Final - Campaigns" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -2709,49 +3358,49 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="201,42"
           Id="Package\DFT_LoadContentUsage"
-          TopLeft="290,185" />
+          TopLeft="318,211" />
         <NodeLayout
           Size="208,42"
           Id="Package\DFT_LoadLeadsSummary"
-          TopLeft="796,184" />
+          TopLeft="803,217" />
         <NodeLayout
           Size="198,42"
           Id="Package\DFT_LoadPublishedAds"
-          TopLeft="540,181" />
+          TopLeft="547,214" />
         <NodeLayout
           Size="165,42"
           Id="Package\Get Last Run Ads"
-          TopLeft="541,83" />
+          TopLeft="548,116" />
         <NodeLayout
           Size="172,42"
           Id="Package\Get Last Run CRM"
-          TopLeft="792,85" />
+          TopLeft="799,118" />
         <NodeLayout
           Size="183,42"
           Id="Package\Update Last Run Ads"
-          TopLeft="546,271" />
+          TopLeft="553,304" />
         <NodeLayout
           Size="189,42"
           Id="Package\Update Last Run CRM"
-          TopLeft="804,264" />
+          TopLeft="811,297" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="491,204">
+          TopLeft="519,233.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49,0"
+              EndConnector="28,0"
               Start="0,0"
-              End="41.5,0">
+              End="20.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="41.5,0" />
+                    End="20.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2762,7 +3411,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="738,203.5">
+          TopLeft="745,236.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2784,7 +3433,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="623.5,125">
+          TopLeft="630.5,158">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2818,7 +3467,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="638.25,223">
+          TopLeft="645.25,256">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2840,7 +3489,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="878,127">
+          TopLeft="885,160">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2874,7 +3523,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="899.25,226">
+          TopLeft="906.25,259">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2894,40 +3543,28 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </Package>
-  <TaskHost
-    design-time-name="Package\DFT_LoadContentUsage">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="181,42"
-          Id="Package\DFT_LoadContentUsage\Transform de Mongo"
-          TopLeft="143,171" />
+          Size="170,42"
+          Id="Package\Log ETL Run Start"
+          TopLeft="68,29" />
         <NodeLayout
-          Size="203,42"
-          Id="Package\DFT_LoadContentUsage\Load to PSContentUsage"
-          TopLeft="145,292" />
-        <NodeLayout
-          Size="165,42"
-          Id="Package\DFT_LoadContentUsage\Extract de Mongo"
-          TopLeft="154,79" />
+          Size="202,42"
+          Id="Package\Extract Raw - PromptAds"
+          TopLeft="45,109" />
         <EdgeLayout
-          Id="Package\DFT_LoadContentUsage.Paths[Salida de origen de ADO NET]"
-          TopLeft="235,121">
+          Id="Package.PrecedenceConstraints[Restricción 6]"
+          TopLeft="149.5,71">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50"
+              EndConnector="0,38"
               Start="0,0"
-              End="0,42.5">
+              End="0,30.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.5" />
+                    End="0,30.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2936,6 +3573,52 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="248,42"
+          Id="Package\Process Raw to Final - Campaigns"
+          TopLeft="23,188" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 7]"
+          TopLeft="146.5,151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_LoadContentUsage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="203,42"
+          Id="Package\DFT_LoadContentUsage\Load to PSContentUsage"
+          TopLeft="145,292" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\DFT_LoadContentUsage\Transform de Mongo"
+          TopLeft="143,171" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT_LoadContentUsage\Extract de Mongo"
+          TopLeft="154,79" />
         <EdgeLayout
           Id="Package\DFT_LoadContentUsage.Paths[Derived Column Output]"
           TopLeft="233.5,213">
@@ -2967,7 +3650,33 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_LoadContentUsage.Paths[Salida de origen de ADO NET]"
+          TopLeft="235,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3073,7 +3782,7 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
     design-time-name="Package\DFT_LoadPublishedAds">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="202,42"
           Id="Package\DFT_LoadPublishedAds\Transform de PromptAds"
@@ -3105,7 +3814,9 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3127,7 +3838,9 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3143,6 +3856,86 @@ WHERE pa.IdPublishedAd IS NOT NULL</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT_LoadPublishedAds\Extract de PromptAds">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Raw - PromptAds">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Extract Raw - PromptAds\Extract PACampaigns"
+          TopLeft="165,119" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Extract Raw - PromptAds\Load to PSRawData"
+          TopLeft="173,323" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Extract Raw - PromptAds\Prepare for PSRawData"
+          TopLeft="162,213" />
+        <EdgeLayout
+          Id="Package\Extract Raw - PromptAds.Paths[OLE DB Source Output]"
+          TopLeft="259.5,161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract Raw - PromptAds.Paths[Derived Column Output]"
+          TopLeft="261.25,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Raw - PromptAds\Extract PACampaigns">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Raw - PromptAds\Load to PSRawData">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
