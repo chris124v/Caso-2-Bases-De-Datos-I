@@ -3,6 +3,10 @@ from mcp.server import Server
 import mcp.types as types
 import sys
 import io
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from connectors.mongo_connector import MongoDBConnector
 from connectors.sqlserver_connector import SQLServerConnector
@@ -121,9 +125,9 @@ class DatabaseMCPServer:
         Maneja las llamadas al tool get_content
         """
         try:
-            import sys
-            ruta_base = r"C:\Users\migue\Documents\Bases-de-Datos\Casos\Caso-2-Bases-De-Datos-I"
-            sys.path.append(ruta_base)  
+            # Obtener ruta desde variable de entorno
+            ruta_base = os.getenv('PROJECT_ROOT')
+            sys.path.append(ruta_base) 
             from BasesDeDatos.PromptContent.Scripts.contentTools import getContent
                     
             resultados = getContent(descripcion, top_k)
@@ -149,10 +153,9 @@ class DatabaseMCPServer:
         Maneja las llamadas al tool generate_campaign_messages
         """
         try:
-            import sys
-            ruta_base = r"C:\Users\migue\Documents\Bases-de-Datos\Casos\Caso-2-Bases-De-Datos-I"
-            sys.path.append(ruta_base)  
-            from BasesDeDatos.PromptContent.Scripts.contentTools import generateCampaignMessages
+            ruta_base = os.getenv('PROJECT_ROOT')
+            sys.path.append(ruta_base) 
+            from BasesDeDatos.PromptContent.Scripts.contentTools import getContent
             
             # Llamar a la función existente
             resultado = generateCampaignMessages(campaign_description, target_audiences, client_id)

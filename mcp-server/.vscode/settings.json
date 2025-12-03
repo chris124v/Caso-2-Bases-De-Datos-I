@@ -1,0 +1,10 @@
+{
+  "mcp.experimental.automaticToolUse": true,
+  "mcp.servers": {
+    "promtpServer": {
+      "command": "python",
+      "args": ["mcp-server/server.py"],
+      "cwd": "${workspaceFolder}/.."
+    }
+  }
+}

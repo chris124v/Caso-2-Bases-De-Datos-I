@@ -1,12 +1,10 @@
 {
-	"servers": {
-		"promtpServer": {
-			"type": "stdio",
-			"command": "python",
-			"args": [
-				"server.py"
-			]
-		}
-	},
-	"inputs": []
+  "servers": {
+    "promtpServer": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["server.py"]
+    }
+  },
+  "inputs": []
 }
