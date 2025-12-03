@@ -30,11 +30,12 @@ class DatabaseMCPServer:
             return [
                 types.Tool(
                     name="get_content",
-                    description="Busca imagenes en una base de datos(INDEX Pinecone) revisando descripciones y hashtags para encontrar las que cumplan de forma mas precisa las especificaciones del usuario, se puede escoger cuantos match se quieren buscar",
+                    description="BUSCADOR DE IMÁGENES DE MARKETING: Encuentra imágenes, fotos y contenido visual para campañas publicitarias usando descripciones en español. Perfecto para: 'necesito imágenes de deportes', 'busca fotos de productos', 'contenido para redes sociales'. Devuelve URLs directas, descripciones y hashtags listos para usar.",
                     inputSchema={
                         "type": "object",
                         "properties": {
-                            "descripcion": {"type": "string"},
+                            "descripcion": {"type": "string",
+                                            "description":"Describe lo que buscas en español o ingles: 'imágenes de playa', 'fotos de comida saludable', 'contenido deportivo', 'paisajes naturales'"},
                             "top_k": {"type": "integer", "default": 5}
                         },
                         "required": ["descripcion"]
@@ -64,60 +65,56 @@ class DatabaseMCPServer:
         
         @self.server.call_tool()
         async def handle_call_tool(name: str, arguments: dict):
-            if name == "execute_query":
-                return await self._execute_query(**arguments)
-            elif name == "get_schema":
-                return await self._get_schema(**arguments)
-            elif name == "get_content":
+            if name == "get_content":
                 return await self._get_content(**arguments)
             elif name == "generate_campaign_messages":  
                 return await self._generate_campaign_messages(**arguments)
 
-    async def initialize_from_config(self):
-        """Inicializar conectores desde YAML"""
+    # async def initialize_from_config(self):
+    #     """Inicializar conectores desde YAML"""
         
-        db_configs = self.config_manager.get_all_databases()
+    #     db_configs = self.config_manager.get_all_databases()
         
-        # PostgreSQL
-        pg_config = db_configs["postgresql"]
-        self.connectors["postgresql"] = PostgreSQLConnector(
-            host=pg_config["host"],
-            port=pg_config["port"],
-            database=pg_config["database"],
-            username=pg_config["username"],
-            password=pg_config["password"]
-        )
+    #     # PostgreSQL
+    #     pg_config = db_configs["postgresql"]
+    #     self.connectors["postgresql"] = PostgreSQLConnector(
+    #         host=pg_config["host"],
+    #         port=pg_config["port"],
+    #         database=pg_config["database"],
+    #         username=pg_config["username"],
+    #         password=pg_config["password"]
+    #     )
 
-        # MongoDB
-        mongo_config = db_configs["mongodb"]
-        self.connectors["mongodb"] = MongoDBConnector(
-            host=mongo_config["host"],
-            port=mongo_config["port"],
-            database=mongo_config["database"],
-            username=mongo_config.get("username"),
-            password=mongo_config.get("password"),
-            authSource=mongo_config.get("authSource", "admin")
-        )
+    #     # MongoDB
+    #     mongo_config = db_configs["mongodb"]
+    #     self.connectors["mongodb"] = MongoDBConnector(
+    #         host=mongo_config["host"],
+    #         port=mongo_config["port"],
+    #         database=mongo_config["database"],
+    #         username=mongo_config.get("username"),
+    #         password=mongo_config.get("password"),
+    #         authSource=mongo_config.get("authSource", "admin")
+    #     )
 
-        # SQL Server 1
-        sql1_config = db_configs["sqlserver1"]
-        self.connectors["sqlserver1"] = SQLServerConnector(
-            host=sql1_config["host"],
-            port=sql1_config["port"],
-            database=sql1_config["database"],
-            username=sql1_config["username"],
-            password=sql1_config["password"]
-        )
+    #     # SQL Server 1
+    #     sql1_config = db_configs["sqlserver1"]
+    #     self.connectors["sqlserver1"] = SQLServerConnector(
+    #         host=sql1_config["host"],
+    #         port=sql1_config["port"],
+    #         database=sql1_config["database"],
+    #         username=sql1_config["username"],
+    #         password=sql1_config["password"]
+    #     )
 
-        # SQL Server 2
-        sql2_config = db_configs["sqlserver2"]
-        self.connectors["sqlserver2"] = SQLServerConnector(
-            host=sql2_config["host"],
-            port=sql2_config["port"],
-            database=sql2_config["database"],
-            username=sql2_config["username"],
-            password=sql2_config["password"]
-        )
+    #     # SQL Server 2
+    #     sql2_config = db_configs["sqlserver2"]
+    #     self.connectors["sqlserver2"] = SQLServerConnector(
+    #         host=sql2_config["host"],
+    #         port=sql2_config["port"],
+    #         database=sql2_config["database"],
+    #         username=sql2_config["username"],
+    #         password=sql2_config["password"]
+    #     )
 
     async def _get_content(self, descripcion: str, top_k: int = 5):
         """
@@ -193,7 +190,7 @@ if __name__ == "__main__":
     
     async def main():
         server_instance = DatabaseMCPServer()
-        await server_instance.initialize_from_config()
+        #await server_instance.initialize_from_config()
         
         async with stdio_server() as (read_stream, write_stream):
             await server_instance.server.run(
