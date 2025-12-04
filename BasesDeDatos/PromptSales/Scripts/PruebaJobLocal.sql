@@ -28,3 +28,14 @@ FROM "PSPublishedAds"
 UNION ALL
 SELECT 'PSLeadsSummary', COUNT(*), MAX("createdAt")
 FROM "PSLeadsSumarry";
+
+
+SELECT COUNT(*) FROM public."PSCampaigns";
+SELECT COUNT(*) FROM public."PSPublishedAds";
+SELECT COUNT(*) FROM public."PSLeadsSumarry";
+SELECT COUNT(*) FROM public."PSContentUsage";
+
+SELECT * FROM "PSContentUsage";
+
+ALTER TABLE "PSContentUsage" ALTER COLUMN "IdContentUsage" RESTART WITH 1;
+
