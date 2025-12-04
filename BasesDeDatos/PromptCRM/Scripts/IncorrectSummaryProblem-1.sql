@@ -8,7 +8,6 @@
 
 use promptcrm;
 
-
 GO
 CREATE OR ALTER PROCEDURE [dbo].SP_ConsultClientExpenses
 AS 
@@ -88,8 +87,8 @@ EXEC [dbo].SP_ConsultClientExpenses
  -------------------
  Incorrect summary problem (SOLUTION)
  -------------------
- -- To fix this problem, use SERIALIZABLE
- -- Any modification SP over these rows will occur AFTER this SP, thus assuring no modification is made while reading
+ -- To fix this problem, use a temporary table
+ -- Any summary made will be made with the same information read inside the transaction
 */
 
 GO
@@ -103,29 +102,38 @@ BEGIN
 	DECLARE @Message VARCHAR(200)
 	DECLARE @InicieTransaccion BIT
 
+	-- Temporary table
+	CREATE TABLE #TempSales (
+		IdSale INT,
+		IdClient INT,
+		SaleTotal DECIMAL(16,2)
+	);
+	-- We get the values for the transaction before starting
+	INSERT INTO #TempSales (IdSale, IdClient, SaleTotal)
+	SELECT IdSale, IdClient, SaleTotal
+	FROM PCRSalesHistory
+
     -- TRANSACTION BEGINS
 	SET @InicieTransaccion = 0
 	IF @@TRANCOUNT=0 BEGIN
 		SET @InicieTransaccion = 1
 
-		-- The best way to avoid this problem is using a SERIALIZABLE isolation level
-		-- This will block other transactions
-		SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
-		BEGIN TRANSACTION		
+		SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+		BEGIN TRANSACTION
 	END
 	
 	BEGIN TRY
 		SET @CustomError = 2001
 
-		SELECT c.IdClient, c.ClientCode, s.StatusDescription, SUM(h.SaleTotal) AS totalExpenses,
+		SELECT c.IdClient, c.ClientCode, s.StatusDescription, SUM(ts.SaleTotal) AS totalExpenses,
 			CASE 
-				WHEN SUM(h.SaleTotal) < 8000 THEN 'Low'
-				WHEN SUM(h.SaleTotal) < 12000 THEN 'Medium'
+				WHEN SUM(ts.SaleTotal) < 8000 THEN 'Low'
+				WHEN SUM(ts.SaleTotal) < 12000 THEN 'Medium'
 				ELSE 'High'
 		    END AS ExpenseLevel
 		FROM PCRClients c
 		INNER JOIN PCRClientStatuses s ON s.IdStatus = c.IdStatus
-		INNER JOIN PCRSalesHistory h ON c.IdClient = h.IdClient
+		INNER JOIN #TempSales ts ON c.IdClient =ts.IdClient
 		GROUP BY c.IdClient, c.ClientCode, s.StatusDescription
 		ORDER BY c.ClientCode
 
@@ -133,14 +141,14 @@ BEGIN
 		-- an insert operation is made in between both
 		WAITFOR DELAY '00:00:05'
 
-		SELECT c.IdClient, c.ClientCode, SUM(h.SaleTotal) AS totalExpenses,
+		SELECT c.IdClient, c.ClientCode, SUM(ts.SaleTotal) AS totalExpenses,
 			CASE 
-				WHEN SUM(h.SaleTotal) < 8000 THEN 'Low'
-				WHEN SUM(h.SaleTotal) < 12000 THEN 'Medium'
+				WHEN SUM(ts.SaleTotal) < 8000 THEN 'Low'
+				WHEN SUM(ts.SaleTotal) < 12000 THEN 'Medium'
 				ELSE 'High'
 		    END AS ExpenseLevel
 		FROM PCRClients c
-		INNER JOIN PCRSalesHistory h ON c.IdClient = h.IdClient
+		INNER JOIN #TempSales ts ON c.IdClient =ts.IdClient
 		GROUP BY c.IdClient, c.ClientCode
 		ORDER BY c.ClientCode
 
@@ -168,6 +176,7 @@ GO
 
 EXEC [dbo].SP_ConsultClientExpenses
 
+
 /*
 
 SELECT * FROM dbo.PCRFeatureTypes
@@ -175,17 +184,21 @@ SELECT * FROM dbo.PCRClientStatuses
 SELECT * FROM PCRFeaturesPerClients
 SELECT * FROM dbo.PCRClients
 SELECT * FROM dbo.PCRSalesHistory
+SELECT * FROM dbo.PCRUTMData
 
 
+INSERT INTO PCRUTMData (UTMSource, UTMMedium, UTMCampaign, UTMTerm, UTMContent, CreatedAt) VALUES
+('google', 'cpc', 'black_friday_sale', 'running+shoes', 'banner', GETDATE()),
+('facebook', 'social', 'holiday_promo', 'gift+ideas', 'pop-up', GETDATE())
 
-DECLARE @i INT = 0
+DECLARE @i INT = 1
 WHILE @i < 5000
 BEGIN
 	DECLARE @j INT = 0
 	DECLARE @rand INT = CAST(RAND() + (10) AS INT)
 	WHILE @j < @rand
 	BEGIN
-		INSERT INTO PCRSalesHistory (IdClient, SaleTotal, CreatedAt, UpdatedAt, [Checksum]) VALUES (@i, CAST(RAND() * (1900) + 100 AS DECIMAL(10,2)), GETDATE(), GETDATE(), 1)
+		INSERT INTO PCRSalesHistory (IdClient, SaleTotal, CreatedAt, UpdatedAt, [Checksum], IdUTM) VALUES (@i, CAST(RAND() * (1900) + 100 AS DECIMAL(10,2)), GETDATE(), GETDATE(), 1, 2)
 		SET @j = @j + 1
 	END
 	SET @i = @i + 1
