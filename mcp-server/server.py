@@ -227,7 +227,7 @@ class DatabaseMCPServer:
                         texto_resultado += f"   {i}. {mensaje}\n"
             
             else:
-                texto_resultado = f"❌ Error al generar campaña: {resultado.get('error', 'Error desconocido')}"
+                texto_resultado = f"Error al generar campaña: {resultado.get('error', 'Error desconocido')}"
             
             return [types.TextContent(type="text", text=texto_resultado)]
             

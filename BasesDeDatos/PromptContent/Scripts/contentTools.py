@@ -63,32 +63,36 @@ def llamar_ia(prompt, user_id="USER_SYSTEM"):
     timestamp_inicio = datetime.utcnow()
     log_id = f"LOG_{uuid.uuid4().hex[:8].upper()}"
     
+    # Preparar request_data aquí para usarlo en try y except
+    request_data = {
+        "model": "llama-3.3-70b-versatile",
+        "messages": [{"role": "user", "content": prompt[:500]}],  # Truncar para logging
+        "max_tokens": 500,
+        "temperature": 0.7
+    }
+    
     try:
         if AI_PROVIDER == "groq":
-            # Preparar request
-            request_data = {
-                "model": "llama-3.3-70b-versatile",
-                "messages": [{"role": "user", "content": prompt}],
-                "max_tokens": 500,
-                "temperature": 0.7
-            }
-            
             # Llamar a Groq
-            response = AI_CLIENT.chat.completions.create(**request_data)
-            resultado = response.choices[0].message.content.strip()
+            response = AI_CLIENT.chat.completions.create(
+                model=request_data["model"],
+                messages=request_data["messages"],
+                max_tokens=request_data["max_tokens"],
+                temperature=request_data["temperature"]
+            )
             
+            resultado = response.choices[0].message.content.strip()
             timestamp_fin = datetime.utcnow()
             response_time = int((timestamp_fin - timestamp_inicio).total_seconds() * 1000)
             
-            # REGISTRAR EN PCApi_Call_Logs
-
+            # REGISTRAR ÉXITO
             log = {
                 "logId": log_id,
-                "serviceId": "SRV_GROQ_001",  # Conecta con PCExternal_Services
+                "serviceId": "SRV_GROQ_001",
                 "endpoint": "/chat/completions",
-                "method": "POST",  #Método POST
-                "request": request_data,
-                "response": {
+                "method": "POST",
+                "request": request_data,  # REQUERIDO
+                "response": {  # REQUERIDO
                     "content": resultado[:500],
                     "model": response.model,
                     "usage": {
@@ -109,9 +113,49 @@ def llamar_ia(prompt, user_id="USER_SYSTEM"):
             }
             
             db.PCApi_Call_Logs.insert_one(log)
-            # ============================================
-            
             return resultado
+            
+    except Exception as e:
+        print(f"Error en IA: {e}")
+        
+        timestamp_fin = datetime.utcnow()
+        response_time = int((timestamp_fin - timestamp_inicio).total_seconds() * 1000)
+        
+        # REGISTRAR ERROR CON TODOS LOS CAMPOS REQUERIDOS
+        error_log = {
+            "logId": log_id,
+            "serviceId": "SRV_GROQ_001",
+            "endpoint": "/chat/completions",
+            "method": "POST",
+            "request": request_data,  # REQUERIDO - usar el request que preparamos
+            "response": {  # REQUERIDO - incluso en error
+                "error": str(e),
+                "content": None,
+                "model": None,
+                "usage": {
+                    "prompt_tokens": 0,
+                    "completion_tokens": 0,
+                    "total_tokens": 0
+                }
+            },
+            "statusCode": 500,
+            "responseTime": response_time,
+            "result": "failed",
+            "userId": user_id,
+            "platform": "PromptContent",
+            "ipAddress": "127.0.0.1",
+            "processType": "ai_text_generation",
+            "timestamp": timestamp_inicio,
+            "processedAt": timestamp_fin,
+            "errorDetails": str(e)
+        }
+        
+        try:
+            db.PCApi_Call_Logs.insert_one(error_log)
+        except Exception as log_error:
+            print(f"Error al registrar log de error: {log_error}")
+        
+        return None
             
     except Exception as e:
         print(f"Error en IA: {e}")
