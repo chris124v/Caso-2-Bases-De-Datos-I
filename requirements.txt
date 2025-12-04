@@ -17,6 +17,7 @@ kubernetes>=28.0.0
 # Utilidades
 pyyaml>=6.0
 asyncio
+faker>=24.0.0
 
 # IA Providers
 groq>=0.9.0

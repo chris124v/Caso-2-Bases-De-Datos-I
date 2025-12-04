@@ -4,6 +4,8 @@
  -------------------
 */
 
+use promptcrm
+
 GO
 CREATE OR ALTER PROCEDURE [dbo].SP_Insert4000Sale
 	@clientcode VARCHAR(30)
@@ -35,8 +37,8 @@ BEGIN
 	BEGIN TRY
 		SET @CustomError = 2001
 
-		INSERT INTO PCRSalesHistory (IdClient, SaleTotal, CreatedAt, UpdatedAt, [Checksum]) 
-		VALUES (@idclient, 4000, GETDATE(), GETDATE(), 1)
+		INSERT INTO PCRSalesHistory (IdClient, SaleTotal, CreatedAt, UpdatedAt, [Checksum], IdUTM) 
+		VALUES (@idclient, 4000, GETDATE(), GETDATE(), 1, 2)
 
 		IF @InicieTransaccion=1 BEGIN
 			COMMIT
@@ -60,5 +62,6 @@ END
 RETURN 0
 GO
 
+EXEC [dbo].SP_Insert4000Sale @clientcode = '10013028'
 
-EXEC [dbo].SP_Insert4000Sale @clientcode = '10010458'
+-- DROP PROCEDURE [dbo].SP_Insert4000Sale

@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="190"
-  DTS:VersionGUID="{FAFDC1BE-CA85-4608-AFDA-4388BD6FD89E}">
+  DTS:VersionBuild="164"
+  DTS:VersionGUID="{3025BDC9-77D2-49E0-AB3F-C23484D1EA13}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA6nKSb0v2lehQV2ULnBEh2okmF5HwM/WHyDbwquxwxAgAAAAAOgAAAAAIAACAAAACG1NBP4IdYKWgIq3+uF3kMZy2UI5ROqbvDRZ2Zli7G7zAAAAAVOZpbg+BkvOhRZiKuQyDnZHfsdzfn8egcw2ifYAV9QL/dFR3LQySYPoOKqO3e3INAAAAAEbTwIEP2T3txOaLrTyJgj/Lea/ZMaCTXkgd+ZghXN17WgqL+5ZJ0xty5aZkz9BBPvY22vkaLG0eisDt3rkghJw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC9jI8uTAApye5PK4Ra3WsEQUKRakGAZhfRuaypsn4z7AAAAAAOgAAAAAIAACAAAAB7O8Ln8C/MHI0xCVrBTCFMzYe+EfXIQbNlY3fAW+nPzjAAAAAUj1Q5AavhTgarekomKsZDGgtIVrX2O8BPEerNNEjQwF5lC+JtAR0GSoe9gJbLRkVAAAAA+DWZT5kJ+fI6MNej+9m77GzoC42oro60xB7+exd1xEWfzqJY1h0fiVwXfkVeIBJfoB29R8v6NoobtwopQw5sEg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -56,7 +56,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB07pIQeAApzfWhDIR5ZJebdlukx++U5riYyeV/6n7GfAAAAAAOgAAAAAIAACAAAADeWVvhnFFXSSy+OyTkxE53H2k3ww0AJyepmAfWMNWrbDAAAABiXRrQepWHsMGd/SgQOpTZJ9Iwwj3eHzJLsob7Uvbq9O8Sl1FCniY3Z/HoHLOYUZNAAAAAV+tiUKz5Hr+9tmZejyDIjyMSLXGJXuY4xx96jet+10mv8DSQVVRQnn/bR2Iodb5JX8Ussl+cgoOLZ5MQzuX2TQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADaqthIKpP0raV4s5rIwZyHxO10CXQ2ANzIvOuyz6kgzwAAAAAOgAAAAAIAACAAAADaHUp4oFfiVHXk00dOcGimG7qCJ/riCQBvGsINAONmqDAAAAC5hmcjshtl35YkEAxjwtfzTlcpDvhE/8MDObVc6/WpKi8hUdmRYDSMxF87rQe01AlAAAAA0CYE6OZpyziUvom2HATBl5dA6U9iNFagYjhp+iOu+nUzRT7sluyOrwNyWSKIw1JA3PGkWbgOh+x9TWVK3yR41Q</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -71,7 +71,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAhn5bCEUJcE+KLshfP1u6kOBwPyWR+w8V61W374n7/xAAAAAAOgAAAAAIAACAAAAATWgrvCQvD7t19g5Bc2IK+3TinlDjl0W+1hRivv4qW9CAAAAC8/fowo6hv9kBqP7jIfn7weQzPWnP3xPXqXDlsHllICEAAAAC6EHh79eP5sVoZ8AcwIgNYaipJ9KXvBpEJm7tNLJwioEUVFwcQZw301VgLzFBGHxF0XYCnzoJ3wxjlLaWWg1WJ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABsyOwoxDqYpwr69fs4Y8KRWa6fnqb+ffgAi55OqTpUUgAAAAAOgAAAAAIAACAAAACwgcACSnihrBuFzL3obJOoaoeDP4HJajjVOgVRmgRM1CAAAACBvVyeM2ywV+xvR5GumJ9Yf3mU8R2Uek7ymMLWFlBEQEAAAAAh04l8JGWxrDgU+IK8/fujZVLdlwoJe1nTY6LEBuuVzSl0rb24HHimg/Su2k65Cq32FnW5lm34tqlNF5QB549g</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -4892,11 +4892,190 @@ ORDER BY pa.IdPublishedAd;</property>
           version="1">
           <components>
             <component
-              refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia"
+              refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino de ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"public"."PSRawData"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptsales]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptsales]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[sourceService]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="sourceService"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceService]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[sourceTable]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="sourceTable"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceTable]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[updateAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="updateAt"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[updateAt]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[updateAt]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[IdRunLog]"
+                      cachedDataType="i4"
+                      cachedName="IdRunLog"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[IdRunLog]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[operationType]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="operationType"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[operationType]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[sourceRecordId]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="sourceRecordId"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceRecordId]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[rawData]"
+                      cachedDataType="wstr"
+                      cachedLength="482"
+                      cachedName="rawData"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[rawData]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[createdAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="createdAt"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[createdAt]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRawData]"
+                      dataType="i8"
+                      name="IdRawData" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
+                      dataType="wstr"
+                      length="30"
+                      name="sourceService" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
+                      dataType="wstr"
+                      length="60"
+                      name="sourceTable" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
+                      dataType="wstr"
+                      length="100"
+                      name="sourceRecordID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
+                      dataType="wstr"
+                      length="30"
+                      name="operationType" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[isProcessed]"
+                      dataType="wstr"
+                      length="5"
+                      name="isProcessed" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[updateAt]"
+                      dataType="dbTimeStamp"
+                      name="updateAt" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
+                      dataType="i4"
+                      name="IdRunLog" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
+                      dataType="wstr"
+                      length="4095"
+                      name="rawData" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
-              name="Extract de PCMedia"
+              name="Extract de Mongo PcMedia"
               usesDispositions="true"
               version="4">
               <properties>
@@ -4941,7 +5120,7 @@ FROM PCmedia</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Connections[IDbConnection]"
+                  refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Connections[IDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[promptcontent]"
                   connectionManagerRefId="Package.ConnectionManagers[promptcontent]"
                   description="Administrador de conexiones administrado"
@@ -4949,379 +5128,206 @@ FROM PCmedia</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET]"
+                  refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET]"
                   name="Salida de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentId]"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentId]"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]"
                       name="contentId"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[campaignId]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[campaignId]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]"
                       name="campaignId"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[usageCount]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[usageCount]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]"
                       name="usageCount"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[channel]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[channel]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[channel]"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[channel]"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[channel]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[channel]"
                       name="channel"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[hashtags]"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[hashtags]"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]"
                       name="hashtags"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentURL]"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentURL]"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]"
                       name="contentURL"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentTitle]"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentTitle]"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]"
                       name="contentTitle"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[createdAt]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[createdAt]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[createdAt]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[createdAt]"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[createdAt]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[createdAt]"
                       name="createdAt"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[updatedAt]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[updatedAt]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[updatedAt]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[updatedAt]"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[updatedAt]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[updatedAt]"
                       name="updatedAt"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentId]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentId]"
                       dataType="wstr"
                       length="2000"
                       name="contentId" />
                     <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[campaignId]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[campaignId]"
                       dataType="i4"
                       name="campaignId" />
                     <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[usageCount]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[usageCount]"
                       dataType="i4"
                       name="usageCount" />
                     <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[channel]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[channel]"
                       dataType="wstr"
                       length="2000"
                       name="channel" />
                     <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[hashtags]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[hashtags]"
                       dataType="wstr"
                       length="2000"
                       name="hashtags" />
                     <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentURL]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentURL]"
                       dataType="wstr"
                       length="2000"
                       name="contentURL" />
                     <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentTitle]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentTitle]"
                       dataType="wstr"
                       length="2000"
                       name="contentTitle" />
                     <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[createdAt]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[createdAt]"
                       dataType="dbTimeStamp"
                       name="createdAt" />
                     <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[updatedAt]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[updatedAt]"
                       dataType="dbTimeStamp"
                       name="updatedAt" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET]"
+                  refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET]"
                   isErrorOut="true"
                   name="Salida de error de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentId]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentId]"
                       dataType="wstr"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentId]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentId]"
                       name="contentId" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[campaignId]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[campaignId]"
                       dataType="i4"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[campaignId]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[campaignId]"
                       name="campaignId" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[usageCount]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[usageCount]"
                       dataType="i4"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[usageCount]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[usageCount]"
                       name="usageCount" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[channel]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[channel]"
                       dataType="wstr"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[channel]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[channel]"
                       name="channel" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[hashtags]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[hashtags]"
                       dataType="wstr"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[hashtags]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[hashtags]"
                       name="hashtags" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentURL]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentURL]"
                       dataType="wstr"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentURL]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentURL]"
                       name="contentURL" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentTitle]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentTitle]"
                       dataType="wstr"
                       length="2000"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentTitle]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentTitle]"
                       name="contentTitle" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[createdAt]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[createdAt]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[createdAt]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[createdAt]"
                       name="createdAt" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[updatedAt]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[updatedAt]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[updatedAt]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[updatedAt]"
                       name="updatedAt" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
-              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
-              name="Load en PSRawData"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Nombre de la tabla de la base de datos de destino."
-                  expressionType="Notify"
-                  name="TableOrViewName"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"public"."PSRawData"</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
-                  expressionType="Notify"
-                  name="BatchSize">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
-                  expressionType="Notify"
-                  name="CommandTimeout">30</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
-                  expressionType="Notify"
-                  name="UseBulkInsertWhenPossible">true</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[promptsales]"
-                  connectionManagerRefId="Package.ConnectionManagers[promptsales]"
-                  description="Administrador de conexiones administrado"
-                  name="IDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET]"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrada de destino de ADO NET">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[createdAt]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="createdAt"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[createdAt]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[rawData]"
-                      cachedDataType="wstr"
-                      cachedLength="482"
-                      cachedName="rawData"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[rawData]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[sourceService]"
-                      cachedDataType="wstr"
-                      cachedLength="13"
-                      cachedName="sourceService"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceService]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[sourceTable]"
-                      cachedDataType="wstr"
-                      cachedLength="7"
-                      cachedName="sourceTable"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceTable]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[sourceRecordID]"
-                      cachedDataType="wstr"
-                      cachedLength="200"
-                      cachedName="sourceRecordID"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceRecordID]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[IdRunLog]"
-                      cachedDataType="i4"
-                      cachedName="IdRunLog"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[IdRunLog]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[operationType]"
-                      cachedDataType="wstr"
-                      cachedLength="6"
-                      cachedName="operationType"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[operationType]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRawData]"
-                      dataType="i8"
-                      name="IdRawData" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
-                      dataType="wstr"
-                      length="30"
-                      name="sourceService" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
-                      dataType="wstr"
-                      length="60"
-                      name="sourceTable" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
-                      dataType="wstr"
-                      length="100"
-                      name="sourceRecordID" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
-                      dataType="wstr"
-                      length="30"
-                      name="operationType" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[isProcessed]"
-                      dataType="wstr"
-                      length="5"
-                      name="isProcessed" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
-                      dataType="dbTimeStamp"
-                      name="createdAt" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[updateAt]"
-                      dataType="dbTimeStamp"
-                      name="updateAt" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
-                      dataType="i4"
-                      name="IdRunLog" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
-                      dataType="wstr"
-                      length="4095"
-                      name="rawData" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Salida de error de destino de ADO NET"
-                  synchronousInputId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -5347,41 +5353,41 @@ FROM PCmedia</property>
                       cachedDataType="wstr"
                       cachedLength="2000"
                       cachedName="contentId"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]" />
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]" />
                     <inputColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input].Columns[campaignId]"
                       cachedDataType="i4"
                       cachedName="campaignId"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]" />
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]" />
                     <inputColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input].Columns[usageCount]"
                       cachedDataType="i4"
                       cachedName="usageCount"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]" />
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]" />
                     <inputColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input].Columns[channel]"
                       cachedDataType="wstr"
                       cachedLength="2000"
                       cachedName="channel"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[channel]" />
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[channel]" />
                     <inputColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input].Columns[hashtags]"
                       cachedDataType="wstr"
                       cachedLength="2000"
                       cachedName="hashtags"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]" />
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]" />
                     <inputColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input].Columns[contentURL]"
                       cachedDataType="wstr"
                       cachedLength="2000"
                       cachedName="contentURL"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]" />
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]" />
                     <inputColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input].Columns[contentTitle]"
                       cachedDataType="wstr"
                       cachedLength="2000"
                       cachedName="contentTitle"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]" />
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5394,29 +5400,6 @@ FROM PCmedia</property>
                   name="Derived Column Output"
                   synchronousInputId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input]">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[rawData]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="482"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[rawData]"
-                      name="rawData"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">"{\"cId\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]},1,20) + "\",\"cmpId\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]} + ",\"cnt\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]} + ",\"ch\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[channel]},1,30) + "\",\"ht\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]},1,200) + "\",\"url\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]},1,100) + "\",\"title\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]},1,50) + "\"}"</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">"{\"cId\":\"" + SUBSTRING(contentId,1,20) + "\",\"cmpId\":" + (DT_WSTR,10)campaignId + ",\"cnt\":" + (DT_WSTR,10)usageCount + ",\"ch\":\"" + SUBSTRING(channel,1,30) + "\",\"ht\":\"" + SUBSTRING(hashtags,1,200) + "\",\"url\":\"" + SUBSTRING(contentURL,1,100) + "\",\"title\":\"" + SUBSTRING(contentTitle,1,50) + "\"}"</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceService]"
                       dataType="wstr"
@@ -5464,35 +5447,12 @@ FROM PCmedia</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceRecordID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="200"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceRecordID]"
-                      name="sourceRecordID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">#{Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">contentId</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[createdAtNow]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[createdAt]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[createdAtNow]"
-                      name="createdAtNow"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[createdAt]"
+                      name="createdAt"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -5509,12 +5469,12 @@ FROM PCmedia</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[updateAtNow]"
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[updateAt]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[updateAtNow]"
-                      name="updateAtNow"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[updateAt]"
+                      name="updateAt"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -5575,6 +5535,52 @@ FROM PCmedia</property>
                           name="FriendlyExpression">"INSERT"</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceRecordId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="2000"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceRecordId]"
+                      name="sourceRecordId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">contentId</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[rawData]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="482"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[rawData]"
+                      name="rawData"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"{\"cId\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]},1,20) + "\",\"cmpId\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]} + ",\"cnt\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]} + ",\"ch\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[channel]},1,30) + "\",\"ht\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]},1,200) + "\",\"url\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]},1,100) + "\",\"title\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]},1,50) + "\"}"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"{\"cId\":\"" + SUBSTRING(contentId,1,20) + "\",\"cmpId\":" + (DT_WSTR,10)campaignId + ",\"cnt\":" + (DT_WSTR,10)usageCount + ",\"ch\":\"" + SUBSTRING(channel,1,30) + "\",\"ht\":\"" + SUBSTRING(hashtags,1,200) + "\",\"url\":\"" + SUBSTRING(contentURL,1,100) + "\",\"title\":\"" + SUBSTRING(contentTitle,1,50) + "\"}"</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -5607,14 +5613,14 @@ FROM PCmedia</property>
           <paths>
             <path
               refId="Package\Extract Raw - PromptContent (PCmedia).Paths[Derived Column Output]"
-              endId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET]"
+              endId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
               name="Derived Column Output"
               startId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output]" />
             <path
               refId="Package\Extract Raw - PromptContent (PCmedia).Paths[Salida de origen de ADO NET]"
               endId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input]"
               name="Salida de origen de ADO NET"
-              startId="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia.Outputs[Salida de origen de ADO NET]" />
+              startId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -6324,7 +6330,7 @@ FROM PCRLeads;</property>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
           SQLTask:IsStoredProc="True"
-          SQLTask:SqlStatementSource="CALL sp_ProcessRawContent();" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="CALL public.sp_ProcessRawContent();" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -6782,14 +6788,14 @@ FROM PCRLeads;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50.727272727273"
+              EndConnector="0,50.7272727272729"
               Start="0,0"
-              End="0,43.227272727273">
+              End="0,43.2272727272729">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.227272727273" />
+                    End="0,43.2272727272729" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6804,14 +6810,14 @@ FROM PCRLeads;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.454545454546"
+              EndConnector="0,43.4545454545455"
               Start="0,0"
-              End="0,35.954545454546">
+              End="0,35.9545454545455">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.954545454546" />
+                    End="0,35.9545454545455" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7399,7 +7405,7 @@ FROM PCRLeads;</property>
     design-time-name="Package\Extract Raw - PromptAds (Organizations)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="199,42"
           Id="Package\Extract Raw - PromptAds (Organizations)\Extract PAOrganizations"
@@ -7431,7 +7437,9 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7453,7 +7461,9 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7567,25 +7577,25 @@ FROM PCRLeads;</property>
         <NodeLayout
           Size="201,42"
           Id="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData"
-          TopLeft="153,168" />
+          TopLeft="158,172" />
         <NodeLayout
-          Size="181,42"
-          Id="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData"
-          TopLeft="156,265" />
+          Size="211,42"
+          Id="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia"
+          TopLeft="151,77" />
         <EdgeLayout
-          Id="Package\Extract Raw - PromptContent (PCmedia).Paths[Derived Column Output]"
-          TopLeft="250,210">
+          Id="Package\Extract Raw - PromptContent (PCmedia).Paths[Salida de origen de ADO NET]"
+          TopLeft="257.5,119">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55"
+              EndConnector="0,53"
               Start="0,0"
-              End="0,47.5">
+              End="0,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.5" />
+                    End="0,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7595,23 +7605,23 @@ FROM PCRLeads;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="177,42"
-          Id="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia"
-          TopLeft="164,79" />
+          Size="183,42"
+          Id="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET"
+          TopLeft="172,300" />
         <EdgeLayout
-          Id="Package\Extract Raw - PromptContent (PCmedia).Paths[Salida de origen de ADO NET]"
-          TopLeft="253,121">
+          Id="Package\Extract Raw - PromptContent (PCmedia).Paths[Derived Column Output]"
+          TopLeft="261,214">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,39.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7624,7 +7634,7 @@ FROM PCRLeads;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData">
+    design-time-name="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7716,7 +7726,7 @@ FROM PCRLeads;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract Raw - PromptContent (PCmedia)\Extract de PCMedia">
+    design-time-name="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
