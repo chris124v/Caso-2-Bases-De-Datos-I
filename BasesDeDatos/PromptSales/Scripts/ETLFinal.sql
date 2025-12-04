@@ -352,27 +352,35 @@ $$;
 
 -- Extraccion de PSContentUsage
 
+ALTER TABLE "PSContentUsage" 
+ADD CONSTRAINT unique_campaign_content_channel 
+UNIQUE ("IdCampaign", "contentId", "contentType", "channel");
+
 CREATE OR REPLACE PROCEDURE sp_ProcessRawContent()
 LANGUAGE plpgsql AS $$
 BEGIN
     INSERT INTO "PSContentUsage" (
-        "IdCampaign", "contentType", "platform",
-        "usageCount", "createdAt", "updatedAt"
+        "IdCampaign", "contentId", "contentType", "contentTitle", "channel",
+        "hashtags", "contentURL", "usageCount", "createdAt", "updatedAt"
     )
     SELECT 
-        (raw."rawData"::json->>'campaignId')::INTEGER,
-        'image',  -- PCmedia solo tiene imágenes
-        raw."rawData"::json->>'channel',
-        SUM((raw."rawData"::json->>'usageCount')::INTEGER),
+        (raw."rawData"::json->>'cmpId')::INTEGER,
+        raw."rawData"::json->>'cId',
+        'image',
+        raw."rawData"::json->>'title',
+        raw."rawData"::json->>'ch',
+        raw."rawData"::json->>'ht',
+        raw."rawData"::json->>'url',
+        (raw."rawData"::json->>'cnt')::INTEGER,
         NOW(), NOW()
     FROM "PSRawData" raw
     WHERE raw."sourceTable" = 'PCmedia' 
       AND raw."isProcessed" = FALSE
-    GROUP BY 
-        (raw."rawData"::json->>'campaignId')::INTEGER,
-        raw."rawData"::json->>'channel'
-    ON CONFLICT ("IdCampaign", "contentType", "platform")
+    ON CONFLICT ("IdCampaign", "contentId", "contentType", "channel")
     DO UPDATE SET
+        "contentTitle" = EXCLUDED."contentTitle",
+        "hashtags" = EXCLUDED."hashtags",
+        "contentURL" = EXCLUDED."contentURL",
         "usageCount" = EXCLUDED."usageCount",
         "updatedAt" = NOW();
     
@@ -382,7 +390,6 @@ BEGIN
       AND "isProcessed" = FALSE;
 END;
 $$;
-
 
 -- Orden de Borrado
 
@@ -435,5 +442,12 @@ WHERE "IdOrganization" = 322;
 SELECT *
 FROM "PSRawData"
 WHERE "sourceTable" = 'PAPublishedAds';
+
+
+
+
+
+
+
 
 

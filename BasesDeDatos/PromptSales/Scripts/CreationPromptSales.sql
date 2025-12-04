@@ -381,17 +381,17 @@ CREATE TABLE IF NOT EXISTS public."PSSalesSumarry"
 CREATE TABLE IF NOT EXISTS public."PSContentUsage"
 (
     "IdContentUsage" bigint NOT NULL,
-    "IdCampaign" integer,
-    "contentId" character varying(200) NOT NULL,
-    "contentType" character varying(30) NOT NULL,
+    "IdCampaign" integer NOT NULL,
+    "contentId" character varying(200),
+    "contentType" character varying(30),
     "contentTitle" character varying(200),
     channel character varying(30) NOT NULL,
     hashtags text,
-    "contentURL" character varying(500) NOT NULL,
-    "usageCount" integer NOT NULL,
-    "usedInAds" text NOT NULL,
-    "updatedAt" timestamp without time zone NOT NULL,
-    "createdAt" timestamp without time zone NOT NULL,
+    "contentURL" character varying(500),
+    "usageCount" integer,
+    "usedInAds" text,
+    "updatedAt" timestamp without time zone,
+    "createdAt" timestamp without time zone,
     PRIMARY KEY ("IdContentUsage")
 );
 
