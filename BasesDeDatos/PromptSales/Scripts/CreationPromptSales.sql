@@ -158,10 +158,10 @@ CREATE TABLE IF NOT EXISTS public."PSOrganizations"
 (
     "IdOrganization" integer NOT NULL,
     name character varying(40) NOT NULL,
-    enabled boolean NOT NULL DEFAULT true,
-    "cedulaJuridica" character varying(30) NOT NULL,
-    "sociedadAnonima" character varying(40) NOT NULL,
-    "addressNoFiscal" character varying(40) NOT NULL,
+    enabled boolean DEFAULT true,
+    "cedulaJuridica" character varying(80),
+    "sociedadAnonima" character varying(80),
+    "addressNoFiscal" character varying(80),
     PRIMARY KEY ("IdOrganization")
 );
 
@@ -285,7 +285,7 @@ CREATE TABLE IF NOT EXISTS public."PSCampaigns"
 (
     "IdCampaign" integer NOT NULL,
     "IdOrganization" integer NOT NULL,
-    "campaignName" character varying(40) NOT NULL,
+    "campaignName" character varying(200) NOT NULL,
     "startDate" timestamp without time zone NOT NULL,
     "endDate" timestamp without time zone NOT NULL,
     "IdCampaignStatus" integer NOT NULL DEFAULT 1,
@@ -297,7 +297,7 @@ CREATE TABLE IF NOT EXISTS public."PSCampaigns"
     "updatedAt" timestamp without time zone NOT NULL,
     "lastETLupdate" timestamp without time zone NOT NULL,
     "sourceServiceId" integer NOT NULL,
-    "sourceServiceName" integer NOT NULL,
+    "sourceServiceName" character varying NOT NULL,
     "IdCurrency" integer NOT NULL,
     "IdRunLog" bigint NOT NULL,
     PRIMARY KEY ("IdCampaign")
@@ -381,7 +381,7 @@ CREATE TABLE IF NOT EXISTS public."PSSalesSumarry"
 CREATE TABLE IF NOT EXISTS public."PSContentUsage"
 (
     "IdContentUsage" bigint NOT NULL,
-    "IdCampaign" integer NOT NULL,
+    "IdCampaign" integer,
     "contentId" character varying(200) NOT NULL,
     "contentType" character varying(30) NOT NULL,
     "contentTitle" character varying(200),
@@ -570,7 +570,7 @@ CREATE TABLE IF NOT EXISTS public."PSServiceTypes"
 
 CREATE TABLE IF NOT EXISTS public."PSETLRunLog"
 (
-    "IdRunLog" serial NOT NULL,
+    "IdRunLog" integer NOT NULL,
     "IdConfig" integer NOT NULL,
     "runStart" timestamp without time zone NOT NULL,
     "runEnd" timestamp without time zone NOT NULL,
@@ -585,7 +585,7 @@ CREATE TABLE IF NOT EXISTS public."PSETLRunLog"
 
 CREATE TABLE IF NOT EXISTS public."PSServiceConnectionLog"
 (
-    "IdServiceLog" serial NOT NULL,
+    "IdServiceLog" integer NOT NULL,
     "IdConnection" integer NOT NULL,
     message text,
     "connectionResult" character varying(30) NOT NULL,
@@ -632,9 +632,10 @@ CREATE TABLE IF NOT EXISTS public."PSRawData"
     "sourceRecordID" character varying(100) NOT NULL,
     "operationType" character varying(30) NOT NULL,
     "isProcessed" boolean NOT NULL DEFAULT false,
-    "createdAt" timestamp without time zone NOT NULL,
-    "updateAt" timestamp without time zone NOT NULL,
+    "createdAt" timestamp without time zone,
+    "updateAt" timestamp without time zone,
     "IdRunLog" integer NOT NULL,
+    "rawData" text,
     PRIMARY KEY ("IdRawData")
 );
 
@@ -659,15 +660,15 @@ CREATE TABLE IF NOT EXISTS public."PSPublishedAds"
     "channelType" character varying(20) NOT NULL,
     "influencerName" character varying(50),
     "influencerFollowers" bigint,
-    body text NOT NULL,
-    "redirectURL" character varying(256) NOT NULL,
-    budget numeric(12, 2) NOT NULL,
-    expenses numeric(12, 2) NOT NULL,
-    "adSentiment" character varying(30) NOT NULL,
-    "publishedAt" timestamp without time zone NOT NULL,
-    "adStatus" character varying(30) NOT NULL,
-    "createdAt" timestamp without time zone NOT NULL,
-    "updatedAt" timestamp without time zone NOT NULL,
+    body text,
+    "redirectURL" character varying(256),
+    budget numeric(12, 2),
+    expenses numeric(12, 2),
+    "adSentiment" character varying(30),
+    "publishedAt" timestamp without time zone,
+    "adStatus" character varying(30),
+    "createdAt" timestamp without time zone,
+    "updatedAt" timestamp without time zone,
     PRIMARY KEY ("IdPublishedAd")
 );
 

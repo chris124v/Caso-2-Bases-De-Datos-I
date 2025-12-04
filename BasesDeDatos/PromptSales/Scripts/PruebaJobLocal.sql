@@ -36,6 +36,7 @@ SELECT COUNT(*) FROM public."PSLeadsSumarry";
 SELECT COUNT(*) FROM public."PSContentUsage";
 
 SELECT * FROM "PSContentUsage";
+SELECT * FROM "PSPublishedAds";
 
 ALTER TABLE "PSContentUsage" ALTER COLUMN "IdContentUsage" RESTART WITH 1;
 

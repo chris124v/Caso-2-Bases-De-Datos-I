@@ -189,3 +189,4 @@ GO
 -- Ahora intentar crear el catálogo
 EXEC catalog.catalog_create @password = N'TuPasswordSegura123!';
 GO
+
