@@ -590,10 +590,10 @@ def llenar_content_requests(db, clientes, cantidad=50):
         audiences = campaign_data["audiences"]
         content_type = random.choice(["campaign_messages", "campaign_slogans", "social_post"])
         
-        # Status realista (80% completed, 15% processing, 5% failed)
+        # Status realista (80% processing, 20% failed)
         status_choice = random.choices(
-            ["completed", "processing", "failed"],
-            weights=[80, 15, 5]
+            ["processing", "failed"],
+            weights=[80, 20]
         )[0]
         
         created_at = datetime.utcnow() - timedelta(days=random.randint(1, 180))
