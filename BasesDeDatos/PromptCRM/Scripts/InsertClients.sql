@@ -12,7 +12,7 @@ CREATE TYPE dbo.LastNameMockup AS TABLE (
 	LastName VARCHAR(40)
 )
 
-
+/*
 INSERT INTO dbo.PCRFeatureTypes (TypeName)
 VALUES
 	('FirstName'), ('LastName'), ('Age')
@@ -23,7 +23,7 @@ VALUES
 
 SELECT * FROM dbo.PCRFeatureTypes
 SELECT * FROM dbo.PCRClientStatuses
-
+*/
 
 GO
 
@@ -199,7 +199,7 @@ VALUES
 	('Hämäläinen'),('Rantanen'),('Ojala'),('Leppänen'),('Ahonen'),('Koivisto'),('Tuominen'),('Räsänen'),('Seppälä'),('Kinnunen')
 
 DECLARE @i INT = 0
-WHILE @i < 500000
+WHILE @i < 150000
 BEGIN
 	EXEC dbo.PCRSP_InsertClient @FirstNamesTVP, @LastNamesTVP
 	SET @i = @i + 1
@@ -215,5 +215,6 @@ DBCC CHECKIDENT ('dbo.PCRClients', RESEED, 0)
 
 
 SELECT * FROM PCRClientStatuses;
+select * from PCRClients
 */
 

@@ -12,6 +12,7 @@ from connectors.mongo_connector import MongoDBConnector
 from connectors.sqlserver_connector import SQLServerConnector
 from connectors.postgresql_connector import PostgreSQLConnector
 from config.config_manager import ConfigManager
+import re
 
 # FORZAR CODIFICACIÓN UTF-8 A NIVEL DEL SISTEMA PARA RESOLVER PROBLEMA DE EMOJIS Y CARACTERES ESPECIALES
 if sys.stdout.encoding != 'utf-8':
@@ -65,6 +66,18 @@ class DatabaseMCPServer:
                     "required": ["campaign_description", "target_audiences"]
                 }
             )
+                ,
+                types.Tool(
+                    name="natural_language_router",
+                    description="ENRUTADOR NATURAL-LANGUAGE: Envía una consulta en lenguaje natural y el servidor intentará mapearla a una tool existente (por ejemplo: get_content o generate_campaign_messages). Input: {\"text\": \"tu consulta\"}",
+                    inputSchema={
+                        "type": "object",
+                        "properties": {
+                            "text": {"type": "string", "description": "Consulta en lenguaje natural"}
+                        },
+                        "required": ["text"]
+                    }
+                )
             ]
         
         @self.server.call_tool()
@@ -73,21 +86,25 @@ class DatabaseMCPServer:
                 return await self._get_content(**arguments)
             elif name == "generate_campaign_messages":  
                 return await self._generate_campaign_messages(**arguments)
+            elif name == "natural_language_router":
+                # arguments expected: {"text": "..."}
+                text = arguments.get('text', '') if arguments else ''
+                return await self._route_nl(text)
 
-    # async def initialize_from_config(self):
-    #     """Inicializar conectores desde YAML"""
+    async def initialize_from_config(self):
+        """Inicializar conectores desde YAML"""
         
-    #     db_configs = self.config_manager.get_all_databases()
+        db_configs = self.config_manager.get_all_databases()
         
-    #     # PostgreSQL
-    #     pg_config = db_configs["postgresql"]
-    #     self.connectors["postgresql"] = PostgreSQLConnector(
-    #         host=pg_config["host"],
-    #         port=pg_config["port"],
-    #         database=pg_config["database"],
-    #         username=pg_config["username"],
-    #         password=pg_config["password"]
-    #     )
+        # PostgreSQL
+        pg_config = db_configs["postgresql"]
+        self.connectors["postgresql"] = PostgreSQLConnector(
+            host=pg_config["host"],
+            port=pg_config["port"],
+            database=pg_config["database"],
+            username=pg_config["username"],
+            password=pg_config["password"]
+        )
 
     #     # MongoDB
     #     mongo_config = db_configs["mongodb"]
@@ -155,7 +172,7 @@ class DatabaseMCPServer:
         try:
             ruta_base = os.getenv('PROJECT_ROOT')
             sys.path.append(ruta_base) 
-            from BasesDeDatos.PromptContent.Scripts.contentTools import getContent
+            from BasesDeDatos.PromptContent.Scripts.contentTools import generateCampaignMessages
             
             # Llamar a la función existente
             resultado = generateCampaignMessages(campaign_description, target_audiences, client_id)
@@ -181,6 +198,46 @@ class DatabaseMCPServer:
         except Exception as e:
             return [types.TextContent(type="text", text=f"Error en generate_campaign_messages: {str(e)}")]
 
+    async def _route_nl(self, text: str):
+        """
+        Enrutador simple de lenguaje natural -> tool.
+        Detecta intención por palabras clave y redirige a `_get_content` o `_generate_campaign_messages`.
+        """
+        try:
+            if not text:
+                return [types.TextContent(type="text", text="No se proporcionó texto para enrutamiento natural-language.")]
+
+            t = text.lower()
+
+            image_keywords = ['imagen', 'imagenes', 'foto', 'fotos', 'paisaje', 'paisajes', 'flor', 'flores', 'producto', 'marketing visual']
+            campaign_keywords = ['campaña', 'campana', 'campañas', 'audiencia', 'audiencias', 'mensaje', 'mensajes', 'publicidad', 'marketing','generar', 'crear', 'generacion', 'creacion', 'publico', 'objetivo', 'target', 'audience']
+
+            if any(k in t for k in image_keywords):
+                # Llamar a get_content usando el texto completo como descripción
+                return await self._get_content(descripcion=text, top_k=5)
+
+            if any(k in t for k in campaign_keywords):
+                # Extraer audiencias simples por palabras clave
+                targets = []
+                if 'adultos mayores' in t or 'mayores' in t or 'adultos' in t:
+                    targets.append('Adultos Mayores')
+                if 'jóvenes' in t or 'jovenes' in t or 'jóven' in t:
+                    targets.append('Jóvenes')
+                if 'mujeres' in t:
+                    targets.append('Mujeres')
+                if 'hombres' in t:
+                    targets.append('Hombres')
+                if not targets:
+                    targets = ['General']
+
+                return await self._generate_campaign_messages(campaign_description=text, target_audiences=targets, client_id='CLIENT_DEFAULT')
+
+            # Fallback: intentar get_content
+            return await self._get_content(descripcion=text, top_k=5)
+
+        except Exception as e:
+            return [types.TextContent(type="text", text=f"Error en natural_language_router: {str(e)}")]
+
 async def create_server():
     server_instance = DatabaseMCPServer()
     await server_instance.initialize_from_config()
@@ -193,7 +250,7 @@ if __name__ == "__main__":
     
     async def main():
         server_instance = DatabaseMCPServer()
-        #await server_instance.initialize_from_config()
+        await server_instance.initialize_from_config()
         
         async with stdio_server() as (read_stream, write_stream):
             await server_instance.server.run(
