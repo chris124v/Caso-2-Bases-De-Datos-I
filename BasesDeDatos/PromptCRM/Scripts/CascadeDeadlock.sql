@@ -21,13 +21,8 @@ BEGIN
 	DECLARE @Message VARCHAR(200)
 	DECLARE @InicieTransaccion BIT
 
-
-	SET @InicieTransaccion = 0
-	--IF @@TRANCOUNT=0 BEGIN
-		SET @InicieTransaccion = 1
-		SET TRANSACTION ISOLATION LEVEL READ COMMITTED
-		BEGIN TRANSACTION		
-	--END
+	SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+	BEGIN TRANSACTION		
 	
 	BEGIN TRY
 		SET @CustomError = 2001
@@ -48,9 +43,7 @@ BEGIN
 			UpdatedAt = CURRENT_TIMESTAMP
 		WHERE IdProduct = 3;
 					
-		IF @InicieTransaccion=1 BEGIN
-			COMMIT
-		END
+		COMMIT
 	END TRY
 	BEGIN CATCH
 		-- en esencia, lo que hay  que hacer es registrar el error real, y enviar para arriba un error custom 
@@ -58,10 +51,7 @@ BEGIN
 		SET @ErrorSeverity = ERROR_SEVERITY()
 		SET @ErrorState = ERROR_STATE()
 		SET @Message = ERROR_MESSAGE()
-		
-		IF @InicieTransaccion=1 BEGIN
-			ROLLBACK
-		END
+		ROLLBACK
 		-- el error original lo inserte en la tabla de logs, pero retorno a la capa superior un error en "bonito"
 		RAISERROR('%s - Error Number: %i', 
 			@ErrorSeverity, @ErrorState, @Message, @CustomError) -- hay que sustituir el @message por un error personalizado bonito, lo ideal es sacarlo de sys.messages 
@@ -82,12 +72,8 @@ BEGIN
 	DECLARE @Message VARCHAR(200)
 	DECLARE @InicieTransaccion BIT
 	
-	SET @InicieTransaccion = 0
-	--IF @@TRANCOUNT=0 BEGIN
-		SET @InicieTransaccion = 1
-		SET TRANSACTION ISOLATION LEVEL READ COMMITTED
-		BEGIN TRANSACTION		
-	--END
+	SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+	BEGIN TRANSACTION		
 	
 	BEGIN TRY
 		SET @CustomError = 2001
@@ -109,9 +95,7 @@ BEGIN
 		WHERE IdProduct = 1;
 
 					
-		IF @InicieTransaccion=1 BEGIN
-			COMMIT
-		END
+		COMMIT
 	END TRY
 	BEGIN CATCH
 		-- en esencia, lo que hay  que hacer es registrar el error real, y enviar para arriba un error custom 
@@ -120,9 +104,7 @@ BEGIN
 		SET @ErrorState = ERROR_STATE()
 		SET @Message = ERROR_MESSAGE()
 		
-		IF @InicieTransaccion=1 BEGIN
-			ROLLBACK
-		END
+		ROLLBACK
 		-- el error original lo inserte en la tabla de logs, pero retorno a la capa superior un error en "bonito"
 		RAISERROR('%s - Error Number: %i', 
 			@ErrorSeverity, @ErrorState, @Message, @CustomError) -- hay que sustituir el @message por un error personalizado bonito, lo ideal es sacarlo de sys.messages 
@@ -143,12 +125,8 @@ BEGIN
 	DECLARE @Message VARCHAR(200)
 	DECLARE @InicieTransaccion BIT
 
-	SET @InicieTransaccion = 0
-	--IF @@TRANCOUNT=0 BEGIN
-		SET @InicieTransaccion = 1
-		SET TRANSACTION ISOLATION LEVEL READ COMMITTED
-		BEGIN TRANSACTION		
-	--END
+	SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+	BEGIN TRANSACTION
 	
 	BEGIN TRY
 		SET @CustomError = 2001
@@ -168,9 +146,7 @@ BEGIN
 			UpdatedAt = CURRENT_TIMESTAMP
 		WHERE IdProduct = 2;
 				
-		IF @InicieTransaccion=1 BEGIN
-			COMMIT
-		END
+		COMMIT
 	END TRY
 	BEGIN CATCH
 		-- en esencia, lo que hay  que hacer es registrar el error real, y enviar para arriba un error custom 
@@ -179,9 +155,7 @@ BEGIN
 		SET @ErrorState = ERROR_STATE()
 		SET @Message = ERROR_MESSAGE()
 		
-		IF @InicieTransaccion=1 BEGIN
-			ROLLBACK
-		END
+		ROLLBACK
 		-- el error original lo inserte en la tabla de logs, pero retorno a la capa superior un error en "bonito"
 		RAISERROR('%s - Error Number: %i', 
 			@ErrorSeverity, @ErrorState, @Message, @CustomError) -- hay que sustituir el @message por un error personalizado bonito, lo ideal es sacarlo de sys.messages 

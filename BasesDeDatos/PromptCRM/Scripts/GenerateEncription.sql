@@ -19,35 +19,85 @@ WITH PRIVATE KEY
 	)
 */
 
+GO
+CREATE OR ALTER PROCEDURE dbo.OpenKey
+AS
+BEGIN
+	OPEN SYMMETRIC KEY LlaveSimetricaMaster
+	DECRYPTION BY CERTIFICATE CertEncripcion
+END
+GO
+
 -- function para encriptar una columna
 GO
-CREATE FUNCTION EncryptColumn(@dataToEncrypt VARCHAR(MAX), @isSymmetricKeyOpen BIT)
+CREATE FUNCTION EncryptValue(@dataToEncrypt VARCHAR(MAX))
 RETURNS VARBINARY(MAX)
 AS
 BEGIN
-	IF (@isSymmetricKeyOpen = 0)
-	BEGIN
-		OPEN SYMMETRIC KEY LlaveSimetricaMaster
-		DECRYPTION BY CERTIFICATE CertEncripcion
-	END
-
 	RETURN ENCRYPTBYKEY(KEY_GUID('LlaveSimetricaMaster'), @dataToEncrypt)
 END
 GO
 
-
 -- function para desencriptar una columna
 GO
-CREATE FUNCTION DecryptColumn(@dataToDecrypt VARBINARY(MAX), @isSymmetricKeyOpen BIT)
+CREATE FUNCTION DecryptValue(@dataToDecrypt VARBINARY(MAX))
 RETURNS VARCHAR(MAX)
 AS
 BEGIN
-	IF (@isSymmetricKeyOpen = 0)
-	BEGIN
-		OPEN SYMMETRIC KEY LlaveSimetricaMaster
-		DECRYPTION BY CERTIFICATE CertEncripcion
-	END
-
 	RETURN CONVERT(VARCHAR, DECRYPTBYKEY(@dataToDecrypt))
 END
 GO
+
+/*
+DELETE FROM dbo.PCRUsers
+DBCC CHECKIDENT ('dbo.PCRUsers', RESEED, 0)
+
+DELETE FROM dbo.PCRUserStatuses
+DBCC CHECKIDENT ('dbo.PCRUserStatuses', RESEED, 0)
+
+INSERT INTO dbo.PCRUserStatuses (StatusDescription)
+VALUES ('Activo'), ('Inactivo')
+
+DECLARE @IsKeyOpen INT = 0
+
+IF @IsKeyOpen = 0 BEGIN
+	EXEC dbo.OpenKey
+	SET @IsKeyOpen = 1
+END
+
+INSERT INTO dbo.PCRUsers (
+	FirstName,
+	LastName,
+	SSN,
+	PasswordHash,
+	PasswordSalt,
+	LastLogin,
+	Checksum,
+	IdStatus,
+	CreatedAt,
+	UpdatedAt
+)
+VALUES (
+	'Carlos',
+	'Villalobos',
+	dbo.EncryptValue('1-2345-6789'),
+	00000,
+	00000,
+	CURRENT_TIMESTAMP,
+	00000,
+	1,
+	CURRENT_TIMESTAMP,
+	CURRENT_TIMESTAMP
+)
+*/
+
+SELECT * FROM dbo.PCRUsers
+
+EXEC dbo.OpenKey
+SELECT
+	FirstName,
+	LastName,
+	dbo.DecryptValue(SSN) AS Decrypted
+FROM PCRUsers
+
+CLOSE SYMMETRIC KEY LlaveSimetricaMaster
