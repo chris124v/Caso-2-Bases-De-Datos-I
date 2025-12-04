@@ -77,6 +77,40 @@ class DatabaseMCPServer:
                         },
                         "required": ["text"]
                     }
+                ),
+                types.Tool(
+                    name="get_sales_data",
+                    description="📊 ANALIZADOR DE DATOS DE VENTAS: Obtiene información de la base de datos promptsales. Usa cuando pidan: 'ventas del mes', 'productos más vendidos', 'clientes frecuentes', 'ingresos totales', 'métricas de negocio', 'datos de promptsales'.",
+                    inputSchema={
+                        "type": "object",
+                        "properties": {
+                            "query_type": {
+                                "type": "string",
+                                "enum": ["ventas", "productos", "clientes", "metricas"],
+                                "description": "Tipo de datos a consultar: 'ventas' (datos de ventas), 'productos' (productos más vendidos), 'clientes' (datos de clientes), 'metricas' (métricas de negocio)"
+                            },
+                            "periodo": {
+                                "type": "string",
+                                "enum": ["hoy", "semana", "mes", "año", "personalizado"],
+                                "default": "mes",
+                                "description": "Periodo de tiempo: 'hoy', 'semana', 'mes', 'año', o 'personalizado'"
+                            },
+                            "fecha_desde": {
+                                "type": "string",
+                                "description": "Fecha inicio (YYYY-MM-DD) para periodo personalizado"
+                            },
+                            "fecha_hasta": {
+                                "type": "string", 
+                                "description": "Fecha fin (YYYY-MM-DD) para periodo personalizado"
+                            },
+                            "limite": {
+                                "type": "integer",
+                                "default": 10,
+                                "description": "Límite de resultados a mostrar"
+                            }
+                        },
+                        "required": ["query_type"]
+                    }
                 )
             ]
         
@@ -90,6 +124,8 @@ class DatabaseMCPServer:
                 # arguments expected: {"text": "..."}
                 text = arguments.get('text', '') if arguments else ''
                 return await self._route_nl(text)
+            elif name == "get_sales_data":  
+                return await self._get_sales_data(**arguments)
 
     async def initialize_from_config(self):
         """Inicializar conectores desde YAML"""
@@ -179,12 +215,12 @@ class DatabaseMCPServer:
             
             # Formatear la respuesta para MCP
             if resultado.get('status') == 'completed':
-                texto_resultado = f"✅ Campaña generada exitosamente!\n\n"
-                texto_resultado += f"📋 Request ID: {resultado['requestId']}\n"
-                texto_resultado += f"🎯 Audiencias: {', '.join(resultado['targetAudiences'])}\n"
-                texto_resultado += f"📝 Total mensajes: {resultado['totalMessages']}\n\n"
+                texto_resultado = f"Campaña generada exitosamente!\n\n"
+                texto_resultado += f"Request ID: {resultado['requestId']}\n"
+                texto_resultado += f"Audiencias: {', '.join(resultado['targetAudiences'])}\n"
+                texto_resultado += f"Total mensajes: {resultado['totalMessages']}\n\n"
                 
-                texto_resultado += "📢 Mensajes generados por audiencia:\n"
+                texto_resultado += "Mensajes generados por audiencia:\n"
                 for audiencia, mensajes in resultado['messagesGenerated'].items():
                     texto_resultado += f"\n👥 {audiencia}:\n"
                     for i, mensaje in enumerate(mensajes, 1):
@@ -209,9 +245,28 @@ class DatabaseMCPServer:
 
             t = text.lower()
 
+            sales_keywords = ['ventas', 'venta', 'ingresos', 'productos vendidos', 'datos de ventas', 'métricas', 'métricas de ventas', 'promptsales', 'base de datos','clientes', 'productos más vendidos', 'ticket promedio']
             image_keywords = ['imagen', 'imagenes', 'foto', 'fotos', 'paisaje', 'paisajes', 'flor', 'flores', 'producto', 'marketing visual']
             campaign_keywords = ['campaña', 'campana', 'campañas', 'audiencia', 'audiencias', 'mensaje', 'mensajes', 'publicidad', 'marketing','generar', 'crear', 'generacion', 'creacion', 'publico', 'objetivo', 'target', 'audience']
+            
+            if any(k in t for k in sales_keywords):
+                # Mapear a get_sales_data
+                if any(word in t for word in ['producto', 'productos', 'vendidos', 'inventario', 'stock']):
+                    return await self._get_sales_data(query_type="productos", periodo="mes", limite=10)
+                elif any(word in t for word in ['cliente', 'clientes', 'comprador', 'usuarios']):
+                    return await self._get_sales_data(query_type="clientes", periodo="mes", limite=10)
+                elif any(word in t for word in ['métrica', 'métricas', 'estadística', 'kpi', 'indicador']):
+                    return await self._get_sales_data(query_type="metricas", periodo="mes")
+                elif any(word in t for word in ['hoy', 'hoy día', 'hoy dia']):
+                    return await self._get_sales_data(query_type="ventas", periodo="hoy", limite=10)
+                elif any(word in t for word in ['semana', 'esta semana']):
+                    return await self._get_sales_data(query_type="ventas", periodo="semana", limite=10)
+                elif any(word in t for word in ['año', 'anual', 'este año']):
+                    return await self._get_sales_data(query_type="ventas", periodo="año", limite=10)
+                else:
+                    return await self._get_sales_data(query_type="ventas", periodo="mes", limite=10)
 
+            
             if any(k in t for k in image_keywords):
                 # Llamar a get_content usando el texto completo como descripción
                 return await self._get_content(descripcion=text, top_k=5)
@@ -219,14 +274,21 @@ class DatabaseMCPServer:
             if any(k in t for k in campaign_keywords):
                 # Extraer audiencias simples por palabras clave
                 targets = []
-                if 'adultos mayores' in t or 'mayores' in t or 'adultos' in t:
+                if 'adultos mayores' in t or 'mayores' in t or 'adultos' in t or 'adult' in t:
                     targets.append('Adultos Mayores')
-                if 'jóvenes' in t or 'jovenes' in t or 'jóven' in t:
+                if 'jóvenes' in t or 'jovenes' in t or 'jóven' in t or 'juventud' in t:
                     targets.append('Jóvenes')
-                if 'mujeres' in t:
+                if 'mujeres' in t or 'mujer' in t or 'femenino' in t:
                     targets.append('Mujeres')
-                if 'hombres' in t:
+                if 'hombres' in t or 'hombre' in t or 'masculino' in t:
                     targets.append('Hombres')
+                if 'familias' in t or 'familia' in t:
+                    targets.append('Familias')
+                if 'estudiantes' in t or 'estudiante' in t:
+                    targets.append('Estudiantes')
+                if 'profesionales' in t or 'profesional' in t:
+                    targets.append('Profesionales')
+                
                 if not targets:
                     targets = ['General']
 

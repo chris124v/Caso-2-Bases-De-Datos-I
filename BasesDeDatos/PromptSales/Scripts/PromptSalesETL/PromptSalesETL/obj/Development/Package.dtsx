@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="154"
-  DTS:VersionGUID="{7D9C681A-6C5D-4A80-ABC9-E24248F6024C}">
+  DTS:VersionBuild="164"
+  DTS:VersionGUID="{3025BDC9-77D2-49E0-AB3F-C23484D1EA13}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAohkyjsIvYsFN2KEmBysnkZcaatxHhgIu+y/jPKQ2NhwAAAAAOgAAAAAIAACAAAADVE8ONBmvd6TraMKl24+G/VPnw0EpP7A+cDBUo4+lTZDAAAABpdX0ymW1o+mT5cRTzdEYmzg3IhWD8OVGnCW+cuDo+Y37+jEgCo8vjNptdhkP2rZNAAAAA1NqyuPOiGILjHj3Mm1VYFBMnN9eX3FZjlFafED21yi5cly7ro2A3ah25j3wWUEjCfL9SBuTbVPyGBFIkMvBmcw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABMM/RSpzIkDOj/TSnZSzEzE9hi2pKlX96/Os9F6JnpkgAAAAAOgAAAAAIAACAAAAADulFOXEfP4BYR9qGDGWCBzAlGcI6UBbexd7T6FMpJTDAAAADM/MTser++VFMTTk2Yj8EkDLUt4J+S22dQJYWHdgI653II8knOo1Kiy96HUcpDHU1AAAAAjrWL7x0+BnECYoShdrckweVE9TA/K+BT2mN3dRePkQ39dLKsa235sI29V21Wq4a3V3r2LOzOSSha2L+b2CShkw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -40,12 +40,7 @@
       DTS:ObjectName="promptcontent">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="uid=mongouser;Dsn=MongoDBDNS;">
-          <DTS:Password
-            DTS:Name="pwd"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAgLl3WaxwmrM3twj5Peo4iuc3DAFQ71VC+68YzT+847QAAAAAOgAAAAAIAACAAAADz/EbxlZKtko9OlVbDD6SE5sojlJh14y21zhP4bL9VXSAAAADfXIHKW7+ZnIU3yMNVnroksVGzAsZh2mLk/ABBfLnrm0AAAACU7ulDkmln3h9iy0nl7DDbcItPj9MS5Ulb4gmOZAlG1o2R8aTsFJDWkc6T7rzHXhI23n9F1xR0W0lEEJCnmF6M</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="uid=mongouser;Dsn=MongoDBDNS;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -61,7 +56,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABj0thZtyzWz0WK9ZPmOB7R1fVMdq+c0VuBQcRRkGMi2QAAAAAOgAAAAAIAACAAAABFEk8IFfnM1rKh4trPD35GQ10no+EMW7W85yTMbNtZODAAAACrNMfDWHK0ocy4yDfDCC8IxKoSHbotOvrZdJTbSeHsVGP2Llrr9YvpMHOuf3Mr7etAAAAA5XWNjbiGF2CpuKeOWczovmCXqwD3NweEQZoWlkgKwgG4Y92sgMPkWeV3fX+CA2vDCMo3NixSyHaacNGK42KvPQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA9ZbQiTF37/ABrXt911an7lT8LKhg/pCI3ma/cd7cpjwAAAAAOgAAAAAIAACAAAABqSZYrHylQoj1a7aRVe+N93r75ijIeqJZqJvydnkN63zAAAAB7rfy4Qlh25egM/8NWgo9Eja8g6geXbWgAoVZesxxY4O8wXa4WRmiWAMXofjwhfM9AAAAA1EIpJE4Iwe+77Xwk4DZCLYGGXPElsPJbzWyMCUZnI9q7Wh6S9KPblh0YVGYytzfpRJ2FtTncIH0w6rbognrVRA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -76,7 +71,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAAQ6/Pj6NiPrwN3zhYmSRIkLPVajjieXYCE7pyFG67LgAAAAAOgAAAAAIAACAAAAA+sNfGGcAvc5zZvCIyGyx4BJwI0EqeuU4jK2Yq6plsICAAAACqOsIiaYU06HPRZNRvO7k8sin/gC/+8OlDh8v857GERUAAAAAUmQoSqGWaXi7W0bIEPWS1unQ/bQAm5haMhBr0uy8NCli8zGKKmXQAIv2XbGmGH+8qHqpTyf9KBa9WrCyq3tx+</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAfNlf7UrE5o1wQBnPOHRH6KnY66aInD6uRl3xIHdbA/gAAAAAOgAAAAAIAACAAAAB9EoC3YCSfgfWIudS0VULy7Kfw0Q5DyMT8u5En+a3inyAAAACU7up25McLjreDTwIEBeLxjmT0zYA5a+xkEywpXapw20AAAAAXXOYxcrhFYqn2f9Zxzor/GI3V+dDwimARld5pCso5zvoxAuN6L8K92YIGzeFJtza+crvyUrhEDRuVSAOsaVEw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -4897,6 +4892,185 @@ ORDER BY pa.IdPublishedAd;</property>
           version="1">
           <components>
             <component
+              refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino de ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"public"."PSRawData"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[promptsales]"
+                  connectionManagerRefId="Package.ConnectionManagers[promptsales]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[sourceService]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="sourceService"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceService]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[sourceTable]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="sourceTable"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceTable]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[updateAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="updateAt"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[updateAt]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[updateAt]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[IdRunLog]"
+                      cachedDataType="i4"
+                      cachedName="IdRunLog"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[IdRunLog]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[operationType]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="operationType"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[operationType]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[sourceRecordId]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="sourceRecordId"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceRecordId]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[rawData]"
+                      cachedDataType="wstr"
+                      cachedLength="482"
+                      cachedName="rawData"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[rawData]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[createdAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="createdAt"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[createdAt]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRawData]"
+                      dataType="i8"
+                      name="IdRawData" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
+                      dataType="wstr"
+                      length="30"
+                      name="sourceService" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
+                      dataType="wstr"
+                      length="60"
+                      name="sourceTable" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
+                      dataType="wstr"
+                      length="100"
+                      name="sourceRecordID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
+                      dataType="wstr"
+                      length="30"
+                      name="operationType" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[isProcessed]"
+                      dataType="wstr"
+                      length="5"
+                      name="isProcessed" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[updateAt]"
+                      dataType="dbTimeStamp"
+                      name="updateAt" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
+                      dataType="i4"
+                      name="IdRunLog" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
+                      dataType="wstr"
+                      length="4095"
+                      name="rawData" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
@@ -4911,10 +5085,13 @@ ORDER BY pa.IdPublishedAd;</property>
                   expressionType="Notify"
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP 100
-    ISNULL(SUBSTRING(CAST(mediaId AS VARCHAR(200)), 1, 200), 'UNKNOWN') AS contentId,
+    SUBSTRING(CAST(mediaId AS VARCHAR(50)), 1, 50) AS contentId,
     CAST(ISNULL(campaignId, 1) AS INT) AS campaignId,
     CAST(ISNULL(usageCount, 0) AS INT) AS usageCount,
-    ISNULL(SUBSTRING(CAST(platform AS VARCHAR(200)), 1, 200), 'unknown') AS channel,
+    ISNULL(SUBSTRING(CAST(platform AS VARCHAR(50)), 1, 50), 'unknown') AS channel,
+    ISNULL(REPLACE(SUBSTRING(CAST(hashtags AS VARCHAR(500)), 1, 500), '"', ''), '') AS hashtags,
+    ISNULL(SUBSTRING(CAST(mediaUrl AS VARCHAR(500)), 1, 500), '') AS contentURL,
+    ISNULL(SUBSTRING(CAST(description AS VARCHAR(200)), 1, 200), '') AS contentTitle,
     createdAt,
     updatedAt
 FROM PCmedia</property>
@@ -4993,6 +5170,36 @@ FROM PCmedia</property>
                       name="channel"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[hashtags]"
+                      length="2000"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]"
+                      name="hashtags"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentURL]"
+                      length="2000"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]"
+                      name="contentURL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentTitle]"
+                      length="2000"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]"
+                      name="contentTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[createdAt]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversión"
@@ -5032,6 +5239,21 @@ FROM PCmedia</property>
                       length="2000"
                       name="channel" />
                     <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[hashtags]"
+                      dataType="wstr"
+                      length="2000"
+                      name="hashtags" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentURL]"
+                      dataType="wstr"
+                      length="2000"
+                      name="contentURL" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[contentTitle]"
+                      dataType="wstr"
+                      length="2000"
+                      name="contentTitle" />
+                    <externalMetadataColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].ExternalColumns[createdAt]"
                       dataType="dbTimeStamp"
                       name="createdAt" />
@@ -5069,6 +5291,24 @@ FROM PCmedia</property>
                       lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[channel]"
                       name="channel" />
                     <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[hashtags]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[hashtags]"
+                      name="hashtags" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentURL]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentURL]"
+                      name="contentURL" />
+                    <outputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentTitle]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[contentTitle]"
+                      name="contentTitle" />
+                    <outputColumn
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[createdAt]"
                       dataType="dbTimeStamp"
                       lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[createdAt]"
@@ -5088,185 +5328,6 @@ FROM PCmedia</property>
                       refId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
-              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
-              name="Load en PSRawData"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Nombre de la tabla de la base de datos de destino."
-                  expressionType="Notify"
-                  name="TableOrViewName"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"public"."PSRawData"</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
-                  expressionType="Notify"
-                  name="BatchSize">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
-                  expressionType="Notify"
-                  name="CommandTimeout">30</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
-                  expressionType="Notify"
-                  name="UseBulkInsertWhenPossible">true</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[promptsales]"
-                  connectionManagerRefId="Package.ConnectionManagers[promptsales]"
-                  description="Administrador de conexiones administrado"
-                  name="IDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET]"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrada de destino de ADO NET">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[sourceService]"
-                      cachedDataType="wstr"
-                      cachedLength="13"
-                      cachedName="sourceService"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceService]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[sourceTable]"
-                      cachedDataType="wstr"
-                      cachedLength="7"
-                      cachedName="sourceTable"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceTable]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[updateAt]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="updateAt"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[updateAt]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[updateAt]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[IdRunLog]"
-                      cachedDataType="i4"
-                      cachedName="IdRunLog"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[IdRunLog]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[operationType]"
-                      cachedDataType="wstr"
-                      cachedLength="6"
-                      cachedName="operationType"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[operationType]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[sourceRecordId]"
-                      cachedDataType="wstr"
-                      cachedLength="2000"
-                      cachedName="sourceRecordId"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[sourceRecordId]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[rawData]"
-                      cachedDataType="wstr"
-                      cachedLength="177"
-                      cachedName="rawData"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[rawData]" />
-                    <inputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].Columns[createdAt]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="createdAt"
-                      externalMetadataColumnId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[createdAt]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRawData]"
-                      dataType="i8"
-                      name="IdRawData" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceService]"
-                      dataType="wstr"
-                      length="30"
-                      name="sourceService" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceTable]"
-                      dataType="wstr"
-                      length="60"
-                      name="sourceTable" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[sourceRecordID]"
-                      dataType="wstr"
-                      length="100"
-                      name="sourceRecordID" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[operationType]"
-                      dataType="wstr"
-                      length="30"
-                      name="operationType" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[isProcessed]"
-                      dataType="wstr"
-                      length="5"
-                      name="isProcessed" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[createdAt]"
-                      dataType="dbTimeStamp"
-                      name="createdAt" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[updateAt]"
-                      dataType="dbTimeStamp"
-                      name="updateAt" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRunLog]"
-                      dataType="i4"
-                      name="IdRunLog" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET].ExternalColumns[rawData]"
-                      dataType="wstr"
-                      length="4095"
-                      name="rawData" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Salida de error de destino de ADO NET"
-                  synchronousInputId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -5309,6 +5370,24 @@ FROM PCmedia</property>
                       cachedLength="2000"
                       cachedName="channel"
                       lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[channel]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input].Columns[hashtags]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="hashtags"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input].Columns[contentURL]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="contentURL"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]" />
+                    <inputColumn
+                      refId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Inputs[Derived Column Input].Columns[contentTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="contentTitle"
+                      lineageId="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5484,7 +5563,7 @@ FROM PCmedia</property>
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="177"
+                      length="482"
                       lineageId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output].Columns[rawData]"
                       name="rawData"
                       truncationRowDisposition="FailComponent">
@@ -5493,13 +5572,13 @@ FROM PCmedia</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">"{\"contentId\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]},1,50) + "\",\"campaignId\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]} + ",\"usageCount\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]} + ",\"channel\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[channel]},1,50) + "\"}"</property>
+                          name="Expression">"{\"cId\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentId]},1,20) + "\",\"cmpId\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[campaignId]} + ",\"cnt\":" + (DT_WSTR,10)#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[usageCount]} + ",\"ch\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[channel]},1,30) + "\",\"ht\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[hashtags]},1,200) + "\",\"url\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentURL]},1,100) + "\",\"title\":\"" + [SUBSTRING](#{Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia.Outputs[Salida de origen de ADO NET].Columns[contentTitle]},1,50) + "\"}"</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">"{\"contentId\":\"" + SUBSTRING(contentId,1,50) + "\",\"campaignId\":" + (DT_WSTR,10)campaignId + ",\"usageCount\":" + (DT_WSTR,10)usageCount + ",\"channel\":\"" + SUBSTRING(channel,1,50) + "\"}"</property>
+                          name="FriendlyExpression">"{\"cId\":\"" + SUBSTRING(contentId,1,20) + "\",\"cmpId\":" + (DT_WSTR,10)campaignId + ",\"cnt\":" + (DT_WSTR,10)usageCount + ",\"ch\":\"" + SUBSTRING(channel,1,30) + "\",\"ht\":\"" + SUBSTRING(hashtags,1,200) + "\",\"url\":\"" + SUBSTRING(contentURL,1,100) + "\",\"title\":\"" + SUBSTRING(contentTitle,1,50) + "\"}"</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5534,7 +5613,7 @@ FROM PCmedia</property>
           <paths>
             <path
               refId="Package\Extract Raw - PromptContent (PCmedia).Paths[Derived Column Output]"
-              endId="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData.Inputs[Entrada de destino de ADO NET]"
+              endId="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
               name="Derived Column Output"
               startId="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData.Outputs[Derived Column Output]" />
             <path
@@ -6203,7 +6282,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get Last Run CRM"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6224,7 +6303,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Log ETL Run Start"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6245,11 +6324,11 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesar de Raw a PSContentUsage"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6483404E-1FAA-4E91-8B92-C0839C4AD0D4}"
+          SQLTask:Connection="{BBF61DE1-F412-44C5-B412-E335AEC5DF14}"
           SQLTask:IsStoredProc="True"
           SQLTask:SqlStatementSource="CALL public.sp_ProcessRawContent();" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
@@ -6262,7 +6341,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesar de Raw a PSLeadsSummary"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6279,7 +6358,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesar de Raw a PublishedAds"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6296,7 +6375,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Process Raw to Final - Campaigns"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6313,7 +6392,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Process Raw to Final - Organizations"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6348,7 +6427,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Last Run CRM"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6524,6 +6603,14 @@ FROM PCRLeads;</property>
           Id="Package\Extract Raw - PromptAds (PublishedAds)"
           TopLeft="409,527" />
         <NodeLayout
+          Size="277,42"
+          Id="Package\Extract Raw - PromptContent (PCmedia)"
+          TopLeft="408.181818181818,908.181818181818" />
+        <NodeLayout
+          Size="272,42"
+          Id="Package\Extract Raw - PromptCRM (PCRLeads)"
+          TopLeft="410,721.818181818182" />
+        <NodeLayout
           Size="165,42"
           Id="Package\Get Last Run Ads"
           TopLeft="968,610.666666666667" />
@@ -6535,6 +6622,14 @@ FROM PCRLeads;</property>
           Size="170,42"
           Id="Package\Log ETL Run Start"
           TopLeft="464,130" />
+        <NodeLayout
+          Size="260,42"
+          Id="Package\Procesar de Raw a PSContentUsage"
+          TopLeft="411.818181818182,993.636363636364" />
+        <NodeLayout
+          Size="267,42"
+          Id="Package\Procesar de Raw a PSLeadsSummary"
+          TopLeft="406.363636363636,815.454545454545" />
         <NodeLayout
           Size="242,42"
           Id="Package\Procesar de Raw a PublishedAds"
@@ -6635,6 +6730,94 @@ FROM PCRLeads;</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,43.4999999999985" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 12]"
+          TopLeft="547,661.999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.818181818183"
+              Start="0,0"
+              End="0,52.318181818183">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.318181818183" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 13]"
+          TopLeft="542.931818181818,763.818181818182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.6363636363636"
+              Start="0,0"
+              End="0,44.1363636363636">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.1363636363636" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 14]"
+          TopLeft="543.272727272727,857.454545454545">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.7272727272729"
+              Start="0,0"
+              End="0,43.2272727272729">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.2272727272729" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 15]"
+          TopLeft="544.25,950.181818181818">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.4545454545455"
+              Start="0,0"
+              End="0,35.9545454545455">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.9545454545455" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6867,110 +7050,6 @@ FROM PCRLeads;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="272,42"
-          Id="Package\Extract Raw - PromptCRM (PCRLeads)"
-          TopLeft="410,721.818181818182" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 12]"
-          TopLeft="547,661.999999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.818181818183"
-              Start="0,0"
-              End="0,52.318181818183">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.318181818183" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="267,42"
-          Id="Package\Procesar de Raw a PSLeadsSummary"
-          TopLeft="406.363636363636,815.454545454545" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 13]"
-          TopLeft="542.931818181818,763.818181818182">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.6363636363636"
-              Start="0,0"
-              End="0,44.1363636363636">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.1363636363636" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="277,42"
-          Id="Package\Extract Raw - PromptContent (PCmedia)"
-          TopLeft="408.181818181818,908.181818181818" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 14]"
-          TopLeft="543.272727272727,857.454545454545">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.7272727272729"
-              Start="0,0"
-              End="0,43.2272727272729">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.2272727272729" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="260,42"
-          Id="Package\Procesar de Raw a PSContentUsage"
-          TopLeft="411.818181818182,993.636363636364" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 15]"
-          TopLeft="544.25,950.181818181818">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.4545454545455"
-              Start="0,0"
-              End="0,35.9545454545455">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.9545454545455" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -6978,7 +7057,7 @@ FROM PCRLeads;</property>
     design-time-name="Package\DFT_LoadContentUsage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="203,42"
           Id="Package\DFT_LoadContentUsage\Load to PSContentUsage"
@@ -7022,7 +7101,9 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7044,7 +7125,9 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7406,7 +7489,7 @@ FROM PCRLeads;</property>
     design-time-name="Package\Extract Raw - PromptAds (PublishedAds)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="189,42"
           Id="Package\Extract Raw - PromptAds (PublishedAds)\Transform a Raw Data"
@@ -7438,7 +7521,9 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7460,7 +7545,9 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7483,98 +7570,18 @@ FROM PCRLeads;</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Extract Raw - PromptCRM (PCRLeads)">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Extract Raw - PromptCRM (PCRLeads)\Extract from PromptCRM Leads"
-          TopLeft="169,111" />
-        <NodeLayout
-          Size="201,42"
-          Id="Package\Extract Raw - PromptCRM (PCRLeads)\Transform a PSRawData"
-          TopLeft="183,212" />
-        <EdgeLayout
-          Id="Package\Extract Raw - PromptCRM (PCRLeads).Paths[OLE DB Source Output]"
-          TopLeft="284.75,153">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59"
-              Start="0,0"
-              End="0,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Extract Raw - PromptCRM (PCRLeads)\Load a PSRawData"
-          TopLeft="193,316" />
-        <EdgeLayout
-          Id="Package\Extract Raw - PromptCRM (PCRLeads).Paths[Derived Column Output]"
-          TopLeft="282,254">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62"
-              Start="0,0"
-              End="0,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Raw - PromptCRM (PCRLeads)\Extract from PromptCRM Leads">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Raw - PromptCRM (PCRLeads)\Load a PSRawData">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Extract Raw - PromptContent (PCmedia)">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="211,42"
-          Id="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia"
-          TopLeft="151,77" />
-        <NodeLayout
           Size="201,42"
           Id="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData"
           TopLeft="158,172" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia"
+          TopLeft="151,77" />
         <EdgeLayout
           Id="Package\Extract Raw - PromptContent (PCmedia).Paths[Salida de origen de ADO NET]"
           TopLeft="257.5,119">
@@ -7598,23 +7605,23 @@ FROM PCRLeads;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="181,42"
-          Id="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData"
-          TopLeft="163,294" />
+          Size="183,42"
+          Id="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET"
+          TopLeft="172,300" />
         <EdgeLayout
           Id="Package\Extract Raw - PromptContent (PCmedia).Paths[Derived Column Output]"
-          TopLeft="256,214">
+          TopLeft="261,214">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,80"
+              EndConnector="0,86"
               Start="0,0"
-              End="0,72.5">
+              End="0,78.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,72.5" />
+                    End="0,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7634,8 +7641,92 @@ FROM PCRLeads;</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Raw - PromptCRM (PCRLeads)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Extract Raw - PromptCRM (PCRLeads)\Transform a PSRawData"
+          TopLeft="183,212" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Extract Raw - PromptCRM (PCRLeads)\Extract from PromptCRM Leads"
+          TopLeft="169,111" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Extract Raw - PromptCRM (PCRLeads)\Load a PSRawData"
+          TopLeft="193,316" />
+        <EdgeLayout
+          Id="Package\Extract Raw - PromptCRM (PCRLeads).Paths[OLE DB Source Output]"
+          TopLeft="284.75,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract Raw - PromptCRM (PCRLeads).Paths[Derived Column Output]"
+          TopLeft="282,254">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Extract Raw - PromptContent (PCmedia)\Load en PSRawData">
+    design-time-name="Package\Extract Raw - PromptCRM (PCRLeads)\Extract from PromptCRM Leads">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Raw - PromptCRM (PCRLeads)\Load a PSRawData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
