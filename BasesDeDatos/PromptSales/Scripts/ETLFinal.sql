@@ -71,7 +71,7 @@ DECLARE
 BEGIN
     -- Obtener servicio
     SELECT "IdService", "serviceName" 
-    INTO v_IdService, v_ServiceName
+    INTO v_IdService, v_ServiceName -- Guarda resultados en variables
     FROM public."PSServices"
     WHERE "serviceName" = 'PromptAds'
     LIMIT 1;
@@ -299,7 +299,7 @@ ALTER TABLE "PSLeadsSumarry"
 ADD CONSTRAINT unique_campaign_date 
 UNIQUE ("IdCampaign", "sumarryDate");
 
--- 2. Stored Procedure corregido
+Stored Procedure 
 CREATE OR REPLACE PROCEDURE sp_ProcessRawLeads()
 LANGUAGE plpgsql AS $$
 BEGIN
@@ -314,9 +314,9 @@ BEGIN
         CURRENT_DATE,
         COUNT(*) AS totalLeads,
         COUNT(*) FILTER (WHERE (raw."rawData"::json->>'IdStatus')::INT = 1) AS currentLeads,
-        COUNT(*) FILTER (WHERE (raw."rawData"::json->>'IdStatus')::INT = 4) AS qualifiedLeads,  -- ✅ Status 4 = Qualified
-        COUNT(*) FILTER (WHERE (raw."rawData"::json->>'IdStatus')::INT = 3) AS convertedLeads,  -- ✅ Status 3 = Converted
-        COUNT(*) FILTER (WHERE (raw."rawData"::json->>'IdStatus')::INT = 2) AS rejectedLeads,   -- ✅ Status 2 = Rejected
+        COUNT(*) FILTER (WHERE (raw."rawData"::json->>'IdStatus')::INT = 4) AS qualifiedLeads,  
+        COUNT(*) FILTER (WHERE (raw."rawData"::json->>'IdStatus')::INT = 3) AS convertedLeads,  
+        COUNT(*) FILTER (WHERE (raw."rawData"::json->>'IdStatus')::INT = 2) AS rejectedLeads,   
         ROUND(
             COUNT(*) FILTER (WHERE (raw."rawData"::json->>'IdStatus')::INT = 4)::NUMERIC / 
             NULLIF(COUNT(*), 0), 4

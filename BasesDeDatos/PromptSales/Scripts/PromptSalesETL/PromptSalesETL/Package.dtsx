@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="166"
-  DTS:VersionGUID="{65F573A5-5D94-44EC-A990-CB8FF2D47BC7}">
+  DTS:VersionBuild="168"
+  DTS:VersionGUID="{F9C1E15C-DB4E-43D5-A1AE-430B659EF52A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA6JDwpG3R7u4oc5kDGK4e1ZHEXKyqo52uloajikXkhEwAAAAAOgAAAAAIAACAAAAApVcyJPlkAsYQVI/KYXIVl9AuOv8bK3JHwtKpwf59nVTAAAADMWdfeG0VPm6oldrO7qZiC3yEc4wwYZQWXxUIwBFsYTpyBMYQ+u+sspSp17gmFGhNAAAAAWihdu0o7ZTof1iXoJL9JKi/QW4yupBLwA58hFfSKaH6NfPF2InpCp7AXqhLDHtl/3D7n9Ya7O1CXFrBjdymJlA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC4RKwHJQm3bt+zs+et3Wd4ikwXW5jxv9xPije86gAungAAAAAOgAAAAAIAACAAAADNeVQ549O74BkOJGefV7uaGka2LDd3kJ5sqHcB+odJ+jAAAAB/BFdSHAhqSB3Ohak7+MauVTssowo1QwBrnCAAqFQ1L32HBNXF0Czzy8vLBQ28c9dAAAAApaMEfE0XOZmUIatFNxWdWLuQT3+VN+A7lYe5XChfj5d4yfjE4FOZ3Z/pVZpv8NWmfA6eDXimNKHodkPxAPDB4g</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -56,7 +56,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABCmulcV0O3fs+QsSfQn0JxShfefv7JbskDNj2h8NghXAAAAAAOgAAAAAIAACAAAACI/LaaemyEVxHDGt7Hk4nTqZdyLb6oLoDU0BcCKdqaPTAAAAC0OPxyEKhYxY6J1/fO46xJjCCL+EG0CaEizumcd4tMI9N4L62yFJUxW6tf1NAjhWNAAAAAHUMVa3sNo7yOn84pkOU2q+gjxM1B5EBavnfknkpVwdIlPfs9PAa+rfJkVv5HEKiMryP89u/B0z2Z5doX9ks3SQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABSr/EePkBMShCF7WvIpE6S3emWs1psUYM1nHt43EU4hQAAAAAOgAAAAAIAACAAAADrZiJFwaxDcQTmmwczg2XLlkZd5rnvlRyGlwNKML1hUTAAAAAGCE2v+C1L6MRwkmariiIXIYmyTovmmqlvR6fDbnRypTTiC9E4KpvQLN301UCNEyNAAAAAEhLfztSPCsfTNp100XQYNYDyNL7ZHdudyBxB7gtDfC7WShRDjr7IiBiwPZRXoYBlFWXkNtrxbav6Bch7MuEPBQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -71,7 +71,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABem95oiHAg4xhZLm5V9L5GF9PoxbB8nhg4kAS8IvuqAwAAAAAOgAAAAAIAACAAAACoWZnU3JDoCslhY8e1JLtdZut/Y7ygwWWXeDp7cfQ+JCAAAADa4D8etfit9Otp3K7dbMvLmJGetjIoMXZzq5lbXJqrJEAAAACjm+V7Q0NtbIj0SuRsSaKQXSXUI+DTB217mMUAvLnB1oQYFXir4StRkp6v3AYqM0T14IdXsrOyA6x5bwJ8KUjg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADq64xi1TEwoXjahxuURJqvDhuapYe4hxbCSmM/WOTvegAAAAAOgAAAAAIAACAAAABwvWYlwxyV1XaQjWMPQLHOa4gytbdKcJI3GH+lsViu8iAAAACh2oHomUHowJe3KkapisYNcd917EZ8aIN+zetRY/ZMPkAAAABbR4O8FIXncH83hk2lP0xLZLyIkrI6ya6AiwkipwRyDied4nidBGiDQ4+Cs4BH0FN5AalFP6flTSS66Zv2U/NJ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -6260,7 +6260,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get Last Run Ads"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6303,7 +6303,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Log ETL Run Start"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6324,7 +6324,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesar de Raw a PSContentUsage"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6341,7 +6341,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesar de Raw a PSLeadsSummary"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6358,7 +6358,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesar de Raw a PublishedAds"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6375,7 +6375,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Process Raw to Final - Campaigns"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6392,7 +6392,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Process Raw to Final - Organizations"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6410,7 +6410,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Last Run Ads"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -6427,7 +6427,7 @@ FROM PCRLeads;</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Last Run CRM"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -7321,7 +7321,7 @@ FROM PCRLeads;</property>
     design-time-name="Package\Extract Raw - PromptAds (Campaigns)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="187,42"
           Id="Package\Extract Raw - PromptAds (Campaigns)\Extract PACampaigns"
@@ -7353,9 +7353,7 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7377,9 +7375,7 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7571,13 +7567,17 @@ FROM PCRLeads;</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="201,42"
-          Id="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData"
-          TopLeft="158,172" />
-        <NodeLayout
           Size="211,42"
           Id="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia"
           TopLeft="151,77" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET"
+          TopLeft="172,300" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Extract Raw - PromptContent (PCmedia)\Transform a PSRawData"
+          TopLeft="158,172" />
         <EdgeLayout
           Id="Package\Extract Raw - PromptContent (PCmedia).Paths[Salida de origen de ADO NET]"
           TopLeft="257.5,119">
@@ -7600,10 +7600,6 @@ FROM PCRLeads;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="183,42"
-          Id="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET"
-          TopLeft="172,300" />
         <EdgeLayout
           Id="Package\Extract Raw - PromptContent (PCmedia).Paths[Derived Column Output]"
           TopLeft="261,214">
@@ -7631,6 +7627,14 @@ FROM PCRLeads;</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Extract Raw - PromptContent (PCmedia)\Extract de Mongo PcMedia">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7715,14 +7719,6 @@ FROM PCRLeads;</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Extract Raw - PromptCRM (PCRLeads)\Load a PSRawData">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Raw - PromptContent (PCmedia)\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
