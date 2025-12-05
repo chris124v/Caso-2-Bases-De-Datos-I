@@ -25,7 +25,7 @@ EXEC sp_addlinkedserver
     @server = 'PROMPTADS_LINK',
     @srvproduct = '',
     @provider = 'MSOLEDBSQL',
-    @datasrc = '192.168.1.112,31433';  -- Mi IP y el puerto de ads
+    @datasrc = '192.168.144.1,31433';  -- Mi IP y el puerto de ads
 
 -- Verificar que se creo
 IF EXISTS (SELECT * FROM sys.servers WHERE name = 'PROMPTADS_LINK')

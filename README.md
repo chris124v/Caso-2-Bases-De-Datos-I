@@ -8,7 +8,7 @@
 
 - Dylan Chacón Berrocal, 2023171126
 - Christopher Daniel Vargas Villalta, 2024108443
-- Miguel Aguero Mata, 2020100846
+- Miguel Eduardo Aguero Mata, 2020100846
 - Luan Chaves Bermudez, 2019157253
 - Lindsay Marín Sánchez, 2024163904
 
@@ -65,12 +65,12 @@ Tambienn se utilizaron los Microsoft Integration Services para crear/realizar un
 
 ### PromptSales
 
-[PromptSales](https://github.com/chris124v/Caso-2-Bases-De-Datos-I/tree/main/BasesDeDatos/PromptSales/Disenos "Diseño de la base de datos")
+- [PromptSales](https://github.com/chris124v/Caso-2-Bases-De-Datos-I/tree/main/BasesDeDatos/PromptSales/Disenos "Diseño de la base de datos")
 
-[PromptContent](https://github.com/chris124v/Caso-2-Bases-De-Datos-I/tree/main/BasesDeDatos/PromptContent/Disenos "Diseño de la base de datos")
+- [PromptContent](https://github.com/chris124v/Caso-2-Bases-De-Datos-I/tree/main/BasesDeDatos/PromptContent/Disenos "Diseño de la base de datos")
 
-[PromptCrm](https://github.com/chris124v/Caso-2-Bases-De-Datos-I/tree/main/BasesDeDatos/PromptCRM/Disenos "Diseño de la base de datos")
+- [PromptCrm](https://github.com/chris124v/Caso-2-Bases-De-Datos-I/tree/main/BasesDeDatos/PromptCRM/Disenos "Diseño de la base de datos")
 
-[PromptAds](https://github.com/chris124v/Caso-2-Bases-De-Datos-I/tree/main/BasesDeDatos/PromptAds/Disenos "Diseño de la base de datos")
+- [PromptAds](https://github.com/chris124v/Caso-2-Bases-De-Datos-I/tree/main/BasesDeDatos/PromptAds/Disenos "Diseño de la base de datos")
 
 ## Arquitectura
