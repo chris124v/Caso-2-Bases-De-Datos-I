@@ -132,3 +132,5 @@ BEGIN
 	EXEC dbo.PCRSP_InsertUTM @CampaignNamesTVP, @UTMMediumsTVP, @UTMSourcesTVP
 	SET @i = @i + 1
 END
+
+SELECT * FROM PCRUTMData;

@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="164"
-  DTS:VersionGUID="{3025BDC9-77D2-49E0-AB3F-C23484D1EA13}">
+  DTS:VersionBuild="166"
+  DTS:VersionGUID="{65F573A5-5D94-44EC-A990-CB8FF2D47BC7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC9jI8uTAApye5PK4Ra3WsEQUKRakGAZhfRuaypsn4z7AAAAAAOgAAAAAIAACAAAAB7O8Ln8C/MHI0xCVrBTCFMzYe+EfXIQbNlY3fAW+nPzjAAAAAUj1Q5AavhTgarekomKsZDGgtIVrX2O8BPEerNNEjQwF5lC+JtAR0GSoe9gJbLRkVAAAAA+DWZT5kJ+fI6MNej+9m77GzoC42oro60xB7+exd1xEWfzqJY1h0fiVwXfkVeIBJfoB29R8v6NoobtwopQw5sEg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA6JDwpG3R7u4oc5kDGK4e1ZHEXKyqo52uloajikXkhEwAAAAAOgAAAAAIAACAAAAApVcyJPlkAsYQVI/KYXIVl9AuOv8bK3JHwtKpwf59nVTAAAADMWdfeG0VPm6oldrO7qZiC3yEc4wwYZQWXxUIwBFsYTpyBMYQ+u+sspSp17gmFGhNAAAAAWihdu0o7ZTof1iXoJL9JKi/QW4yupBLwA58hFfSKaH6NfPF2InpCp7AXqhLDHtl/3D7n9Ya7O1CXFrBjdymJlA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -56,7 +56,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADaqthIKpP0raV4s5rIwZyHxO10CXQ2ANzIvOuyz6kgzwAAAAAOgAAAAAIAACAAAADaHUp4oFfiVHXk00dOcGimG7qCJ/riCQBvGsINAONmqDAAAAC5hmcjshtl35YkEAxjwtfzTlcpDvhE/8MDObVc6/WpKi8hUdmRYDSMxF87rQe01AlAAAAA0CYE6OZpyziUvom2HATBl5dA6U9iNFagYjhp+iOu+nUzRT7sluyOrwNyWSKIw1JA3PGkWbgOh+x9TWVK3yR41Q</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABCmulcV0O3fs+QsSfQn0JxShfefv7JbskDNj2h8NghXAAAAAAOgAAAAAIAACAAAACI/LaaemyEVxHDGt7Hk4nTqZdyLb6oLoDU0BcCKdqaPTAAAAC0OPxyEKhYxY6J1/fO46xJjCCL+EG0CaEizumcd4tMI9N4L62yFJUxW6tf1NAjhWNAAAAAHUMVa3sNo7yOn84pkOU2q+gjxM1B5EBavnfknkpVwdIlPfs9PAa+rfJkVv5HEKiMryP89u/B0z2Z5doX9ks3SQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -71,7 +71,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABsyOwoxDqYpwr69fs4Y8KRWa6fnqb+ffgAi55OqTpUUgAAAAAOgAAAAAIAACAAAACwgcACSnihrBuFzL3obJOoaoeDP4HJajjVOgVRmgRM1CAAAACBvVyeM2ywV+xvR5GumJ9Yf3mU8R2Uek7ymMLWFlBEQEAAAAAh04l8JGWxrDgU+IK8/fujZVLdlwoJe1nTY6LEBuuVzSl0rb24HHimg/Su2k65Cq32FnW5lm34tqlNF5QB549g</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACzaHMhBQIU+wU/nfVqnF2wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABem95oiHAg4xhZLm5V9L5GF9PoxbB8nhg4kAS8IvuqAwAAAAAOgAAAAAIAACAAAACoWZnU3JDoCslhY8e1JLtdZut/Y7ygwWWXeDp7cfQ+JCAAAADa4D8etfit9Otp3K7dbMvLmJGetjIoMXZzq5lbXJqrJEAAAACjm+V7Q0NtbIj0SuRsSaKQXSXUI+DTB217mMUAvLnB1oQYFXir4StRkp6v3AYqM0T14IdXsrOyA6x5bwJ8KUjg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -7405,7 +7405,7 @@ FROM PCRLeads;</property>
     design-time-name="Package\Extract Raw - PromptAds (Organizations)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="199,42"
           Id="Package\Extract Raw - PromptAds (Organizations)\Extract PAOrganizations"
@@ -7437,9 +7437,7 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7461,9 +7459,7 @@ FROM PCRLeads;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
