@@ -26,16 +26,16 @@ WITH SalesCTE AS (
 SELECT *
 FROM SalesCTE
 ORDER BY SaleYear, SaleMonth, UTMCampaign, SaleRank
-
+/*
 CREATE NONCLUSTERED INDEX index_idutm_saleshistory
 ON dbo.PCRSalesHistory (IdUTM)
 
 CREATE NONCLUSTERED INDEX index_idclient_saleshistory
 ON dbo.PCRSalesHistory (IdClient);
-
+*/
+/*
 GO
 CREATE OR ALTER VIEW dbo.SalesVista AS
-WITH CTEVista AS (
     SELECT
         s.IdSale,
         s.IdClient,
@@ -59,8 +59,6 @@ WITH CTEVista AS (
     ON s.IdClient = c.IdClient
     INNER JOIN dbo.PCRUTMData u
     ON s.IdUTM = u.IdUTM
-)
-SELECT * FROM dbo.SalesVista
-GO
+GO*/
 
 SELECT * FROM dbo.SalesVista
